@@ -1,9 +1,10 @@
-import React from 'react';
+import react, {useState, useEffect} from 'react';
 
 // Xinhuang
 // Remember sync and Git pull
 
-const RelatedItemsComparison = () => {
+const RelatedItemsComparison = ({productInfo}) => {
+
 
   return(
     <div>
