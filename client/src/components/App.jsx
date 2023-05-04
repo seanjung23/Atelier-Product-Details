@@ -16,7 +16,7 @@ const App = () => {
 
     let config = {
       headers: {
-        Authorization: process.env.API_TOKEN;
+        Authorization: process.env.API_TOKEN
       }
     };
     axios.get(requestURL, config)
