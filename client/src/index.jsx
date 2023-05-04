@@ -1,9 +1,13 @@
 import React from 'react';
 import { render } from 'react-dom';
+import App from './components/App.jsx';
+import { createRoot } from 'react-dom/client';
 
-render(
+const domNode = document.getElementById('root');
+const root = createRoot(domNode);
+
+root.render(
   <div>
-    <p>hello world</p>
-  </div>,
-  document.getElementById("root")
-);
+    <App/>
+  </div>
+  );
