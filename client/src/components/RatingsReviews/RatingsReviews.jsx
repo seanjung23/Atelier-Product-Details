@@ -8,6 +8,7 @@ const RatingsReviews = () => {
   return(
     <div>
       <h1>Ratings and Reviews Section</h1>
+      <div>Make sure this works</div>
     </div>
   )
 };
