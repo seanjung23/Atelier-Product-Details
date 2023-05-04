@@ -9,26 +9,6 @@ import axios from 'axios';
 
 const App = () => {
 
-<<<<<<< HEAD
-  let product_id = 40344;
-
-  useEffect(()=>{
-    let requestURL = process.env.API_URL + '/products/' + product_id;
-
-    let config = {
-      headers: {
-        Authorization: process.env.API_TOKEN
-      }
-    };
-    axios.get(requestURL, config)
-      .then(data => setProductInfo(data))
-      .catch(err => console.err(err));
-
-  }
-  , []);
-
-=======
->>>>>>> main
   const [productInfo, setProductInfo] = useState({});
 
   useEffect(() => {
