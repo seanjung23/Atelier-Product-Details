@@ -1,0 +1,18 @@
+
+
+get method for qa
+ let url = '/qa/questions';
+     axios.get(url, {
+       params: {product_id}
+     })
+     .then(result =>console.log('reviews result:', result))
+     .catch(err => console.log(err));
+
+
+get method for reviews
+  let url = '/reviews/';
+     axios.get(url, {
+       params: {product_id}
+     })
+     .then(result =>console.log('reviews result:', result))
+     .catch(err => console.log(err));
