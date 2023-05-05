@@ -4,7 +4,7 @@ import RelatedItemList from './RelatedItemList.jsx'
 // Remember sync and Git pull
 
 const RelatedItemsComparison = ({productInfo}) => {
-
+console.log(productInfo);
 
   return(
     <div>

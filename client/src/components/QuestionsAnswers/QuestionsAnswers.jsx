@@ -1,5 +1,5 @@
 import React from 'react';
-import QuestionsList from 'QuestionsList.jsx';
+import QuestionsList from './QuestionsList.jsx';
 
 // Sean
 // Remember sync and to GIT PULL

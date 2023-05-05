@@ -13,7 +13,6 @@ const App = () => {
 
   useEffect(() => {
 
-
       let product_id = 40344;
 
       let url = '/products/' + product_id;
