@@ -1,11 +1,11 @@
 import React from 'react';
 import QuestionsListEntry from './QuestionsListEntry.jsx';
 
-const QuestionsList = () => {
+const QuestionsList = ({ productInfo }) => {
 
   return (
     <div>
-      <h1>QuestionsList</h1>
+      <h2>Questions List</h2>
     </div>
   )
 };
