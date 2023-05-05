@@ -1,5 +1,6 @@
 import React from 'react';
 import ReviewsList from './ReviewsList.jsx';
+import axios from 'axios';
 
 // John
 // Remember sync and to GIT PULL
