@@ -1,7 +1,7 @@
 import React from 'react';
 
 const AnswersEntry = ({ answer }) => {
-  console.log('this is answer', answer);
+  // console.log('this is answer', answer);
   return (
   <div>
     <p>A: {answer.body}</p>
