@@ -3,14 +3,12 @@ import React from 'react';
 // John
 // Remember sync and to GIT PULL
 
-const MoreReviewsButton = ({reviewInfo}) => {
-
-
+const MoreReviewsButton = ({moreReviewsClickHandler}) => {
 
 
   return(
     <div>
-      <button>More Reviews</button>
+      <button onClick={moreReviewsClickHandler}>More Reviews</button>
     </div>
   )
 };
