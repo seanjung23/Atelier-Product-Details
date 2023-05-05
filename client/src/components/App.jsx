@@ -13,14 +13,15 @@ const App = () => {
 
   useEffect(() => {
 
-      let product_id = 40344;
+    let product_id = 40344;
 
-      let url = '/products/' + product_id;
+    let url = '/products/' + product_id;
 
-      axios.get(url)
-        .then(result => setProductInfo(result.data))
-        .catch(err => console.log(err));
+    axios.get(url)
+      .then(result => setProductInfo(result.data))
+      .catch(err => console.log(err));
   }, []);
+
 
   return(
     <div>
