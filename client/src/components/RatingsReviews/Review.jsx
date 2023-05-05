@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import axios from 'axios';
 
 // John
 // Remember sync and to GIT PULL
 
-const Review = () => {
+const Review = ({productInfo}) => {
+
+
 
   return(
     <div>
