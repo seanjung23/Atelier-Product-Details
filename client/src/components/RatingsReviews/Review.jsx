@@ -4,13 +4,22 @@ import axios from 'axios';
 // John
 // Remember sync and to GIT PULL
 
-const Review = ({productInfo}) => {
-
-
+const Review = ({oneReview}) => {
 
   return(
     <div>
-      <p>A review</p>
+      <div>------------PLACEHOLDER SEPERATION-------------</div>
+      <div>
+        <span>
+          STARS: {oneReview.rating} ----------------------
+        </span>
+        <span>
+          REVIEWER NAME: {oneReview.reviewer_name}
+        </span>
+      </div>
+      <p>REVIEW TITLE: {oneReview.summary}</p>
+      <p>REVIEW BODY: {oneReview.body}</p>
+      <div>------------PLACEHOLDER SEPERATION-------------</div>
     </div>
   )
 };
