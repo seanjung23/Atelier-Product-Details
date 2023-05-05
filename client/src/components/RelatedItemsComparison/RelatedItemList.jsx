@@ -1,21 +1,21 @@
 import react, {useState, useEffect} from 'react';
 import axios from 'axios';
+import RelatedItem from './RelatedItem.jsx'
 
-export default function RelatedItemList({productInfo}) {
+export default function RelatedItemList({relatedItemIdList}) {
 
-  const [currentProductId, setCurrentProductId] = useState(productInfo.id);
+  if (relatedItemIdList.length !== 0) {
 
-  // useEffect(()=> {
-  //   if (productInfo.id !== undefined) {
-  //     let url = '/products/' + currentProductId +'/related';
-  //     axios.get(url)
-  //       .then(result => console.log('123123213',result))
-  //       .catch(err => console.log(err));
-  //   }
-  // },[productInfo]);
+    return( <div>
+    {
+      relatedItemIdList.map((itemId, index) => <RelatedItem key={index} itemId={itemId}/>)
+    }
+    </div>)
+  }
 
-  return(
-<>{currentProductId}</>
+  return (<div>
+    <p>loading.....spinner (I am a GIF)</p>
+    </div>)
 
-  )
+
 }

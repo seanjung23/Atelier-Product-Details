@@ -14,10 +14,7 @@ module.exports = {
     let requestURL = process.env.API_URL + req.path;
 
     axios.get(requestURL, config)
-      .then(result => {
-
-        callback(result.data);
-      })
+      .then(result => {callback(result.data);})
       .catch(err => console.log(err));
 }
 }

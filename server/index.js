@@ -9,16 +9,21 @@ app.use(express.static(path.join(__dirname, '../client/dist')));
 
 
 app.get('/products/:id', (req, res) => {
+
     getProducts(req, res, (data) => {
       res.json(data);
     });
+
 });
 
-app.get('products/:id/related', (req, res) => {
-  getProducts(req, res, (data) => {
-    res.json(data);
-  });
-})
+app.get('/products/:id/related', (req, res) => {
+
+    getProducts(req, res, (data) => {
+      res.json(data);
+    });
+
+});
+
 let port = process.env.SERVER_PORT;
 
 app.listen(port, function() {
