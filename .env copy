@@ -2,4 +2,4 @@ API_TOKEN =
 
 SERVER_PORT = 3000
 
-API_URL = https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp
+API_URL = https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfe

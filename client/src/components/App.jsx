@@ -12,14 +12,16 @@ const App = () => {
   const [productInfo, setProductInfo] = useState({});
 
   useEffect(() => {
-
-    let product_id = 40344;
+    //// USE THE SAME PRODUCT_ID LATER WHEN WE PUT EVERYTHING TOGETHER
+    let product_id = 37315;
 
     let url = '/products/' + product_id;
 
     axios.get(url)
       .then(result => setProductInfo(result.data))
       .catch(err => console.log(err));
+
+
   }, []);
 
 

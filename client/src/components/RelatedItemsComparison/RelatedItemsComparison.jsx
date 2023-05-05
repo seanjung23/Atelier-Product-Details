@@ -13,6 +13,7 @@ useEffect(()=>{
 //if true, request the data from api and set relatedItemIdList
   if (productInfo.id !== undefined) {
     let url = '/products/' + productInfo.id +'/related';
+
     axios.get(url)
       .then(result => setRelatedItemIdList(result.data))
       .catch(err => console.log(err));
