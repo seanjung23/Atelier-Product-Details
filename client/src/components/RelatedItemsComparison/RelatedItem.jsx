@@ -16,11 +16,25 @@ export default function RelatedItem({itemId}) {
 
   },[])
 
+  useEffect(()=>{
 
+    let url = '/products/' + itemId + '/styles';
+
+    axios.get(url)
+      .then(result => {
+        console.log('styles: ', result.data)
+      } )
+      .catch(err => console.err(err));
+
+  },[itemInfo])
+
+
+  console.log(itemInfo);
   if (itemInfo.id !== undefined) {
     return (
       <div>
         <p>{itemInfo.name}</p>
+        <p>{itemInfo.category}</p>
       </div>
     )
   }
