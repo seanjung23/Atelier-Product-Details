@@ -15,7 +15,19 @@ useEffect(()=>{
     let url = '/products/' + productInfo.id +'/related';
 
     axios.get(url)
-      .then(result => setRelatedItemIdList(result.data))
+      .then(result => {
+
+        let outArray = [];
+
+        result.data.map(i =>{
+          if (!outArray.includes(i)) {
+            outArray.push(i);
+          }
+        });
+
+        setRelatedItemIdList(outArray);
+
+      })
       .catch(err => console.log(err));
   }
 
