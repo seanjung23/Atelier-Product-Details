@@ -24,6 +24,14 @@ app.get('/products/:id/related', (req, res) => {
 
 });
 
+app.get('/products/:product_id/styles', (req, res) => {
+
+  getProducts(req, res, (data) => {
+    res.json(data);
+  });
+
+});
+
 /* REVIEWS */
 app.get('/reviews/', (req, res) => {
   getReviews(req, res, (data) => {
