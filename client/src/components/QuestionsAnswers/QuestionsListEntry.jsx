@@ -1,8 +1,9 @@
 import React from 'react';
 import AnswersEntry from './AnswersEntry.jsx';
 
-const QuestionsListEntry = ({ question }) => {
+const QuestionsListEntry = ({ question, questionCount, answerCount }) => {
   // console.log('this is question', question);
+  //fix answers display
   let answersArray = [];
 
   for (let i in question.answers) {
