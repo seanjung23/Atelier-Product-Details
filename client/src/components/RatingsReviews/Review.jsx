@@ -31,6 +31,7 @@ const Review = ({oneReview}) => {
       </div>
       <p>REVIEW TITLE: {oneReview.summary}</p>
       <p>REVIEW BODY: {oneReview.body}</p>
+      {oneReview.recommend && <p>CHECKMARK HERE I recommend this product</p>}
       <div>------------PLACEHOLDER SEPERATION-------------</div>
     </div>
   )
