@@ -1,8 +1,10 @@
+/* Start of related item comparison CSS */
+
 .relatedItemsList {
   border-radius: 1px;
   border-color: grey;
   border-style: solid;
-  display: flex;
+  overflow:scroll;
   flex-flow: row nowrap;
   flex-wrap:wrap;
 }
@@ -21,7 +23,7 @@ margin: 0px;
 }
 .relatedItems {
   display: inline-block;
-  width: 10%;
+  width: 33%;
   position: relative;
   border-style: solid;
 
@@ -67,3 +69,5 @@ margin: 0px;
   right: 10%;
 
 }
+
+/* End of related item comparison CSS */
