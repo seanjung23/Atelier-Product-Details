@@ -1,27 +1,36 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import QuestionsListEntry from './QuestionsListEntry.jsx';
 import MoreQuestionsButton from './MoreQuestionsButton.jsx';
 
-const QuestionsList = ({ questions }) => {
+const QuestionsList = ({questions}) => {
   // console.log('these are questions', questions);
   // const displayMoreQuestionsButton
-  const [ questionCount, setQuestionCount ] = useState(4);
-  const [ answerCount, setAnswerCount ] = useState(2);
+  const [questionCount, setQuestionCount] = useState(4);
+  const [answerCount, setAnswerCount] = useState(2);
 
+  let displayedQuestions = [];
+
+  if (questions.results) {
+    if (questionCount === 0) {
+      displayedQuestions = questions.results.slice(questionCount);
+    } else {
+      displayedQuestions = questions.results.slice(0, questionCount);
+    }
+
+  }
 
   const incrementCount = () => {
-    alert('hello!');
     // fix this later to limit display questions
-    // console.log(questionCount)
-    // setQuestionCount(0);
-    // setAnswerCount(0);
+    // console.log('this is questionCount', questionCount);
+    setQuestionCount(0);
+    setAnswerCount(0);
   };
 
-  if (questions.results !== undefined && questions.results.length !== 0) {
+  if (displayedQuestions.length !== 0) {
     return (
       <div>
         {
-          questions.results.map((question, index) => <QuestionsListEntry key={index} question={question} questionCount={questionCount} answerCount={answerCount}/>)
+          displayedQuestions.map((question, index) => <QuestionsListEntry key={index} question={question} answerCount={answerCount}/>)
         }
         <MoreQuestionsButton onClick={incrementCount}/>
       </div>
