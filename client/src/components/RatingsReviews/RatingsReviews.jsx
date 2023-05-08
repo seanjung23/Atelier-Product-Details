@@ -19,7 +19,7 @@ const RatingsReviews = ({productInfo}) => {
         params: {product_id}
        })
        .then((result) => {
-        console.log('REVIEWS RESULT:', result)
+        //console.log('REVIEWS RESULT:', result)
         setReviewInfo(result.data.results);
         })
        .catch(err => console.log('ERROR OBTAINING REVIEWS:', err));

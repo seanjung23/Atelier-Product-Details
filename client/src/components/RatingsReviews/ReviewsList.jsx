@@ -12,7 +12,7 @@ const ReviewsList = ({reviewInfo}) => {
 // Two reviews initially
 // Below the review list should be a show more button
 // We'll keep track of the length of the array
-  console.log('REVIEW INFORMATION:', reviewInfo);
+  //console.log('LENGTH OF REVIEWINFO', reviewInfo.length);
 // Only display the show more button if the reviewInfo.length is
 // Greater than 2
 // Each time the button is pressed, we'll add 2
