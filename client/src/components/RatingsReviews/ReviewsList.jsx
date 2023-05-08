@@ -9,12 +9,12 @@ import SortMenu from './SortMenu.jsx';
 const ReviewsList = ({reviewInfo, setSortSelection}) => {
 
 
-  console.log('REVIEW INFORMATION:', reviewInfo);
+  // console.log('REVIEW INFORMATION:', reviewInfo);
 
 
   const [reviewsDisplayed, setReviewsDisplayed] = useState(2);
 
-  console.log(reviewsDisplayed);
+  // console.log(reviewsDisplayed);
   const moreReviewsClickHandler = function () {
     setReviewsDisplayed(reviewsDisplayed + 2);
   }

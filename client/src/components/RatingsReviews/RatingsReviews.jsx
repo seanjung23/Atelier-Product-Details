@@ -6,11 +6,6 @@ import RatingBreakdown from './RatingBreakdown.jsx';
 // John
 // Remember sync and to GIT PULL
 //--------------- NEEDS REVIEW FOR LOADING ICON
-// To get all reviews without hardcoding a set limit (100 reviews)
-// We could recursively perform an axios call until the array
-// of reviews we get in return does not equal the count of reviews
-// we need. We could concatenate our new reviews to our existing
-// review info
 
 
 const RatingsReviews = ({productInfo}) => {
@@ -22,18 +17,28 @@ const RatingsReviews = ({productInfo}) => {
   // PRODUCT ID Will need PASSED DOWN Later
   let product_id = 37315;
 
+  let reviewInfoRetriever = function (countNumber) {
+    axios.get(reviewUrl, {
+      params: {product_id: product_id, sort: sortSelection,
+        count: countNumber, page: 1}
+     })
+     .then((result) => {
+      setReviewInfo(result.data.results);
+      // recursively call the info retriever until all reviews
+      // are retrieved, no matter how high the number
+      if (result.data.results.length === countNumber) {
+        reviewInfoRetriever((countNumber * 2));
+      }
+      console.log('REVIEWS RESULT:', result)
+      })
+     .catch(err => console.log('ERROR OBTAINING REVIEWS:', err));
+  }
+
   let reviewUrl = '/reviews/';
   useEffect(() => {
     if (productInfo) {
-      axios.get(reviewUrl, {
-        params: {product_id: product_id, sort: sortSelection,
-          count: 100, page: 1}
-       })
-       .then((result) => {
-        console.log('REVIEWS RESULT:', result)
-        setReviewInfo(result.data.results);
-        })
-       .catch(err => console.log('ERROR OBTAINING REVIEWS:', err));
+      // Set to page to any number that's reasonable for reviews
+      reviewInfoRetriever(100);
     }
   }, [productInfo, sortSelection]);
 
@@ -51,6 +56,24 @@ const RatingsReviews = ({productInfo}) => {
     }
   }, [productInfo]);
 
+  // Metadata calculations
+  let allRatings;
+  let averageRatingOverall;
+
+  if (reviewMetaData.ratings) {
+    allRatings = reviewMetaData.ratings;
+    averageRatingOverall = (
+      Number(allRatings[1]) + Number(allRatings[2] * 2)
+      + Number(allRatings[3] * 3)
+      + Number(allRatings[4] * 4) + Number(allRatings[5] * 5)
+    )/(Number(allRatings[1]) + Number(allRatings[2])
+    + Number(allRatings[3]) + Number(allRatings[4])
+      + Number(allRatings[5]));
+    // console.log('ALLRATINGS', allRatings);
+  }
+
+  // console.log('AVERAGE RATINGS:', averageRatingOverall);
+
   if (!productInfo) {
     return (
       <div>
@@ -62,7 +85,7 @@ const RatingsReviews = ({productInfo}) => {
   return(
     <div>
       <h1>Ratings and Reviews Section</h1>
-      <RatingBreakdown reviewMetaData={reviewMetaData}/>
+      <RatingBreakdown reviewMetaData={reviewMetaData} reviewInfo={reviewInfo}/>
       <ReviewsList reviewInfo={reviewInfo} setSortSelection={setSortSelection}/>
     </div>
   )
