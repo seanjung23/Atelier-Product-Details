@@ -53,12 +53,6 @@ margin: 0px;
   width: 8%;
 }
 
-.ratingStars:hover {
-  height: 15%;
-  width: 15%;
-
-}
-
 
 .itemInfo {
   padding-left: 3%;
@@ -71,9 +65,5 @@ margin: 0px;
   position: absolute;
   top: 3%;
   right: 10%;
-
-}
-
-.compareStar{
 
 }

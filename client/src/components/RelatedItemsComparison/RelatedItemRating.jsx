@@ -1,6 +1,6 @@
 import react from 'react';
 
-import {EmptyStar, FullStar, OneQuarterStar, ThreeQuarterStar, HalfStar} from '../icons/RatingStarsSVG.jsx'
+import {EmptyStar, FullStar, OneQuarterStar, ThreeQuarterStar, HalfStar} from '../icons/RelatedItemsRatingStarsSVG.jsx'
 
 export default function({itemRating}) {
 
