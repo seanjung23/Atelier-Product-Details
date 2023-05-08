@@ -49,14 +49,21 @@ const ReviewsList = ({reviewInfo, setSortSelection}) => {
     currentlyDisplayedReviews = reviewInfo.slice(0, reviewsDisplayed);
   }
 
+  if (reviewInfo) {
+    return(
+      <div className='ReviewsList'>
+        <h2>Reviews List Section</h2>
+        <SortMenu setSortSelection={setSortSelection}/>
+        {currentlyDisplayedReviews.map(function(oneReview, index) {
+        return <Review oneReview={oneReview} key={index}/>
+        })}
+        {whetherToDisplayMoreReviewsButton()}
+      </div>
+    )
+  }
   return(
-    <div className='ReviewsList'>
-      <h2>Reviews List Section</h2>
-      <SortMenu setSortSelection={setSortSelection}/>
-      {currentlyDisplayedReviews.map(function(oneReview, index) {
-      return <Review oneReview={oneReview} key={index}/>
-      })}
-      {whetherToDisplayMoreReviewsButton()}
+    <div>
+      REVIEW INFORMATION LOADING
     </div>
   )
 };
