@@ -1,6 +1,6 @@
 import React from 'react';
 
-const MoreAnsweredQuestions = ({ onClick }) => {
+const MoreQuestionsButton = ({ onClick }) => {
   return (
     <div>
       <button type='button' onClick={() => onClick()}>More Answered Questions</button>
@@ -8,4 +8,4 @@ const MoreAnsweredQuestions = ({ onClick }) => {
   )
 };
 
-export default MoreAnsweredQuestions;
+export default MoreQuestionsButton;

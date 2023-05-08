@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import QuestionsListEntry from './QuestionsListEntry.jsx';
-import MoreAnsweredQuestions from './MoreAnsweredQuestions.jsx';
+import MoreQuestionsButton from './MoreQuestionsButton.jsx';
 
 const QuestionsList = ({ questions }) => {
   // console.log('these are questions', questions);
+  // const displayMoreQuestionsButton
   const [ questionCount, setQuestionCount ] = useState(4);
   const [ answerCount, setAnswerCount ] = useState(2);
+
 
   const incrementCount = () => {
     alert('hello!');
@@ -21,7 +23,7 @@ const QuestionsList = ({ questions }) => {
         {
           questions.results.map((question, index) => <QuestionsListEntry key={index} question={question} questionCount={questionCount} answerCount={answerCount}/>)
         }
-        <MoreAnsweredQuestions onClick={incrementCount}/>
+        <MoreQuestionsButton onClick={incrementCount}/>
       </div>
     )
   }
