@@ -1,6 +1,7 @@
 import react, {useState, useEffect} from 'react';
 import axios from 'axios';
-
+import ComparisonStar from '../icons/ComparisonStarSVG.jsx';
+import RelatedItemRating from './RelatedItemRating.jsx';
 export default function RelatedItem({itemId}) {
   const [itemInfo, setItemInfo] = useState({});
   const [defaultStyle, setDefaultStyle] = useState({});
@@ -62,10 +63,11 @@ export default function RelatedItem({itemId}) {
         }
 
         avgRating /= count;
-        //for visual rating stars
-        avgRating = Math.floor(4 * avgRating) /4;
-
         setItemRating(avgRating);
+        //for visual rating stars
+
+
+
         setItemReady(itemReady => [...itemReady, result.data]);
       } )
       .catch(err => console.log(err));
@@ -74,27 +76,39 @@ export default function RelatedItem({itemId}) {
   },[]);
 
 
-
-
-
-
   if (itemReady.length === 3) {
     return (
-      <div style={({display: "inline-block"})}>
-        <svg url="./star-half.svg"></svg>
-        <img src={defaultImgSrc} style={({width: "100px", height: "100px"})}></img>
-        <p>{itemInfo.name}</p>
-        <p>{itemInfo.category}</p>
+      <div className="relatedItems" >
 
-      {defaultStyle.sale_price ? (<p> {defaultStyle.sale_price} <s>defaultStyle.original_price</s> </p>): (<p>{defaultStyle.original_price}</p>)}
-      {itemRating !== 0? (<p>{itemRating}</p>) : <p></p>}
+        <div className="comparisonStarDiv" ><ComparisonStar/></div>
+
+        <div className="relatedItemImagesDiv">
+          <img className="relatedItemImages" src={defaultImgSrc} ></img>
+        </div>
+        <div className="itemInfo">
+          <p>{itemInfo.name}</p>
+
+          <p>{itemInfo.category}</p>
+
+          {defaultStyle.sale_price ? (<p> ${defaultStyle.sale_price} <s>${defaultStyle.original_price}</s> </p>) : (<p>${defaultStyle.original_price}</p>)}
+
+
+
+          <div className="relatedItemRating">
+
+            {itemRating !== 0? (<RelatedItemRating itemRating={itemRating}/>) : <p></p>}
+
+
+          </div>
+        </div>
+
       </div>
     )
   }
 
   return (
     <div>
-      loading spinner (Im a GIF)
+      <progress></progress>
     </div>
   )
 
