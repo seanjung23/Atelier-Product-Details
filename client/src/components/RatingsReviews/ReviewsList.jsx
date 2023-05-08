@@ -11,6 +11,18 @@ const ReviewsList = ({reviewInfo, setSortSelection}) => {
 
   // console.log('REVIEW INFORMATION:', reviewInfo);
 
+// We'll need to iterate through the review info and pass it
+// as props to the reviews list. We'll also only need to display
+// Two reviews initially
+// Below the review list should be a show more button
+// We'll keep track of the length of the array
+  //console.log('LENGTH OF REVIEWINFO', reviewInfo.length);
+// Only display the show more button if the reviewInfo.length is
+// Greater than 2
+// Each time the button is pressed, we'll add 2
+// If the number of reviews to be displayed is greater
+// than the length of the reviews, display all reviews
+// and do not display the moreReviews button
 
   const [reviewsDisplayed, setReviewsDisplayed] = useState(2);
 

@@ -49,8 +49,8 @@ const RatingsReviews = ({productInfo}) => {
         params: {product_id: product_id}
        })
        .then((result) => {
-        console.log('META DATA RESULT:', result)
-        setReviewMetaData(result.data);
+        //console.log('REVIEWS RESULT:', result)
+        setReviewInfo(result.data.results);
         })
        .catch(err => console.log('ERROR OBTAINING REVIEWS:', err));
     }

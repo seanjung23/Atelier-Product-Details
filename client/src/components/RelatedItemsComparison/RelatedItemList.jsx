@@ -6,7 +6,7 @@ export default function RelatedItemList({relatedItemIdList}) {
 
   if (relatedItemIdList.length !== 0) {
 
-    return( <div>
+    return(<div className="relatedItemsList">
     {
       relatedItemIdList.map((itemId, index) => <RelatedItem key={index} itemId={itemId}/>)
     }
@@ -14,7 +14,7 @@ export default function RelatedItemList({relatedItemIdList}) {
   }
 
   return (<div>
-    <p>loading.....spinner (I am a GIF)</p>
+    <progress></progress>
     </div>)
 
 

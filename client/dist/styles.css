@@ -1,0 +1,79 @@
+.relatedItemsList {
+  border-radius: 1px;
+  border-color: grey;
+  border-style: solid;
+  display: flex;
+  flex-flow: row nowrap;
+  flex-wrap:wrap;
+}
+.relatedItemImages {
+width: 100%;
+height:auto;
+margin: 0px;
+
+}
+
+.relatedItemImagesDiv{
+  vertical-align: auto;
+  height: 70%;
+
+
+}
+.relatedItems {
+  display: inline-block;
+  width: 10%;
+  position: relative;
+  border-style: solid;
+
+  margin: 5px 1%;
+  padding: 0;
+
+}
+.relatedItems p {
+  width: fit-content;
+  margin: 0;
+}
+
+.relatedItemRating .relatedItemRatingTooltip {
+  visibility: hidden;
+  background-color: white;
+
+  z-index: 1;
+
+  width: fit-content;
+}
+
+.relatedItemRating:hover .relatedItemRatingTooltip {
+  visibility: visible;
+  display:inline-block
+}
+
+.ratingStars {
+  height: 8%;
+  width: 8%;
+}
+
+.ratingStars:hover {
+  height: 15%;
+  width: 15%;
+
+}
+
+
+.itemInfo {
+  padding-left: 3%;
+  height: 30%;
+}
+
+.comparisonStarDiv {
+  width: 15%;
+  height: 15%;
+  position: absolute;
+  top: 3%;
+  right: 10%;
+
+}
+
+.compareStar{
+
+}
