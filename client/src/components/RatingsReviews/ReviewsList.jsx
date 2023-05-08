@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
 import Review from './Review.jsx';
 import MoreReviewsButton from './MoreReviewsButton.jsx';;
+import SortMenu from './SortMenu.jsx';
 
 // John
 // Remember sync and to GIT PULL
 
-const ReviewsList = ({reviewInfo}) => {
+const ReviewsList = ({reviewInfo, setSortSelection}) => {
+
+
+  // console.log('REVIEW INFORMATION:', reviewInfo);
 
 // We'll need to iterate through the review info and pass it
 // as props to the reviews list. We'll also only need to display
@@ -22,7 +26,7 @@ const ReviewsList = ({reviewInfo}) => {
 
   const [reviewsDisplayed, setReviewsDisplayed] = useState(2);
 
-  console.log(reviewsDisplayed);
+  // console.log(reviewsDisplayed);
   const moreReviewsClickHandler = function () {
     setReviewsDisplayed(reviewsDisplayed + 2);
   }
@@ -45,13 +49,21 @@ const ReviewsList = ({reviewInfo}) => {
     currentlyDisplayedReviews = reviewInfo.slice(0, reviewsDisplayed);
   }
 
+  if (reviewInfo) {
+    return(
+      <div className='ReviewsList'>
+        <h2>Reviews List Section</h2>
+        <SortMenu setSortSelection={setSortSelection}/>
+        {currentlyDisplayedReviews.map(function(oneReview, index) {
+        return <Review oneReview={oneReview} key={index}/>
+        })}
+        {whetherToDisplayMoreReviewsButton()}
+      </div>
+    )
+  }
   return(
     <div>
-      <h2>Reviews List Section</h2>
-      {currentlyDisplayedReviews.map(function(oneReview, index) {
-      return <Review oneReview={oneReview} key={index}/>
-      })}
-      {whetherToDisplayMoreReviewsButton()}
+      REVIEW INFORMATION LOADING
     </div>
   )
 };

@@ -1,0 +1,13 @@
+/* MAKE SURE STYLES.CSS IS EMPTY BEFORE COMMITTING */
+
+.RatingBreakdown {
+  display: inline-block;
+  vertical-align: top;
+  width: 25%;
+  margin: 2% 1%;
+}
+
+.ReviewsList {
+  display: inline-block;
+  width: 70%;
+}
