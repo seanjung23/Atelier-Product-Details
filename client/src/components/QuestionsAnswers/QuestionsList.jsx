@@ -53,6 +53,7 @@ const QuestionsList = ({questions}) => {
   return (
     <div>
       <p>No Questions Asked Yet!</p>
+      <button type='button' onClick={() => alert('hello')}>Submit New Question</button>
     </div>
   )
 };
