@@ -1,9 +1,9 @@
 import React from 'react';
 
-const LessQuestionsButton = () => {
+const LessQuestionsButton = ({onClick}) => {
   return (
     <div>
-      <button type='button' onClick={() => alert('hello')}>Show Less Questions</button>
+      <button type='button' onClick={() => onClick()}>Show Less Questions</button>
     </div>
   )
 };

@@ -1,10 +1,11 @@
 import React, {useState} from 'react';
 import QuestionsListEntry from './QuestionsListEntry.jsx';
 import MoreQuestionsButton from './MoreQuestionsButton.jsx';
+import LessQuestionsButton from './LessQuestionsButton.jsx';
 
 const QuestionsList = ({questions}) => {
   // console.log('these are questions', questions);
-  // const displayMoreQuestionsButton
+  const [displayMoreQuestionsButton, setDisplayMoreQuestionsButton] = useState(true);
   const [questionCount, setQuestionCount] = useState(4);
   const [answerCount, setAnswerCount] = useState(2);
 
@@ -20,10 +21,15 @@ const QuestionsList = ({questions}) => {
   }
 
   const incrementCount = () => {
-    // fix this later to limit display questions
-    // console.log('this is questionCount', questionCount);
+    setDisplayMoreQuestionsButton(!displayMoreQuestionsButton);
     setQuestionCount(0);
     setAnswerCount(0);
+  };
+
+  const decrementCount = () => {
+    setDisplayMoreQuestionsButton(!displayMoreQuestionsButton);
+    setQuestionCount(4);
+    setAnswerCount(2);
   };
 
   if (displayedQuestions.length !== 0) {
@@ -32,7 +38,14 @@ const QuestionsList = ({questions}) => {
         {
           displayedQuestions.map((question, index) => <QuestionsListEntry key={index} question={question} answerCount={answerCount}/>)
         }
-        <MoreQuestionsButton onClick={incrementCount}/>
+        {displayMoreQuestionsButton && (
+          <MoreQuestionsButton onClick={incrementCount}/>
+        )
+        }
+        {!displayMoreQuestionsButton && (
+          <LessQuestionsButton onClick={decrementCount}/>
+        )
+        }
       </div>
     )
   }
