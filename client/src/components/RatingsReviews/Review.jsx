@@ -21,6 +21,11 @@ const Review = ({oneReview, starArrayMaker}) => {
 
   let oneReviewStarArray = starArrayMaker(oneReview.rating)
 
+  let reviewTitle = oneReview.summary;
+  if (oneReview.summary.length > 60) {
+    reviewTitle = oneReview.summary.slice(0, 60) + '...';
+  }
+
   return(
     <div>
       <div>------------PLACEHOLDER SEPERATION-------------</div>
@@ -45,7 +50,7 @@ const Review = ({oneReview, starArrayMaker}) => {
           REVIEWER NAME: {oneReview.reviewer_name}, DATE: {dateAdjuster()}
         </span>
       </div>
-      <p>REVIEW TITLE: {oneReview.summary}</p>
+      <p>REVIEW TITLE: {reviewTitle}</p>
       <p>REVIEW BODY: {oneReview.body}</p>
       {oneReview.recommend && <p>CHECKMARK HERE I recommend this product</p>}
       <div>------------PLACEHOLDER SEPERATION-------------</div>

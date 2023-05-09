@@ -41,30 +41,48 @@ let RatingDistribution = ({reviewMetaData, totalRatings}) => {
 
           </div>
         </div>
+        NUMBER OF REVIEWS, BUT SHOULD JUST BE NUMBER:
+       {reviewMetaData.ratings[5]}
       </div>
+      <div>
       4 Stars
-      <div className='FourRatingBar'>
-        <div className='FourRatingBarFill'>
+        <div className='FourRatingBar'>
+          <div className='FourRatingBarFill'>
 
+          </div>
         </div>
+        NUMBER OF REVIEWS, BUT SHOULD JUST BE NUMBER:
+        {reviewMetaData.ratings[4]}
       </div>
+      <div>
       3 Stars
-      <div className='ThreeRatingBar'>
-        <div className='ThreeRatingBarFill'>
+        <div className='ThreeRatingBar'>
+          <div className='ThreeRatingBarFill'>
 
+          </div>
         </div>
+        NUMBER OF REVIEWS, BUT SHOULD JUST BE NUMBER:
+        {reviewMetaData.ratings[3]}
       </div>
+      <div>
       2 Stars
-      <div className='TwoRatingBar'>
-        <div className='TwoRatingBarFill'>
+        <div className='TwoRatingBar'>
+          <div className='TwoRatingBarFill'>
 
+          </div>
         </div>
+        NUMBER OF REVIEWS, BUT SHOULD JUST BE NUMBER:
+        {reviewMetaData.ratings[2]}
       </div>
+      <div>
       1 Stars
-      <div className='OneRatingBar'>
-        <div className='OneRatingBarFill'>
+        <div className='OneRatingBar'>
+          <div className='OneRatingBarFill'>
 
+          </div>
         </div>
+        NUMBER OF REVIEWS, BUT SHOULD JUST BE NUMBER:
+        {reviewMetaData.ratings[1]}
       </div>
     </div>
   )
