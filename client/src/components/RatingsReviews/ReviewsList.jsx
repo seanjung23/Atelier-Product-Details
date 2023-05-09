@@ -6,7 +6,7 @@ import SortMenu from './SortMenu.jsx';
 // John
 // Remember sync and to GIT PULL
 
-const ReviewsList = ({reviewInfo, setSortSelection}) => {
+const ReviewsList = ({reviewInfo, setSortSelection, starArrayMaker}) => {
 
   const [reviewsDisplayed, setReviewsDisplayed] = useState(2);
 
@@ -33,14 +33,13 @@ const ReviewsList = ({reviewInfo, setSortSelection}) => {
     currentlyDisplayedReviews = reviewInfo.slice(0, reviewsDisplayed);
   }
 
-
   if (reviewInfo) {
     return(
       <div className='ReviewsList'>
         <h2>Reviews List Section</h2>
         <SortMenu setSortSelection={setSortSelection}/>
         {currentlyDisplayedReviews.map(function(oneReview, index) {
-        return <Review oneReview={oneReview} key={index}/>
+        return <Review oneReview={oneReview} key={index} starArrayMaker={starArrayMaker}/>
         })}
         {whetherToDisplayMoreReviewsButton()}
       </div>
