@@ -1,7 +1,9 @@
-import react, {useState, useEffect} from 'react';
+import react, {useState, useEffect, useRef} from 'react';
 import axios from 'axios';
 import ComparisonStar from '../icons/ComparisonStarSVG.jsx';
 import RelatedItemRating from './RelatedItemRating.jsx';
+
+
 export default function RelatedItem({itemId}) {
   const [itemInfo, setItemInfo] = useState({});
   const [defaultStyle, setDefaultStyle] = useState({});
@@ -10,8 +12,6 @@ export default function RelatedItem({itemId}) {
   const [itemReady, setItemReady] = useState([]);
 
   useEffect(()=>{
-
-
 
     let url = '/products/' + itemId;
 
@@ -64,9 +64,6 @@ export default function RelatedItem({itemId}) {
 
         avgRating /= count;
         setItemRating(avgRating);
-        //for visual rating stars
-
-
 
         setItemReady(itemReady => [...itemReady, result.data]);
       } )
@@ -75,8 +72,11 @@ export default function RelatedItem({itemId}) {
 
   },[]);
 
-
+  var relatedItemIdList = 5;
   if (itemReady.length === 3) {
+
+
+
     return (
       <div className="relatedItems" >
 
@@ -85,6 +85,7 @@ export default function RelatedItem({itemId}) {
         <div className="relatedItemImagesDiv">
           <img className="relatedItemImages" src={defaultImgSrc} ></img>
         </div>
+
         <div className="itemInfo">
           <p>{itemInfo.name}</p>
 
@@ -107,7 +108,7 @@ export default function RelatedItem({itemId}) {
   }
 
   return (
-    <div>
+    <div className="relatedItems" style={{"borderColor":"transparent"}}>
       <progress></progress>
     </div>
   )
