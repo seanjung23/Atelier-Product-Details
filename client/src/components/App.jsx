@@ -24,7 +24,9 @@ const App = () => {
 
   }, []);
 
-
+  if(productInfo.id === undefined) {
+    return (<></>)
+  }
   return(
     <div>
       <div>Top of App</div>
