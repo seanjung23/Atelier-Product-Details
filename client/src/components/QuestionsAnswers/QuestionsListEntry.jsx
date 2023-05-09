@@ -3,7 +3,6 @@ import AnswersEntry from './AnswersEntry.jsx';
 
 const QuestionsListEntry = ({question, answerCount}) => {
   // console.log('this is question', question);
-  //fix answers display
   let answersArray = [];
 
   for (let i in question.answers) {
@@ -12,11 +11,12 @@ const QuestionsListEntry = ({question, answerCount}) => {
 
   if (answerCount === 0) {
     answersArray = answersArray.slice(answerCount);
-    // console.log('if count is 0', answersArray)
   } else {
     answersArray = answersArray.slice(0, answerCount);
-    // console.log('if count is 2', answersArray)
   }
+
+  answersArray.sort((a, b) => b.helpfulness - a.helpfulness);
+
   // console.log('this is answers', answersArray);
 
   if (answersArray.length !== 0) {
