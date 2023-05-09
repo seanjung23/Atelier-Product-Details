@@ -16,39 +16,65 @@ export default function RelatedItemList({relatedItemIdList}) {
     const carouselRef = useRef();
     const itemListRef = useRef();
     const [carouselWidth, setCarouselWidth] = useState(0);
+    //0: both not display
+    //1: only dislpay left
+    //2: only display right
+    //3: both display
+    const [showButtonDisplay, setShowButtonDisplay] = useState(2);
+
 
     useEffect(()=> {
 
-      if (listTranslateXIndex === 0){
+      if (showButtonDisplay === 0){
         setLeftButtonDisplay({"display":"none"});
+        setRightButtonDisplay({"display":"none"});
+      } else if (showButtonDisplay === 1) {
+        setLeftButtonDisplay({"display":"inline"});
+        setRightButtonDisplay({"display":"none"});
+      } else if (showButtonDisplay === 2) {
+        setLeftButtonDisplay({"display":"none"});
+        setRightButtonDisplay({"display":"inline"});
       } else {
         setLeftButtonDisplay({"display":"inline"});
-      }
-
-      if (listTranslateXIndex === carouselWidth){
-        setRightButtonDisplay({"display":"none"});
-      } else {
         setRightButtonDisplay({"display":"inline"});
       }
 
+    }, [showButtonDisplay])
 
-    }, [listTranslateXIndex, carouselWidth])
+    const rightButtonOnClick =(e)=> {
 
-    window.addEventListener('resize', ()=>{
-      setWidowWidth(window.innerWidth);
+      setListTranslateXIndex(listTranslateXIndex-184);
 
-    })
+    }
+
+    const leftButtonOnClick =(e)=> {
+
+      setListTranslateXIndex(listTranslateXIndex+184);
+
+    }
 
     useEffect(()=> {
-      if (carouselRef.current.offsetWidth < itemListRef.current.offsetWidth) {
-        console.log(itemListRef.current.offsetWidth);
+      if (listTranslateXIndex <= (itemListRef.current.offsetWidth - carouselRef.current.offsetWidth )) {
+        setListTranslateXIndex(itemListRef.current.offsetWidth - carouselRef.current.offsetWidth );
+        setShowButtonDisplay(1);
+        carouselRef.current.style.transform = `translateX(${listTranslateXIndex}px)`
 
+      } else if(listTranslateXIndex >= 0 ){
+        setListTranslateXIndex(0);
+        setShowButtonDisplay(2);
+        carouselRef.current.style.transform = `translateX(${listTranslateXIndex}px)`
+      } else {
+        setShowButtonDisplay(3);
+        carouselRef.current.style.transform = `translateX(${listTranslateXIndex}px)`
       }
-    }, [windowWidth])
+
+
+    }, [listTranslateXIndex])
+
 
     return(<div className="relatedItemsList" ref={itemListRef}>
-      <div className="relatedItemLeftButtonDiv" style={leftButtonDisplay}> <ChevronLeftArrow/></div>
-        <div className="relatedItemRightButtonDiv" style={rightButtonDisplay}><ChevronRightArrow/></div>
+      <div className="relatedItemLeftButtonDiv" onClick={leftButtonOnClick} style={leftButtonDisplay}> <ChevronLeftArrow/></div>
+        <a><div className="relatedItemRightButtonDiv" onClick={rightButtonOnClick} style={rightButtonDisplay}><ChevronRightArrow/></div></a>
       <div className="relatedItemCarouselDiv" ref={carouselRef} >
 
         {
