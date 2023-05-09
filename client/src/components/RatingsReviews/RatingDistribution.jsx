@@ -4,46 +4,63 @@ import react, { useEffect } from 'react';
 let RatingDistribution = ({reviewMetaData, totalRatings}) => {
 
   useEffect(() =>{
-
     let barMaker = function (outerClass, innerClass, lengthBar) {
       let outerElement = document.getElementsByClassName(outerClass);
       let innerElement = document.getElementsByClassName(innerClass);
       outerElement[0].style.border = 'solid';
       outerElement[0].style.height = '0.5em';
-      innerElement[0].style.backgroundColor = 'gray';
+      outerElement[0].style.backgroundColor = 'lightgray';
+      innerElement[0].style.backgroundColor = 'green';
       innerElement[0].style.height = '100%';
+      if (lengthBar) {
+        innerElement[0].style.width = lengthBar.toString() + '%'
+      }
     }
 
-    if (document.getElementsByClassName('FiveRatingBar')) {
-      barMaker('FiveRatingBar', 'FiveRatingBarFill');
+    let fillBarLength = function (ratingKey) {
+      return ((reviewMetaData.ratings[ratingKey]/totalRatings) * 100);
+    }
 
+    if (reviewMetaData.ratings) {
+      barMaker('FiveRatingBar', 'FiveRatingBarFill', fillBarLength(5));
+      barMaker('FourRatingBar', 'FourRatingBarFill', fillBarLength(4));
+      barMaker('ThreeRatingBar', 'ThreeRatingBarFill', fillBarLength(3));
+      barMaker('TwoRatingBar', 'TwoRatingBarFill', fillBarLength(2));
+      barMaker('OneRatingBar', 'OneRatingBarFill', fillBarLength(1));
     }
 
   }, [reviewMetaData])
 
   return (
     <div>
-      Rating Breakdown
-      <div className='FiveRatingBar'>
-        <div className='FiveRatingBarFill'>
+      Rating Breakdown--
+      <div>
+      5 Stars
+        <div className='FiveRatingBar'>
+          <div className='FiveRatingBarFill'>
 
+          </div>
         </div>
       </div>
+      4 Stars
       <div className='FourRatingBar'>
         <div className='FourRatingBarFill'>
 
         </div>
       </div>
+      3 Stars
       <div className='ThreeRatingBar'>
         <div className='ThreeRatingBarFill'>
 
         </div>
       </div>
+      2 Stars
       <div className='TwoRatingBar'>
         <div className='TwoRatingBarFill'>
 
         </div>
       </div>
+      1 Stars
       <div className='OneRatingBar'>
         <div className='OneRatingBarFill'>
 
