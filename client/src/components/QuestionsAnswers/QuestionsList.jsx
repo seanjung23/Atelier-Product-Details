@@ -1,27 +1,51 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import QuestionsListEntry from './QuestionsListEntry.jsx';
-import MoreAnsweredQuestions from './MoreAnsweredQuestions.jsx';
+import MoreQuestionsButton from './MoreQuestionsButton.jsx';
+import LessQuestionsButton from './LessQuestionsButton.jsx';
 
-const QuestionsList = ({ questions }) => {
+const QuestionsList = ({questions}) => {
   // console.log('these are questions', questions);
-  const [ questionCount, setQuestionCount ] = useState(4);
-  const [ answerCount, setAnswerCount ] = useState(2);
+  const [displayMoreQuestionsButton, setDisplayMoreQuestionsButton] = useState(true);
+  const [questionCount, setQuestionCount] = useState(4);
+  const [answerCount, setAnswerCount] = useState(2);
+
+  let displayedQuestions = [];
+
+  if (questions.results) {
+    if (questionCount === 0) {
+      displayedQuestions = questions.results.slice(questionCount);
+    } else {
+      displayedQuestions = questions.results.slice(0, questionCount);
+    }
+
+  }
 
   const incrementCount = () => {
-    alert('hello!');
-    // fix this later to limit display questions
-    // console.log(questionCount)
-    // setQuestionCount(0);
-    // setAnswerCount(0);
+    setDisplayMoreQuestionsButton(!displayMoreQuestionsButton);
+    setQuestionCount(0);
+    setAnswerCount(0);
   };
 
-  if (questions.results !== undefined && questions.results.length !== 0) {
+  const decrementCount = () => {
+    setDisplayMoreQuestionsButton(!displayMoreQuestionsButton);
+    setQuestionCount(4);
+    setAnswerCount(2);
+  };
+
+  if (displayedQuestions.length !== 0) {
     return (
       <div>
         {
-          questions.results.map((question, index) => <QuestionsListEntry key={index} question={question} questionCount={questionCount} answerCount={answerCount}/>)
+          displayedQuestions.map((question, index) => <QuestionsListEntry key={index} question={question} answerCount={answerCount}/>)
         }
-        <MoreAnsweredQuestions onClick={incrementCount}/>
+        {displayMoreQuestionsButton && (
+          <MoreQuestionsButton onClick={incrementCount}/>
+        )
+        }
+        {!displayMoreQuestionsButton && (
+          <LessQuestionsButton onClick={decrementCount}/>
+        )
+        }
       </div>
     )
   }

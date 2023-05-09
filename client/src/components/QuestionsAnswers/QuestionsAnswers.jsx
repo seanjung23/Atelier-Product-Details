@@ -1,14 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import QuestionsList from './QuestionsList.jsx';
 
 // Sean
 // Remember sync and to GIT PULL
 
-const QuestionsAnswers = ({ productInfo }) => {
+const QuestionsAnswers = ({productInfo}) => {
   // console.log('this is productInfo', productInfo);
-
-  const [ questions, setQuestions ] = useState({});
+  const [questions, setQuestions] = useState({});
 
   useEffect(() => {
 
@@ -16,13 +15,14 @@ const QuestionsAnswers = ({ productInfo }) => {
       let url = '/qa/questions';
 
       axios.get(url, {
-        params: { product_id: productInfo.id }
+        //change back to productInfo.id for id value below
+        params: {product_id: 37325}
         })
         .then(result => setQuestions(result.data))
         .catch(err => console.log(err));
     }
 
-  }, [ productInfo ]);
+  }, [productInfo]);
 
   return(
     <div>
