@@ -22,7 +22,9 @@ const QuestionsListEntry = ({question, answerCount}) => {
   if (answersArray.length !== 0) {
     return (
       <div>
-        <p>Q: {question.question_body}</p>
+        <div>Q:</div>
+        <p>{question.question_body}</p>
+        <div>A:</div>
         {
           answersArray.map((answer, index) => <AnswersEntry key={index} answer={answer} />)
         }
