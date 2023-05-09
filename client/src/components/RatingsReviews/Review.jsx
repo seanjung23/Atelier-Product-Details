@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react';
 import axios from 'axios';
+import {EmptyStar, FullStar, OneQuarterStar, ThreeQuarterStar, HalfStar} from '../icons/ReviewRatingStarsSVG.jsx'
 
 // John
 // Remember sync and to GIT PULL
 
-const Review = ({oneReview}) => {
+const Review = ({oneReview, starArrayMaker}) => {
 
   let dateAdjuster = function () {
     let months = ['January', 'February', 'March', 'April', 'May', 'June',
@@ -18,12 +19,27 @@ const Review = ({oneReview}) => {
     return newDateFormat;
   }
 
+  let oneReviewStarArray = starArrayMaker(oneReview.rating)
+
   return(
     <div>
       <div>------------PLACEHOLDER SEPERATION-------------</div>
       <div>
         <span>
-          STARS: {oneReview.rating} ----------------------
+          STARS:
+          {oneReviewStarArray.map((element, index)=> {
+            if (element === 1) {
+              return <FullStar key={index}/>
+           } else if (element >= 0.25 && element < 0.5) {
+              return <OneQuarterStar key={index}/>
+           } else if (element >= 0.50 && element < 0.75) {
+              return <HalfStar key={index}/>
+           } else if (element >= 0.75 && element < 1) {
+            return <ThreeQuarterStar key={index}/>
+           } else if (element >= 0 && element < 0.25){
+             return <EmptyStar key={index}/>
+           }
+           })} ----------------------
         </span>
         <span>
           REVIEWER NAME: {oneReview.reviewer_name}, DATE: {dateAdjuster()}
