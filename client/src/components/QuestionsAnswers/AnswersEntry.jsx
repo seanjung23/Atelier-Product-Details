@@ -1,7 +1,7 @@
 import React from 'react';
-import { format, parseISO } from 'date-fns';
+import {format, parseISO} from 'date-fns';
 
-const AnswersEntry = ({ answer }) => {
+const AnswersEntry = ({answer}) => {
   // console.log('this is answer', answer);
 
   return (
