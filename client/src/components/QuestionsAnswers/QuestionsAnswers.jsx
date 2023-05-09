@@ -16,7 +16,7 @@ const QuestionsAnswers = ({productInfo}) => {
 
       axios.get(url, {
         //change back to productInfo.id for product_id value below
-        params: {product_id: productInfo.id}
+        params: {product_id: 37312}
         })
         .then(result => setQuestions(result.data))
         .catch(err => console.log(err));
