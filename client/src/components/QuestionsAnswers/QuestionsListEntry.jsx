@@ -3,30 +3,37 @@ import AnswersEntry from './AnswersEntry.jsx';
 
 const QuestionsListEntry = ({question, answerCount}) => {
   // console.log('this is question', question);
-  let answersArray = [];
+  let answers = [];
 
   for (let i in question.answers) {
-    answersArray.push(question.answers[i]);
+    answers.push(question.answers[i]);
   }
 
   if (answerCount === 0) {
-    answersArray = answersArray.slice(answerCount);
+    answers = answers.slice(answerCount);
   } else {
-    answersArray = answersArray.slice(0, answerCount);
+    answers = answers.slice(0, answerCount);
   }
 
-  answersArray.sort((a, b) => b.helpfulness - a.helpfulness);
+  answers.sort((a, b) => b.helpfulness - a.helpfulness);
 
-  // console.log('this is answers', answersArray);
+  for (let i = 0; i < answers.length; i++) {
+    if (answers[i].answerer_name === 'Seller') {
+      answers.unshift(answers[i]);
+      answers.splice(i, 1);
+    }
+  }
 
-  if (answersArray.length !== 0) {
+  console.log('this is answers', answers);
+
+  if (answers.length !== 0) {
     return (
       <div>
         <div>Q:</div>
         <p>{question.question_body}</p>
         <div>A:</div>
         {
-          answersArray.map((answer, index) => <AnswersEntry key={index} answer={answer} />)
+          answers.map((answer, index) => <AnswersEntry key={index} answer={answer} />)
         }
       </div>
     )
