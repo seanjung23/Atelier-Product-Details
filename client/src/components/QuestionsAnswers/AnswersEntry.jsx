@@ -8,6 +8,7 @@ const AnswersEntry = ({answer}) => {
       <div>
         <p>{answer.body}</p>
         <p>by <strong>{answer.answerer_name}</strong> {format(parseISO(answer.date), 'MMM d yyyy')}</p>
+        <p>Helpful? <a href="">Yes ({answer.helpfulness})</a></p>
       </div>
       )
   }
@@ -16,6 +17,7 @@ const AnswersEntry = ({answer}) => {
   <div>
     <p>{answer.body}</p>
     <p>by {answer.answerer_name} {format(parseISO(answer.date), 'MMM d yyyy')}</p>
+    <p>Helpful? <a href="">Yes ({answer.helpfulness})</a></p>
   </div>
   )
 };

@@ -24,7 +24,7 @@ const QuestionsListEntry = ({question, answerCount}) => {
     }
   }
 
-  console.log('this is answers', answers);
+  // console.log('this is answers', answers);
 
   if (answers.length !== 0) {
     return (
