@@ -28,9 +28,7 @@ const RatingsReviews = ({productInfo}) => {
       // are retrieved, no matter how high the number
       if (result.data.results.length === countNumber) {
         reviewInfoRetriever((countNumber * 2));
-      }
-      console.log('REVIEWS RESULT:', result)
-      })
+      }})
      .catch(err => console.log('ERROR OBTAINING REVIEWS:', err));
   }
 
@@ -49,8 +47,7 @@ const RatingsReviews = ({productInfo}) => {
         params: {product_id: product_id}
        })
        .then((result) => {
-        //console.log('REVIEWS RESULT:', result)
-        setReviewInfo(result.data.results);
+        setReviewMetaData(result.data);
         })
        .catch(err => console.log('ERROR OBTAINING REVIEWS:', err));
     }
@@ -59,25 +56,28 @@ const RatingsReviews = ({productInfo}) => {
   // Metadata calculations
   let allRatings;
   let averageRatingOverall;
+  let totalRatings;
 
   if (reviewMetaData.ratings) {
     allRatings = reviewMetaData.ratings;
+    totalRatings = (Number(allRatings[1])
+    + Number(allRatings[2]) + Number(allRatings[3])
+    + Number(allRatings[4]) + Number(allRatings[5]));
     averageRatingOverall = (
       Number(allRatings[1]) + Number(allRatings[2] * 2)
       + Number(allRatings[3] * 3)
       + Number(allRatings[4] * 4) + Number(allRatings[5] * 5)
-    )/(Number(allRatings[1]) + Number(allRatings[2])
-    + Number(allRatings[3]) + Number(allRatings[4])
-      + Number(allRatings[5]));
-    // console.log('ALLRATINGS', allRatings);
+    )/totalRatings;
   }
 
-  // console.log('AVERAGE RATINGS:', averageRatingOverall);
+  let roundedAverageRatingOverall = (
+    (Math.round(averageRatingOverall * 10))/10
+  )
 
   if (!productInfo) {
     return (
       <div>
-        Reviews Loading - CONSIDER USING ICON
+        <progress></progress>
       </div>
     )
   }
@@ -85,7 +85,7 @@ const RatingsReviews = ({productInfo}) => {
   return(
     <div>
       <h1>Ratings and Reviews Section</h1>
-      <RatingBreakdown reviewMetaData={reviewMetaData} reviewInfo={reviewInfo}/>
+      <RatingBreakdown reviewMetaData={reviewMetaData} reviewInfo={reviewInfo} roundedAverageRatingOverall={roundedAverageRatingOverall} totalRatings={totalRatings}/>
       <ReviewsList reviewInfo={reviewInfo} setSortSelection={setSortSelection}/>
     </div>
   )
