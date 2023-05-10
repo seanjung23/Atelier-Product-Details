@@ -30,10 +30,23 @@ const App = () => {
   return(
     <div>
       <div>Top of App</div>
-      <Overview productInfo={productInfo}/>
-      <RelatedItemsComparison productInfo={productInfo}/>
-      <QuestionsAnswers productInfo={productInfo}/>
-      <RatingsReviews productInfo={productInfo}/>
+
+      <div className="overviewDiv">
+        <Overview productInfo={productInfo}/>
+      </div>
+
+      <div className="relatedItemsComparsionDiv">
+        <RelatedItemsComparison productInfo={productInfo}/>
+      </div>
+
+      <div className="questionAnswersDiv">
+        <QuestionsAnswers productInfo={productInfo}/>
+      </div>
+
+      <div className="ratingReviewsDiv">
+        <RatingsReviews productInfo={productInfo}/>
+      </div>
+
     </div>
   )
 };

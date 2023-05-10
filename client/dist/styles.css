@@ -1,3 +1,74 @@
+body {
+  text-align: center;
+
+}
+.overviewDiv, .relatedItemsComparsionDiv, .questionAnswersDiv, .ratingReviewsDiv {
+  border: solid 1px;
+  width: 80%;
+
+}
+
+/*Start of overview CSS */
+.overviewDiv {
+  height: 800px;
+}
+.currentStyleDiv{
+  border: solid 1px;
+  height: 100%;
+}
+.overviewImageDiv {
+  border: solid 1px;
+  width: 65%;
+  height: calc(112px*5);
+
+}
+.currentImageThumbnailsCarousel{
+  width: auto;
+  height:calc(112px*5);
+  white-space: nowrap;
+  overflow: hidden;
+  float: left;
+}
+.currentImageThumbnails {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  width: 150px;
+
+}
+
+.currentImageThumbnails:hover {
+  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+.currentImageThumbnails{
+  object-fit: contain;
+  width: 100px;
+  height: 100px;
+}
+.currentImagesCarousel {
+
+  height:calc(112px*5);
+  white-space: nowrap;
+  display: inline-block;
+  overflow: hidden;
+
+}
+.currentImages {
+  object-fit: contain;
+  width: 400px;
+  height: calc(112px*5);
+
+}
+
+
+.currentImageThumbnailsItems:hover {
+  cursor: pointer;
+}
+
+
+/*End of overview CSS */
+
+
 /* Start of related item comparison CSS */
 
 .relatedItemsList {
@@ -6,9 +77,9 @@
   border-style: solid;
   white-space:nowrap;
   overflow: hidden;
-  width: 600px;
+  width: 70%;
   position: relative;
-
+  margin: auto;
 }
 .relatedItemImages {
     width: 160px;
