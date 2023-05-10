@@ -11,11 +11,11 @@ const QuestionsAnswers = ({productInfo}) => {
 
   useEffect(() => {
 
-    if (productInfo.id !== undefined) {
+    if (productInfo && productInfo.id !== undefined) {
       let url = '/qa/questions';
 
       axios.get(url, {
-        //change back to productInfo.id for id value below
+        //change back to productInfo.id for product_id value below 37311 37312(seller) 37325
         params: {product_id: 37325}
         })
         .then(result => setQuestions(result.data))
@@ -23,6 +23,15 @@ const QuestionsAnswers = ({productInfo}) => {
     }
 
   }, [productInfo]);
+
+  if (!productInfo) {
+    return (
+      <div>
+        <h1>Questions and Answers Section</h1>
+        <progress></progress>
+      </div>
+    )
+  }
 
   return(
     <div>

@@ -1,40 +1,70 @@
-import React from 'react';
+import React, {useState} from 'react';
 import AnswersEntry from './AnswersEntry.jsx';
+import {ShowAllAnswersButton, CollapseAllAnswersButton} from './QuestionsButtons.jsx';
 
-const QuestionsListEntry = ({question, answerCount}) => {
-  // console.log('this is question', question);
-  let answersArray = [];
+const QuestionsListEntry = ({question}) => {
+  console.log('this is question', question);
+  const [answerCount, setAnswerCount] = useState(2);
+  const [showAnswersButton, setShowAnswersButton] = useState(true);
+
+  let answers = [];
 
   for (let i in question.answers) {
-    answersArray.push(question.answers[i]);
+    answers.push(question.answers[i]);
   }
+
+  answers.sort((a, b) => b.helpfulness - a.helpfulness);
 
   if (answerCount === 0) {
-    answersArray = answersArray.slice(answerCount);
+    answers = answers.slice(answerCount);
   } else {
-    answersArray = answersArray.slice(0, answerCount);
+    answers = answers.slice(0, answerCount);
   }
 
-  answersArray.sort((a, b) => b.helpfulness - a.helpfulness);
+  for (let j = 0; j < answers.length; j++) {
+    if (answers[j].answerer_name === 'Seller') {
+      let temp = answers.splice(j, 1);
+      answers.unshift(temp[0]);
+    }
+  }
+  // console.log('this is answers', answers);
 
-  // console.log('this is answers', answersArray);
+  const showAllAnswers = () => {
+    setAnswerCount(0);
+    setShowAnswersButton(!showAnswersButton);
+  }
 
-  if (answersArray.length !== 0) {
+  const collapseAnswers = () => {
+    setAnswerCount(2);
+    setShowAnswersButton(!showAnswersButton);
+  };
+
+  if (answers.length !== 0) {
     return (
       <div>
-        <p>Q: {question.question_body}</p>
-        {
-          answersArray.map((answer, index) => <AnswersEntry key={index} answer={answer} />)
-        }
+        <h4>Q:</h4>
+        <p>{question.question_body}</p>
+        <div>
+          <h4>A:</h4>
+          {answers.map((answer, index) => <AnswersEntry key={index} answer={answer} />)}
+          {showAnswersButton && (<ShowAllAnswersButton showAllAnswers={showAllAnswers}/>)}
+          {!showAnswersButton && (<CollapseAllAnswersButton collapseAnswers={collapseAnswers}/>)}
+        </div>
+        <div>==================================================</div>
       </div>
     )
   }
 
   return (
     <div>
-        <p>Q: {question.question_body}</p>
+      <h4>Q:</h4>
+      <p>{question.question_body}</p>
+      <div>
+        <h4>A:</h4>
         <p>No Answers Yet!</p>
       </div>
+      <div>==================================================</div>
+    </div>
   )
 };
 
