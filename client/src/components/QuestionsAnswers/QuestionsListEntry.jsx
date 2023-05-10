@@ -1,25 +1,25 @@
-import React from 'react';
+import React, {useState} from 'react';
 import AnswersEntry from './AnswersEntry.jsx';
+import {ShowAllAnswersButton, CollapseAllAnswersButton} from './QuestionsButtons.jsx';
 
-const QuestionsListEntry = ({question, answerCount}) => {
-  // console.log('this is question', question);
+const QuestionsListEntry = ({question}) => {
+  console.log('this is question', question);
+  const [answerCount, setAnswerCount] = useState(2);
+  const [showAnswersButton, setShowAnswersButton] = useState(true);
+
   let answers = [];
 
   for (let i in question.answers) {
     answers.push(question.answers[i]);
   }
-  console.log('this is answers before slice', answers);
+
+  answers.sort((a, b) => b.helpfulness - a.helpfulness);
 
   if (answerCount === 0) {
     answers = answers.slice(answerCount);
-    console.log('this is answers', answers);
   } else {
     answers = answers.slice(0, answerCount);
-    console.log('this is answerds', answers);
   }
-  // console.log('this is answers', answers);
-
-  answers.sort((a, b) => b.helpfulness - a.helpfulness);
 
   for (let j = 0; j < answers.length; j++) {
     if (answers[j].answerer_name === 'Seller') {
@@ -27,7 +27,17 @@ const QuestionsListEntry = ({question, answerCount}) => {
       answers.unshift(temp[0]);
     }
   }
+  // console.log('this is answers', answers);
 
+  const showAllAnswers = () => {
+    setAnswerCount(0);
+    setShowAnswersButton(!showAnswersButton);
+  }
+
+  const collapseAnswers = () => {
+    setAnswerCount(2);
+    setShowAnswersButton(!showAnswersButton);
+  };
 
   if (answers.length !== 0) {
     return (
@@ -37,6 +47,8 @@ const QuestionsListEntry = ({question, answerCount}) => {
         <div>
           <h4>A:</h4>
           {answers.map((answer, index) => <AnswersEntry key={index} answer={answer} />)}
+          {showAnswersButton && (<ShowAllAnswersButton showAllAnswers={showAllAnswers}/>)}
+          {!showAnswersButton && (<CollapseAllAnswersButton collapseAnswers={collapseAnswers}/>)}
         </div>
         <div>==================================================</div>
       </div>
