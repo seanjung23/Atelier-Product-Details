@@ -1,13 +1,11 @@
 import React, {useState} from 'react';
 import QuestionsListEntry from './QuestionsListEntry.jsx';
-import MoreQuestionsButton from './MoreQuestionsButton.jsx';
-import LessQuestionsButton from './LessQuestionsButton.jsx';
+import {MoreQuestionsButton, LessQuestionsButton} from './QuestionsButtons.jsx';
 
 const QuestionsList = ({questions}) => {
   // console.log('these are questions', questions);
   const [displayMoreQuestionsButton, setDisplayMoreQuestionsButton] = useState(true);
   const [questionCount, setQuestionCount] = useState(4);
-  const [answerCount, setAnswerCount] = useState(2);
 
   let displayedQuestions = [];
 
@@ -23,36 +21,34 @@ const QuestionsList = ({questions}) => {
   const incrementCount = () => {
     setDisplayMoreQuestionsButton(!displayMoreQuestionsButton);
     setQuestionCount(0);
-    setAnswerCount(0);
   };
 
   const decrementCount = () => {
     setDisplayMoreQuestionsButton(!displayMoreQuestionsButton);
     setQuestionCount(4);
-    setAnswerCount(2);
   };
+
+
 
   if (displayedQuestions.length !== 0) {
     return (
       <div>
-        {
-          displayedQuestions.map((question, index) => <QuestionsListEntry key={index} question={question} answerCount={answerCount}/>)
-        }
+        {displayedQuestions.map((question, index) => <QuestionsListEntry key={index} question={question}/>)}
         {displayMoreQuestionsButton && (
           <MoreQuestionsButton onClick={incrementCount}/>
-        )
-        }
+        )}
         {!displayMoreQuestionsButton && (
           <LessQuestionsButton onClick={decrementCount}/>
-        )
-        }
+        )}
       </div>
     )
   }
 
   return (
     <div>
+      <h4>Q:</h4>
       <p>No Questions Asked Yet!</p>
+      <button type="button" onClick={() => alert('hello')}>Submit New Question</button>
     </div>
   )
 };
