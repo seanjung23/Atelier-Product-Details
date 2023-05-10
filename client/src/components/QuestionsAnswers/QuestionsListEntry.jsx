@@ -38,9 +38,7 @@ const QuestionsListEntry = ({question, answerCount}) => {
         </div>
         <div>
           <h4>A:</h4>
-        {
-          answers.map((answer, index) => <AnswersEntry key={index} answer={answer} />)
-        }
+          {answers.map((answer, index) => <AnswersEntry key={index} answer={answer} />)}
         </div>
         <div>==================================================</div>
       </div>

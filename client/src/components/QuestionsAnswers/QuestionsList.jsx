@@ -35,17 +35,13 @@ const QuestionsList = ({questions}) => {
   if (displayedQuestions.length !== 0) {
     return (
       <div>
-        {
-          displayedQuestions.map((question, index) => <QuestionsListEntry key={index} question={question} answerCount={answerCount}/>)
-        }
+        {displayedQuestions.map((question, index) => <QuestionsListEntry key={index} question={question} answerCount={answerCount}/>)}
         {displayMoreQuestionsButton && (
           <MoreQuestionsButton onClick={incrementCount}/>
-        )
-        }
+        )}
         {!displayMoreQuestionsButton && (
           <LessQuestionsButton onClick={decrementCount}/>
-        )
-        }
+        )}
       </div>
     )
   }
