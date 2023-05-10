@@ -3,7 +3,7 @@ import AnswersEntry from './AnswersEntry.jsx';
 import {ShowAllAnswersButton, CollapseAllAnswersButton} from './QuestionsButtons.jsx';
 
 const QuestionsListEntry = ({question}) => {
-  console.log('this is question', question);
+  // console.log('this is question', question);
   const [answerCount, setAnswerCount] = useState(2);
   const [showAnswersButton, setShowAnswersButton] = useState(true);
 

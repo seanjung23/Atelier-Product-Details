@@ -176,3 +176,13 @@ body {
 
 
 /* End of related item comparison CSS */
+
+
+/* Start of related item comparison CSS */
+
+.questionsList {
+  height: 500px;
+  overflow: auto;
+}
+
+/* End of related item comparison CSS */
