@@ -29,7 +29,7 @@ const QuestionsAnswers = ({productInfo}) => {
       <div>
         <h1>Questions and Answers Section</h1>
         <progress></progress>
-    </div>
+      </div>
     )
   }
 

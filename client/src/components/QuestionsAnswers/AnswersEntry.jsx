@@ -16,9 +16,7 @@ const AnswersEntry = ({answer}) => {
           {/* fix href links in the future */}
           <a href="">Yes ({answer.helpfulness})</a>&nbsp;
           {!reported && (
-            <a href="">
-              <span onClick={() => setReported(!reported)}>Report</span>
-            </a>
+            <a href="" onClick={() => setReported(!reported)}>Report</a>
           )}
           {reported && (
             <span>Reported</span>
@@ -39,9 +37,7 @@ const AnswersEntry = ({answer}) => {
       {/* fix href links in the future */}
       <a href="">Yes ({answer.helpfulness})</a>&nbsp;
       {!reported && (
-        <a href="" onClick={() => setReported(!reported)}>
-          Report
-        </a>
+        <a href="" onClick={() => setReported(!reported)}>Report</a>
       )}
       {reported && (
         <span>Reported</span>

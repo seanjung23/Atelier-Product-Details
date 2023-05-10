@@ -32,10 +32,8 @@ const QuestionsListEntry = ({question, answerCount}) => {
   if (answers.length !== 0) {
     return (
       <div>
-        <div>
-          <h4>Q:</h4>
-          <p>{question.question_body}</p>
-        </div>
+        <h4>Q:</h4>
+        <p>{question.question_body}</p>
         <div>
           <h4>A:</h4>
           {answers.map((answer, index) => <AnswersEntry key={index} answer={answer} />)}
@@ -47,15 +45,13 @@ const QuestionsListEntry = ({question, answerCount}) => {
 
   return (
     <div>
-        <div>
-          <h4>Q:</h4>
-          <p>{question.question_body}</p>
-        </div>
-        <div>
-          <h4>A:</h4>
-          <p>No Answers Yet!</p>
-        </div>
-        <div>==================================================</div>
+      <h4>Q:</h4>
+      <p>{question.question_body}</p>
+      <div>
+        <h4>A:</h4>
+        <p>No Answers Yet!</p>
+      </div>
+      <div>==================================================</div>
     </div>
   )
 };
