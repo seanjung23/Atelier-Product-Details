@@ -17,7 +17,7 @@ const RatingsReviews = ({productInfo}) => {
 
   // PRODUCT ID Will need PASSED DOWN Later
   let product_id = 37315;
-  console.log(reviewInfo);
+
   let reviewInfoRetriever = function (countNumber) {
     axios.get(reviewUrl, {
       params: {product_id: product_id, sort: sortSelection,
@@ -101,6 +101,7 @@ const RatingsReviews = ({productInfo}) => {
       }
     });
   }
+
 
   let whetherFilteredReviewsAppear = function () {
     if (Object.keys(filterSettings).length > 0) {

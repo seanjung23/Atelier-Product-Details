@@ -3,8 +3,6 @@ import react, { useState, useEffect } from 'react';
 
 let RatingDistribution = ({reviewMetaData, totalRatings, setFilterSettings, filterSettings}) => {
 
-  const [currentFilterSettings, setCurrentFilterSettings] = useState({});
-
   useEffect(() =>{
     let barMaker = function (outerClass, innerClass, lengthBar) {
       let outerElement = document.getElementsByClassName(outerClass);
@@ -35,7 +33,6 @@ let RatingDistribution = ({reviewMetaData, totalRatings, setFilterSettings, filt
     }
   }, [reviewMetaData])
 
-
   let handleBreakdownOnClick = function (starRating) {
     let newFilterSettings = {};
     let FilterSettingsKeys = Object.keys(filterSettings);
@@ -51,11 +48,31 @@ let RatingDistribution = ({reviewMetaData, totalRatings, setFilterSettings, filt
     setFilterSettings(newFilterSettings);
   };
 
-  console.log(filterSettings);
+  let displayAppliedFilters = Object.keys(filterSettings);
+
+  let removeAllFilters = function () {
+    setFilterSettings({});
+  }
+
+  let percentOfReviewsThatRecommend = Math.round(Number(
+    reviewMetaData.recommended.true)
+  / (Number(reviewMetaData.recommended.true)
+  + Number(reviewMetaData.recommended.false)) * 100);
+
+  console.log(reviewMetaData);
 
   return (
     <div>
       Rating Breakdown--
+      <div>
+      {displayAppliedFilters.map((element, index) => {
+        return (
+        <div key={index}>Showing {element} Star Reviews</div>
+        )
+      })}
+      {(displayAppliedFilters.length > 0)
+      && <div onClick={removeAllFilters}>Remove all filters</div>}
+      </div>
       <div onClick={()=> {handleBreakdownOnClick(5)}}>
       5 Stars
         <div className='FiveRatingBar'>
@@ -63,7 +80,7 @@ let RatingDistribution = ({reviewMetaData, totalRatings, setFilterSettings, filt
 
           </div>
         </div>
-        NUMBER OF REVIEWS, BUT SHOULD JUST BE NUMBER:
+        NUMBER OF RATINGS, BUT SHOULD JUST BE NUMBER:
        {reviewMetaData.ratings[5]}
       </div>
       <div onClick={()=> {handleBreakdownOnClick(4)}}>
@@ -106,6 +123,9 @@ let RatingDistribution = ({reviewMetaData, totalRatings, setFilterSettings, filt
         NUMBER OF REVIEWS, BUT SHOULD JUST BE NUMBER:
         {reviewMetaData.ratings[1]}
       </div>
+      <p>
+      {percentOfReviewsThatRecommend}% of reviews recommended this product
+    </p>
     </div>
   )
 }
