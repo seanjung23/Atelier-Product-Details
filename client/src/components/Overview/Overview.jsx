@@ -71,7 +71,10 @@ const Overview = ({productInfo}) => {
     <div>
       <h1>Overview Section</h1>
       <div className="currentStyleDiv">
-        <OverViewImage currentStyle={currentStyle}/>
+        <div className="overviewImageDiv">
+          <OverViewImage currentStyle={currentStyle}/>
+        </div>
+
       </div>
     </div>
   )
