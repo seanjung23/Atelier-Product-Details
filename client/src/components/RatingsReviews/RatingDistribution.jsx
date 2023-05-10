@@ -1,7 +1,9 @@
-import react, { useEffect } from 'react';
+import react, { useState, useEffect } from 'react';
 
 
-let RatingDistribution = ({reviewMetaData, totalRatings}) => {
+let RatingDistribution = ({reviewMetaData, totalRatings, setFilterSettings, filterSettings}) => {
+
+  const [currentFilterSettings, setCurrentFilterSettings] = useState({});
 
   useEffect(() =>{
     let barMaker = function (outerClass, innerClass, lengthBar) {
@@ -12,12 +14,15 @@ let RatingDistribution = ({reviewMetaData, totalRatings}) => {
       outerElement[0].style.backgroundColor = 'lightgray';
       innerElement[0].style.backgroundColor = 'green';
       innerElement[0].style.height = '100%';
-      if (lengthBar) {
+      if (lengthBar || lengthBar === 0) {
         innerElement[0].style.width = lengthBar.toString() + '%'
       }
     }
 
     let fillBarLength = function (ratingKey) {
+      if (!totalRatings || reviewMetaData.ratings[ratingKey] === 0) {
+        return 0;
+      }
       return ((reviewMetaData.ratings[ratingKey]/totalRatings) * 100);
     }
 
@@ -28,13 +33,30 @@ let RatingDistribution = ({reviewMetaData, totalRatings}) => {
       barMaker('TwoRatingBar', 'TwoRatingBarFill', fillBarLength(2));
       barMaker('OneRatingBar', 'OneRatingBarFill', fillBarLength(1));
     }
-
   }, [reviewMetaData])
+
+
+  let handleBreakdownOnClick = function (starRating) {
+    let newFilterSettings = {};
+    let FilterSettingsKeys = Object.keys(filterSettings);
+    for (let i = 0; i < FilterSettingsKeys.length; i += 1) {
+      newFilterSettings[FilterSettingsKeys[i]] = true;
+    }
+    if (newFilterSettings[starRating]) {
+      delete newFilterSettings[starRating]
+      setFilterSettings(newFilterSettings);
+      return;
+    }
+    newFilterSettings[starRating] = true;
+    setFilterSettings(newFilterSettings);
+  };
+
+  console.log(filterSettings);
 
   return (
     <div>
       Rating Breakdown--
-      <div>
+      <div onClick={()=> {handleBreakdownOnClick(5)}}>
       5 Stars
         <div className='FiveRatingBar'>
           <div className='FiveRatingBarFill'>
@@ -44,7 +66,7 @@ let RatingDistribution = ({reviewMetaData, totalRatings}) => {
         NUMBER OF REVIEWS, BUT SHOULD JUST BE NUMBER:
        {reviewMetaData.ratings[5]}
       </div>
-      <div>
+      <div onClick={()=> {handleBreakdownOnClick(4)}}>
       4 Stars
         <div className='FourRatingBar'>
           <div className='FourRatingBarFill'>
@@ -54,7 +76,7 @@ let RatingDistribution = ({reviewMetaData, totalRatings}) => {
         NUMBER OF REVIEWS, BUT SHOULD JUST BE NUMBER:
         {reviewMetaData.ratings[4]}
       </div>
-      <div>
+      <div onClick={()=> {handleBreakdownOnClick(3)}}>
       3 Stars
         <div className='ThreeRatingBar'>
           <div className='ThreeRatingBarFill'>
@@ -64,7 +86,7 @@ let RatingDistribution = ({reviewMetaData, totalRatings}) => {
         NUMBER OF REVIEWS, BUT SHOULD JUST BE NUMBER:
         {reviewMetaData.ratings[3]}
       </div>
-      <div>
+      <div onClick={()=> {handleBreakdownOnClick(2)}}>
       2 Stars
         <div className='TwoRatingBar'>
           <div className='TwoRatingBarFill'>
@@ -74,7 +96,7 @@ let RatingDistribution = ({reviewMetaData, totalRatings}) => {
         NUMBER OF REVIEWS, BUT SHOULD JUST BE NUMBER:
         {reviewMetaData.ratings[2]}
       </div>
-      <div>
+      <div onClick={()=> {handleBreakdownOnClick(1)}}>
       1 Stars
         <div className='OneRatingBar'>
           <div className='OneRatingBarFill'>

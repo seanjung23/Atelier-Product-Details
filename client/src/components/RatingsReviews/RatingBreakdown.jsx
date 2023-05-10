@@ -3,10 +3,9 @@ import OverallRatingStars from './OverallRatingStars.jsx';
 import RatingDistribution from './RatingDistribution.jsx';
 
 
-const RatingBreakdown = ({reviewMetaData, reviewInfo, roundedAverageRatingOverall, totalRatings, starArray}) => {
+const RatingBreakdown = ({reviewMetaData, reviewInfo, roundedAverageRatingOverall, totalRatings, starArray, setFilterSettings,
+filterSettings}) => {
 
-
-  // console.log('META DATA:', reviewMetaData);
   if (reviewInfo && roundedAverageRatingOverall) {
     return (
       <div className='RatingBreakdown'>
@@ -17,7 +16,8 @@ const RatingBreakdown = ({reviewMetaData, reviewInfo, roundedAverageRatingOveral
 
         -----RATING BREAKDOWN-----TOTAL REVIEWS: {reviewInfo.length}
         <RatingDistribution reviewMetaData={reviewMetaData}
-        totalRatings={totalRatings}/>
+        totalRatings={totalRatings} setFilterSettings={setFilterSettings}
+        filterSettings={filterSettings}/>
       </div>
     )
   }
