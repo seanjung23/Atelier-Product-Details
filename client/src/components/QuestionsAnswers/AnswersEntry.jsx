@@ -1,9 +1,7 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {format, parseISO} from 'date-fns';
 
-const AnswersEntry = ({answer}) => {
-  const [reported, setReported] = useState(false);
-
+const AnswersEntry = ({answer, reported, setReported}) => {
   // console.log('this is answer', answer);
   if (answer.answerer_name === 'Seller') {
     return (

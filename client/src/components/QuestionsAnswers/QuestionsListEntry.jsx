@@ -51,7 +51,7 @@ const QuestionsListEntry = ({question}) => {
         </p>
         <div>
           <h4>A:</h4>
-          {answers.map((answer, index) => <AnswersEntry key={index} answer={answer} />)}
+          {answers.map((answer, index) => <AnswersEntry key={index} answer={answer} reported={reported} setReported={setReported}/>)}
           {showAnswersButton && (<ShowAllAnswersButton showAllAnswers={showAllAnswers}/>)}
           {!showAnswersButton && (<CollapseAllAnswersButton collapseAnswers={collapseAnswers}/>)}
         </div>
