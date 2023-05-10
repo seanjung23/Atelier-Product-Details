@@ -1,7 +1,7 @@
 import react, { useState, useEffect } from 'react';
 
 
-let RatingDistribution = ({reviewMetaData, totalRatings, setFilterSettings, filterSettings}) => {
+const RatingDistribution = ({reviewMetaData, totalRatings, setFilterSettings, filterSettings}) => {
 
   useEffect(() =>{
     let barMaker = function (outerClass, innerClass, lengthBar) {
@@ -63,7 +63,6 @@ let RatingDistribution = ({reviewMetaData, totalRatings, setFilterSettings, filt
 
   return (
     <div>
-      Rating Breakdown--
       <div>
       {displayAppliedFilters.map((element, index) => {
         return (

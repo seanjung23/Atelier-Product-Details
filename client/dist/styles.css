@@ -176,3 +176,26 @@ body {
 
 
 /* End of related item comparison CSS */
+
+
+/* Start of Ratings and Reviews CSS */
+
+.RatingBreakdown {
+  display: inline-block;
+  vertical-align: top;
+  width: 25%;
+  margin: 2% 1%;
+}
+
+.ReviewsList {
+  display: inline-block;
+  width: 70%;
+}
+
+.productBreakdownScale {
+  border: solid;
+  background-color: lightgray;
+  height: 0.5em;
+}
+
+/* End of Ratings and Reviews CSS */
