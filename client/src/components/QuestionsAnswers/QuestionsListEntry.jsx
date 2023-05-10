@@ -6,6 +6,7 @@ const QuestionsListEntry = ({question}) => {
   // console.log('this is question', question);
   const [answerCount, setAnswerCount] = useState(2);
   const [showAnswersButton, setShowAnswersButton] = useState(true);
+  const [reported, setReported] = useState(false);
 
   let answers = [];
 
@@ -43,7 +44,11 @@ const QuestionsListEntry = ({question}) => {
     return (
       <div>
         <h4>Q:</h4>
-        <p>{question.question_body}</p>
+        <p className="questionBody">{question.question_body}</p>&nbsp;
+        <p className="questionBody">
+          <span>Helpful?</span> <a href="">Yes ({question.question_helpfulness})</a> <b>|</b>&nbsp;
+          <a href="">Add Answer</a>
+        </p>
         <div>
           <h4>A:</h4>
           {answers.map((answer, index) => <AnswersEntry key={index} answer={answer} />)}
@@ -58,7 +63,11 @@ const QuestionsListEntry = ({question}) => {
   return (
     <div>
       <h4>Q:</h4>
-      <p>{question.question_body}</p>
+      <p className="questionBody">{question.question_body}</p>&nbsp;
+      <p className="questionBody">
+        <span>Helpful?</span> <a href="">Yes ({question.question_helpfulness})</a> <b>|</b>&nbsp;
+        <a href="">Add Answer</a>
+      </p>
       <div>
         <h4>A:</h4>
         <p>No Answers Yet!</p>

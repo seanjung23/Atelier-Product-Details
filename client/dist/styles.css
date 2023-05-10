@@ -178,11 +178,16 @@ body {
 /* End of related item comparison CSS */
 
 
-/* Start of related item comparison CSS */
+/* Start of Q/A CSS */
 
 .questionsList {
   height: 500px;
   overflow: auto;
 }
 
-/* End of related item comparison CSS */
+.questionBody {
+  display: inline;
+}
+
+
+/* End of Q/A CSS */
