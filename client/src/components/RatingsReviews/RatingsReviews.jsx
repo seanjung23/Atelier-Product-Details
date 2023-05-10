@@ -13,10 +13,11 @@ const RatingsReviews = ({productInfo}) => {
   const [sortSelection, setSortSelection] = useState('relevant');
   const [reviewInfo, setReviewInfo] = useState([]);
   const [reviewMetaData, setReviewMetaData] = useState({});
+  const [filterSettings, setFilterSettings] = useState({});
 
   // PRODUCT ID Will need PASSED DOWN Later
   let product_id = 37315;
-  console.log(reviewInfo);
+
   let reviewInfoRetriever = function (countNumber) {
     axios.get(reviewUrl, {
       params: {product_id: product_id, sort: sortSelection,
@@ -91,6 +92,23 @@ const RatingsReviews = ({productInfo}) => {
     return starArray;
   }
 
+  let filteredReviews = [];
+
+  if (Object.keys(filterSettings).length > 0) {
+    reviewInfo.forEach((element) => {
+      if (filterSettings[element.rating]) {
+        filteredReviews.push(element);
+      }
+    });
+  }
+
+
+  let whetherFilteredReviewsAppear = function () {
+    if (Object.keys(filterSettings).length > 0) {
+      return filteredReviews;
+    }
+    return reviewInfo;
+  }
 
   if (!productInfo) {
     return (
@@ -103,8 +121,9 @@ const RatingsReviews = ({productInfo}) => {
   return(
     <div>
       <h1>Ratings and Reviews Section</h1>
-      <RatingBreakdown reviewMetaData={reviewMetaData} reviewInfo={reviewInfo} roundedAverageRatingOverall={roundedAverageRatingOverall} totalRatings={totalRatings} starArray={starArrayMaker(roundedAverageRatingOverall)}/>
-      <ReviewsList reviewInfo={reviewInfo} setSortSelection={setSortSelection} starArrayMaker={starArrayMaker}/>
+      <RatingBreakdown reviewMetaData={reviewMetaData} reviewInfo={reviewInfo} roundedAverageRatingOverall={roundedAverageRatingOverall} totalRatings={totalRatings} starArray={starArrayMaker(roundedAverageRatingOverall)}
+      setFilterSettings={setFilterSettings} filterSettings={filterSettings}/>
+      <ReviewsList reviewInfo={whetherFilteredReviewsAppear()} setSortSelection={setSortSelection} starArrayMaker={starArrayMaker}/>
     </div>
   )
 };
