@@ -18,41 +18,45 @@ body {
 }
 .overviewImageDiv {
   border: solid 1px;
-  width: 65%;
+  width: 650px;
   height: calc(112px*5);
 
 }
-.currentImageThumbnailsCarousel{
+.currentImageThumbnailsCarouselDiv{
   width: auto;
   height:calc(112px*5);
   white-space: nowrap;
   overflow: hidden;
   float: left;
+  position: relative;
 }
 .currentImageThumbnails {
   border: 1px solid #ddd;
   border-radius: 4px;
   padding: 5px;
-  width: 150px;
+  object-fit: contain;
+  width: 100px;
+  height: 100px;
 
 }
 
 .currentImageThumbnails:hover {
   box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
 }
-.currentImageThumbnails{
-  object-fit: contain;
-  width: 100px;
-  height: 100px;
-}
-.currentImagesCarousel {
 
-  height:calc(112px*5);
+
+.currentImagesCarouselDiv {
+
+  height:calc(111px*5);
   white-space: nowrap;
   display: inline-block;
   overflow: hidden;
-
+  width: 525px;
+  position: relative;
+  height:560px;
 }
+
+
 .currentImages {
   object-fit: contain;
   width: 400px;
@@ -65,6 +69,39 @@ body {
   cursor: pointer;
 }
 
+.overviewDownButtonDiv, .overviewUpButtonDiv {
+  opacity: 70%;
+  z-index: 9;
+  position: absolute;
+  background-color: grey;
+  width: 100%;
+  height:10%
+}
+.overviewDownButtonDiv {
+  bottom: 0;
+}
+.overviewUpButton, .overviewDownButton{
+  height: 100%;
+}
+
+.overviewLeftButtonDiv, .overviewRightButtonDiv {
+  opacity: 70%;
+  z-index: 9;
+  position: absolute;
+  background-color: grey;
+  width: 50px;
+  bottom:calc(111px*5 /2);
+}
+
+.overviewLeftButtonDiv {
+  float: left;
+  left:0px
+
+}
+.overviewRightButtonDiv {
+  float: right;
+  right: 0px;
+}
 
 /*End of overview CSS */
 
@@ -77,7 +114,7 @@ body {
   border-style: solid;
   white-space:nowrap;
   overflow: hidden;
-  width: 70%;
+  width: 700px;
   position: relative;
   margin: auto;
 }
@@ -176,26 +213,3 @@ body {
 
 
 /* End of related item comparison CSS */
-
-
-/* Start of Ratings and Reviews CSS */
-
-.RatingBreakdown {
-  display: inline-block;
-  vertical-align: top;
-  width: 25%;
-  margin: 2% 1%;
-}
-
-.ReviewsList {
-  display: inline-block;
-  width: 70%;
-}
-
-.productBreakdownScale {
-  border: solid;
-  background-color: lightgray;
-  height: 0.5em;
-}
-
-/* End of Ratings and Reviews CSS */
