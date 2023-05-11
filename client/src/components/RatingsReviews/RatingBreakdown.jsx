@@ -7,17 +7,22 @@ import ProductBreakdown from './ProductBreakdown.jsx';
 const RatingBreakdown = ({reviewMetaData, reviewInfo, roundedAverageRatingOverall, totalRatings, starArray, setFilterSettings,
 filterSettings}) => {
 
-  console.log(reviewMetaData);
 
   if (reviewInfo && roundedAverageRatingOverall) {
     return (
       <div className='RatingBreakdown'>
-        <h2>
-          --AVG RATING REMOVE TEXT: {roundedAverageRatingOverall}
+        <div className='averageReviewRating'>
+          <h2 className='averageReviewRatingText'>
+            {roundedAverageRatingOverall}
+          </h2>
           <OverallRatingStars starArray={starArray}/>
-        </h2>
-
-        --------Rating Breakdown--------TOTAL REVIEWS: {reviewInfo.length}
+        </div>
+        <div>
+        Total Reviews: {reviewInfo.length}
+        </div>
+        <div className='ratingBreakdownTitle'>
+        Rating Breakdown
+        </div>
         <RatingDistribution reviewMetaData={reviewMetaData}
         totalRatings={totalRatings} setFilterSettings={setFilterSettings}
         filterSettings={filterSettings}/>

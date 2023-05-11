@@ -37,7 +37,6 @@ const ReviewsList = ({reviewInfo, setSortSelection, starArrayMaker}) => {
   if (reviewInfo) {
     return(
       <div className='ReviewsList'>
-        <h2>Reviews List Section</h2>
         <SortMenu setSortSelection={setSortSelection}/>
         <InnerReviewList currentlyDisplayedReviews={currentlyDisplayedReviews} starArrayMaker={starArrayMaker}/>
         {whetherToDisplayMoreReviewsButton()}

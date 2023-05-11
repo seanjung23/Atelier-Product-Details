@@ -120,9 +120,11 @@ const RatingsReviews = ({productInfo}) => {
 
   return(
     <div>
-      <h1>Ratings and Reviews Section</h1>
+      <h1 className='RatingsReviewsTitle'>Ratings and Reviews</h1>
+
       <RatingBreakdown reviewMetaData={reviewMetaData} reviewInfo={reviewInfo} roundedAverageRatingOverall={roundedAverageRatingOverall} totalRatings={totalRatings} starArray={starArrayMaker(roundedAverageRatingOverall)}
       setFilterSettings={setFilterSettings} filterSettings={filterSettings}/>
+
       <ReviewsList reviewInfo={whetherFilteredReviewsAppear()} setSortSelection={setSortSelection} starArrayMaker={starArrayMaker}/>
     </div>
   )

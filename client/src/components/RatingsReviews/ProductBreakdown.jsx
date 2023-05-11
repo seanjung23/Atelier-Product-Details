@@ -66,7 +66,6 @@ const ProductBreakdown = ({reviewMetaData}) => {
 
   return (
     <div>
-      PRODUCT BREAKDOWN
       {productCharacteristics.map((characteristic, index) => {
         return (
         <div key={index}>

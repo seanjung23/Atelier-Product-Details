@@ -70,56 +70,49 @@ const RatingDistribution = ({reviewMetaData, totalRatings, setFilterSettings, fi
         )
       })}
       {(displayAppliedFilters.length > 0)
-      && <div onClick={removeAllFilters}>Remove all filters</div>}
+      && <div className='removeAllRatingFilters' onClick={removeAllFilters}>Remove all filters</div>}
       </div>
-      <div onClick={()=> {handleBreakdownOnClick(5)}}>
+      <div className='starBarText'onClick={()=> {handleBreakdownOnClick(5)}}>
       5 Stars
         <div className='FiveRatingBar'>
           <div className='FiveRatingBarFill'>
-
           </div>
         </div>
-        NUMBER OF RATINGS, BUT SHOULD JUST BE NUMBER:
        {reviewMetaData.ratings[5]}
       </div>
-      <div onClick={()=> {handleBreakdownOnClick(4)}}>
+      <div className='starBarText' onClick={()=> {handleBreakdownOnClick(4)}}>
       4 Stars
         <div className='FourRatingBar'>
           <div className='FourRatingBarFill'>
-
           </div>
         </div>
-        NUMBER OF REVIEWS, BUT SHOULD JUST BE NUMBER:
         {reviewMetaData.ratings[4]}
       </div>
-      <div onClick={()=> {handleBreakdownOnClick(3)}}>
+      <div className='starBarText' onClick={()=> {handleBreakdownOnClick(3)}}>
       3 Stars
         <div className='ThreeRatingBar'>
           <div className='ThreeRatingBarFill'>
 
           </div>
         </div>
-        NUMBER OF REVIEWS, BUT SHOULD JUST BE NUMBER:
         {reviewMetaData.ratings[3]}
       </div>
-      <div onClick={()=> {handleBreakdownOnClick(2)}}>
+      <div className='starBarText' onClick={()=> {handleBreakdownOnClick(2)}}>
       2 Stars
         <div className='TwoRatingBar'>
           <div className='TwoRatingBarFill'>
 
           </div>
         </div>
-        NUMBER OF REVIEWS, BUT SHOULD JUST BE NUMBER:
         {reviewMetaData.ratings[2]}
       </div>
-      <div onClick={()=> {handleBreakdownOnClick(1)}}>
+      <div className='starBarText' onClick={()=> {handleBreakdownOnClick(1)}}>
       1 Stars
         <div className='OneRatingBar'>
           <div className='OneRatingBarFill'>
 
           </div>
         </div>
-        NUMBER OF REVIEWS, BUT SHOULD JUST BE NUMBER:
         {reviewMetaData.ratings[1]}
       </div>
       <p>
