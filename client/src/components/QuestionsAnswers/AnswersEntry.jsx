@@ -1,25 +1,21 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {format, parseISO} from 'date-fns';
 
-const AnswersEntry = ({answer}) => {
-  const [reported, setReported] = useState(false);
-
+const AnswersEntry = ({answer, reported, setReported}) => {
   // console.log('this is answer', answer);
   if (answer.answerer_name === 'Seller') {
     return (
       <div>
         <p>--------------------------------------------------</p>
         <p>{answer.body}</p>
-        <p>by <strong>{answer.answerer_name}</strong> {format(parseISO(answer.date), 'MMM d yyyy')}</p>
         <p>
-          <span>Helpful?</span>&nbsp;
-          {/* fix href links in the future */}
-          <a href="">Yes ({answer.helpfulness})</a>&nbsp;
+          by <strong>{answer.answerer_name}</strong> {format(parseISO(answer.date), 'MMM d yyyy')} <b>|</b>&nbsp;
+          <span>Helpful?</span> <a href="">Yes ({answer.helpfulness})</a> <b>|</b>&nbsp;
           {!reported && (
-            <a href="" onClick={() => setReported(!reported)}>Report</a>
+          <a href="" onClick={() => setReported(!reported)}>Report</a>
           )}
           {reported && (
-            <span>Reported</span>
+          <span>Reported</span>
           )}
         </p>
         <p>--------------------------------------------------</p>
@@ -31,16 +27,14 @@ const AnswersEntry = ({answer}) => {
   <div>
     <p>--------------------------------------------------</p>
     <p>{answer.body}</p>
-    <p>by {answer.answerer_name} {format(parseISO(answer.date), 'MMM d yyyy')}</p>
     <p>
-      <span>Helpful?</span>&nbsp;
-      {/* fix href links in the future */}
-      <a href="">Yes ({answer.helpfulness})</a>&nbsp;
+      by {answer.answerer_name} {format(parseISO(answer.date), 'MMM d yyyy')} <b>|</b>&nbsp;
+      <span>Helpful?</span> <a href="">Yes ({answer.helpfulness})</a> <b>|</b>&nbsp;
       {!reported && (
-        <a href="" onClick={() => setReported(!reported)}>Report</a>
+      <a href="" onClick={() => setReported(!reported)}>Report</a>
       )}
       {reported && (
-        <span>Reported</span>
+      <span>Reported</span>
       )}
     </p>
     <p>--------------------------------------------------</p>

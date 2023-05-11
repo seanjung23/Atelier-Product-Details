@@ -213,3 +213,19 @@ body {
 
 
 /* End of related item comparison CSS */
+
+
+/* Start of Q/A CSS */
+
+.questionsList {
+  height: 500px;
+  overflow: auto;
+}
+
+.questionBody {
+  display: inline;
+}
+
+
+/* End of Q/A CSS */
+
