@@ -1,26 +1,26 @@
-body {
-  text-align: center;
 
-}
 .overviewDiv, .relatedItemsComparsionDiv, .questionAnswersDiv, .ratingReviewsDiv {
   border: solid 1px;
-  width: 80%;
+
 
 }
 
 /*Start of overview CSS */
-.overviewDiv {
-  height: 800px;
-}
+
 .currentStyleDiv{
+
   border: solid 1px;
   height: 100%;
+
+  width: 1000px;
+  display: inline-block;
 }
 .overviewImageDiv {
+  text-align: center;
   border: solid 1px;
   width: 650px;
   height: calc(112px*5);
-
+  display: inline-block;
 }
 .currentImageThumbnailsCarouselDiv{
   width: auto;
@@ -101,6 +101,26 @@ body {
 .overviewRightButtonDiv {
   float: right;
   right: 0px;
+}
+.overviewProductInformationDiv {
+  width:340px;
+  display: inline-block;
+  float: right;
+}
+
+.OverviewRatingStars {
+  width: 5%;
+}
+.overviewStyleSelectionDiv{
+  display: flex;
+}
+.overviewStylesDiv{
+  width: calc(100%);
+
+}
+.overviewStyles{
+  width: 100%;
+  object-fit: contain;
 }
 
 /*End of overview CSS */
