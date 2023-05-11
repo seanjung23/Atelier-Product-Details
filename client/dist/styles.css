@@ -249,3 +249,131 @@
 
 /* End of Q/A CSS */
 
+/* Start of Ratings and Reviews CSS */
+
+.RatingBreakdown {
+  display: inline-block;
+  vertical-align: top;
+  width: 25%;
+  margin: 1% 1%;
+  margin-top: 0;
+  font-size: 75%;
+}
+
+
+.ratingBreakdownTitle {
+  font-weight: bold;
+  margin: 3% 0%;
+}
+
+.ReviewsList {
+  display: inline-block;
+  width: 70%;
+}
+
+.innerReviewList {
+  height: 85vh;
+  overflow: auto
+}
+
+.productBreakdownScale {
+  background-color: lightgray;
+  border: solid;
+  height: 0.5em;
+}
+
+.oneRatingCharacteristic {
+  float: left;
+}
+
+.threeRatingCharacteristic {
+  display: inline-block;
+  height: 2em;
+}
+
+.fiveRatingCharacteristic {
+  float: right;
+}
+
+.characteristicFiller {
+  display: inline-block;
+  height: 2em;
+}
+
+.RatingsReviewsTitle {
+  font-size: 120%;
+  margin: 2%;
+}
+
+.averageReviewRating{
+  margin-bottom: 2%;
+  font-size: 100%;
+}
+
+.averageReviewRatingText {
+  display: inline-block;
+  margin: 0;
+  font-size: 300%;
+}
+
+.averageRatingStarSet{
+  display: inline-block;
+  width: 50%;
+  position: relative;
+  bottom: 0.6em;
+}
+
+.ReviewRatingStars {
+  height: 20%;
+  width: 20%;
+}
+
+.FiveRatingBar{
+  display: inline-block;
+  width: 70%;
+  margin: 0 2%;
+}
+
+.FourRatingBar{
+  display: inline-block;
+  width: 70%;
+  margin: 0 2%;
+}
+
+.ThreeRatingBar{
+  display: inline-block;
+  width: 70%;
+  margin: 0 2%;
+}
+
+.TwoRatingBar{
+  display: inline-block;
+  width: 70%;
+  margin: 0 2%;
+}
+
+.OneRatingBar{
+  display: inline-block;
+  width: 70%;
+  margin: 0 2%;
+}
+
+.starBarText{
+  text-align: left;
+}
+
+.starBarText:hover{
+  background-color: lightblue;
+}
+
+.removeAllRatingFilters {
+  font-weight: bold;
+  color: blue;
+}
+
+.removeAllRatingFilters:hover {
+  font-weight: bold;
+  color: lightblue;
+}
+
+/* End of Ratings and Reviews CSS */
