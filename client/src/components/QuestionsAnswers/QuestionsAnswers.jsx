@@ -7,7 +7,6 @@ import QuestionsList from './QuestionsList.jsx';
 // Remember sync and to GIT PULL
 
 const QuestionsAnswers = ({productInfo}) => {
-  // console.log('this is productInfo', productInfo);
   const [questions, setQuestions] = useState({});
   const [filteredQuestions, setFilteredQuestions] = useState({});
 
@@ -49,8 +48,8 @@ const QuestionsAnswers = ({productInfo}) => {
     <div>
       <h1>Questions and Answers Section</h1>
       <SearchQuestions retrieveQuery={retrieveQuery} />
-      {filteredQuestions.results !== undefined && <QuestionsList questions={filteredQuestions} />}
-      {filteredQuestions.results === undefined && <QuestionsList questions={questions} />}
+      {filteredQuestions.results !== undefined && <QuestionsList questions={filteredQuestions} productInfo={productInfo}/>}
+      {filteredQuestions.results === undefined && <QuestionsList questions={questions} productInfo={productInfo}/>}
     </div>
   )
 };

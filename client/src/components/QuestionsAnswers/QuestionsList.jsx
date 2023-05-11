@@ -1,41 +1,51 @@
 import React, {useState} from 'react';
 import QuestionsListEntry from './QuestionsListEntry.jsx';
-import {MoreQuestionsButton, LessQuestionsButton} from './QuestionsButtons.jsx';
+import {MoreQuestionsButton, AddQuestionButton} from './QuestionsButtons.jsx';
+import QuestionModal from './QuestionModal.jsx';
 
-const QuestionsList = ({questions}) => {
+const QuestionsList = ({questions, productInfo}) => {
+  // console.log('this is productInfo', productInfo);
   // console.log('these are questions', questions);
   const [displayMoreQuestionsButton, setDisplayMoreQuestionsButton] = useState(true);
-  const [questionCount, setQuestionCount] = useState(4);
+  const [questionCount, setQuestionCount] = useState(2);
+  const [showModal, setShowModal] = useState(false);
 
   let displayedQuestions = [];
 
   if (questions.results) {
-    if (questionCount === 0) {
-      displayedQuestions = questions.results.slice(questionCount);
-    } else {
-      displayedQuestions = questions.results.slice(0, questionCount);
-    }
+    displayedQuestions = questions.results.slice(0, questionCount);
   }
 
   const incrementCount = () => {
-    setDisplayMoreQuestionsButton(!displayMoreQuestionsButton);
-    setQuestionCount(0);
+    let temp = questionCount + 2;
+    setQuestionCount(temp);
+    if (questions.results.length < temp) {
+      setDisplayMoreQuestionsButton(!displayMoreQuestionsButton);
+    }
   };
 
-  const decrementCount = () => {
-    setDisplayMoreQuestionsButton(!displayMoreQuestionsButton);
-    setQuestionCount(4);
+  const changeShowModal = () => {
+    setShowModal(!showModal);
   };
+
+  // const decrementCount = () => {
+  //   setDisplayMoreQuestionsButton(!displayMoreQuestionsButton);
+  //   setQuestionCount(2);
+  // };
 
   if (displayedQuestions.length !== 0) {
     return (
       <div className="questionsList">
         {displayedQuestions.map((question, index) => <QuestionsListEntry key={index} question={question}/>)}
-        {displayMoreQuestionsButton && (
-          <MoreQuestionsButton onClick={incrementCount}/>
+        {(displayMoreQuestionsButton && questions.results.length > 2) && (
+          <MoreQuestionsButton incrementCount={incrementCount}/>
         )}
-        {!displayMoreQuestionsButton && (
-          <LessQuestionsButton onClick={decrementCount}/>
+        {(!showModal) && (
+          <AddQuestionButton changeShowModal={changeShowModal}/>
+        )}
+
+        {(showModal) && (
+          <QuestionModal productInfo={productInfo} changeShowModal={changeShowModal}/>
         )}
       </div>
     )
