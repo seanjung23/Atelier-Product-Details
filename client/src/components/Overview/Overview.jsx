@@ -1,17 +1,15 @@
 import react,  {useState, useEffect, useRef, useLayoutEffect}from 'react';
 import axios from 'axios';
 import OverViewImage from './OverViewImage.jsx';
+import OverviewProductInformation from './OverviewProductInformation.jsx'
 // Group Effort
 
 const Overview = ({productInfo}) => {
   const [itemInfo, setItemInfo] = useState(productInfo);
-  const [defaultStyle, setDefaultStyle] = useState({});
-  const [defaultImgSrc, setDefaultImgSrc] = useState('');
   const [itemRating, setItemRating] = useState(0);
   const [productStyles, setProductStyles] = useState([]);
   const [currentStyle, setCurrentStyle] = useState({});
   const itemId = productInfo.id;
-
 
   useEffect(()=>{
 
@@ -19,26 +17,17 @@ const Overview = ({productInfo}) => {
 
     axios.get(url)
       .then(result => {
+
         setProductStyles(productStyles=> [...productStyles, result.data.results]);
-
-        console.log('product styles ', result.data.results);
-
-        if(result.data.results.length === 1) {
-
-          setDefaultStyle(result.data.results[0]);
-          setDefaultImgSrc(result.data.results[0].photos[0].url)
-        } else {
 
           for (var style of result.data.results) {
             if (style['default?']) {
-              setDefaultStyle(style);
-              setCurrentStyle(style);
-              setDefaultImgSrc(style.photos[0].url)
 
+              setCurrentStyle(style);
               break;
             }
           }
-        }
+
 
       } )
       .catch(err => console.log(err));
@@ -66,16 +55,23 @@ const Overview = ({productInfo}) => {
 
 
 
-
+if(currentStyle === undefined) {
+  return (
+    <progress></progress>
+  )
+}
   return(
-    <div>
+    <div className="currentStyleDiv">
       <h1>Overview Section</h1>
-      <div className="currentStyleDiv">
-        <div className="overviewImageDiv">
-          <OverViewImage currentStyle={currentStyle}/>
-        </div>
 
+      <div className="overviewImageDiv">
+        <OverViewImage currentStyle={currentStyle}/>
       </div>
+
+      <div className="overviewProductInformationDiv">
+          <OverviewProductInformation itemRating={itemRating} productStyles={productStyles} currentStyle={currentStyle} setCurrentStyle={setCurrentStyle}  itemInfo={itemInfo} setItemInfo={setItemInfo}/>
+      </div>
+
     </div>
   )
 };
