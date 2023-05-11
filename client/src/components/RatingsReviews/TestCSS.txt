@@ -12,6 +12,11 @@
   width: 70%;
 }
 
+.innerReviewList {
+  height: 85vh;
+  overflow: auto
+}
+
 .productBreakdownScale {
   background-color: lightgray;
   border: solid;

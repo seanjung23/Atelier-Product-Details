@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Review from './Review.jsx';
 import MoreReviewsButton from './MoreReviewsButton.jsx';;
 import SortMenu from './SortMenu.jsx';
+import InnerReviewList from './InnerReviewList.jsx';
 
 // John
 // Remember sync and to GIT PULL
@@ -38,9 +39,7 @@ const ReviewsList = ({reviewInfo, setSortSelection, starArrayMaker}) => {
       <div className='ReviewsList'>
         <h2>Reviews List Section</h2>
         <SortMenu setSortSelection={setSortSelection}/>
-        {currentlyDisplayedReviews.map(function(oneReview, index) {
-        return <Review oneReview={oneReview} key={index} starArrayMaker={starArrayMaker}/>
-        })}
+        <InnerReviewList currentlyDisplayedReviews={currentlyDisplayedReviews} starArrayMaker={starArrayMaker}/>
         {whetherToDisplayMoreReviewsButton()}
       </div>
     )
