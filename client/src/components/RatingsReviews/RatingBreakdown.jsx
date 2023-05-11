@@ -1,23 +1,33 @@
 import React from 'react';
 import OverallRatingStars from './OverallRatingStars.jsx';
 import RatingDistribution from './RatingDistribution.jsx';
+import ProductBreakdown from './ProductBreakdown.jsx';
 
 
 const RatingBreakdown = ({reviewMetaData, reviewInfo, roundedAverageRatingOverall, totalRatings, starArray, setFilterSettings,
 filterSettings}) => {
 
+
   if (reviewInfo && roundedAverageRatingOverall) {
     return (
       <div className='RatingBreakdown'>
-        <h2>
-          --AVG RATING: {roundedAverageRatingOverall}
+        <div className='averageReviewRating'>
+          <h2 className='averageReviewRatingText'>
+            {roundedAverageRatingOverall}
+          </h2>
           <OverallRatingStars starArray={starArray}/>
-        </h2>
-
-        -----RATING BREAKDOWN-----TOTAL REVIEWS: {reviewInfo.length}
+        </div>
+        <div>
+        Total Reviews: {reviewInfo.length}
+        </div>
+        <div className='ratingBreakdownTitle'>
+        Rating Breakdown
+        </div>
         <RatingDistribution reviewMetaData={reviewMetaData}
         totalRatings={totalRatings} setFilterSettings={setFilterSettings}
         filterSettings={filterSettings}/>
+
+        <ProductBreakdown reviewMetaData={reviewMetaData}/>
       </div>
     )
   }

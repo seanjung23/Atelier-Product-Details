@@ -5,7 +5,7 @@ let OverallRatingStars = ({starArray}) => {
   // CHANGE CLASS NAME ONCE COMPLETED
 
   return (
-    <span>
+    <div className='averageRatingStarSet'>
     {starArray.map((element, index)=> {
       if (element === 1) {
         return <FullStar key={index}/>
@@ -19,7 +19,7 @@ let OverallRatingStars = ({starArray}) => {
         return <EmptyStar key={index}/>
       }
     })}
-    </span>
+    </div>
   )
 }
 
