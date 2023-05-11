@@ -4,9 +4,9 @@ const SearchQuestions = ({retrieveQuery}) => {
 
   const initalizeSearch = () => {
     let query = document.getElementsByClassName('user-search')[0].value.toLowerCase();
-    if (query.length >= 3 || query === '') {
-      retrieveQuery(query);
-    }
+    query = query.length < 3 ? '' : query;
+
+    retrieveQuery(query);
   };
 
   return (

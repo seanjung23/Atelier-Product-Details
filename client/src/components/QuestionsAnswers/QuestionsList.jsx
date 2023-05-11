@@ -15,7 +15,6 @@ const QuestionsList = ({questions}) => {
     } else {
       displayedQuestions = questions.results.slice(0, questionCount);
     }
-
   }
 
   const incrementCount = () => {
@@ -27,8 +26,6 @@ const QuestionsList = ({questions}) => {
     setDisplayMoreQuestionsButton(!displayMoreQuestionsButton);
     setQuestionCount(4);
   };
-
-
 
   if (displayedQuestions.length !== 0) {
     return (

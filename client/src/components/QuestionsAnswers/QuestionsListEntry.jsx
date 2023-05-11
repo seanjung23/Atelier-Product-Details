@@ -28,7 +28,6 @@ const QuestionsListEntry = ({question}) => {
       answers.unshift(temp[0]);
     }
   }
-  // console.log('this is answers', answers);
 
   const showAllAnswers = () => {
     setAnswerCount(0);
