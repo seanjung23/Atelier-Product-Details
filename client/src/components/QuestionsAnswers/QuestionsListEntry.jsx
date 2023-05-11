@@ -3,9 +3,10 @@ import AnswersEntry from './AnswersEntry.jsx';
 import {ShowAllAnswersButton, CollapseAllAnswersButton} from './QuestionsButtons.jsx';
 
 const QuestionsListEntry = ({question}) => {
-  console.log('this is question', question);
+  // console.log('this is question', question);
   const [answerCount, setAnswerCount] = useState(2);
   const [showAnswersButton, setShowAnswersButton] = useState(true);
+  const [reported, setReported] = useState(false);
 
   let answers = [];
 
@@ -27,7 +28,6 @@ const QuestionsListEntry = ({question}) => {
       answers.unshift(temp[0]);
     }
   }
-  // console.log('this is answers', answers);
 
   const showAllAnswers = () => {
     setAnswerCount(0);
@@ -43,10 +43,14 @@ const QuestionsListEntry = ({question}) => {
     return (
       <div>
         <h4>Q:</h4>
-        <p>{question.question_body}</p>
+        <p className="questionBody">{question.question_body}</p>&nbsp;
+        <p className="questionBody">
+          <span>Helpful?</span> <a href="">Yes ({question.question_helpfulness})</a> <b>|</b>&nbsp;
+          <a href="">Add Answer</a>
+        </p>
         <div>
           <h4>A:</h4>
-          {answers.map((answer, index) => <AnswersEntry key={index} answer={answer} />)}
+          {answers.map((answer, index) => <AnswersEntry key={index} answer={answer} reported={reported} setReported={setReported}/>)}
           {showAnswersButton && (<ShowAllAnswersButton showAllAnswers={showAllAnswers}/>)}
           {!showAnswersButton && (<CollapseAllAnswersButton collapseAnswers={collapseAnswers}/>)}
         </div>
@@ -58,7 +62,11 @@ const QuestionsListEntry = ({question}) => {
   return (
     <div>
       <h4>Q:</h4>
-      <p>{question.question_body}</p>
+      <p className="questionBody">{question.question_body}</p>&nbsp;
+      <p className="questionBody">
+        <span>Helpful?</span> <a href="">Yes ({question.question_helpfulness})</a> <b>|</b>&nbsp;
+        <a href="">Add Answer</a>
+      </p>
       <div>
         <h4>A:</h4>
         <p>No Answers Yet!</p>

@@ -15,7 +15,6 @@ const QuestionsList = ({questions}) => {
     } else {
       displayedQuestions = questions.results.slice(0, questionCount);
     }
-
   }
 
   const incrementCount = () => {
@@ -28,11 +27,9 @@ const QuestionsList = ({questions}) => {
     setQuestionCount(4);
   };
 
-
-
   if (displayedQuestions.length !== 0) {
     return (
-      <div>
+      <div className="questionsList">
         {displayedQuestions.map((question, index) => <QuestionsListEntry key={index} question={question}/>)}
         {displayMoreQuestionsButton && (
           <MoreQuestionsButton onClick={incrementCount}/>
