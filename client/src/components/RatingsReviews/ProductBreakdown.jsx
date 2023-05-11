@@ -11,10 +11,10 @@ const ProductBreakdown = ({reviewMetaData}) => {
       let innerMarker = document.getElementsByClassName(markerClass);
       for (let i = 0; i < productCharacteristics.length; i += 1) {
         innerMarker[i].style.height = '100%';
-        innerMarker[i].style.backgroundColor = 'gray';
+        innerMarker[i].style.backgroundColor = 'black';
         innerMarker[i].style.width = '5%';
         innerMarker[i].style.marginLeft = ((
-          (reviewMetaData.characteristics[productCharacteristics[i]].value - 1)
+          ((reviewMetaData.characteristics[productCharacteristics[i]].value * 0.96) - 1)
           / 4) * 100).toString() + '%';
       }
     }
@@ -23,17 +23,42 @@ const ProductBreakdown = ({reviewMetaData}) => {
 
   console.log(reviewMetaData, productCharacteristics);
 
-  let fivePointScaleDisplay = function(characteristicInput) {
+  let fivePointScaleDisplay = function(characteristicInput, key) {
     if (characteristicInput === 'Size') {
-
+      return (
+      <div key={key}>
+        <span className='oneRatingCharacteristic'>too small</span>
+        <div className='threeRatingCharacteristic'>perfect</div>
+        <span className='fiveRatingCharacteristic'>too large</span>
+      </div>)
     } else if (characteristicInput === 'Width') {
-
+      return (
+      <div key={key}>
+        <span className='oneRatingCharacteristic'>too thin</span>
+        <div className='threeRatingCharacteristic'>perfect</div>
+        <span className='fiveRatingCharacteristic'>too wide</span>
+      </div>)
     } else if (characteristicInput === 'Comfort') {
-
+      return (
+      <div key={key}>
+        <span className='oneRatingCharacteristic'>poor</span>
+        <div className='characteristicFiller'></div>
+        <span className='fiveRatingCharacteristic'>great</span>
+      </div>)
     } else if (characteristicInput === 'Quality') {
-
+      return (
+      <div key={key}>
+        <span className='oneRatingCharacteristic'>poor</span>
+        <div className='characteristicFiller'></div>
+        <span className='fiveRatingCharacteristic'>great</span>
+      </div>)
     } else if (characteristicInput === 'Length') {
-
+      return (
+      <div key={key}>
+        <span className='oneRatingCharacteristic'>too short</span>
+        <div className='threeRatingCharacteristic'>perfect</div>
+        <span className='fiveRatingCharacteristic'>too long</span>
+      </div>)
     }
   };
 
@@ -44,12 +69,13 @@ const ProductBreakdown = ({reviewMetaData}) => {
       PRODUCT BREAKDOWN
       {productCharacteristics.map((characteristic, index) => {
         return (
-        <div>
-            {characteristic}{reviewMetaData.characteristics[characteristic].value}
-          <div className='productBreakdownScale'key={index}>
-            <div className='productBreakdownMarker' key={index}>
+        <div key={index}>
+            {characteristic}
+          <div className='productBreakdownScale'>
+            <div className='productBreakdownMarker'>
             </div>
           </div>
+          {fivePointScaleDisplay(characteristic, (index.toString() + 'KEY'))}
         </div>
         )
       })}

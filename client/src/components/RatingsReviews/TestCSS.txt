@@ -11,3 +11,27 @@
   display: inline-block;
   width: 70%;
 }
+
+.productBreakdownScale {
+  background-color: lightgray;
+  border: solid;
+  height: 0.5em;
+}
+
+.oneRatingCharacteristic {
+  float: left;
+}
+
+.threeRatingCharacteristic {
+  display: inline-block;
+  height: 2em;
+}
+
+.fiveRatingCharacteristic {
+  float: right;
+}
+
+.characteristicFiller {
+  display: inline-block;
+  height: 2em;
+}
