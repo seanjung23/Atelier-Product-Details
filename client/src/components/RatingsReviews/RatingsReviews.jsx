@@ -3,6 +3,7 @@ import ReviewsList from './ReviewsList.jsx';
 import axios from 'axios';
 import RatingBreakdown from './RatingBreakdown.jsx';
 
+
 // John
 // Remember sync and to GIT PULL
 //--------------- NEEDS REVIEW FOR LOADING ICON
@@ -14,6 +15,7 @@ const RatingsReviews = ({productInfo}) => {
   const [reviewInfo, setReviewInfo] = useState([]);
   const [reviewMetaData, setReviewMetaData] = useState({});
   const [filterSettings, setFilterSettings] = useState({});
+
 
   // PRODUCT ID Will need PASSED DOWN Later
   let product_id = 37315;
@@ -125,7 +127,8 @@ const RatingsReviews = ({productInfo}) => {
       <RatingBreakdown reviewMetaData={reviewMetaData} reviewInfo={reviewInfo} roundedAverageRatingOverall={roundedAverageRatingOverall} totalRatings={totalRatings} starArray={starArrayMaker(roundedAverageRatingOverall)}
       setFilterSettings={setFilterSettings} filterSettings={filterSettings}/>
 
-      <ReviewsList reviewInfo={whetherFilteredReviewsAppear()} setSortSelection={setSortSelection} starArrayMaker={starArrayMaker}/>
+      <ReviewsList reviewInfo={whetherFilteredReviewsAppear()} setSortSelection={setSortSelection} starArrayMaker={starArrayMaker}
+      productInfo={productInfo}/>
     </div>
   )
 };

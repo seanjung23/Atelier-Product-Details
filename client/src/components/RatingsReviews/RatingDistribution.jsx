@@ -59,8 +59,6 @@ const RatingDistribution = ({reviewMetaData, totalRatings, setFilterSettings, fi
   / (Number(reviewMetaData.recommended.true)
   + Number(reviewMetaData.recommended.false)) * 100);
 
-  console.log(reviewMetaData);
-
   return (
     <div>
       <div>

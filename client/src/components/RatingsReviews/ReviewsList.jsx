@@ -3,13 +3,16 @@ import Review from './Review.jsx';
 import MoreReviewsButton from './MoreReviewsButton.jsx';;
 import SortMenu from './SortMenu.jsx';
 import InnerReviewList from './InnerReviewList.jsx';
+import CreateNewReviewButton from './CreateNewReviewButton.jsx';
+import NewReviewForm from './NewReviewForm.jsx';
 
 // John
 // Remember sync and to GIT PULL
 
-const ReviewsList = ({reviewInfo, setSortSelection, starArrayMaker}) => {
+const ReviewsList = ({reviewInfo, setSortSelection, starArrayMaker, productInfo}) => {
 
   const [reviewsDisplayed, setReviewsDisplayed] = useState(2);
+  const [displayNewReviewForm, setDisplayNewReviewForm] = useState(false);
 
   let currentlyDisplayedReviews = [];
   // console.log(reviewsDisplayed);
@@ -22,12 +25,16 @@ const ReviewsList = ({reviewInfo, setSortSelection, starArrayMaker}) => {
     if (reviewInfo.length > 2
       && reviewsDisplayed < reviewInfo.length) {
         return (
-          <div>
+          <div className='moreReviewsButton'>
             <MoreReviewsButton
       moreReviewsClickHandler={moreReviewsClickHandler}/>
           </div>
         )
       }
+  }
+
+  let handleWriteReviewOnClick = function () {
+    setDisplayNewReviewForm(!displayNewReviewForm);
   }
 
   if (reviewInfo) {
@@ -39,7 +46,11 @@ const ReviewsList = ({reviewInfo, setSortSelection, starArrayMaker}) => {
       <div className='ReviewsList'>
         <SortMenu setSortSelection={setSortSelection}/>
         <InnerReviewList currentlyDisplayedReviews={currentlyDisplayedReviews} starArrayMaker={starArrayMaker}/>
+        <div>
         {whetherToDisplayMoreReviewsButton()}
+        <CreateNewReviewButton handleWriteReviewOnClick={handleWriteReviewOnClick}/>
+        </div>
+        {displayNewReviewForm && <NewReviewForm productInfo={productInfo}/>}
       </div>
     )
   }

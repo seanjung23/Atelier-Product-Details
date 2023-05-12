@@ -1,12 +1,68 @@
 /* MAKE SURE STYLES.CSS IS EMPTY BEFORE COMMITTING */
 
+/* Delete before commit */
+.oneReviewRatingStars {
+  display: inline-block;
+  height: 15%;
+  width: 15%;
+}
+
+.oneReview {
+  margin: 4% 0%;
+  border-width: 2%;
+  border-bottom: solid;
+}
+
+.reviewerNameAndDate {
+  display: inline-block;
+  text-align: right;
+  width: 84%;
+}
+
+.oneReviewBody {
+  margin: 3% 0;
+}
+
+.oneReviewImage {
+  height: 20vh;
+  margin-right: 2%;
+  margin-bottom: 1%;
+}
+
+.createNewReviewButton {
+  display: inline-block;
+  margin: 4% 2%;
+  margin-left: 0;
+  height: 20%;
+  width: 20%;
+}
+
+.createNewReviewButton button {
+  height: 3em;
+}
+
+.moreReviewsButton {
+  display: inline-block;
+  margin: 4%;
+  margin-left: 0%;
+  margin-right: 0%;
+  height: 20%;
+  width: 20%;
+}
+
+.moreReviewsButton button {
+  height: 3em;
+}
+
+/* Delete before commit */
+
 .RatingBreakdown {
   display: inline-block;
   vertical-align: top;
   width: 25%;
-  margin: 1% 1%;
+  margin: 1% 5%;
   margin-top: 0;
-  font-size: 75%;
+  font-size: 70%;
 }
 
 
@@ -17,11 +73,11 @@
 
 .ReviewsList {
   display: inline-block;
-  width: 70%;
+  width: 50%;
 }
 
 .innerReviewList {
-  height: 85vh;
+  max-height: 85vh;
   overflow: auto
 }
 
@@ -51,7 +107,7 @@
 
 .RatingsReviewsTitle {
   font-size: 120%;
-  margin: 2%;
+  margin: 1% 5%;
 }
 
 .averageReviewRating{
@@ -124,3 +180,23 @@
   font-weight: bold;
   color: lightblue;
 }
+
+/* Delete before commit */
+.oneReviewRatingStars {
+  display: inline-block;
+  height: 15%;
+  width: 15%;
+}
+
+.oneReview {
+  margin: 4% 0%;
+  border-width: 2%;
+  border-bottom: solid;
+}
+
+.reviewerNameAndDate {
+  display: inline-block;
+  text-align: right;
+  width: 84%;
+}
+
