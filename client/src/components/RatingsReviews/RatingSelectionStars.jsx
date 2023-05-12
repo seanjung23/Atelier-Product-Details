@@ -28,14 +28,14 @@ const RatingSelectionStars = () => {
   let selectableStarMaker = function (starSet, whichStarInSet) {
     return (
     <div className='selectableStarSet'
-    onMouseEnter={changeStarSelection(starSet)}>
+    onClick={changeStarSelection(starSet)}>
       {whichStarToDisplay(filledStars[whichStarInSet])}
     </div>
     )
   }
 
   return (
-    <div className='selectableStarSetGroup' onMouseLeave={changeStarSelection(starSetDefault)}>
+    <div className='selectableStarSetGroup'>
       {selectableStarMaker(starSet1, 0)}
       {selectableStarMaker(starSet2, 1)}
       {selectableStarMaker(starSet3, 2)}
