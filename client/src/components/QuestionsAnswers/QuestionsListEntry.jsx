@@ -1,12 +1,14 @@
 import React, {useState} from 'react';
 import AnswersEntry from './AnswersEntry.jsx';
 import {ShowAllAnswersButton, CollapseAllAnswersButton} from './QuestionsButtons.jsx';
+import AnswerModal from './AnswerModal.jsx';
 
-const QuestionsListEntry = ({question}) => {
+const QuestionsListEntry = ({question, productInfo}) => {
   // console.log('this is question', question);
   const [answerCount, setAnswerCount] = useState(2);
   const [showAnswersButton, setShowAnswersButton] = useState(true);
   const [reported, setReported] = useState(false);
+  const [showAnswerModal, setShowAnswerModal] = useState(false);
 
   let answers = [];
 
@@ -39,6 +41,10 @@ const QuestionsListEntry = ({question}) => {
     setShowAnswersButton(!showAnswersButton);
   };
 
+  const changeShowAnswerModal = () => {
+    setShowAnswerModal(!showAnswerModal);
+  };
+
   if (answers.length !== 0) {
     return (
       <div>
@@ -46,7 +52,7 @@ const QuestionsListEntry = ({question}) => {
         <p className="questionBody">{question.question_body}</p>&nbsp;
         <p className="questionBody">
           <span>Helpful?</span> <a href="">Yes ({question.question_helpfulness})</a> <b>|</b>&nbsp;
-          <a href="">Add Answer</a>
+          <a href="#" onClick={() => changeShowAnswerModal()}>Add Answer</a>
         </p>
         <div>
           <h4>A:</h4>
@@ -54,6 +60,9 @@ const QuestionsListEntry = ({question}) => {
           {showAnswersButton && (<ShowAllAnswersButton showAllAnswers={showAllAnswers}/>)}
           {!showAnswersButton && (<CollapseAllAnswersButton collapseAnswers={collapseAnswers}/>)}
         </div>
+        {(showAnswerModal) && (
+          <AnswerModal productInfo={productInfo} question={question} changeShowAnswerModal={changeShowAnswerModal}/>
+        )}
         <div>==================================================</div>
       </div>
     )
@@ -65,6 +74,7 @@ const QuestionsListEntry = ({question}) => {
       <p className="questionBody">{question.question_body}</p>&nbsp;
       <p className="questionBody">
         <span>Helpful?</span> <a href="">Yes ({question.question_helpfulness})</a> <b>|</b>&nbsp;
+        {/* fix this section for adding answers */}
         <a href="">Add Answer</a>
       </p>
       <div>

@@ -8,10 +8,10 @@ const MoreQuestionsButton = ({incrementCount}) => {
   )
 };
 
-const AddQuestionButton = ({changeShowModal}) => {
+const AddQuestionButton = ({changeShowQuestionModal}) => {
   return (
     <div>
-      <button type="button" onClick={() => changeShowModal()}>Add A Question +</button>
+      <button type="button" onClick={() => changeShowQuestionModal()}>Add A Question +</button>
     </div>
   )
 };

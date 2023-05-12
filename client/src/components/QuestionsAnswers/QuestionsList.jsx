@@ -8,7 +8,7 @@ const QuestionsList = ({questions, productInfo}) => {
   // console.log('these are questions', questions);
   const [displayMoreQuestionsButton, setDisplayMoreQuestionsButton] = useState(true);
   const [questionCount, setQuestionCount] = useState(2);
-  const [showModal, setShowModal] = useState(false);
+  const [showQuestionModal, setShowQuestionModal] = useState(false);
 
   let displayedQuestions = [];
 
@@ -24,8 +24,8 @@ const QuestionsList = ({questions, productInfo}) => {
     }
   };
 
-  const changeShowModal = () => {
-    setShowModal(!showModal);
+  const changeShowQuestionModal = () => {
+    setShowQuestionModal(!showQuestionModal);
   };
 
   // const decrementCount = () => {
@@ -36,16 +36,15 @@ const QuestionsList = ({questions, productInfo}) => {
   if (displayedQuestions.length !== 0) {
     return (
       <div className="questionsList">
-        {displayedQuestions.map((question, index) => <QuestionsListEntry key={index} question={question}/>)}
+        {displayedQuestions.map((question, index) => <QuestionsListEntry key={index} question={question} productInfo={productInfo}/>)}
         {(displayMoreQuestionsButton && questions.results.length > 2) && (
           <MoreQuestionsButton incrementCount={incrementCount}/>
         )}
-        {(!showModal) && (
-          <AddQuestionButton changeShowModal={changeShowModal}/>
+        {(!showQuestionModal) && (
+          <AddQuestionButton changeShowQuestionModal={changeShowQuestionModal}/>
         )}
-
-        {(showModal) && (
-          <QuestionModal productInfo={productInfo} changeShowModal={changeShowModal}/>
+        {(showQuestionModal) && (
+          <QuestionModal productInfo={productInfo} changeShowQuestionModal={changeShowQuestionModal}/>
         )}
       </div>
     )
