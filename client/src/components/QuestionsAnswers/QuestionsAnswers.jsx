@@ -7,7 +7,6 @@ import QuestionsList from './QuestionsList.jsx';
 // Remember sync and to GIT PULL
 
 const QuestionsAnswers = ({productInfo}) => {
-  // console.log('this is productInfo', productInfo);
   const [questions, setQuestions] = useState({});
   const [filteredQuestions, setFilteredQuestions] = useState({});
 
@@ -17,7 +16,7 @@ const QuestionsAnswers = ({productInfo}) => {
 
       axios.get(url, {
         //change back to productInfo.id for product_id value below 37311 37312(seller) 37325
-        params: {product_id: 37325}
+        params: {product_id: 37318}
         })
         .then(result => setQuestions(result.data))
         .catch(err => console.log(err));
@@ -49,8 +48,8 @@ const QuestionsAnswers = ({productInfo}) => {
     <div>
       <h1>Questions and Answers Section</h1>
       <SearchQuestions retrieveQuery={retrieveQuery} />
-      {filteredQuestions.results !== undefined && <QuestionsList questions={filteredQuestions} />}
-      {filteredQuestions.results === undefined && <QuestionsList questions={questions} />}
+      {filteredQuestions.results !== undefined && <QuestionsList questions={filteredQuestions} productInfo={productInfo}/>}
+      {filteredQuestions.results === undefined && <QuestionsList questions={questions} productInfo={productInfo}/>}
     </div>
   )
 };

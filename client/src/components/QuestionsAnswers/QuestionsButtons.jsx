@@ -1,17 +1,17 @@
 import React from 'react';
 
-const MoreQuestionsButton = ({onClick}) => {
+const MoreQuestionsButton = ({incrementCount}) => {
   return (
     <div>
-      <button type="button" onClick={() => onClick()}>More Answered Questions</button>
+      <button type="button" onClick={() => incrementCount()}>More Answered Questions</button>
     </div>
   )
 };
 
-const LessQuestionsButton = ({onClick}) => {
+const AddQuestionButton = ({changeShowQuestionModal}) => {
   return (
     <div>
-      <button type="button" onClick={() => onClick()}>Show Less Questions</button>
+      <button type="button" onClick={() => changeShowQuestionModal()}>Add A Question +</button>
     </div>
   )
 };
@@ -28,4 +28,4 @@ const CollapseAllAnswersButton = ({collapseAnswers}) => {
   )
 };
 
-export {MoreQuestionsButton, LessQuestionsButton, ShowAllAnswersButton, CollapseAllAnswersButton}
+export {MoreQuestionsButton, AddQuestionButton, ShowAllAnswersButton, CollapseAllAnswersButton}

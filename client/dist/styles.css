@@ -268,7 +268,7 @@
 /* Start of Q/A CSS */
 
 .questionsList {
-  height: 500px;
+  height: 90vh;
   overflow: auto;
 }
 
@@ -276,6 +276,91 @@
   display: inline;
 }
 
+.question-modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.question-modal-content {
+  width: 50vw;
+  background-color: #fff;
+}
+
+.question-modal-header,
+.question-modal-footer {
+  padding: 10px;
+}
+
+.question-modal-title,
+.question-modal-subtitle {
+  margin: 0;
+}
+
+.question-modal-body {
+  padding: 10px;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+
+.question-modal-body span {
+  color: red;
+}
+
+.question-modal-textbox {
+  height: 30vh;
+  min-width: 99%;
+  max-width: 99%;
+}
+
+.answer-modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.answer-modal-content {
+  width: 50vw;
+  background-color: #fff;
+}
+
+.answer-modal-header,
+.answer-modal-footer {
+  padding: 10px;
+}
+
+.answer-modal-title,
+.answer-modal-subtitle {
+  margin: 0;
+}
+
+.answer-modal-body {
+  padding: 10px;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+
+.answer-modal-body span {
+  color: red;
+}
+
+.answer-modal-textbox {
+  height: 30vh;
+  min-width: 99%;
+  max-width: 99%;
+}
 
 /* End of Q/A CSS */
 
