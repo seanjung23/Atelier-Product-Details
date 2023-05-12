@@ -18,7 +18,7 @@ const RatingsReviews = ({productInfo}) => {
 
 
   // PRODUCT ID Will need PASSED DOWN Later
-  let product_id = 37315;
+  let product_id = productInfo.id;
 
   let reviewInfoRetriever = function (countNumber) {
     axios.get(reviewUrl, {

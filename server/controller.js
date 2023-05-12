@@ -8,94 +8,94 @@ const config = {
 };
 
 module.exports = {
-  getProducts: (req, res, callback) => {
+  getProducts: (req, res) => {
 
     let requestURL = process.env.API_URL + req.path;
 
     axios.get(requestURL, config)
-      .then(result => {callback(result.data);})
+      .then(result => {res.json(result.data);})
       .catch(err => console.log(err));
   },
 
-  getReviews: (req, res, callback) => {
+  getReviews: (req, res) => {
     let requestURL = process.env.API_URL + req.url;
 
     axios.get(requestURL, config)
-      .then(result => {callback(result.data);})
+      .then(result => {res.json(result.data);})
       .catch(err => console.log(err));
   },
 
-  postReviews: (req, res, callback) => {
+  postReviews: (req, res) => {
     //TODO HERE
     let requestURL = process.env.API_URL + req.url;
     //req.data(?)  Needed
 
     axios.post(requestURL, config)
-      .then(result => {callback(result.data);})
+      .then(result => {res.json(result.data);})
       .catch(err => console.log(err));
   },
 
-  putReviews: (req, res, callback) => {
+  putReviews: (req, res) => {
     //TODO HERE
     let requestURL = process.env.API_URL + req.path;
 
     axios.put(requestURL, config)
-      .then(result => {callback(result.data);})
+      .then(result => {res.json(result.data);})
       .catch(err => console.log(err));
   },
 
-  getQA: (req, res, callback) => {
+  getQA: (req, res) => {
     let requestURL = process.env.API_URL + req.url;
 
     axios.get(requestURL, config)
-      .then(result => {callback(result.data);})
+      .then(result => {res.json(result.data);})
       .catch(err => console.log(err));
   },
 
-  getAnswers: (req, res, callback) => {
+  getAnswers: (req, res) => {
     //TODO HERE
     let requestURL = process.env.API_URL + req.path;
 
     axios.get(requestURL, config)
-      .then(result => {callback(result.data);})
+      .then(result => {res.json(result.data);})
       .catch(err => console.log(err));
   },
 
-  postQuestion: (req, res, callback) => {
+  postQuestion: (req, res) => {
     //TODO HERE
     let requestURL = process.env.API_URL + req.url;
     //req.data(?)  Needed
 
     axios.post(requestURL, config)
-      .then(result => {callback(result.data);})
+      .then(result => {res.json(result.data);})
       .catch(err => console.log(err));
   },
 
-  postAnswer: (req, res, callback) => {
+  postAnswer: (req, res) => {
     //TODO HERE
     let requestURL = process.env.API_URL + req.url;
     //req.data(?)  Needed
 
     axios.post(requestURL, config)
-      .then(result => {callback(result.data);})
+      .then(result => {res.json(result.data);})
       .catch(err => console.log(err));
   },
 
-  putAnswer: (req, res, callback) => {
+  putAnswer: (req, res) => {
     //TODO HERE
     let requestURL = process.env.API_URL + req.path;
 
     axios.put(requestURL, config)
-      .then(result => {callback(result.data);})
+      .then(result => {res.json(result.data);})
       .catch(err => console.log(err));
   },
 
-  putQuestion: (req, res, callback) => {
+  putQuestion: (req, res) => {
     //TODO HERE
     let requestURL = process.env.API_URL + req.path;
 
     axios.put(requestURL, config)
-      .then(result => {callback(result.data);})
+      .then(result => {res.json(result.data);})
       .catch(err => console.log(err));
   },
 
