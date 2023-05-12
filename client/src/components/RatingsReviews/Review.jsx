@@ -14,8 +14,9 @@ const Review = ({oneReview, starArrayMaker}) => {
     let month = oneReview.date.slice(5, 7);
     let day = oneReview.date.slice(8, 10);
     let wordMonth = months[Number(month) - 1];
-    let noZeroDayFormat = day.replace(0, '');
-    let newDateFormat = wordMonth + ' ' + noZeroDayFormat + ', ' + year;
+    // Use this instead of day if you want Jan 1 23 instead of Jan 01 23
+    // let noZeroDayFormat = day.replace(0, '');
+    let newDateFormat = wordMonth + ' ' + day + ', ' + year;
     return newDateFormat;
   }
 
@@ -27,11 +28,9 @@ const Review = ({oneReview, starArrayMaker}) => {
   }
 
   return(
-    <div>
-      <div>------------PLACEHOLDER SEPERATION-------------</div>
+    <div className='oneReview'>
       <div>
-        <span>
-          STARS:
+        <div className='oneReviewRatingStars'>
           {oneReviewStarArray.map((element, index)=> {
             if (element === 1) {
               return <FullStar key={index}/>
@@ -44,16 +43,22 @@ const Review = ({oneReview, starArrayMaker}) => {
            } else if (element >= 0 && element < 0.25){
              return <EmptyStar key={index}/>
            }
-           })} ----------------------
-        </span>
-        <span>
-          REVIEWER NAME: {oneReview.reviewer_name}, DATE: {dateAdjuster()}
-        </span>
+           })}
+        </div>
+        <div className='reviewerNameAndDate'>
+          {oneReview.reviewer_name}, {dateAdjuster()}
+        </div>
       </div>
-      <p>REVIEW TITLE: {reviewTitle}</p>
-      <p>REVIEW BODY: {oneReview.body}</p>
+      <p><strong>{reviewTitle}</strong></p>
+      <div className='oneReviewBody'>
+        {oneReview.body}
+        </div>
+        <div>
+          {oneReview.photos.map((photo, index) =>{
+            return (<img className='oneReviewImage' src={photo.url} key={index}/>)
+          })}
+        </div>
       {oneReview.recommend && <p>CHECKMARK HERE I recommend this product</p>}
-      <div>------------PLACEHOLDER SEPERATION-------------</div>
     </div>
   )
 };

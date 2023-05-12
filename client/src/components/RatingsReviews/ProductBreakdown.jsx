@@ -21,8 +21,6 @@ const ProductBreakdown = ({reviewMetaData}) => {
     productBreakdownMarkerSetting('productBreakdownMarker');
   }, [reviewMetaData]);
 
-  console.log(reviewMetaData, productCharacteristics);
-
   let fivePointScaleDisplay = function(characteristicInput, key) {
     if (characteristicInput === 'Size') {
       return (
@@ -65,7 +63,7 @@ const ProductBreakdown = ({reviewMetaData}) => {
 
 
   return (
-    <div>
+    <div className='productBreakdownOverall'>
       {productCharacteristics.map((characteristic, index) => {
         return (
         <div key={index}>
