@@ -1,7 +1,8 @@
 import react,  {useState, useEffect, useRef, useLayoutEffect}from 'react';
 import axios from 'axios';
 import OverViewImage from './OverViewImage.jsx';
-import OverviewProductInformation from './OverviewProductInformation.jsx'
+import OverviewProductInformation from './OverviewProductInformation.jsx';
+
 // Group Effort
 
 const Overview = ({productInfo}) => {
@@ -10,6 +11,7 @@ const Overview = ({productInfo}) => {
   const [productStyles, setProductStyles] = useState([]);
   const [currentStyle, setCurrentStyle] = useState({});
   const itemId = productInfo.id;
+
 
   useEffect(()=>{
 
@@ -51,8 +53,7 @@ const Overview = ({productInfo}) => {
       .catch(err => console.log(err));
 
 
-  },[]);
-
+  },[productInfo]);
 
 
 if(currentStyle === undefined) {
@@ -71,6 +72,8 @@ if(currentStyle === undefined) {
       <div className="overviewProductInformationDiv">
           <OverviewProductInformation itemRating={itemRating} productStyles={productStyles} currentStyle={currentStyle} setCurrentStyle={setCurrentStyle}  itemInfo={itemInfo} setItemInfo={setItemInfo}/>
       </div>
+
+
 
     </div>
   )

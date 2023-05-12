@@ -75,7 +75,10 @@ export default function OverViewImage({currentStyle}){
   }, [productImageThumbnailsYIndex])
 
   useEffect(()=> {
+
     if(currentStyle.style_id !== undefined){
+      setProductImages([]);
+      setProductImageThumbnails([]);
       currentStyle.photos.map(e => {
         setProductImages(productImages => [...productImages, e.url]);
       })
