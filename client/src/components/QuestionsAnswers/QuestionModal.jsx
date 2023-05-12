@@ -69,9 +69,9 @@ const QuestionModal = ({productInfo, changeShowQuestionModal}) => {
           </div>
 
           <div className="question-modal-footer">
-            {/* <button type="button" onClick={() => changeShowQuestionModal()}>Cancel</button>&nbsp;
-            <button type="submit">Submit Your Question</button> */}
-            <input type="submit"></input>
+            <button type="button" onClick={() => changeShowQuestionModal()}>Cancel</button>&nbsp;
+
+            <input type="submit" value='Submit Your Question'></input>
           </div>
 
         </div>
