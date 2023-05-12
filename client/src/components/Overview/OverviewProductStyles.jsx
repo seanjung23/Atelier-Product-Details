@@ -1,17 +1,16 @@
 import react,  {useState, useEffect, useRef, useLayoutEffect}from 'react';
 
-export default function ({productStyles}){
+import OverviewStyleItem from './OverviewStyleItem.jsx'
+export default function ({productStyles, currentStyle, setCurrentStyle}){
 
 
 
   if (productStyles !== undefined) {
 
-    var styles = [];
+    let styles = [];
     productStyles.map((style) => {
 
-      let temp = [style.style_id, style.name, style.photos[0].thumbnail_url];
-      // setStyles(styles => [...styles, temp]);
-      styles.push(temp);
+      styles.push(style);
 
     })
 
@@ -19,9 +18,7 @@ export default function ({productStyles}){
       <div className="overviewStyleSelectionDiv">
         {styles.map((style, index)=> {
           return(
-            <div className="overviewStylesDiv">
-              <img className="overviewStyles" src={style[2]}></img>
-            </div>
+            <OverviewStyleItem style={style} currentStyle={currentStyle} setCurrentStyle={setCurrentStyle}/>
 
           )
 
