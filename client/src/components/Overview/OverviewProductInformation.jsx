@@ -1,7 +1,7 @@
 import react from 'react';
 import OverviewItemRating from './OverviewItemRating.jsx'
 import OverviewProductStyles from './OverviewProductStyles.jsx';
-
+import OverviewAddToCart from './OverviewAddToCart.jsx';
 export default function overviewProductInformation({setItemInfo, itemInfo, productStyles, itemRating, setCurrentStyle, currentStyle}) {
   const {name, slogan, description, category, features} = itemInfo;
 
@@ -23,8 +23,11 @@ export default function overviewProductInformation({setItemInfo, itemInfo, produ
     </div>
     <div className="overviewStylesDiv">
       <p className="overviewCurrentStyleName"><span>STYLE >  </span>{currentStyle.name}</p>
-      <OverviewProductStyles productStyles={productStyles[0]}/>
+      <OverviewProductStyles productStyles={productStyles[0]} setCurrentStyle={setCurrentStyle} currentStyle={currentStyle}/>
     </div>
+    <div className="overviewAddToCartDiv">
+        <OverviewAddToCart currentStyle={currentStyle}/>
+      </div>
 
   </>
 

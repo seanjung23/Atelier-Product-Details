@@ -30,6 +30,9 @@
   float: left;
   position: relative;
 }
+.currentImageThumbnailsCarousel{
+  transition: all 0.2s;
+}
 .currentImageThumbnails {
   border: 1px solid #ddd;
   border-radius: 4px;
@@ -102,7 +105,7 @@
   float: right;
   right: 0px;
 }
-.overviewProductInformationDiv {
+.overviewProductInformationDiv{
   width:340px;
   display: inline-block;
   float: right;
@@ -112,15 +115,41 @@
   width: 5%;
 }
 .overviewStyleSelectionDiv{
-  display: flex;
+  width:340px;
+  height: calc(90px *2);
+  overflow: auto;
 }
-.overviewStylesDiv{
-  width: calc(100%);
+.overviewStyleThumbnailsDiv{
+  width: 60px;
+  height: 60px;
+  border: red solid ;
+  display: inline-block;
+  margin: 5px 5px;
+  border-radius: 50%;
+  overflow: hidden;
 
 }
-.overviewStyles{
+.overviewStyleThumbnails{
+  object-fit: cover;
+
   width: 100%;
-  object-fit: contain;
+  height: 100%;
+}
+
+.overViewCheckMarkDiv{
+  z-index: 9;
+  position:absolute ;
+  visibility: hidden;
+}
+
+.overviewStyleDiv {
+  position: relative;
+  display: inline-block;
+}
+
+.overviewAddToCartDiv{
+
+  display: block;
 }
 
 /*End of overview CSS */
@@ -205,6 +234,7 @@
   white-space: nowrap;
 
   position: relative;
+  transition: all calc(0.1s * 2);
 }
 
 .relatedItemLeftButtonDiv, .relatedItemRightButtonDiv {
