@@ -50,7 +50,10 @@ const QuestionModal = ({productInfo, changeShowQuestionModal}) => {
   };
 
   return (
-    <form action="" onSubmit={() => postQuestion()}>
+    <form action="" onSubmit={() => {
+      postQuestion();
+      changeShowQuestionModal();
+    }}>
       <div className="question-modal">
 
         <div className="question-modal-content">
