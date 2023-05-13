@@ -24,15 +24,15 @@ const QuestionsAnswers = ({productInfo}) => {
   }, [productInfo]);
 
   const retrieveQuery = (query) => {
-    let test = {};
+    let temp = {};
 
-    test.product_id = questions.product_id;
+    temp.product_id = questions.product_id;
 
-    test.results = questions.results.filter((question) => {
+    temp.results = questions.results.filter((question) => {
       return question.question_body.toLowerCase().includes(query);
     })
 
-    setFilteredQuestions(test);
+    setFilteredQuestions(temp);
   };
 
   if (!productInfo) {

@@ -2,31 +2,40 @@ import React from 'react';
 import axios from 'axios';
 
 const QuestionModal = ({productInfo, changeShowQuestionModal}) => {
-  // const checkInputs = () => {
-  //   let userQuestion = document.getElementsByClassName('question-modal-textbox')[0].value;
-  //   let userNickname = document.getElementsByClassName('question-modal-nickname')[0].value;
-  //   let userEmail = document.getElementsByClassName('question-modal-email')[0].value;
+  const checkInputs = () => {
+    let userQuestion = document.getElementsByClassName('question-modal-textbox')[0].value;
+    let userNickname = document.getElementsByClassName('question-modal-nickname')[0].value;
+    let userEmail = document.getElementsByClassName('question-modal-email')[0].value;
 
-  //   if (userQuestion.length === 0 || userNickname.length === 0 || userEmail.length === 0) {
-  //     alert('You must enter the following:');
-  //   }
-  // };
+    let checkEmail = (input) => {
+      let isValid = true;
+
+      if (input.length === 0 || !input.includes('@') || input[input.length - 1] === '@') {
+        isValid = false;
+      }
+
+      return isValid;
+    };
+
+    if (userQuestion.length === 0 || userNickname.length === 0 || !checkEmail(userEmail)) {
+      alert('You must enter the following:');
+    }
+  };
 
 
   // WORK ON SUBMIT FUNCTION
   const postQuestion = () => {
+    // instead of get element by class name use "useRef" to get value (let test = useRef('question-modal-textbox) ====> test.current.value should be the value of the user input)
+    let url = '/qa/questions';
     let userQuestion = document.getElementsByClassName('question-modal-textbox')[0].value;
     let userNickname = document.getElementsByClassName('question-modal-nickname')[0].value;
     let userEmail = document.getElementsByClassName('question-modal-email')[0].value;
-    console.log(userQuestion);
-    console.log(userNickname);
-    console.log(userEmail);
-    console.log('posted!')
 
-    axios.post('/qa/questions', {
+    axios.post(url, {
       body: userQuestion,
       name: userNickname,
-      email: userEmail
+      email: userEmail,
+      product_id: productInfo.id
     })
     .then((res) => console.log('this is server response', res))
     .catch((err) => console.log('error sending question to server'));
@@ -47,7 +56,7 @@ const QuestionModal = ({productInfo, changeShowQuestionModal}) => {
 
             <div>
               <span>*</span> Your Question:
-              <textarea className="question-modal-textbox" maxlength="1000" required placeholder="This is the Modal Content!"></textarea>
+              <textarea className="question-modal-textbox" maxLength="1000" required placeholder="This is the Modal Content!"></textarea>
             </div>
 
             <div>
@@ -70,8 +79,7 @@ const QuestionModal = ({productInfo, changeShowQuestionModal}) => {
 
           <div className="question-modal-footer">
             <button type="button" onClick={() => changeShowQuestionModal()}>Cancel</button>&nbsp;
-
-            <input type="submit" value='Submit Your Question'></input>
+            <input type="submit" value="Submit Question" onClick={() => checkInputs()}></input>
           </div>
 
         </div>
