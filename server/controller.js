@@ -99,5 +99,22 @@ module.exports = {
       .catch(err => console.log(err));
   },
 
+  postCart: (req, res) => {
+    let requestURL = process.env.API_URL + req.path;
+    console.log(requestURL)
+    console.log(req.body)
+    axios.post(requestURL, req.body, config)
+    .then(result => {res.json(result.data);})
+      .catch(err => console.log(err));
+  },
+
+  getCart:(req, res) => {
+    let requestURL = process.env.API_URL + req.path;
+
+    axios.get(requestURL, config)
+      .then(result => {res.json(result.data);})
+      .catch(err => console.log(err));
+  }
+
 
 }

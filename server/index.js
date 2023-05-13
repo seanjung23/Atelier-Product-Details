@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 require('dotenv').config();
 const app = express();
-const { getProducts, getReviews, getQA, postReviews, putReviews, getAnswers, postQuestion, postAnswer,  putAnswer, putQuestion} = require('./controller');
+const { getProducts, getReviews, getQA, postReviews, putReviews, getAnswers, postQuestion, postAnswer,  putAnswer, putQuestion, postCart, getCart} = require('./controller');
 
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '../client/dist')));
@@ -78,6 +78,14 @@ app.put('/qa/answers/:answer_id/helpful', (req, res) => {
 
 app.put('/qa/answers/:answer_id/report', (req, res) => {
   putAnswer(req, res);
+});
+
+app.post('/cart', (req, res)=>{
+  postCart(req, res);
+});
+
+app.get('/cart', (req, res)=>{
+  getCart(req, res);
 });
 
 
