@@ -18,7 +18,7 @@ export default function ({productStyles, currentStyle, setCurrentStyle}){
       <div className="overviewStyleSelectionDiv">
         {styles.map((style, index)=> {
           return(
-            <OverviewStyleItem style={style} currentStyle={currentStyle} setCurrentStyle={setCurrentStyle}/>
+            <OverviewStyleItem key={index} style={style} currentStyle={currentStyle} setCurrentStyle={setCurrentStyle}/>
 
           )
 
