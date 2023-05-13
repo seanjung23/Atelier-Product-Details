@@ -62,8 +62,10 @@ module.exports = {
   },
 
   postQuestion: (req, res) => {
+    // console.log('this is the req body', req.body)
     //TODO HERE
     let requestURL = process.env.API_URL + req.url;
+    // console.log(requestURL);
     //req.data(?)  Needed
 
     axios.post(requestURL, req.body, config)

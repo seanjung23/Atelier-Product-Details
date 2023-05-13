@@ -38,19 +38,14 @@ const QuestionModal = ({productInfo, changeShowQuestionModal}) => {
       product_id: productInfo.id
     }
 
-    // let config = {
-    //   params: {
-    //     product_id: productInfo.id
-    //   }
-    // }
-
     axios.post(url, data)
     .then((res) => console.log('this is server response', res))
     .catch((err) => console.log('error sending question to server'));
   };
 
   return (
-    <form action="" onSubmit={() => {
+    <form onSubmit={(e) => {
+      e.preventDefault();
       postQuestion();
       changeShowQuestionModal();
     }}>
@@ -90,9 +85,7 @@ const QuestionModal = ({productInfo, changeShowQuestionModal}) => {
 
           <div className="question-modal-footer">
             <button type="button" onClick={() => changeShowQuestionModal()}>Cancel</button>&nbsp;
-            <label>
-              <input type="submit" value="Submit Question" onClick={() => checkInputs()}></input>
-            </label>
+            <button type="submit" onClick={() => checkInputs()}>Submit Question</button>
           </div>
 
         </div>
