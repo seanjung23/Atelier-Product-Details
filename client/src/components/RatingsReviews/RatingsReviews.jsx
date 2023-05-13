@@ -16,7 +16,6 @@ const RatingsReviews = ({productInfo}) => {
   const [reviewMetaData, setReviewMetaData] = useState({});
   const [filterSettings, setFilterSettings] = useState({});
 
-  console.log('PP', productInfo)
   // PRODUCT ID Will need PASSED DOWN Later
   let product_id = productInfo.id;
 

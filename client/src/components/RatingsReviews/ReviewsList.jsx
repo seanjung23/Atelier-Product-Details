@@ -14,7 +14,7 @@ const ReviewsList = ({reviewInfo, setSortSelection, starArrayMaker,
 
   const [reviewsDisplayed, setReviewsDisplayed] = useState(2);
   const [displayNewReviewForm, setDisplayNewReviewForm] = useState(false);
-  console.log(reviewInfo);
+
   let currentlyDisplayedReviews = [];
   // console.log(reviewsDisplayed);
   const moreReviewsClickHandler = function () {

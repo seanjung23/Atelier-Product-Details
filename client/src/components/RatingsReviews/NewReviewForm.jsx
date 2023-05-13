@@ -6,6 +6,13 @@ const NewReviewForm = ({productInfo, reviewMetaData}) => {
 
   const [doYouRecommend, setDoYouRecommend] = useState('');
   const [yourStarRating, setYourStarRating] = useState('');
+  const [sizeCharacteristic, setSizeCharacteristic] = useState(0);
+  const [widthCharacteristic, setWidthCharacteristic] = useState(0);
+  const [comfortCharacteristic, setComfortCharacteristic] = useState(0);
+  const [qualityCharacteristic, setQualityCharacteristic] = useState(0);
+  const [lengthCharacteristic, setLengthCharacteristic] = useState(0);
+  const [fitCharacteristic, setFitCharacteristic] = useState(0);
+
   let ReviewFormSummary = useRef();
   let ReviewFormBody = useRef();
   let ReviewFormNickname = useRef();
@@ -19,6 +26,12 @@ const NewReviewForm = ({productInfo, reviewMetaData}) => {
     console.log(ReviewFormSummary.current.value);
     console.log(ReviewFormBody.current.value);
     console.log(ReviewFormEmail.current.value);
+    console.log(sizeCharacteristic);
+    console.log(widthCharacteristic);
+    console.log(comfortCharacteristic);
+    console.log(qualityCharacteristic);
+    console.log(lengthCharacteristic);
+    console.log(fitCharacteristic);
   }
 
   let handleRecommendClick = function (e) {
@@ -37,10 +50,10 @@ const NewReviewForm = ({productInfo, reviewMetaData}) => {
         <div>
         Do you recommend this product? *
           <div>
-            <input type='radio' value='Yes' name='recommend'
+            <input type='radio' value='Yes' name='newReviewRecommend'
             onClick={handleRecommendClick}/>
             <label>Yes</label>
-            <input type='radio' value='No' name='recommend'
+            <input type='radio' value='No' name='newReviewRecommend'
             onClick={handleRecommendClick}/>
             <label>No</label>
           </div>
@@ -48,7 +61,19 @@ const NewReviewForm = ({productInfo, reviewMetaData}) => {
         <div>
           Characteristics *
           <div>
-            <NewReviewCharacteristics reviewMetaData={reviewMetaData}/>
+            <NewReviewCharacteristics reviewMetaData={reviewMetaData}
+            sizeCharacteristic={sizeCharacteristic}
+            setSizeCharacteristic={setSizeCharacteristic}
+            widthCharacteristic={widthCharacteristic}
+            setWidthCharacteristic={setWidthCharacteristic}
+            comfortCharacteristic={comfortCharacteristic}
+            setComfortCharacteristic={setComfortCharacteristic}
+            qualityCharacteristic={qualityCharacteristic}
+            setQualityCharacteristic={setQualityCharacteristic}
+            lengthCharacteristic={lengthCharacteristic}
+            setLengthCharacteristic={setLengthCharacteristic}
+            fitCharacteristic={setFitCharacteristic}
+            />
           </div>
         </div>
         Review Summary
