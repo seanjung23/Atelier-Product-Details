@@ -2,6 +2,27 @@
 
 /* Delete before commit */
 
+.wasItHelpful {
+  display: inline-block;
+  margin-left: 3%;
+  color: blue;
+}
+
+.wasItHelpful:hover {
+  color: lightblue;
+}
+
+.fivePointRadioSelection label{
+  display: inline-block;
+  margin: 2% 0%;
+  margin-right: 5%;
+  text-align: center;
+}
+
+.newReviewCharacteristicCategory {
+  margin: 4% 0%;
+}
+
 
 /* Delete before commit */
 

@@ -2,7 +2,7 @@ import react, {useState} from 'react';
 import {EmptyStar, FullStar} from '../icons/ReviewRatingStarsSVG.jsx'
 
 
-const RatingSelectionStars = () => {
+const RatingSelectionStars = ({setYourStarRating}) => {
 
   let starSetDefault = [0, 0, 0, 0, 0];
   let starSet1 = [1, 0, 0, 0, 0];
@@ -21,14 +21,17 @@ const RatingSelectionStars = () => {
     return <FullStar />
   }
 
-  let changeStarSelection = function (currentStarSet) {
-    return function () {setFilledStars(currentStarSet)};
+  let changeStarSelection = function (currentStarSet, starInSet) {
+    return function () {
+      setYourStarRating(starInSet + 1);
+      setFilledStars(currentStarSet);
+    };
   }
 
   let selectableStarMaker = function (starSet, whichStarInSet) {
     return (
     <div className='selectableStarSet'
-    onClick={changeStarSelection(starSet)}>
+    onClick={changeStarSelection(starSet, whichStarInSet)}>
       {whichStarToDisplay(filledStars[whichStarInSet])}
     </div>
     )

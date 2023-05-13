@@ -9,7 +9,8 @@ import NewReviewForm from './NewReviewForm.jsx';
 // John
 // Remember sync and to GIT PULL
 
-const ReviewsList = ({reviewInfo, setSortSelection, starArrayMaker, productInfo}) => {
+const ReviewsList = ({reviewInfo, setSortSelection, starArrayMaker,
+  productInfo, reviewMetaData}) => {
 
   const [reviewsDisplayed, setReviewsDisplayed] = useState(2);
   const [displayNewReviewForm, setDisplayNewReviewForm] = useState(false);
@@ -50,7 +51,8 @@ const ReviewsList = ({reviewInfo, setSortSelection, starArrayMaker, productInfo}
         {whetherToDisplayMoreReviewsButton()}
         <CreateNewReviewButton handleWriteReviewOnClick={handleWriteReviewOnClick}/>
         </div>
-        {displayNewReviewForm && <NewReviewForm productInfo={productInfo}/>}
+        {displayNewReviewForm && <NewReviewForm productInfo={productInfo}
+        reviewMetaData={reviewMetaData}/>}
       </div>
     )
   }

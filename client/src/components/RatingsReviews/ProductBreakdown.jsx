@@ -32,7 +32,7 @@ const ProductBreakdown = ({reviewMetaData}) => {
     } else if (characteristicInput === 'Width') {
       return (
       <div key={key}>
-        <span className='oneRatingCharacteristic'>too thin</span>
+        <span className='oneRatingCharacteristic'>too narrow</span>
         <div className='threeRatingCharacteristic'>perfect</div>
         <span className='fiveRatingCharacteristic'>too wide</span>
       </div>)
@@ -57,10 +57,15 @@ const ProductBreakdown = ({reviewMetaData}) => {
         <div className='threeRatingCharacteristic'>perfect</div>
         <span className='fiveRatingCharacteristic'>too long</span>
       </div>)
+    } else if (characteristicInput === 'Fit') {
+      return (
+      <div key={key}>
+        <span className='oneRatingCharacteristic'>too tight</span>
+        <div className='threeRatingCharacteristic'>perfect</div>
+        <span className='fiveRatingCharacteristic'>too long</span>
+      </div>)
     }
   };
-
-
 
   return (
     <div className='productBreakdownOverall'>
