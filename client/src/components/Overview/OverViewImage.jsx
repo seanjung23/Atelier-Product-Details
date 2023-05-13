@@ -2,7 +2,7 @@ import react,  {useState, useEffect, useRef}from 'react';
 import {ChevronRightArrow, ChevronLeftArrow, ChevronUpArrow, ChevronDownArrow} from './../icons/OverviewArrowsSVG.jsx';
 import OverviewImageThumbnails from './OverviewImageThumbnails.jsx';
 import OverviewImages from './OverviewImages.jsx';
-
+import OverviewExpandSVG from './../icons/OverviewExpandSVG.jsx'
 export default function OverViewImage({currentStyle}){
 
   const [currentImage, setCurrentImage] = useState('');
@@ -24,7 +24,7 @@ export default function OverViewImage({currentStyle}){
   const [productImageThumbnailsButtonDisplay, setProductImageThumbnailsButtonDisplay] = useState(1);
 
   useEffect(()=> {
-    console.log('index',productImageThumbnailsButtonDisplay)
+
     if (productImageThumbnailsButtonDisplay === 0){
       setUpButtonDisplay({"display":"none"});
       setDownButtonDisplay({"display":"none"});
@@ -146,12 +146,20 @@ export default function OverViewImage({currentStyle}){
 
   },[productImagesButtonDisplay])
 
+  const expandOnClick = (e) => {
+    setExpandViewDisplay({"display":"inline"})
+  }
+  const [expandViewDisplay, setExpandViewDisplay] =useState({"display":"none"});
 
 
 
   if(currentImage  !== undefined){
     return (<>
+<div className="expandViewModal" style={expandViewDisplay}>
+  <div>
 
+  </div>
+</div>
       <div className="currentImageThumbnailsCarouselDiv" ref={productImageThumbnailsDivRef}>
 
       <div className="overviewUpButtonDiv" onClick={upButtonOnClick} style={upButtonDisplay}><ChevronUpArrow/></div>
@@ -159,7 +167,7 @@ export default function OverViewImage({currentStyle}){
         <div className="currentImageThumbnailsCarousel" ref={productImageThumbnailsRef}>
           {productImageThumbnails.map((e,index) => {
             return (
-              <OverviewImageThumbnails e={e} index={index} setImageIndex={setImageIndex}/>
+              <OverviewImageThumbnails e={e} key={index} index={index} setImageIndex={setImageIndex}/>
             )
           })}
         </div>
@@ -169,6 +177,7 @@ export default function OverViewImage({currentStyle}){
       </div>
 
       <div className="currentImagesCarouselDiv" ref={productImagesDivRef}>
+        <div className="expandViewIconDiv" onClick={expandOnClick} ><OverviewExpandSVG /></div>
         <div className="overviewLeftButtonDiv" onClick={leftButtonOnClick} style={leftButtonDisplay}><ChevronLeftArrow/></div>
         <div className="overviewRightButtonDiv" onClick={rightButtonOnClick} style={rightButtonDisplay}><ChevronRightArrow/></div>
         <div className="currentImagesCarousel" ref={productImagesRef}>
@@ -176,7 +185,7 @@ export default function OverViewImage({currentStyle}){
           {productImages.map((e, index) => {
               return (
 
-                <OverviewImages e={e} index={index} setImageIndex={setImageIndex}/>
+                <OverviewImages e={e} key={index} index={index} setImageIndex={setImageIndex}/>
               )
             })}
         </div>

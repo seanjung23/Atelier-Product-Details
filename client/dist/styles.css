@@ -74,7 +74,7 @@
 
 .overviewDownButtonDiv, .overviewUpButtonDiv {
   opacity: 70%;
-  z-index: 9;
+  z-index: 5;
   position: absolute;
   background-color: grey;
   width: 100%;
@@ -87,13 +87,22 @@
   height: 100%;
 }
 
-.overviewLeftButtonDiv, .overviewRightButtonDiv {
+.overviewLeftButtonDiv, .overviewRightButtonDiv{
   opacity: 70%;
-  z-index: 9;
+  z-index: 5;
   position: absolute;
   background-color: grey;
   width: 50px;
   bottom:calc(111px*5 /2);
+}
+.expandViewIconDiv {
+  z-index: 5;
+  position: absolute;
+
+  width: 30px;
+  float: right;
+  right: 15px;
+  top: 15px;
 }
 
 .overviewLeftButtonDiv {
@@ -137,7 +146,7 @@
 }
 
 .overViewCheckMarkDiv{
-  z-index: 9;
+  z-index: 5;
   position:absolute ;
   visibility: hidden;
 }
@@ -148,10 +157,29 @@
 }
 
 .overviewAddToCartDiv{
-
-  display: block;
+  position: relative;
+  display: inline-block;
+  margin-top: 10%;
 }
 
+.sizeDiv{
+
+   display: inline-block;
+}
+
+.quantityDiv {
+  position: absolute;
+
+  display: inline-block;
+}
+.addToCartbuttonDiv{
+  position: absolute;
+  top:120%;
+}
+
+.expandViewModal {
+
+}
 /*End of overview CSS */
 
 
@@ -239,7 +267,7 @@
 
 .relatedItemLeftButtonDiv, .relatedItemRightButtonDiv {
   opacity: 70%;
-  z-index: 9;
+  z-index: 5;
   position: absolute;
   background-color: grey;
   width: 70px;
@@ -286,6 +314,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 7;
 }
 
 .question-modal-content {
@@ -329,6 +358,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 7;
 }
 
 .answer-modal-content {
