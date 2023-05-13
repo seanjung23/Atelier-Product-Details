@@ -16,7 +16,7 @@ const RatingsReviews = ({productInfo}) => {
   const [reviewMetaData, setReviewMetaData] = useState({});
   const [filterSettings, setFilterSettings] = useState({});
 
-
+  console.log('PP', productInfo)
   // PRODUCT ID Will need PASSED DOWN Later
   let product_id = productInfo.id;
 
@@ -128,7 +128,7 @@ const RatingsReviews = ({productInfo}) => {
       setFilterSettings={setFilterSettings} filterSettings={filterSettings}/>
 
       <ReviewsList reviewInfo={whetherFilteredReviewsAppear()} setSortSelection={setSortSelection} starArrayMaker={starArrayMaker}
-      productInfo={productInfo}/>
+      productInfo={productInfo} reviewMetaData={reviewMetaData}/>
     </div>
   )
 };

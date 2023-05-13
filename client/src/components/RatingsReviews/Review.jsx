@@ -27,6 +27,21 @@ const Review = ({oneReview, starArrayMaker}) => {
     reviewTitle = oneReview.summary.slice(0, 60) + '...';
   }
 
+  // NEED TO ATTACH THIS FUNCTION TO APPROPRIATE SERVER API CALL
+  const ReviewHelpfulnessUpdater = function () {
+    axios.put(`/reviews/:${oneReview_id}/helpful`)
+      .then((result) => {console.log(result)})
+      .catch((err) => {console.logerr});
+  }
+
+  let wasItHelpfulClickHandler = function (e) {
+    if (e.target.textContent.includes('Yes')) {
+      console.log('FIX API REQEST and ADD HELPFULNESS updater');
+    } else if (e.target.textContent.includes('No')) {
+      return;
+    }
+  }
+
   return(
     <div className='oneReview'>
       <div>
@@ -59,6 +74,13 @@ const Review = ({oneReview, starArrayMaker}) => {
           })}
         </div>
       {oneReview.recommend && <p>CHECKMARK HERE I recommend this product</p>}
+      <div>
+        Was this review helpful?
+        <div className='wasItHelpful'
+        onClick={wasItHelpfulClickHandler}>Yes{'('}{oneReview.helpfulness}{')'}</div>
+        <div className='wasItHelpful'
+        onClick={wasItHelpfulClickHandler}>No</div>
+      </div>
     </div>
   )
 };

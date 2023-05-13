@@ -2,6 +2,20 @@
 
 /* Delete before commit */
 
+.wasItHelpful {
+  display: inline-block;
+  margin-left: 3%;
+  color: blue;
+}
+
+.wasItHelpful:hover {
+  color: lightblue;
+}
+
+.fivePointRadioSelection label{
+  display: inline-block;
+  margin-right: 5%;
+}
 
 /* Delete before commit */
 
