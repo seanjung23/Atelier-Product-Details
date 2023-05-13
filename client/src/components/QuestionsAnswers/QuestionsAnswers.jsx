@@ -16,7 +16,11 @@ const QuestionsAnswers = ({productInfo}) => {
 
       axios.get(url, {
         //change back to productInfo.id for product_id value below 37311 37312(seller) 37325
-        params: {product_id: productInfo.id}
+        params: {
+          product_id: productInfo.id,
+          page: 1,
+          count: 1000
+        }
         })
         .then(result => setQuestions(result.data))
         .catch(err => console.log(err));
@@ -24,15 +28,15 @@ const QuestionsAnswers = ({productInfo}) => {
   }, [productInfo]);
 
   const retrieveQuery = (query) => {
-    let test = {};
+    let temp = {};
 
-    test.product_id = questions.product_id;
+    temp.product_id = questions.product_id;
 
-    test.results = questions.results.filter((question) => {
+    temp.results = questions.results.filter((question) => {
       return question.question_body.toLowerCase().includes(query);
     })
 
-    setFilteredQuestions(test);
+    setFilteredQuestions(temp);
   };
 
   if (!productInfo) {
