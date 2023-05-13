@@ -76,8 +76,8 @@ module.exports = {
     let requestURL = process.env.API_URL + req.url;
     //req.data(?)  Needed
 
-    axios.post(requestURL, config)
-      .then(result => {res.json(result.data);})
+    axios.post(requestURL, req.body, config)
+      .then(result => res.sendStatus(201))
       .catch(err => console.log(err));
   },
 

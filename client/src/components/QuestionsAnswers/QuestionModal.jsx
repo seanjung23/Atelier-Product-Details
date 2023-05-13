@@ -10,7 +10,7 @@ const QuestionModal = ({productInfo, changeShowQuestionModal}) => {
     let checkEmail = (input) => {
       let isValid = true;
 
-      if (input.length === 0 || !input.includes('@') || input[input.length - 1] === '@') {
+      if (input.length === 0 || !input.includes('@') || input[input.length - 1] === '@' || input[input.length - 1] === '.') {
         isValid = false;
       }
 
@@ -31,12 +31,20 @@ const QuestionModal = ({productInfo, changeShowQuestionModal}) => {
     let userNickname = document.getElementsByClassName('question-modal-nickname')[0].value;
     let userEmail = document.getElementsByClassName('question-modal-email')[0].value;
 
-    axios.post(url, {
+    let data = {
       body: userQuestion,
       name: userNickname,
       email: userEmail,
       product_id: productInfo.id
-    })
+    }
+
+    // let config = {
+    //   params: {
+    //     product_id: productInfo.id
+    //   }
+    // }
+
+    axios.post(url, data)
     .then((res) => console.log('this is server response', res))
     .catch((err) => console.log('error sending question to server'));
   };
@@ -79,7 +87,9 @@ const QuestionModal = ({productInfo, changeShowQuestionModal}) => {
 
           <div className="question-modal-footer">
             <button type="button" onClick={() => changeShowQuestionModal()}>Cancel</button>&nbsp;
-            <input type="submit" value="Submit Question" onClick={() => checkInputs()}></input>
+            <label>
+              <input type="submit" value="Submit Question" onClick={() => checkInputs()}></input>
+            </label>
           </div>
 
         </div>
