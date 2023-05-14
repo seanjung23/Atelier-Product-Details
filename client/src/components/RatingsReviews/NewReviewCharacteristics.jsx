@@ -12,7 +12,8 @@ const NewReviewCharacteristics = ({
   setQualityCharacteristic,
   lengthCharacteristic,
   setLengthCharacteristic,
-  fitCharacteristic
+  fitCharacteristic,
+  setFitCharacteristic
 }) => {
 
   let sizeSelections = {
@@ -86,13 +87,10 @@ const NewReviewCharacteristics = ({
     return (
       <label>
         <input type='radio' value={value} name={`newReview${characteristic}`} onClick={characteristicSelectionClickHandler}/>
-          <div>
-            {selections[value]}
-          </div>
       </label>
     )
   }
-
+  // YOU CAN ADD THE FIRST AND LAST SELECTIONS TO THE BOTTOM OF HERE
   let fivePointRadioMaker = function (selections, characteristic) {
     return (
       <div className='fivePointRadioSelection'>
@@ -101,6 +99,12 @@ const NewReviewCharacteristics = ({
         {singlePointRadioMaker(selections, characteristic, 3)}
         {singlePointRadioMaker(selections, characteristic, 4)}
         {singlePointRadioMaker(selections, characteristic, 5)}
+        <div>
+          {selections[1]}
+        <div className='largerCharacteristicName'>
+          {selections[5]}
+        </div>
+        </div>
     </div>
     )
   }

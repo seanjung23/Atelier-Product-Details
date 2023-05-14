@@ -7,6 +7,7 @@ import {EmptyStar, FullStar, OneQuarterStar, ThreeQuarterStar, HalfStar} from '.
 
 const Review = ({oneReview, starArrayMaker}) => {
 
+
   let dateAdjuster = function () {
     let months = ['January', 'February', 'March', 'April', 'May', 'June',
       'July', 'August', 'September', 'October', 'November', 'December'];
