@@ -6,7 +6,6 @@ import {ShowAllAnswersButton, CollapseAllAnswersButton} from './QuestionsButtons
 const AnswersList = ({answers, question, productInfo, showAnswerModal, changeShowAnswerModal}) => {
   const [answerCount, setAnswerCount] = useState(2);
   const [showAnswersButton, setShowAnswersButton] = useState(true);
-  const [reported, setReported] = useState(false);
 
   let displayedAnswers = answers.slice();
 
@@ -35,16 +34,12 @@ const AnswersList = ({answers, question, productInfo, showAnswerModal, changeSho
     setShowAnswersButton(!showAnswersButton);
   };
 
-  const reportAnswer = () => {
-    setReported(!reported);
-  };
-
   if (displayedAnswers.length !== 0) {
     return (
       <div>
         <div>
           <h4>A:</h4>
-          {displayedAnswers.map((answer, index) => <AnswersEntry key={index} answer={answer} reportAnswer={reportAnswer} />)}
+          {displayedAnswers.map((answer, index) => <AnswersEntry key={index} answer={answer} />)}
           {(showAnswersButton && answers.length > 2) && (
             <ShowAllAnswersButton showAllAnswers={showAllAnswers} />
           )}
