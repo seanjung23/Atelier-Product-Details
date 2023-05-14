@@ -52,8 +52,8 @@ const QuestionsAnswers = ({productInfo}) => {
     <div>
       <h1>Questions and Answers Section</h1>
       <SearchQuestions retrieveQuery={retrieveQuery} />
-      {filteredQuestions.results !== undefined && <QuestionsList questions={filteredQuestions} productInfo={productInfo}/>}
-      {filteredQuestions.results === undefined && <QuestionsList questions={questions} productInfo={productInfo}/>}
+      {filteredQuestions.results !== undefined && <QuestionsList questions={filteredQuestions} productInfo={productInfo} />}
+      {filteredQuestions.results === undefined && <QuestionsList questions={questions} productInfo={productInfo} />}
     </div>
   )
 };

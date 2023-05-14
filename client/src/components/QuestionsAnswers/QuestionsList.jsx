@@ -36,15 +36,15 @@ const QuestionsList = ({questions, productInfo}) => {
   if (displayedQuestions.length !== 0) {
     return (
       <div className="questionsList">
-        {displayedQuestions.map((question, index) => <QuestionsListEntry key={index} question={question} productInfo={productInfo}/>)}
+        {displayedQuestions.map((question, index) => <QuestionsListEntry key={index} question={question} productInfo={productInfo} />)}
         {(displayMoreQuestionsButton && questions.results.length > 2) && (
-          <MoreQuestionsButton incrementCount={incrementCount}/>
+          <MoreQuestionsButton incrementCount={incrementCount} />
         )}
         {(!showQuestionModal) && (
-          <AddQuestionButton changeShowQuestionModal={changeShowQuestionModal}/>
+          <AddQuestionButton changeShowQuestionModal={changeShowQuestionModal} />
         )}
         {(showQuestionModal) && (
-          <QuestionModal productInfo={productInfo} changeShowQuestionModal={changeShowQuestionModal}/>
+          <QuestionModal productInfo={productInfo} changeShowQuestionModal={changeShowQuestionModal} />
         )}
       </div>
     )
@@ -54,7 +54,10 @@ const QuestionsList = ({questions, productInfo}) => {
     <div>
       <h4>Q:</h4>
       <p>No Questions Asked Yet!</p>
-      <button type="button" onClick={() => alert('hello')}>Submit New Question</button>
+      <button type="button" onClick={() => changeShowQuestionModal()}>Submit New Question</button>
+      {(showQuestionModal) && (
+        <QuestionModal productInfo={productInfo} changeShowQuestionModal={changeShowQuestionModal} />
+      )}
     </div>
   )
 };
