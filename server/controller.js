@@ -38,9 +38,13 @@ module.exports = {
   putReviews: (req, res) => {
     //TODO HERE
     let requestURL = process.env.API_URL + req.path;
-
-    axios.put(requestURL, config)
-      .then(result => {res.json(result.data);})
+    console.log(req.params);
+    axios.put(requestURL,
+      {params: req.params},
+      config)
+      .then(result => {
+        res.json(result.data);
+      })
       .catch(err => console.log(err));
   },
 

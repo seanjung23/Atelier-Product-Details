@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import {EmptyStar, FullStar, OneQuarterStar, ThreeQuarterStar, HalfStar} from '../icons/ReviewRatingStarsSVG.jsx';
 import Checkmark from '../icons/ReviewCheckmark.jsx';
+import ReviewImageModal from './ReviewImageModal.jsx';
 
 // John
 // Remember sync and to GIT PULL
@@ -9,6 +10,15 @@ import Checkmark from '../icons/ReviewCheckmark.jsx';
 const Review = ({oneReview, starArrayMaker}) => {
 
   const [showMore, setShowMore] = useState(false);
+  const [showImageModal, setShowImageModal] = useState(false);
+  const [imageModalContent, setImageModalContent] = useState('');
+  const [helpfulFeedbackGiven, setHelpfulFeedbackGiven] = useState(false);
+  const [reportGiven, setReportGiven] = useState(false);
+
+  let handleImageOnClick = function (e) {
+    setShowImageModal(true);
+    setImageModalContent(e.target.currentSrc);
+  }
 
   let showMoreOnClick = function () {
     setShowMore(true);
@@ -36,16 +46,22 @@ const Review = ({oneReview, starArrayMaker}) => {
 
   // NEED TO ATTACH THIS FUNCTION TO APPROPRIATE SERVER API CALL
   const ReviewHelpfulnessUpdater = function () {
-    axios.put(`/reviews/:${oneReview_id}/helpful`)
-      .then((result) => {console.log(result)})
-      .catch((err) => {console.logerr});
+    axios.put(`/reviews/${oneReview.review_id}/helpful`)
+      .then((result) => {setHelpfulFeedbackGiven(true)})
+      .catch((err) => {console.log(err)});
+  }
+
+  const ReviewReportUpdater = function () {
+    axios.put(`/reviews/${oneReview.review_id}/report`)
+      .then((result) => {setReportGiven(true)})
+      .catch((err) => {console.log(err)})
   }
 
   let wasItHelpfulClickHandler = function (e) {
     if (e.target.textContent.includes('Yes')) {
-      console.log('FIX API REQEST and ADD HELPFULNESS updater');
-    } else if (e.target.textContent.includes('No')) {
-      return;
+      ReviewHelpfulnessUpdater();
+    } else if (e.target.textContent.includes('Report')) {
+      ReviewReportUpdater();
     }
   }
 
@@ -96,18 +112,29 @@ const Review = ({oneReview, starArrayMaker}) => {
       {handlingLongReviews()}
         <div>
           {oneReview.photos.map((photo, index) =>{
-            return (<img className='oneReviewImage' src={photo.url} key={index}/>)
+            return (<img className='oneReviewImage'
+            onClick={handleImageOnClick} src={photo.url} key={index}/>)
           })}
+          {showImageModal && <ReviewImageModal setShowImageModal={setShowImageModal}
+          imageModalContent={imageModalContent}/>}
         </div>
       {oneReview.recommend && <p><Checkmark /> I recommend this product</p>}
-      <div>
+      {!helpfulFeedbackGiven && <div>
         Was this review helpful?
         <div className='wasItHelpful'
         onClick={wasItHelpfulClickHandler}>Yes{'('}{oneReview.helpfulness}{')'}</div>
-        <span> |</span>
-        <div className='wasItHelpful'
-        onClick={wasItHelpfulClickHandler}>Report</div>
-      </div>
+        <span className='wasItHelpfulLine'> | </span>
+        {!reportGiven && <div className='wasItHelpful'
+        onClick={wasItHelpfulClickHandler}>Report</div>}
+        {reportGiven && <span> Reported</span>}
+      </div>}
+      {helpfulFeedbackGiven && <div>
+        Thank you
+        <span className='wasItHelpfulLine'> | </span>
+        {!reportGiven && <div className='wasItHelpful'
+        onClick={wasItHelpfulClickHandler}>Report</div>}
+        {reportGiven && <span> Reported</span>}
+      </div>}
     </div>
   )
 };
