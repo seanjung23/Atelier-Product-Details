@@ -15,6 +15,7 @@ export default function OverViewImage({currentStyle}){
   const [imageIndex, setImageIndex] = useState(0);
   const [upButtonDisplay, setUpButtonDisplay] = useState({"display":"inherit"});
   const [downButtonDisplay, setDownButtonDisplay] = useState({"display":"inherit"});
+  const [prevImageIndex, setPrevImageIndex] = useState(-1);
 
   const [productImageThumbnailsYIndex, setProductImageThumbnailsYIndex] = useState(0);
     //0: both not display
@@ -43,11 +44,13 @@ export default function OverViewImage({currentStyle}){
 
 
   const upButtonOnClick =(e)=> {
+
       setProductImageThumbnailsYIndex(productImageThumbnailsYIndex+111);
 
   }
 
   const downButtonOnClick =(e)=> {
+
     setProductImageThumbnailsYIndex(productImageThumbnailsYIndex-111);
 
   }
@@ -59,6 +62,8 @@ export default function OverViewImage({currentStyle}){
       setProductImageThumbnailsYIndex(0);
 
       productImageThumbnailsRef.current.style.transform = `translateY(${productImageThumbnailsYIndex}px)`
+
+
 
     } else if(productImageThumbnailsYIndex <= (productImageThumbnailsDivRef.current.offsetHeight - productImageThumbnailsRef.current.offsetHeight)){
 
@@ -98,20 +103,34 @@ export default function OverViewImage({currentStyle}){
 
   const leftButtonOnClick = (e) => {
     if (imageIndex >=1) {
+      setPrevImageIndex(imageIndex);
       setImageIndex(imageIndex-1);
+      if (imageIndex < productImageThumbnails.length-2){
+        setProductImageThumbnailsYIndex(productImageThumbnailsYIndex+111);
+      }
+
+
     }
   }
 
   const rightButtonOnClick = (e) => {
     if (imageIndex < productImages.length -1) {
+      setPrevImageIndex(imageIndex);
       setImageIndex(imageIndex+1);
+      if (imageIndex>1){
+        setProductImageThumbnailsYIndex(productImageThumbnailsYIndex-111);
+      }
+
     }
   }
 
-  useEffect(()=>{
 
+
+  useEffect(()=>{
     if (imageIndex === 0) {
+
       setProductImagesButtonDisplay(2);
+
     } else if(imageIndex === productImages.length -1) {
       setProductImagesButtonDisplay(1);
     } else if(productImagesButtonDisplay !== 3){
@@ -167,7 +186,7 @@ export default function OverViewImage({currentStyle}){
         <div className="currentImageThumbnailsCarousel" ref={productImageThumbnailsRef}>
           {productImageThumbnails.map((e,index) => {
             return (
-              <OverviewImageThumbnails e={e} key={index} index={index} setImageIndex={setImageIndex}/>
+              <OverviewImageThumbnails e={e} key={index} index={index} setImageIndex={setImageIndex} imageIndex={imageIndex} setPrevImageIndex={setPrevImageIndex} prevImageIndex={prevImageIndex} setProductImageThumbnailsYIndex={setProductImageThumbnailsYIndex} currentStyle={currentStyle}/>
             )
           })}
         </div>

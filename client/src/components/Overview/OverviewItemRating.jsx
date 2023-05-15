@@ -2,7 +2,7 @@ import react from 'react';
 
 import {EmptyStar, FullStar, OneQuarterStar, ThreeQuarterStar, HalfStar} from '../icons/OverviewItemRatingStarsSVG.jsx'
 
-export default function({itemRating}) {
+export default function({itemRating, itemReviews}) {
 
   var avgRating = Math.floor(4 * itemRating) /4;
 
@@ -40,7 +40,7 @@ export default function({itemRating}) {
         return <EmptyStar key={i}/>
       }
     })}
-    <span className="relatedItemRatingTooltip">rating: {itemRating}</span>
+    <span className="relatedItemRatingTooltip"> <a href="#ratingsReviews" >Read all {itemReviews} reviews</a></span>
     </>
 
   )
