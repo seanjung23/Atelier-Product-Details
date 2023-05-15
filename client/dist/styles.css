@@ -177,8 +177,24 @@
   top:120%;
 }
 
-.expandViewModal {
+.overviewDescriptionDiv {
+  column-count: 2;
+  padding:3%;
+}
 
+.featuresDiv {
+  border-left: solid;
+  padding-left: 2%;
+}
+
+.facebookShareDiv, .twitterShareDiv, .pinterestShareDiv {
+  display: inline-block;
+  height: 5%;
+  width: 5%;
+}
+
+.facebookShareDiv:hover {
+  cursor: pointer;
 }
 /*End of overview CSS */
 

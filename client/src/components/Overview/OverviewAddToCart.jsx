@@ -37,6 +37,7 @@ export default function({currentStyle}){
 
   const sizeSelectOnChange = (e) => {
     setSelectedSize(e.target.value);
+    messageRef.current.style.visibility = 'hidden';
     sizeRef.current.size = 1;
   }
 
@@ -73,6 +74,9 @@ export default function({currentStyle}){
 
   }, [selectedSize])
 
+  const messageRef = useRef();
+
+
 
 
 
@@ -80,6 +84,7 @@ export default function({currentStyle}){
     if (sizeRef.current.value === 'Select Size') {
 
       sizeRef.current.size = 5;
+      messageRef.current.style.visibility = 'visible';
     } else{
       let q = quantityRef.current.value;
       let id = sizeObj[selectedSize].sku_id;
@@ -105,6 +110,7 @@ export default function({currentStyle}){
 
     return (
       <>
+       <div className="selectSizeMessageDiv" ref={messageRef} style={{visibility:"hidden"}}><p>Please select size</p></div>
       <div className="sizeDiv">
       <select className="sizeSelection" onChange={sizeSelectOnChange} ref={sizeRef}>
         <option   value="Select Size">Select Size</option>
@@ -141,6 +147,7 @@ export default function({currentStyle}){
   }
 
   return ( <>
+
     <div className="sizeDiv">
       <select className="sizeSelection" disabled>
         <option value="OUT OF STOCK" >OUT OF STOCK</option>

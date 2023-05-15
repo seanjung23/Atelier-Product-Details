@@ -19,7 +19,7 @@ export default function overviewProductInformation({setItemInfo, itemInfo, produ
     </div>
 
     <div className="overviewPriceDiv">
-      {currentStyle.sale_price ? (<p  className="overviewPrice"> ${currentStyle.sale_price} <s>${currentStyle.original_price}</s> </p>) : (<p  className="overviewPrice">${currentStyle.original_price}</p>)}
+      {currentStyle.sale_price ? (<><p  className="overviewPrice" style={{color:"red", display:"inline"}}> ${currentStyle.sale_price}  </p> <p style={{display:"inline"}}><s>${currentStyle.original_price}</s></p></>) : (<p  className="overviewPrice">${currentStyle.original_price}</p>)}
     </div>
     <div className="overviewStylesDiv">
       <p className="overviewCurrentStyleName"><span>STYLE >  </span>{currentStyle.name}</p>

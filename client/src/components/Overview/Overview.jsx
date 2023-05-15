@@ -2,7 +2,7 @@ import react,  {useState, useEffect, useRef, useLayoutEffect}from 'react';
 import axios from 'axios';
 import OverViewImage from './OverViewImage.jsx';
 import OverviewProductInformation from './OverviewProductInformation.jsx';
-
+import OverviewDescription from './OverviewDescription.jsx'
 // Group Effort
 
 const Overview = ({productInfo}) => {
@@ -71,6 +71,10 @@ if(currentStyle === undefined) {
 
       <div className="overviewProductInformationDiv">
           <OverviewProductInformation itemRating={itemRating} productStyles={productStyles} currentStyle={currentStyle} setCurrentStyle={setCurrentStyle}  itemInfo={itemInfo} setItemInfo={setItemInfo}/>
+      </div>
+
+      <div className="overviewDescriptionDiv">
+        <OverviewDescription itemInfo={itemInfo} ></OverviewDescription>
       </div>
 
 
