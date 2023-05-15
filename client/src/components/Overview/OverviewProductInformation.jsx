@@ -2,13 +2,13 @@ import react from 'react';
 import OverviewItemRating from './OverviewItemRating.jsx'
 import OverviewProductStyles from './OverviewProductStyles.jsx';
 import OverviewAddToCart from './OverviewAddToCart.jsx';
-export default function overviewProductInformation({setItemInfo, itemInfo, productStyles, itemRating, setCurrentStyle, currentStyle}) {
+export default function overviewProductInformation({itemReviews, setItemInfo, itemInfo, productStyles, itemRating, setCurrentStyle, currentStyle}) {
   const {name, slogan, description, category, features} = itemInfo;
 
   return(
   <>
   <div className="overviewRating">
-    <OverviewItemRating itemRating={itemRating}/>
+    <OverviewItemRating itemReviews={itemReviews} itemRating={itemRating}/>
     </div>
     <div className="overviewCategoryDiv">
       <p className="overviewCategory"> {category}</p>

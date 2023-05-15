@@ -13,7 +13,7 @@ const App = () => {
 
   useEffect(() => {
     //// USE THE SAME PRODUCT_ID LATER WHEN WE PUT EVERYTHING TOGETHER
-    let product_id = 37315;
+    let product_id = 37318;
 
     let url = '/products/' + product_id;
 
@@ -43,7 +43,7 @@ const App = () => {
         <QuestionsAnswers productInfo={productInfo}/>
       </div>
 
-      <div className="ratingReviewsDiv">
+      <div id="ratingsReviews" className="ratingReviewsDiv">
         <RatingsReviews productInfo={productInfo}/>
       </div>
 
