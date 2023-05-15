@@ -15,6 +15,7 @@ const NewReviewForm = ({productInfo, reviewMetaData, setDisplayNewReviewForm}) =
   const [fitCharacteristic, setFitCharacteristic] = useState(0);
   const [reviewFormBody, setReviewFormBody] = useState('');
   const [missingRequirements, setMissingRequirements] = useState([]);
+  const [reviewPhotoSet, setReviewPhotoSet] = useState([]);
 
   let ReviewFormSummary = useRef();
   let ReviewFormNickname = useRef();
@@ -119,6 +120,12 @@ const NewReviewForm = ({productInfo, reviewMetaData, setDisplayNewReviewForm}) =
     )
   }
 
+  let handleNewReviewPhotoInput = function (e) {
+    let addedPhotoSet = reviewPhotoSet.slice();
+    addedPhotoSet.push(e.target.files[0])
+    setReviewPhotoSet(addedPhotoSet);
+  }
+
   return (
     <div className='newReviewModal'>
       <div className='newReviewModalContent'>
@@ -174,7 +181,14 @@ const NewReviewForm = ({productInfo, reviewMetaData, setDisplayNewReviewForm}) =
             </div>
             <div>
               Upload Your Photos
-              <button>Upload</button>
+              {reviewPhotoSet.length < 5 && <input type='file' accept='image/*'
+              onChange={handleNewReviewPhotoInput}/>}
+              <div>
+                {reviewPhotoSet.map(function(photo, index) {
+                  return (<img key={index}
+                  src={URL.createObjectURL(photo)}/>)
+                })}
+              </div>
             </div>
             What is your nickname?
             <div>
