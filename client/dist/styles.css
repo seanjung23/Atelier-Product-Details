@@ -346,6 +346,14 @@ a:hover {
   height: 1em;
 }
 
+.search-icon:hover {
+  cursor: pointer;
+}
+
+.search-icon-path:hover {
+  fill: yellow;
+}
+
 .questions-list {
   height: 90vh;
   overflow: auto;
