@@ -326,12 +326,32 @@ a:hover {
 
 /* Start of Q/A CSS */
 
-.questionsList {
+.search-bar {
+  border: 0.06em solid #000;
+  height: 5vh;
+  min-width: 80%;
+  margin: 2em;
+}
+
+.user-search {
+  border: none;
+  outline: none;
+  height: 90%;
+  padding: 0.25em 0 0 1.5em;
+  width: 95%;
+}
+
+.search-icon {
+  width: 1em;
+  height: 1em;
+}
+
+.questions-list {
   height: 90vh;
   overflow: auto;
 }
 
-.questionBody {
+.question-list-body {
   display: inline;
 }
 
@@ -355,7 +375,7 @@ a:hover {
 
 .question-modal-header,
 .question-modal-footer {
-  padding: 10px;
+  padding: 0.6em;
 }
 
 .question-modal-title,
@@ -364,9 +384,9 @@ a:hover {
 }
 
 .question-modal-body {
-  border-bottom: 1px solid #eee;
-  border-top: 1px solid #eee;
-  padding: 10px;
+  border-bottom: 0.06em solid #eee;
+  border-top: 0.06em solid #eee;
+  padding: 0.6em;
 }
 
 .question-modal-body span {
@@ -400,7 +420,7 @@ a:hover {
 
 .answer-modal-header,
 .answer-modal-footer {
-  padding: 10px;
+  padding: 0.6em;
 }
 
 .answer-modal-title,
@@ -409,9 +429,9 @@ a:hover {
 }
 
 .answer-modal-body {
-  border-bottom: 1px solid #eee;
-  border-top: 1px solid #eee;
-  padding: 10px;
+  border-bottom: 0.06em solid #eee;
+  border-top: 0.06em solid #eee;
+  padding: 0.6em;
 }
 
 .answer-modal-body span {

@@ -35,7 +35,7 @@ const QuestionsList = ({questions, productInfo}) => {
 
   if (displayedQuestions.length !== 0) {
     return (
-      <div className="questionsList">
+      <div className="questions-list">
         {displayedQuestions.map((question, index) => <QuestionsListEntry key={index} question={question} productInfo={productInfo} />)}
         {(displayMoreQuestionsButton && questions.results.length > 2) && (
           <MoreQuestionsButton incrementCount={incrementCount} />

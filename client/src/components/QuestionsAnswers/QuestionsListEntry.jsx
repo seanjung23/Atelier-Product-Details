@@ -55,8 +55,8 @@ const QuestionsListEntry = ({question, productInfo}) => {
   return (
     <div>
       <h4>Q:</h4>
-      <p className="questionBody">{question.question_body}</p>&nbsp;
-      <p className="questionBody">
+      <p className="question-list-body">{question.question_body}</p>&nbsp;
+      <p className="question-list-body">
         <span><b>Helpful?</b></span>&nbsp;
         {(!upvotedQuestion) && (
           <span>
