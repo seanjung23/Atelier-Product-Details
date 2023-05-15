@@ -44,7 +44,7 @@ module.exports = {
       .catch(err => console.log(err));
   },
 
-  getQA: (req, res) => {
+  getQuestions: (req, res) => {
     let requestURL = process.env.API_URL + req.url;
 
     axios.get(requestURL, config)
@@ -53,7 +53,6 @@ module.exports = {
   },
 
   getAnswers: (req, res) => {
-    //TODO HERE
     let requestURL = process.env.API_URL + req.path;
 
     axios.get(requestURL, config)
@@ -62,42 +61,43 @@ module.exports = {
   },
 
   postQuestion: (req, res) => {
-    // console.log('this is the req body', req.body)
-    //TODO HERE
     let requestURL = process.env.API_URL + req.url;
-    // console.log(requestURL);
-    //req.data(?)  Needed
 
     axios.post(requestURL, req.body, config)
-      .then(result => res.sendStatus(201))
+      .then(result => {
+        res.status(result.status).json(result.data);
+      })
       .catch(err => console.log(err));
   },
 
   postAnswer: (req, res) => {
-    //TODO HERE
     let requestURL = process.env.API_URL + req.url;
-    //req.data(?)  Needed
 
     axios.post(requestURL, req.body, config)
-      .then(result => res.sendStatus(201))
-      .catch(err => console.log(err));
-  },
-
-  putAnswer: (req, res) => {
-    //TODO HERE
-    let requestURL = process.env.API_URL + req.path;
-
-    axios.put(requestURL, config)
-      .then(result => {res.json(result.data);})
+      .then(result => {
+        res.status(result.status).json(result.data);
+      })
       .catch(err => console.log(err));
   },
 
   putQuestion: (req, res) => {
-    //TODO HERE
     let requestURL = process.env.API_URL + req.path;
 
-    axios.put(requestURL, config)
-      .then(result => {res.json(result.data);})
+    axios.put(requestURL, req.body, config)
+      .then(result => {
+        res.status(result.status).json(result.data);
+      })
+      .catch(err => console.log(err));
+  },
+
+  putAnswer: (req, res) => {
+    let requestURL = process.env.API_URL + req.path;
+
+    axios.put(requestURL, req.body, config)
+      .then(result => {
+        console.log(result);
+        // res.status(result.status).json(result.data);
+      })
       .catch(err => console.log(err));
   },
 

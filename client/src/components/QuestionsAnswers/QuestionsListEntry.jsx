@@ -1,89 +1,86 @@
-import React, {useState} from 'react';
-import AnswersEntry from './AnswersEntry.jsx';
-import {ShowAllAnswersButton, CollapseAllAnswersButton} from './QuestionsButtons.jsx';
-import AnswerModal from './AnswerModal.jsx';
+import React, {useState, useEffect} from 'react';
+import axios from 'axios';
+import AnswersList from './AnswersList.jsx';
 
 const QuestionsListEntry = ({question, productInfo}) => {
   // console.log('this is question', question);
-  const [answerCount, setAnswerCount] = useState(2);
-  const [showAnswersButton, setShowAnswersButton] = useState(true);
-  const [reported, setReported] = useState(false);
+  const [answers, setAnswers] = useState([]);
   const [showAnswerModal, setShowAnswerModal] = useState(false);
+  const [upvotedQuestion, setUpvotedQuestion] = useState(false);
+  const [reportedQuestion, setReportedQuestion] = useState(false);
 
-  let answers = [];
-
-  for (let i in question.answers) {
-    answers.push(question.answers[i]);
-  }
-
-  answers.sort((a, b) => b.helpfulness - a.helpfulness);
-
-  if (answerCount === 0) {
-    answers = answers.slice(answerCount);
-  } else {
-    answers = answers.slice(0, answerCount);
-  }
-
-  for (let j = 0; j < answers.length; j++) {
-    if (answers[j].answerer_name === 'Seller') {
-      let temp = answers.splice(j, 1);
-      answers.unshift(temp[0]);
+  useEffect(() => {
+    let url = '/qa/questions/' + question.question_id + '/answers'
+    let params = {
+      question_id: question.question_id,
+      page: 1,
+      count: 1000
     }
-  }
 
-  const showAllAnswers = () => {
-    setAnswerCount(0);
-    setShowAnswersButton(!showAnswersButton);
-  }
+    axios.get(url, {params})
+      .then((result) => setAnswers(result.data.results))
+      .catch((err) => console.log(err));
+  }, [question])
 
-  const collapseAnswers = () => {
-    setAnswerCount(2);
-    setShowAnswersButton(!showAnswersButton);
+  const upvoteQuestion = () => {
+    let url = '/qa/questions/' + question.question_id + '/helpful';
+    let params = {
+      question_id: question.question_id
+    }
+
+    axios.put(url, {params})
+      .then((data) => console.log(data))
+      .catch((err) => console.log(err));
+
+    setUpvotedQuestion(!upvotedQuestion);
   };
 
   const changeShowAnswerModal = () => {
     setShowAnswerModal(!showAnswerModal);
   };
 
-  if (answers.length !== 0) {
-    return (
-      <div>
-        <h4>Q:</h4>
-        <p className="questionBody">{question.question_body}</p>&nbsp;
-        <p className="questionBody">
-          <span>Helpful?</span> <a href="">Yes ({question.question_helpfulness})</a> <b>|</b>&nbsp;
-          <a href="#" onClick={() => changeShowAnswerModal()}>Add Answer</a>
-        </p>
-        <div>
-          <h4>A:</h4>
-          {answers.map((answer, index) => <AnswersEntry key={index} answer={answer} reported={reported} setReported={setReported}/>)}
-          {showAnswersButton && (<ShowAllAnswersButton showAllAnswers={showAllAnswers}/>)}
-          {!showAnswersButton && (<CollapseAllAnswersButton collapseAnswers={collapseAnswers}/>)}
-        </div>
-        {(showAnswerModal) && (
-          <AnswerModal productInfo={productInfo} question={question} changeShowAnswerModal={changeShowAnswerModal}/>
-        )}
-        <div>==================================================</div>
-      </div>
-    )
-  }
+  const reportQuestion = () => {
+    let url = '/qa/questions/' + question.question_id + '/report';
+    let params = {
+      question_id: question.question_id
+    }
+
+    axios.put(url, {params})
+      .then((data) => console.log(data))
+      .catch((err) => console.log(err));
+
+    setReportedQuestion(!reportedQuestion);
+  };
 
   return (
     <div>
       <h4>Q:</h4>
       <p className="questionBody">{question.question_body}</p>&nbsp;
       <p className="questionBody">
-        <span>Helpful?</span> <a href="">Yes ({question.question_helpfulness})</a> <b>|</b>&nbsp;
-        {/* fix this section for adding answers */}
-        <a href="">Add Answer</a>
+        <span><b>Helpful?</b></span>&nbsp;
+        {(!upvotedQuestion) && (
+          <span>
+            <a href="javascript:void(0)" onClick={() => upvoteQuestion()}>Yes ({question.question_helpfulness})</a> <b>|</b>
+          </span>
+        )}
+        {(upvotedQuestion) && (
+          <span>
+            <span>Yes</span> <b>|</b>
+          </span>
+        )}
+        &nbsp;<a href="javacript:void(0)" onClick={() => changeShowAnswerModal()}>Add Answer</a> <b>|</b>&nbsp;
       </p>
-      <div>
-        <h4>A:</h4>
-        <p>No Answers Yet!</p>
-      </div>
-      <div>==================================================</div>
+      {!reportedQuestion && (
+        <a href="javascript:void(0)" onClick={() => reportQuestion()}>Report Question</a>
+      )}
+      {reportedQuestion && (
+        <span>Reported</span>
+      )}
+      <p>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</p>
+      <AnswersList answers={answers} question={question} productInfo={productInfo} showAnswerModal={showAnswerModal} changeShowAnswerModal={changeShowAnswerModal} />
     </div>
   )
 };
+
 
 export default QuestionsListEntry;

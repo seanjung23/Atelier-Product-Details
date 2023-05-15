@@ -50,7 +50,8 @@ const AnswerModal = ({productInfo, question, changeShowAnswerModal}) => {
   };
 
   return (
-    <form onSubmit={() => {
+    <form onSubmit={(e) => {
+      e.preventDefault();
       postAnswer();
       changeShowAnswerModal();
     }}>
