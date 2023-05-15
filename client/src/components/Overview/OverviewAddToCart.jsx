@@ -11,7 +11,10 @@ export default function({currentStyle}){
       setSizeObj({});
       var tempObj = {};
       setSizeArray([]);
-
+      if(sizeRef.current !== undefined) {
+        sizeRef.current.value = 'Select Size';
+        setSelectedSize('Select Size');
+      }
       for (var i in currentStyle.skus) {
 
         if (currentStyle.skus[i].quantity >= 1) {
@@ -26,6 +29,7 @@ export default function({currentStyle}){
         }
       }
       setSizeObj(tempObj);
+
 
     }
 

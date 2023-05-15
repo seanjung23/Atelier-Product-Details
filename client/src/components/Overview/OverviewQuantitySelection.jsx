@@ -7,8 +7,6 @@ export default function({selectedSize, sizeArray}){
     setSelectedSizedQuantity([]);
     if(selectedSize=== 'Select Size') {
       setSelectedSizedQuantity(['-']);
-    } else {
-      console.log(sizeArray)
     }
   },[selectedSize, sizeArray])
 
