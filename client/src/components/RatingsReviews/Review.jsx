@@ -1,12 +1,18 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import {EmptyStar, FullStar, OneQuarterStar, ThreeQuarterStar, HalfStar} from '../icons/ReviewRatingStarsSVG.jsx'
+import {EmptyStar, FullStar, OneQuarterStar, ThreeQuarterStar, HalfStar} from '../icons/ReviewRatingStarsSVG.jsx';
+import Checkmark from '../icons/ReviewCheckmark.jsx';
 
 // John
 // Remember sync and to GIT PULL
 
 const Review = ({oneReview, starArrayMaker}) => {
 
+  const [showMore, setShowMore] = useState(false);
+
+  let showMoreOnClick = function () {
+    setShowMore(true);
+  }
 
   let dateAdjuster = function () {
     let months = ['January', 'February', 'March', 'April', 'May', 'June',
@@ -43,6 +49,23 @@ const Review = ({oneReview, starArrayMaker}) => {
     }
   }
 
+  let handlingLongReviews = function () {
+    if (oneReview.body.length > 250 && !showMore) {
+      return (
+        <div className='oneReviewBody'>
+          {oneReview.body.slice(0, 250) + '...'}
+          <div className='linkToClick'
+          onClick={showMoreOnClick}>Show More</div>
+        </div>
+        )
+    }
+    return (
+      <div className='oneReviewBody'>
+        {oneReview.body}
+      </div>
+    )
+  }
+
   return(
     <div className='oneReview'>
       <div>
@@ -64,23 +87,26 @@ const Review = ({oneReview, starArrayMaker}) => {
         <div className='reviewerNameAndDate'>
           {oneReview.reviewer_name}, {dateAdjuster()}
         </div>
+        {oneReview.response && <div className='responseFromSeller'>
+          <strong> Response from Seller </strong>
+        <div> {oneReview.response}</div>
+        </div>}
       </div>
       <p><strong>{reviewTitle}</strong></p>
-      <div className='oneReviewBody'>
-        {oneReview.body}
-        </div>
+      {handlingLongReviews()}
         <div>
           {oneReview.photos.map((photo, index) =>{
             return (<img className='oneReviewImage' src={photo.url} key={index}/>)
           })}
         </div>
-      {oneReview.recommend && <p>CHECKMARK HERE I recommend this product</p>}
+      {oneReview.recommend && <p><Checkmark /> I recommend this product</p>}
       <div>
         Was this review helpful?
         <div className='wasItHelpful'
         onClick={wasItHelpfulClickHandler}>Yes{'('}{oneReview.helpfulness}{')'}</div>
+        <span> |</span>
         <div className='wasItHelpful'
-        onClick={wasItHelpfulClickHandler}>No</div>
+        onClick={wasItHelpfulClickHandler}>Report</div>
       </div>
     </div>
   )

@@ -29,7 +29,6 @@ const NewReviewForm = ({productInfo, reviewMetaData, setDisplayNewReviewForm}) =
     'Length' : lengthCharacteristic,
     'Fit' : fitCharacteristic
   }
-  console.log(reviewMetaData);
 
   let characteristicsNeededForSubmission = function () {
     let neededCharacteristics = [];

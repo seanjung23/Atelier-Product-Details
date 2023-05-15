@@ -2,6 +2,16 @@
 
 /* Delete before commit */
 
+.responseFromSeller {
+  margin: 3% 0%;
+  color: rgb(66, 66, 190);
+  border: solid;
+}
+
+/* Delete before commit */
+
+
+
 .reviewModalClose {
   background-color: lightcoral;
   height: 2em;
@@ -59,9 +69,6 @@
   float: right;
   margin-right: 40%;
 }
-
-
-/* Delete before commit */
 
 .RatingBreakdown {
   display: inline-block;

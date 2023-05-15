@@ -569,12 +569,12 @@
   background-color: lightblue;
 }
 
-.removeAllRatingFilters {
+.linkToClick {
   font-weight: bold;
   color: blue;
 }
 
-.removeAllRatingFilters:hover {
+.linkToClick:hover {
   font-weight: bold;
   color: lightblue;
 }
