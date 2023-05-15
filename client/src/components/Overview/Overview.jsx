@@ -11,6 +11,7 @@ const Overview = ({productInfo}) => {
   const [productStyles, setProductStyles] = useState([]);
   const [currentStyle, setCurrentStyle] = useState({});
   const itemId = productInfo.id;
+  const [itemReviews, setItemReviews] = useState();
 
 
   useEffect(()=>{
@@ -34,8 +35,17 @@ const Overview = ({productInfo}) => {
       } )
       .catch(err => console.log(err));
 
+      url = '/reviews';
+      var params = {params:{product_id: itemId, count: 99999}};
+      axios.get(url, params)
+      .then(result => {
+
+        setItemReviews(result.data.results.length);
+      })
+      .catch(err=> console.log(err));
+
       url = '/reviews/meta';
-      var params = {params:{product_id: itemId}}
+      params = {params:{product_id: itemId}}
       axios.get(url, params)
       .then(result => {
 
@@ -70,7 +80,7 @@ if(currentStyle === undefined) {
       </div>
 
       <div className="overviewProductInformationDiv">
-          <OverviewProductInformation itemRating={itemRating} productStyles={productStyles} currentStyle={currentStyle} setCurrentStyle={setCurrentStyle}  itemInfo={itemInfo} setItemInfo={setItemInfo}/>
+          <OverviewProductInformation itemReviews={itemReviews} itemRating={itemRating} productStyles={productStyles} currentStyle={currentStyle} setCurrentStyle={setCurrentStyle}  itemInfo={itemInfo} setItemInfo={setItemInfo}/>
       </div>
 
       <div className="overviewDescriptionDiv">
