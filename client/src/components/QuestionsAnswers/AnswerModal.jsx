@@ -1,7 +1,9 @@
-import React from 'react';
+import React, {useState} from 'react';
 import axios from 'axios';
 
 const AnswerModal = ({productInfo, question, changeShowAnswerModal}) => {
+  const [answerPhotos, setAnswerPhotos] = useState([]);
+
   const checkInputs = () => {
     let userAnswer = document.getElementsByClassName('answer-modal-textbox')[0].value;
     let userNickname = document.getElementsByClassName('answer-modal-nickname')[0].value;
@@ -26,16 +28,24 @@ const AnswerModal = ({productInfo, question, changeShowAnswerModal}) => {
   const postAnswer = () => {
     // instead of get element by class name use "useRef" to get value (let test = useRef('answer-modal-textbox) ====> test.current.value should be the value of the user input)
     let url = '/qa/questions/' + question.question_id + '/answers';
-    console.log(url);
     let userAnswer = document.getElementsByClassName('answer-modal-textbox')[0].value;
     let userNickname = document.getElementsByClassName('answer-modal-nickname')[0].value;
     let userEmail = document.getElementsByClassName('answer-modal-email')[0].value;
-    // grab photo urls here
+    let userPhotos = () => {
+      let temp = [];
+
+      for (var i = 0; i < answerPhotos.length; i++) {
+        temp.push("https://www.uhaul.com/MovingSupplies/Image/GetMedia/?id=8390&media=8185");
+      }
+
+      return temp;
+    };
+
     let data = {
       body: userAnswer,
       name: userNickname,
       email: userEmail,
-      photos: ["https://www.uhaul.com/MovingSupplies/Image/GetMedia/?id=8390&media=8185"]
+      photos: userPhotos()
     }
 
     let config = {
@@ -47,6 +57,13 @@ const AnswerModal = ({productInfo, question, changeShowAnswerModal}) => {
     axios.post(url, data, config)
     .then((res) => console.log('this is server response', res))
     .catch((err) => console.log('error sending question to server'));
+  };
+
+  const checkPhotoSubmit = (e) => {
+    let temp = answerPhotos.slice();
+    temp.push(e.target.files[0]);
+
+    setAnswerPhotos(temp);
   };
 
   return (
@@ -90,8 +107,14 @@ const AnswerModal = ({productInfo, question, changeShowAnswerModal}) => {
 
             <div>
               Upload Your Photos:
-
-              <input type="button" value="Upload"/>
+              {(answerPhotos.length < 5) && (
+                <input type="file" accept="image/*" onChange={(e) => checkPhotoSubmit(e)}/>
+              )}
+              <div>
+                {answerPhotos.map((photo, index) => (
+                  <img className="answer-photo" key={index} src={URL.createObjectURL(photo)}/>
+                ))}
+              </div>
             </div>
 
           </div>

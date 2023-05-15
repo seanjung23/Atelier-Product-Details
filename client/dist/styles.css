@@ -336,21 +336,21 @@ a:hover {
 }
 
 .question-modal {
-  position: fixed;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
   align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  bottom: 0;
+  display: flex;
   justify-content: center;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
   z-index: 7;
 }
 
 .question-modal-content {
-  width: 50vw;
   background-color: #fff;
+  width: 50vw;
 }
 
 .question-modal-header,
@@ -364,9 +364,9 @@ a:hover {
 }
 
 .question-modal-body {
-  padding: 10px;
-  border-top: 1px solid #eee;
   border-bottom: 1px solid #eee;
+  border-top: 1px solid #eee;
+  padding: 10px;
 }
 
 .question-modal-body span {
@@ -375,26 +375,27 @@ a:hover {
 
 .question-modal-textbox {
   height: 30vh;
-  min-width: 99%;
   max-width: 99%;
+  min-width: 99%;
 }
 
 .answer-modal {
-  position: fixed;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
   align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  bottom: 0;
+  display: flex;
   justify-content: center;
+  left: 0;
+  overflow: auto;
+  position: fixed;
+  right: 0;
+  top: 0;
   z-index: 7;
 }
 
 .answer-modal-content {
-  width: 50vw;
   background-color: #fff;
+  width: 50vw;
 }
 
 .answer-modal-header,
@@ -408,9 +409,9 @@ a:hover {
 }
 
 .answer-modal-body {
-  padding: 10px;
-  border-top: 1px solid #eee;
   border-bottom: 1px solid #eee;
+  border-top: 1px solid #eee;
+  padding: 10px;
 }
 
 .answer-modal-body span {
@@ -419,8 +420,13 @@ a:hover {
 
 .answer-modal-textbox {
   height: 30vh;
-  min-width: 99%;
   max-width: 99%;
+  min-width: 99%;
+}
+
+.answer-photo {
+  max-height: 10vh;
+  max-width: 10vw;
 }
 
 /* End of Q/A CSS */

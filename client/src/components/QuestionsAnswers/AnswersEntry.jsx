@@ -3,7 +3,7 @@ import axios from 'axios';
 import {format, parseISO} from 'date-fns';
 
 const AnswersEntry = ({answer}) => {
-  // console.log('this is answer', answer);
+  console.log('this is answer', answer);
   const [upvotedAnswer, setUpvotedAnswer] = useState(false);
   const [reportedAnswer, setReportedAnswer] = useState(false);
 
