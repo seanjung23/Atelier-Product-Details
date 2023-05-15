@@ -16,7 +16,6 @@ const ReviewsList = ({reviewInfo, setSortSelection, starArrayMaker,
   const [displayNewReviewForm, setDisplayNewReviewForm] = useState(false);
 
   let currentlyDisplayedReviews = [];
-  // console.log(reviewsDisplayed);
   const moreReviewsClickHandler = function () {
     setReviewsDisplayed(reviewsDisplayed + 2);
   }
@@ -49,10 +48,10 @@ const ReviewsList = ({reviewInfo, setSortSelection, starArrayMaker,
         <InnerReviewList currentlyDisplayedReviews={currentlyDisplayedReviews} starArrayMaker={starArrayMaker}/>
         <div>
         {whetherToDisplayMoreReviewsButton()}
-        <CreateNewReviewButton handleWriteReviewOnClick={handleWriteReviewOnClick}/>
+        {reviewMetaData && <CreateNewReviewButton handleWriteReviewOnClick={handleWriteReviewOnClick}/>}
         </div>
         {displayNewReviewForm && <NewReviewForm productInfo={productInfo}
-        reviewMetaData={reviewMetaData}/>}
+        reviewMetaData={reviewMetaData} setDisplayNewReviewForm={setDisplayNewReviewForm}/>}
       </div>
     )
   }
