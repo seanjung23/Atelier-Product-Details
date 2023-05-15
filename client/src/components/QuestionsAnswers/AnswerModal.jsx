@@ -90,16 +90,15 @@ const AnswerModal = ({productInfo, question, changeShowAnswerModal}) => {
 
             <div>
               Upload Your Photos:
-              <button type="button">Upload</button>
+
+              <input type="button" value="Upload"/>
             </div>
 
           </div>
 
           <div className="answer-modal-footer">
             <button onClick={() => changeShowAnswerModal()}>Cancel</button>&nbsp;
-            <label>
-              <input type="submit" value="Submit Answer" onClick={() => checkInputs()}></input>
-            </label>
+            <button type="submit" onClick={() => checkInputs()}>Submit Answer</button>
           </div>
 
         </div>
