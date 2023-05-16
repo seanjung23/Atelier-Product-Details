@@ -13,7 +13,7 @@ const App = () => {
 
   useEffect(() => {
     //// USE THE SAME PRODUCT_ID LATER WHEN WE PUT EVERYTHING TOGETHER
-    let product_id = 37315;
+    let product_id = 37325;
 
     let url = '/products/' + product_id;
 
