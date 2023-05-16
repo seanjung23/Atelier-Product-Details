@@ -46,7 +46,7 @@ const QuestionsAnswers = ({productInfo}) => {
 
   return(
     <div>
-      <h1>Questions and Answers Section</h1>
+      <h1>Questions & Answers</h1>
       <SearchQuestions retrieveQuery={retrieveQuery} />
       {filteredQuestions.results !== undefined && <QuestionsList questions={filteredQuestions} productInfo={productInfo} />}
       {filteredQuestions.results === undefined && <QuestionsList questions={questions} productInfo={productInfo} />}

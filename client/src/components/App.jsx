@@ -30,7 +30,6 @@ const App = () => {
   }
   return(
     <div>
-      <div>Top of App</div>
 
       <div className="overviewDiv">
         <Overview productInfo={productInfo}/>
