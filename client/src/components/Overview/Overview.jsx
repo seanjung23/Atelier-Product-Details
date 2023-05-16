@@ -73,7 +73,7 @@ if(currentStyle === undefined) {
 }
   return(
     <div className="currentStyleDiv">
-      <h1>Overview Section</h1>
+      <h1>Overview</h1>
 
       <div className="overviewImageDiv">
         <OverViewImage currentStyle={currentStyle}/>
