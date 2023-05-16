@@ -617,6 +617,16 @@ a:hover {
 
 /* Start of Ratings and Reviews CSS */
 
+.reviewImageModalClose {
+  position: fixed;
+  z-index: 6;
+  background-color: lightcoral;
+  left: 0;
+  top: 0;
+  height: 3em;
+  width: 4em;
+}
+
 .reviewModalClose {
   background-color: lightcoral;
   height: 2em;
@@ -635,12 +645,14 @@ a:hover {
   overflow: auto;
   background-color: rgb(0,0,0);
   background-color: rgba(0,0,0,0.4);
+  text-align: center;
 }
 
 .newReviewModalContent {
   background-color: white;
   margin: 10%;
   border: solid;
+  text-align: left;
 }
 
 .newReviewModalContent form {
@@ -651,6 +663,12 @@ a:hover {
   display: inline-block;
   margin-left: 3%;
   color: blue;
+}
+
+.wasItHelpfulLine {
+  display: inline-block;
+  margin-left: 3%;
+  color: black
 }
 
 .wasItHelpful:hover {
@@ -790,12 +808,12 @@ a:hover {
   background-color: lightblue;
 }
 
-.removeAllRatingFilters {
+.linkToClick {
   font-weight: bold;
   color: blue;
 }
 
-.removeAllRatingFilters:hover {
+.linkToClick:hover {
   font-weight: bold;
   color: lightblue;
 }

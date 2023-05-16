@@ -66,8 +66,6 @@ const NewReviewCharacteristics = ({
   }
 
   let characteristicSelectionClickHandler = function (e) {
-    console.log(e.target.name);
-    console.log(e.target.value);
     if (e.target.name === 'newReviewSize') {
       setSizeCharacteristic(e.target.value);
     } else if (e.target.name === 'newReviewWidth') {

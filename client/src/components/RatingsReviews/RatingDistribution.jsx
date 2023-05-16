@@ -68,7 +68,7 @@ const RatingDistribution = ({reviewMetaData, totalRatings, setFilterSettings, fi
         )
       })}
       {(displayAppliedFilters.length > 0)
-      && <div className='removeAllRatingFilters' onClick={removeAllFilters}>Remove all filters</div>}
+      && <div className='linkToClick' onClick={removeAllFilters}>Remove all filters</div>}
       </div>
       <div className='starBarText'onClick={()=> {handleBreakdownOnClick(5)}}>
       5 Stars
