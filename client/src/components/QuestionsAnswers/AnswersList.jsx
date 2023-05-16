@@ -39,7 +39,7 @@ const AnswersList = ({answers, question, productInfo, showAnswerModal, changeSho
     return (
       <div className="answer-title">
         <h4>A: </h4>&nbsp;
-        <div>
+        <div className="answer-list">
           {displayedAnswers.map((answer, index) => <AnswersEntry key={index} answer={answer} />)}
           {(showAnswersButton && answers.length > 2) && (
             <ShowAllAnswersButton showAllAnswers={showAllAnswers} />
