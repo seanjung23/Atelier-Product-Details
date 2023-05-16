@@ -2,29 +2,25 @@ import React from 'react';
 
 const MoreQuestionsButton = ({incrementCount}) => {
   return (
-    <div>
-      <button type="button" onClick={() => incrementCount()}>More Answered Questions</button>
-    </div>
+    <button className="more-questions-button" type="button" onClick={() => incrementCount()}>More Answered Questions</button>
   )
 };
 
 const AddQuestionButton = ({changeShowQuestionModal}) => {
   return (
-    <div>
-      <button type="button" onClick={() => changeShowQuestionModal()}>Add A Question +</button>
-    </div>
+    <button className="add-questions-button" type="button" onClick={() => changeShowQuestionModal()}>Add A Question +</button>
   )
 };
 
 const ShowAllAnswersButton = ({showAllAnswers}) => {
   return (
-    <button type="button" onClick={() => showAllAnswers()}>See More Answers</button>
+    <button className="show-answers-button" type="button" onClick={() => showAllAnswers()}>See More Answers</button>
   )
 };
 
 const CollapseAllAnswersButton = ({collapseAnswers}) => {
   return (
-    <button type="button" onClick={() => collapseAnswers()}>Collapse Answers</button>
+    <button className="collapse-answers-button" type="button" onClick={() => collapseAnswers()}>Collapse Answers</button>
   )
 };
 

@@ -11,18 +11,19 @@ const AnswersList = ({answers, question, productInfo, showAnswerModal, changeSho
 
   displayedAnswers.sort((a, b) => b.helpfulness - a.helpfulness);
 
-  if (answerCount === 0) {
-    displayedAnswers = displayedAnswers.slice(answerCount);
-  } else {
-    displayedAnswers = displayedAnswers.slice(0, answerCount);
-  }
-
   for (let j = 0; j < displayedAnswers.length; j++) {
     if (displayedAnswers[j].answerer_name === 'Seller') {
       let temp = displayedAnswers.splice(j, 1);
       displayedAnswers.unshift(temp[0]);
     }
   }
+
+  if (answerCount === 0) {
+    displayedAnswers = displayedAnswers.slice(answerCount);
+  } else {
+    displayedAnswers = displayedAnswers.slice(0, answerCount);
+  }
+
 
   const showAllAnswers = () => {
     setAnswerCount(0);
@@ -36,9 +37,9 @@ const AnswersList = ({answers, question, productInfo, showAnswerModal, changeSho
 
   if (displayedAnswers.length !== 0) {
     return (
-      <div>
+      <div className="answer-title">
+        <h4>A: </h4>&nbsp;
         <div>
-          <h4>A:</h4>
           {displayedAnswers.map((answer, index) => <AnswersEntry key={index} answer={answer} />)}
           {(showAnswersButton && answers.length > 2) && (
             <ShowAllAnswersButton showAllAnswers={showAllAnswers} />
@@ -50,20 +51,17 @@ const AnswersList = ({answers, question, productInfo, showAnswerModal, changeSho
           {(showAnswerModal) && (
             <AnswerModal productInfo={productInfo} question={question} changeShowAnswerModal={changeShowAnswerModal} />
           )}
-        <div>==================================================</div>
       </div>
     )
   }
   return (
     <div>
       <div>
-        <h4>A:</h4>
-        <p>No Answers Yet!</p>
+        <p className="answer-body">No Answers Yet!</p>
       </div>
       {(showAnswerModal) && (
         <AnswerModal productInfo={productInfo} question={question} changeShowAnswerModal={changeShowAnswerModal} />
       )}
-      <div>==================================================</div>
     </div>
   )
 };

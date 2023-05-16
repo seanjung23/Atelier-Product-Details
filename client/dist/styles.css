@@ -326,36 +326,115 @@ a:hover {
 
 /* Start of Q/A CSS */
 
-.questionsList {
-  height: 90vh;
+.search-bar {
+  border: 0.06em solid #000;
+  height: 7vh;
+  margin: 0 5em;
+}
+.questionAnswersDiv h1 {
+  margin: 0.5em 2.5em;
+}
+
+.user-search {
+  border: none;
+  outline: none;
+  height: 90%;
+  padding: 0.25em 0 0 1.5em;
+  width: 95%;
+}
+
+.search-icon {
+  width: 1em;
+  height: 1em;
+}
+
+.search-icon:hover {
+  cursor: pointer;
+}
+
+.search-icon-path {
+  fill: rgb(128, 128, 128);
+}
+
+.search-icon-path:hover {
+  fill: rgb(0, 0, 0);
+}
+
+.questions-list {
+  height: 75vh;
+  margin: 1em 5em;
   overflow: auto;
 }
 
-.questionBody {
-  display: inline;
+.question-list-body {
+  display: flex;
+  justify-content: space-between;
+}
+
+.question-body {
+  font-weight: bold;
+}
+
+.question-actions {
+  font-size: 11px;
+}
+
+.answer-body {
+  font-size: 16px;
+}
+
+.answer-actions {
+  font-size: 11px;
+}
+
+.answer-title {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+}
+
+
+.show-answers-button,
+.collapse-answers-button {
+  background-color: #ffffff;
+  border: none;
+  color: rgb(128, 128, 128);
+  font: bold 12px serif;
+}
+
+.show-answers-button:hover,
+.collapse-answers-button:hover {
+  color: rgb(0, 0, 0);
+  cursor: pointer;
 }
 
 .question-modal {
-  position: fixed;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
   align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  bottom: 0;
+  display: flex;
   justify-content: center;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
   z-index: 7;
+}
+.more-questions-button {
+  display: inline-block;
+}
+.add-questions-button {
+  display: inline-block;
 }
 
 .question-modal-content {
-  width: 50vw;
   background-color: #fff;
+  width: 50vw;
 }
 
 .question-modal-header,
 .question-modal-footer {
-  padding: 10px;
+  padding: 0.6em;
 }
 
 .question-modal-title,
@@ -364,42 +443,43 @@ a:hover {
 }
 
 .question-modal-body {
-  padding: 10px;
-  border-top: 1px solid #eee;
-  border-bottom: 1px solid #eee;
+  border-bottom: 0.06em solid #eee;
+  border-top: 0.06em solid #eee;
+  padding: 0.6em;
 }
 
 .question-modal-body span {
-  color: red;
+  color: rgb(255, 0, 0);
 }
 
 .question-modal-textbox {
   height: 30vh;
-  min-width: 99%;
   max-width: 99%;
+  min-width: 99%;
 }
 
 .answer-modal {
-  position: fixed;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
   align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  bottom: 0;
+  display: flex;
   justify-content: center;
+  left: 0;
+  overflow: auto;
+  position: fixed;
+  right: 0;
+  top: 0;
   z-index: 7;
 }
 
 .answer-modal-content {
-  width: 50vw;
   background-color: #fff;
+  width: 50vw;
 }
 
 .answer-modal-header,
 .answer-modal-footer {
-  padding: 10px;
+  padding: 0.6em;
 }
 
 .answer-modal-title,
@@ -408,19 +488,24 @@ a:hover {
 }
 
 .answer-modal-body {
-  padding: 10px;
-  border-top: 1px solid #eee;
-  border-bottom: 1px solid #eee;
+  border-bottom: 0.06em solid #eee;
+  border-top: 0.06em solid #eee;
+  padding: 0.6em;
 }
 
 .answer-modal-body span {
-  color: red;
+  color: rgb(255, 0, 0);
 }
 
 .answer-modal-textbox {
   height: 30vh;
-  min-width: 99%;
   max-width: 99%;
+  min-width: 99%;
+}
+
+.answer-modal-photo {
+  max-height: 10vh;
+  max-width: 10vw;
 }
 
 /* End of Q/A CSS */

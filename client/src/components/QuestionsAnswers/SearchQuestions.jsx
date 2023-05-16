@@ -1,4 +1,5 @@
 import React from 'react';
+import SearchIcon from '../icons/SearchIcon.jsx'
 
 const SearchQuestions = ({retrieveQuery}) => {
 
@@ -10,10 +11,10 @@ const SearchQuestions = ({retrieveQuery}) => {
   };
 
   return (
-    <div>
+    <div className="search-bar">
       <label>
         <input className="user-search" type="text" placeholder="Have a question? Search for answers..." onChange={() => initalizeSearch()}/>
-        <button type="button" >Search</button>
+        <SearchIcon />
       </label>
     </div>
   )
