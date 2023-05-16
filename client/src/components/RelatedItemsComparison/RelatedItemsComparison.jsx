@@ -4,7 +4,7 @@ import axios from 'axios';
 // Xinhuang
 // Remember sync and Git pull
 
-const RelatedItemsComparison = ({productInfo}) => {
+const RelatedItemsComparison = ({productInfo, setProduct_id}) => {
 
 const [relatedItemIdList, setRelatedItemIdList] = useState([]);
 
@@ -36,7 +36,7 @@ useEffect(()=>{
   return(
     <div>
       <h1>Related Items</h1>
-      <RelatedItemList relatedItemIdList={relatedItemIdList}/>
+      <RelatedItemList relatedItemIdList={relatedItemIdList} setProduct_id={setProduct_id}/>
     </div>
   )
 }

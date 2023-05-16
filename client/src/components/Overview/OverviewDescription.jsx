@@ -7,13 +7,7 @@ export default function({itemInfo}) {
   const [description, setDescription] = useState(itemInfo.description);
   const [features, setFeatures] = useState(itemInfo.features)
 
-  const facebookShareOnClick =() => {
 
-    var window_location_encoded = encodeURI(window.location);
-  	var share_link = "https://www.facebook.com/sharer/sharer.php?u="+window_location_encoded;
-  	window.open(share_link,'_blank');
-
-  }
   const facbookCurrentURL = `http://www.facebook.com/sharer.php?u=${window.location.href}`
   const twitterCurrentURL = `https://twitter.com/intent/tweet?url='${window.location.href}'`;
   const pinterestCurrentURL = `http://pinterest.com/pin/create/button/?url=${window.location.href}`

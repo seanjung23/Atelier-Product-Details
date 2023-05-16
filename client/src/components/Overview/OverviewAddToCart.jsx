@@ -34,8 +34,6 @@ export default function({currentStyle}){
     }
 
   }, [currentStyle])
-  console.log(sizeObj)
-
 
   const [selectedSize, setSelectedSize] = useState();
 
@@ -141,8 +139,8 @@ export default function({currentStyle}){
       </select>
     </div>
 
-    <div className="addToCartbuttonDiv">
-      <input type='button' onClick={addToCartOnClick} value='Add To Cart'></input>
+    <div >
+      <input type='button' className="addToCartbuttonDiv" onClick={addToCartOnClick} value='Add To Cart'></input>
     </div>
 
       </>
