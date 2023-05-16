@@ -26,7 +26,7 @@ import react,  {useState, useEffect, useRef}from 'react';
 
 
   return (
-    <div className="currentImageThumbnailsItems" ref={thumbnailRef} onClick={() => {
+    <div className="currentImageThumbnailsItems  hoverPointer" ref={thumbnailRef} onClick={() => {
       setPrevImageIndex(imageIndex);
       setImageIndex(index);}}>
       <img className="currentImageThumbnails" src={e}></img>

@@ -4,7 +4,17 @@
 
 
 }
-
+.hoverPointer:hover {
+  cursor: pointer;
+}
+img {
+  user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
 a{
   color: inherit
 }
@@ -110,7 +120,7 @@ a:hover {
   bottom:calc(111px*5 /2);
 
 }
-.expandViewIconDiv {
+.expandViewIconDiv, .overviewDismissButtonDiv{
   z-index: 5;
   position: absolute;
 
@@ -210,6 +220,101 @@ a:hover {
 
 .facebookShareDiv:hover {
   cursor: pointer;
+}
+
+.expandViewModal{
+  inset: 0;
+  margin: auto;
+  position: fixed;
+  height: 90vh;
+  width: 90vw;
+  z-index: 15;
+  background-color: white;
+
+
+}
+
+
+
+.expandCurrentImagesCarousel{
+
+  overflow: hidden;
+  height: 90%;
+  width: 100%;
+  z-index: 15;
+
+  display: inline-block;
+  background: white;
+  white-space: nowrap;
+  position: relative;
+  transition: all calc(0.1s * 2);
+}
+
+
+
+.expandCurrentImagesDiv {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  border-bottom: solid;
+  display: inline-block;
+  padding: 0.5% 0;
+}
+.expandCurrentImageThumbnailsCarouselDiv{
+  margin: auto;
+  height:10%;
+  width: 80vw;
+  z-index: 15;
+  overflow: hidden;
+
+}
+
+.expandCurrentImageThumbnailsCarousel{
+
+  height: 100%;
+  width: 100%;
+  z-index: 15;
+
+  display: inline-block;
+  background: white;
+  white-space: nowrap;
+  position: relative;
+  transition: all calc(0.1s * 2);
+}
+
+.expandCurrentThumbnailsDiv{
+  height: 5vh;
+  width: 5vw;
+  position: relative;
+
+  display: inline-block;
+  padding: 0.5% 0;
+  margin: 2px;
+
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  object-fit: contain;
+}
+
+.expandCurrentThumbnailsDiv:hover {
+  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+
+.expandCurrentThumbnails{
+  object-fit:contain;
+  height: 100%;
+  width: 100%;
+}
+
+
+
+
+.expandCurrentImage {
+  object-fit:contain;
+  height: 90vh;
+  width: 90vw;
+
 }
 /*End of overview CSS */
 
