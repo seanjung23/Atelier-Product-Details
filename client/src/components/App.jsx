@@ -10,7 +10,7 @@ import axios from 'axios';
 const App = () => {
 
   const [productInfo, setProductInfo] = useState({});
-  const [product_id, setProduct_id] = useState(37312)
+  const [product_id, setProduct_id] = useState(37315)
   useEffect(() => {
     //// USE THE SAME PRODUCT_ID LATER WHEN WE PUT EVERYTHING TOGETHER
 

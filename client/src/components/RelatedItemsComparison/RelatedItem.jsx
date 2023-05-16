@@ -80,8 +80,6 @@ export default function RelatedItem({itemId, setProduct_id}) {
     return (
       <div className="relatedItems" onClick={()=>{setProduct_id(itemId)}}>
 
-        <div className="comparisonStarDiv" ><ComparisonStar/></div>
-
         <div className="relatedItemImagesDiv hoverPointer">
           <img className="relatedItemImages" src={defaultImgSrc} ></img>
         </div>

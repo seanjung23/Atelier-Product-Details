@@ -3,7 +3,7 @@ import react,  {useState, useEffect, useRef, useLayoutEffect}from 'react';
 import OverviewStyleItem from './OverviewStyleItem.jsx'
 export default function ({productStyles, currentStyle, setCurrentStyle}){
   const [styles, setStyles] = useState([]);
-  console.log(productStyles)
+
   useEffect(()=> {
 
     if(productStyles){
@@ -19,9 +19,7 @@ export default function ({productStyles, currentStyle, setCurrentStyle}){
 
   },[productStyles])
 
-  useEffect(()=>{
-    console.log(styles)
-  }, [styles])
+
 
 
   if (styles && productStyles !== undefined) {

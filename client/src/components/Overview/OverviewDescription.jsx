@@ -7,6 +7,11 @@ export default function({itemInfo}) {
   const [description, setDescription] = useState(itemInfo.description);
   const [features, setFeatures] = useState(itemInfo.features)
 
+  useEffect(()=> {
+    setSlogan(itemInfo.slogan);
+    setDescription(itemInfo.description);
+    setFeatures(itemInfo.features);
+  }, [itemInfo])
 
   const facbookCurrentURL = `http://www.facebook.com/sharer.php?u=${window.location.href}`
   const twitterCurrentURL = `https://twitter.com/intent/tweet?url='${window.location.href}'`;
@@ -15,11 +20,11 @@ export default function({itemInfo}) {
   return (
     <>
       <div className="sloganDiv">
-        <b>{itemInfo.slogan}</b>
+        <b>{slogan}</b>
       </div>
 
       <div className="descriptionDiv">
-        <p>{itemInfo.description}</p>
+        <p>{description}</p>
       </div>
 
       <div className="shareDiv" >
@@ -38,7 +43,7 @@ export default function({itemInfo}) {
       </div>
 
       <div className="featuresDiv">
-        {itemInfo.features.map(e => {
+        {features.map(e => {
           return (
             <p>{e.feature}: <span>{e.value}</span></p>
 
