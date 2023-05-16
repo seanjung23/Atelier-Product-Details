@@ -812,12 +812,15 @@ a:hover {
 
 .ReviewsList {
   display: inline-block;
-  width: 50%;
+  width: 60%;
 }
 
 .innerReviewList {
   max-height: 85vh;
-  overflow: auto
+  overflow: auto;
+  padding: 0 2%;
+  border-radius: 5%;
+  background-color: white;
 }
 
 .productBreakdownScale {
@@ -842,6 +845,10 @@ a:hover {
 .characteristicFiller {
   display: inline-block;
   height: 2em;
+}
+
+.ratingsReviews {
+  background-color: white;
 }
 
 .RatingsReviewsTitle {
@@ -928,8 +935,13 @@ a:hover {
 
 .oneReview {
   margin: 4% 0%;
+  margin-top: 0;
   border-width: 2%;
-  border-bottom: solid;
+  border: solid;
+  border-color: purple;
+  background-color: #ddd;
+  padding: 2%;
+  border-radius: 3%;
 }
 
 .reviewerNameAndDate {
@@ -958,6 +970,7 @@ a:hover {
 
 .createNewReviewButton button {
   height: 3em;
+  background-color: rgb(184, 124, 184);
 }
 
 .moreReviewsButton {
@@ -971,6 +984,7 @@ a:hover {
 
 .moreReviewsButton button {
   height: 3em;
+  background-color: rgb(184, 124, 184);
 }
 
 .productBreakdownOverall {
@@ -995,4 +1009,27 @@ a:hover {
   margin-right: 2%;
 }
 
+.newReviewSelectionOption {
+  margin: 5% 0;
+}
+
+.newReviewSelectionOption p {
+  margin: 2% 0;
+}
+
+.newReviewSelectionOption textarea {
+  width: 80%;
+}
+
+.reviewTextInput {
+  width: 80%;
+}
+
+.errorMessage {
+  color: rgb(254, 63, 63)
+}
+
+.newReviewModalContent h3 {
+  color: purple;
+}
 /* End of Ratings and Reviews CSS */
