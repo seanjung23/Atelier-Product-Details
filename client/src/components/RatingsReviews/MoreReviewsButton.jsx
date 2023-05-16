@@ -8,7 +8,7 @@ const MoreReviewsButton = ({moreReviewsClickHandler}) => {
 
   return(
     <div>
-      <button onClick={moreReviewsClickHandler}>More Reviews</button>
+      <button className='more-questions-button' onClick={moreReviewsClickHandler}>More Reviews</button>
     </div>
   )
 };
