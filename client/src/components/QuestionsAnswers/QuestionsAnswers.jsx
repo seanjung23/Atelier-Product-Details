@@ -3,9 +3,6 @@ import axios from 'axios';
 import SearchQuestions from './SearchQuestions.jsx';
 import QuestionsList from './QuestionsList.jsx';
 
-// Sean
-// Remember sync and to GIT PULL
-
 const QuestionsAnswers = ({productInfo}) => {
   const [questions, setQuestions] = useState({});
   const [filteredQuestions, setFilteredQuestions] = useState({});
@@ -15,7 +12,6 @@ const QuestionsAnswers = ({productInfo}) => {
       let url = '/qa/questions';
 
       axios.get(url, {
-        //change back to productInfo.id for product_id value below 37311 37312(seller) 37325
         params: {
           product_id: productInfo.id,
           page: 1,

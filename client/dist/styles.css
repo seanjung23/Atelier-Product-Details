@@ -350,8 +350,12 @@ a:hover {
   cursor: pointer;
 }
 
+.search-icon-path {
+  fill: rgb(128, 128, 128);
+}
+
 .search-icon-path:hover {
-  fill: yellow;
+  fill: rgb(0, 0, 0);
 }
 
 .questions-list {
@@ -361,6 +365,18 @@ a:hover {
 
 .question-list-body {
   display: inline;
+}
+
+.show-answers-button {
+  background-color: #ffffff;
+  border: none;
+  color: rgb(128, 128, 128);
+  font: italic small-caps bold 12px serif;
+}
+
+.show-answers-button:hover {
+  color: rgb(0, 0, 0);
+  cursor: pointer;
 }
 
 .question-modal {
@@ -374,6 +390,12 @@ a:hover {
   right: 0;
   top: 0;
   z-index: 7;
+}
+.more-questions-button {
+  display: inline-block;
+}
+.add-questions-button {
+  display: inline-block;
 }
 
 .question-modal-content {
@@ -398,7 +420,7 @@ a:hover {
 }
 
 .question-modal-body span {
-  color: red;
+  color: rgb(255, 0, 0);
 }
 
 .question-modal-textbox {
@@ -443,7 +465,7 @@ a:hover {
 }
 
 .answer-modal-body span {
-  color: red;
+  color: rgb(255, 0, 0);
 }
 
 .answer-modal-textbox {
@@ -452,7 +474,7 @@ a:hover {
   min-width: 99%;
 }
 
-.answer-photo {
+.answer-modal-photo {
   max-height: 10vh;
   max-width: 10vw;
 }

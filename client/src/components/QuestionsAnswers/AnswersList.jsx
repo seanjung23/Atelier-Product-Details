@@ -11,18 +11,19 @@ const AnswersList = ({answers, question, productInfo, showAnswerModal, changeSho
 
   displayedAnswers.sort((a, b) => b.helpfulness - a.helpfulness);
 
-  if (answerCount === 0) {
-    displayedAnswers = displayedAnswers.slice(answerCount);
-  } else {
-    displayedAnswers = displayedAnswers.slice(0, answerCount);
-  }
-
   for (let j = 0; j < displayedAnswers.length; j++) {
     if (displayedAnswers[j].answerer_name === 'Seller') {
       let temp = displayedAnswers.splice(j, 1);
       displayedAnswers.unshift(temp[0]);
     }
   }
+
+  if (answerCount === 0) {
+    displayedAnswers = displayedAnswers.slice(answerCount);
+  } else {
+    displayedAnswers = displayedAnswers.slice(0, answerCount);
+  }
+
 
   const showAllAnswers = () => {
     setAnswerCount(0);

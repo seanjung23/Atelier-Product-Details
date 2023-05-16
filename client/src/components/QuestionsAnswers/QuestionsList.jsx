@@ -4,8 +4,6 @@ import {MoreQuestionsButton, AddQuestionButton} from './QuestionsButtons.jsx';
 import QuestionModal from './QuestionModal.jsx';
 
 const QuestionsList = ({questions, productInfo}) => {
-  // console.log('this is productInfo', productInfo);
-  // console.log('these are questions', questions);
   const [displayMoreQuestionsButton, setDisplayMoreQuestionsButton] = useState(true);
   const [questionCount, setQuestionCount] = useState(2);
   const [showQuestionModal, setShowQuestionModal] = useState(false);
@@ -28,11 +26,6 @@ const QuestionsList = ({questions, productInfo}) => {
     setShowQuestionModal(!showQuestionModal);
   };
 
-  // const decrementCount = () => {
-  //   setDisplayMoreQuestionsButton(!displayMoreQuestionsButton);
-  //   setQuestionCount(2);
-  // };
-
   if (displayedQuestions.length !== 0) {
     return (
       <div className="questions-list">
@@ -40,9 +33,7 @@ const QuestionsList = ({questions, productInfo}) => {
         {(displayMoreQuestionsButton && questions.results.length > 2) && (
           <MoreQuestionsButton incrementCount={incrementCount} />
         )}
-        {(!showQuestionModal) && (
-          <AddQuestionButton changeShowQuestionModal={changeShowQuestionModal} />
-        )}
+        <AddQuestionButton changeShowQuestionModal={changeShowQuestionModal} />
         {(showQuestionModal) && (
           <QuestionModal productInfo={productInfo} changeShowQuestionModal={changeShowQuestionModal} />
         )}
@@ -52,9 +43,8 @@ const QuestionsList = ({questions, productInfo}) => {
 
   return (
     <div>
-      <h4>Q:</h4>
-      <p>No Questions Asked Yet!</p>
       <button type="button" onClick={() => changeShowQuestionModal()}>Submit New Question</button>
+      <p>No Questions Asked Yet!</p>
       {(showQuestionModal) && (
         <QuestionModal productInfo={productInfo} changeShowQuestionModal={changeShowQuestionModal} />
       )}

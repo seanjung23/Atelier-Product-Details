@@ -8,7 +8,6 @@ const AnswerModal = ({productInfo, question, changeShowAnswerModal}) => {
     let userAnswer = document.getElementsByClassName('answer-modal-textbox')[0].value;
     let userNickname = document.getElementsByClassName('answer-modal-nickname')[0].value;
     let userEmail = document.getElementsByClassName('answer-modal-email')[0].value;
-    //add functionality to check for valid photos here
 
     let checkEmail = (input) => {
       let isValid = true;
@@ -71,6 +70,7 @@ const AnswerModal = ({productInfo, question, changeShowAnswerModal}) => {
       e.preventDefault();
       postAnswer();
       changeShowAnswerModal();
+      alert('Your answer has been submitted! Please refresh the page to display your answer.');
     }}>
 
       <div className="answer-modal">
@@ -106,13 +106,13 @@ const AnswerModal = ({productInfo, question, changeShowAnswerModal}) => {
             </div>
 
             <div>
-              Upload Your Photos:
+              Upload Your Photos: &nbsp;
               {(answerPhotos.length < 5) && (
                 <input type="file" accept="image/*" onChange={(e) => checkPhotoSubmit(e)}/>
               )}
               <div>
                 {answerPhotos.map((photo, index) => (
-                  <img className="answer-photo" key={index} src={URL.createObjectURL(photo)}/>
+                  <img className="answer-modal-photo" key={index} src={URL.createObjectURL(photo)}/>
                 ))}
               </div>
             </div>
