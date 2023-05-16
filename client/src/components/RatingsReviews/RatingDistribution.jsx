@@ -14,6 +14,8 @@ const RatingDistribution = ({reviewMetaData, totalRatings, setFilterSettings, fi
       innerElement[0].style.height = '100%';
       if (lengthBar || lengthBar === 0) {
         innerElement[0].style.width = lengthBar.toString() + '%'
+      } else {
+        innerElement[0].style.width = '0';
       }
     }
 
@@ -76,7 +78,7 @@ const RatingDistribution = ({reviewMetaData, totalRatings, setFilterSettings, fi
           <div className='FiveRatingBarFill'>
           </div>
         </div>
-       {reviewMetaData.ratings[5]}
+       {reviewMetaData.ratings[5] || '0'}
       </div>
       <div className='starBarText' onClick={()=> {handleBreakdownOnClick(4)}}>
       4 Stars
@@ -84,7 +86,7 @@ const RatingDistribution = ({reviewMetaData, totalRatings, setFilterSettings, fi
           <div className='FourRatingBarFill'>
           </div>
         </div>
-        {reviewMetaData.ratings[4]}
+        {reviewMetaData.ratings[4] || '0'}
       </div>
       <div className='starBarText' onClick={()=> {handleBreakdownOnClick(3)}}>
       3 Stars
@@ -93,7 +95,7 @@ const RatingDistribution = ({reviewMetaData, totalRatings, setFilterSettings, fi
 
           </div>
         </div>
-        {reviewMetaData.ratings[3]}
+        {reviewMetaData.ratings[3] || '0'}
       </div>
       <div className='starBarText' onClick={()=> {handleBreakdownOnClick(2)}}>
       2 Stars
@@ -102,7 +104,7 @@ const RatingDistribution = ({reviewMetaData, totalRatings, setFilterSettings, fi
 
           </div>
         </div>
-        {reviewMetaData.ratings[2]}
+        {reviewMetaData.ratings[2] || '0'}
       </div>
       <div className='starBarText' onClick={()=> {handleBreakdownOnClick(1)}}>
       1 Stars
@@ -111,7 +113,7 @@ const RatingDistribution = ({reviewMetaData, totalRatings, setFilterSettings, fi
 
           </div>
         </div>
-        {reviewMetaData.ratings[1]}
+        {reviewMetaData.ratings[1] || '0'}
       </div>
       <p>
       {percentOfReviewsThatRecommend}% of reviews recommended this product
