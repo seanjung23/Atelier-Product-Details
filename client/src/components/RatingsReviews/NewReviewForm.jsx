@@ -1,9 +1,10 @@
 import react, { useState, useRef } from 'react';
 import RatingSelectionStars from './RatingSelectionStars.jsx';
 import NewReviewCharacteristics from './NewReviewCharacteristics.jsx';
+import axios from 'axios';
 
 const NewReviewForm = ({productInfo, reviewMetaData, setDisplayNewReviewForm}) => {
-
+  console.log(reviewMetaData);
   const [submitError, setSubmitError] = useState(false);
   const [doYouRecommend, setDoYouRecommend] = useState(null);
   const [yourStarRating, setYourStarRating] = useState(null);
@@ -42,16 +43,29 @@ const NewReviewForm = ({productInfo, reviewMetaData, setDisplayNewReviewForm}) =
 
   let handleReviewFormSubmit = function (e) {
     e.preventDefault();
-    console.log(doYouRecommend, yourStarRating);
-    console.log(ReviewFormSummary);
-    console.log(reviewFormBody);
-    console.log(ReviewFormEmail);
-    console.log(sizeCharacteristic);
-    console.log(widthCharacteristic);
-    console.log(comfortCharacteristic);
-    console.log(qualityCharacteristic);
-    console.log(lengthCharacteristic);
-    console.log(fitCharacteristic);
+
+    let completeReviewCharacteristics = {};
+
+    for (let char in reviewMetaData.characteristics) {
+      completeReviewCharacteristics[reviewMetaData.characteristics[char].id] =
+      Number(characteristicsValuePairs[char]);
+    }
+
+    let completeReviewSubmissionInfo = {
+      product_id: productInfo.id,
+      rating: yourStarRating,
+      body: reviewFormBody,
+      recommend: doYouRecommend,
+      summary: ReviewFormSummary.current.value,
+      name: ReviewFormNickname.current.value,
+      email: ReviewFormEmail.current.value,
+      photos: [],
+      characteristics: completeReviewCharacteristics
+    };
+
+    if (ReviewFormEmail.current.value === '') {
+      completeReviewSubmissionInfo.email = 'placeholder@notmail.com';
+    }
 
     let isSubmissionValid = true;
 
@@ -69,12 +83,19 @@ const NewReviewForm = ({productInfo, reviewMetaData, setDisplayNewReviewForm}) =
     }
     if (missingSubmissionRequirements.length > 0) {
       isSubmissionValid = false;
+      console.log(completeReviewSubmissionInfo);
       setMissingRequirements(missingSubmissionRequirements);
       setSubmitError(true);
     }
 
     if (isSubmissionValid) {
       setSubmitError(false);
+      console.log(completeReviewSubmissionInfo);
+      axios.post('/reviews',
+        completeReviewSubmissionInfo
+      )
+        .then((result) => {return})
+        .catch((err) => {return console.log(err)})
       return setDisplayNewReviewForm(false);
     }
   }
@@ -84,7 +105,10 @@ const NewReviewForm = ({productInfo, reviewMetaData, setDisplayNewReviewForm}) =
   }
 
   let handleRecommendClick = function (e) {
-    setDoYouRecommend(e.target.value);
+    if (e.target.value === 'Yes') {
+      return setDoYouRecommend(true)
+    }
+    setDoYouRecommend(false);
   }
 
   let closeNewReviewWindow = function () {
