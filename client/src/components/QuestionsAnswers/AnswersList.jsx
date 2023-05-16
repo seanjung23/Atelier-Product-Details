@@ -37,9 +37,9 @@ const AnswersList = ({answers, question, productInfo, showAnswerModal, changeSho
 
   if (displayedAnswers.length !== 0) {
     return (
-      <div>
+      <div className="answer-title">
+        <h4>A: </h4>&nbsp;
         <div>
-          <h4>A:</h4>
           {displayedAnswers.map((answer, index) => <AnswersEntry key={index} answer={answer} />)}
           {(showAnswersButton && answers.length > 2) && (
             <ShowAllAnswersButton showAllAnswers={showAllAnswers} />
@@ -51,20 +51,17 @@ const AnswersList = ({answers, question, productInfo, showAnswerModal, changeSho
           {(showAnswerModal) && (
             <AnswerModal productInfo={productInfo} question={question} changeShowAnswerModal={changeShowAnswerModal} />
           )}
-        <div>==================================================</div>
       </div>
     )
   }
   return (
     <div>
       <div>
-        <h4>A:</h4>
-        <p>No Answers Yet!</p>
+        <p className="answer-body">No Answers Yet!</p>
       </div>
       {(showAnswerModal) && (
         <AnswerModal productInfo={productInfo} question={question} changeShowAnswerModal={changeShowAnswerModal} />
       )}
-      <div>==================================================</div>
     </div>
   )
 };

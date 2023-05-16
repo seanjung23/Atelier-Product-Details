@@ -54,29 +54,29 @@ const QuestionsListEntry = ({question, productInfo}) => {
 
   return (
     <div>
-      <h4>Q:</h4>
-      <p className="question-list-body">{question.question_body}</p>&nbsp;
-      <p className="question-list-body">
-        <span><b>Helpful?</b></span>&nbsp;
-        {(!upvotedQuestion) && (
-          <span>
-            <a href="javascript:void(0)" onClick={() => upvoteQuestion()}>Yes ({question.question_helpfulness})</a> <b>|</b>
-          </span>
-        )}
-        {(upvotedQuestion) && (
-          <span>
-            <span>Yes</span> <b>|</b>
-          </span>
-        )}
-        &nbsp;<a href="javacript:void(0)" onClick={() => changeShowAnswerModal()}>Add Answer</a> <b>|</b>&nbsp;
-      </p>
-      {!reportedQuestion && (
-        <a href="javascript:void(0)" onClick={() => reportQuestion()}>Report Question</a>
-      )}
-      {reportedQuestion && (
-        <span>Reported</span>
-      )}
-      <p>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</p>
+      <div className="question-list-body">
+        <p className="question-body">Q: {question.question_body}</p>&nbsp;
+        <p className="question-actions">
+          <span>Helpful?</span>&nbsp;
+          {(!upvotedQuestion) && (
+            <span>
+              <a href="javascript:void(0)" onClick={() => upvoteQuestion()}>Yes ({question.question_helpfulness})</a> <b>|</b>
+            </span>
+          )}
+          {(upvotedQuestion) && (
+            <span>
+              <span>Yes</span> <b>|</b>
+            </span>
+          )}
+          &nbsp;<a href="javacript:void(0)" onClick={() => changeShowAnswerModal()}>Add Answer</a> <b>|</b>&nbsp;
+          {!reportedQuestion && (
+            <a href="javascript:void(0)" onClick={() => reportQuestion()}>Report Question</a>
+          )}
+          {reportedQuestion && (
+            <span>Reported</span>
+          )}
+        </p>
+      </div>
       <AnswersList answers={answers} question={question} productInfo={productInfo} showAnswerModal={showAnswerModal} changeShowAnswerModal={changeShowAnswerModal} />
     </div>
   )

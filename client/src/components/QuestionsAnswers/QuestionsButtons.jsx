@@ -20,7 +20,7 @@ const ShowAllAnswersButton = ({showAllAnswers}) => {
 
 const CollapseAllAnswersButton = ({collapseAnswers}) => {
   return (
-    <button type="button" onClick={() => collapseAnswers()}>Collapse Answers</button>
+    <button className="collapse-answers-button" type="button" onClick={() => collapseAnswers()}>Collapse Answers</button>
   )
 };
 

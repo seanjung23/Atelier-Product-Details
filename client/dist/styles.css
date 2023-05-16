@@ -328,9 +328,11 @@ a:hover {
 
 .search-bar {
   border: 0.06em solid #000;
-  height: 5vh;
-  min-width: 80%;
-  margin: 2em;
+  height: 7vh;
+  margin: 0 5em;
+}
+.questionAnswersDiv h1 {
+  margin: 0.5em 2.5em;
 }
 
 .user-search {
@@ -359,22 +361,49 @@ a:hover {
 }
 
 .questions-list {
-  height: 90vh;
+  height: 75vh;
+  margin: 1em 5em;
   overflow: auto;
 }
 
 .question-list-body {
-  display: inline;
+  display: flex;
+  justify-content: space-between;
 }
 
-.show-answers-button {
+.question-body {
+  font-weight: bold;
+}
+
+.question-actions {
+  font-size: 11px;
+}
+
+.answer-body {
+  font-size: 16px;
+}
+
+.answer-actions {
+  font-size: 11px;
+}
+
+.answer-title {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+}
+
+
+.show-answers-button,
+.collapse-answers-button {
   background-color: #ffffff;
   border: none;
   color: rgb(128, 128, 128);
-  font: italic small-caps bold 12px serif;
+  font: bold 12px serif;
 }
 
-.show-answers-button:hover {
+.show-answers-button:hover,
+.collapse-answers-button:hover {
   color: rgb(0, 0, 0);
   cursor: pointer;
 }
