@@ -73,8 +73,8 @@ export default function RelatedItemList({relatedItemIdList}) {
 
 
     return(<div className="relatedItemsList" ref={itemListRef}>
-      <div className="relatedItemLeftButtonDiv" onClick={leftButtonOnClick} style={leftButtonDisplay}> <ChevronLeftArrow/></div>
-      <div className="relatedItemRightButtonDiv" onClick={rightButtonOnClick} style={rightButtonDisplay}><ChevronRightArrow/></div>
+      <div className="relatedItemLeftButtonDiv hoverPointer" onClick={leftButtonOnClick} style={leftButtonDisplay}> <ChevronLeftArrow/></div>
+      <div className="relatedItemRightButtonDiv hoverPointer" onClick={rightButtonOnClick} style={rightButtonDisplay}><ChevronRightArrow/></div>
       <div className="relatedItemCarouselDiv" ref={carouselRef} >
 
         {

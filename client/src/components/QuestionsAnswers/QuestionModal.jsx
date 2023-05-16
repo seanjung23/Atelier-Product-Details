@@ -22,8 +22,6 @@ const QuestionModal = ({productInfo, changeShowQuestionModal}) => {
     }
   };
 
-
-  // WORK ON SUBMIT FUNCTION
   const postQuestion = () => {
     // instead of get element by class name use "useRef" to get value (let test = useRef('question-modal-textbox) ====> test.current.value should be the value of the user input)
     let url = '/qa/questions';
@@ -48,6 +46,7 @@ const QuestionModal = ({productInfo, changeShowQuestionModal}) => {
       e.preventDefault();
       postQuestion();
       changeShowQuestionModal();
+      alert('Your question has been submitted! Please refresh the page to display your question.');
     }}>
       <div className="question-modal">
 

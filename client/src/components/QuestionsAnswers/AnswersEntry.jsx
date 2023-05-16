@@ -3,7 +3,6 @@ import axios from 'axios';
 import {format, parseISO} from 'date-fns';
 
 const AnswersEntry = ({answer}) => {
-  // console.log('this is answer', answer);
   const [upvotedAnswer, setUpvotedAnswer] = useState(false);
   const [reportedAnswer, setReportedAnswer] = useState(false);
 
@@ -36,9 +35,8 @@ const AnswersEntry = ({answer}) => {
   if (answer.answerer_name === 'Seller') {
     return (
       <div>
-        <p>--------------------------------------------------</p>
-        <p>{answer.body}</p>
-        <p>
+        <p className="answer-body">{answer.body}</p>
+        <p className="answer-actions">
           by <strong>{answer.answerer_name}</strong> {format(parseISO(answer.date), 'MMM d yyyy')} <b>|</b>&nbsp;
           <span><b>Helpful?</b></span>&nbsp;
           {(!upvotedAnswer) && (
@@ -58,37 +56,34 @@ const AnswersEntry = ({answer}) => {
           <span>Reported</span>
           )}
         </p>
-        <p>--------------------------------------------------</p>
       </div>
       )
   }
 
   return (
-  <div>
-    <p>--------------------------------------------------</p>
-    <p>{answer.body}</p>
-    <p>
-      by {answer.answerer_name} {format(parseISO(answer.date), 'MMM d yyyy')} <b>|</b>&nbsp;
-      <span><b>Helpful?</b></span>&nbsp;
-      {(!upvotedAnswer) && (
-        <span>
-          <a href="javascript:void(0)" onClick={()=> upvoteAnswer()}>Yes ({answer.helpfulness})</a> <b>|</b>
-        </span>
-      )}
-      {(upvotedAnswer) && (
-        <span>
-          <span>Yes</span> <b>|</b>
-        </span>
-      )}&nbsp;
-      {!reportedAnswer && (
-      <a href="javascript:void(0)" onClick={() => reportAnswer()}>Report</a>
-      )}
-      {reportedAnswer && (
-      <span>Reported</span>
-      )}
-    </p>
-    <p>--------------------------------------------------</p>
-  </div>
+    <div>
+      <p className="answer-body">{answer.body}</p>
+      <p className="answer-actions">
+        by {answer.answerer_name} {format(parseISO(answer.date), 'MMM d yyyy')} <b>|</b>&nbsp;
+        <span><b>Helpful?</b></span>&nbsp;
+        {(!upvotedAnswer) && (
+          <span>
+            <a href="javascript:void(0)" onClick={()=> upvoteAnswer()}>Yes ({answer.helpfulness})</a> <b>|</b>
+          </span>
+        )}
+        {(upvotedAnswer) && (
+          <span>
+            <span>Yes</span> <b>|</b>
+          </span>
+        )}&nbsp;
+        {!reportedAnswer && (
+        <a href="javascript:void(0)" onClick={() => reportAnswer()}>Report</a>
+        )}
+        {reportedAnswer && (
+        <span>Reported</span>
+        )}
+      </p>
+    </div>
   )
 };
 
