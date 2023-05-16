@@ -101,7 +101,9 @@ const Review = ({oneReview, starArrayMaker}) => {
            })}
         </div>
         <div className='reviewerNameAndDate'>
-          {oneReview.reviewer_name}, {dateAdjuster()}
+          {oneReview.reviewer_name}
+          {oneReview.reviewer_name.length > 0 && <span>, </span>}
+          {dateAdjuster()}
         </div>
         {oneReview.response && <div className='responseFromSeller'>
           <strong> Response from Seller </strong>

@@ -48,7 +48,7 @@ const ReviewsList = ({reviewInfo, setSortSelection, starArrayMaker,
         <InnerReviewList currentlyDisplayedReviews={currentlyDisplayedReviews} starArrayMaker={starArrayMaker}/>
         <div>
         {whetherToDisplayMoreReviewsButton()}
-        {reviewMetaData && <CreateNewReviewButton handleWriteReviewOnClick={handleWriteReviewOnClick}/>}
+        {reviewMetaData.characteristics && <CreateNewReviewButton handleWriteReviewOnClick={handleWriteReviewOnClick}/>}
         </div>
         {displayNewReviewForm && <NewReviewForm productInfo={productInfo}
         reviewMetaData={reviewMetaData} setDisplayNewReviewForm={setDisplayNewReviewForm}/>}

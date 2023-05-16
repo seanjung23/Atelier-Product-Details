@@ -43,7 +43,7 @@ const App = () => {
         <QuestionsAnswers productInfo={productInfo}/>
       </div>
 
-      <div id="ratingsReviews" className="ratingReviewsDiv">
+      <div id="ratingsReviews" className="ratingsReviews">
         <RatingsReviews productInfo={productInfo}/>
       </div>
 
