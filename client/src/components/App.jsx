@@ -30,7 +30,7 @@ const App = () => {
   }
   return(
     <div>
-      <div>Top of App</div>
+      <div id='FullApp'></div>
 
       <div className="overviewDiv">
         <Overview productInfo={productInfo}/>
@@ -44,7 +44,7 @@ const App = () => {
         <QuestionsAnswers productInfo={productInfo}/>
       </div>
 
-      <div id="ratingsReviews" className="ratingReviewsDiv">
+      <div id="ratingsReviews" className="ratingsReviews">
         <RatingsReviews productInfo={productInfo}/>
       </div>
 

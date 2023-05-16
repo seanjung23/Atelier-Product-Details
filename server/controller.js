@@ -26,9 +26,7 @@ module.exports = {
   },
 
   postReviews: (req, res) => {
-    //TODO HERE
     let requestURL = process.env.API_URL + req.url;
-    console.log(req.body);
 
     axios.post(requestURL, req.body, config)
       .then(result => {res.json(result.data);})
@@ -36,7 +34,6 @@ module.exports = {
   },
 
   putReviews: (req, res) => {
-    //TODO HERE
     let requestURL = process.env.API_URL + req.path;
 
     axios.put(requestURL,

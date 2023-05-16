@@ -4,7 +4,7 @@ import NewReviewCharacteristics from './NewReviewCharacteristics.jsx';
 import axios from 'axios';
 
 const NewReviewForm = ({productInfo, reviewMetaData, setDisplayNewReviewForm}) => {
-  console.log(reviewMetaData);
+
   const [submitError, setSubmitError] = useState(false);
   const [doYouRecommend, setDoYouRecommend] = useState(null);
   const [yourStarRating, setYourStarRating] = useState(null);
@@ -63,6 +63,10 @@ const NewReviewForm = ({productInfo, reviewMetaData, setDisplayNewReviewForm}) =
       characteristics: completeReviewCharacteristics
     };
 
+    if (reviewPhotoSet.length > 0) {
+      completeReviewSubmissionInfo.photos.push('https://photolib.noaa.gov/Portals/0//GravityImages/36644/ProportionalFixedWidth/sanc090786274x800x800.jpg')
+    }
+
     if (ReviewFormEmail.current.value === '') {
       completeReviewSubmissionInfo.email = 'placeholder@notmail.com';
     }
@@ -83,14 +87,12 @@ const NewReviewForm = ({productInfo, reviewMetaData, setDisplayNewReviewForm}) =
     }
     if (missingSubmissionRequirements.length > 0) {
       isSubmissionValid = false;
-      console.log(completeReviewSubmissionInfo);
       setMissingRequirements(missingSubmissionRequirements);
       setSubmitError(true);
     }
 
     if (isSubmissionValid) {
       setSubmitError(false);
-      console.log(completeReviewSubmissionInfo);
       axios.post('/reviews',
         completeReviewSubmissionInfo
       )
@@ -155,13 +157,15 @@ const NewReviewForm = ({productInfo, reviewMetaData, setDisplayNewReviewForm}) =
         <button className='reviewModalClose'onClick={closeNewReviewWindow}>x</button>
         <form onSubmit={handleReviewFormSubmit}>
           <h3>Write Your Review</h3>
-          <p>About the {productInfo.name}</p>
-          <div>
+          <p>About the <strong>{productInfo.name}</strong></p>
+          <div className='newReviewSelectionOption'>
             Overall Rating *
-            </div>
-            <RatingSelectionStars setYourStarRating={setYourStarRating}/>
-            {starMeaningSelection(yourStarRating)}
             <div>
+              <RatingSelectionStars setYourStarRating={setYourStarRating}/>
+              {starMeaningSelection(yourStarRating)}
+            </div>
+            </div>
+            <div className='newReviewSelectionOption'>
             Do you recommend this product? *
               <div>
                 <input type='radio' value='Yes' name='newReviewRecommend'
@@ -172,7 +176,7 @@ const NewReviewForm = ({productInfo, reviewMetaData, setDisplayNewReviewForm}) =
                 <label>No</label>
               </div>
             </div>
-            <div>
+            <div className='newReviewSelectionOption'>
               Characteristics *
               <div>
                 <NewReviewCharacteristics reviewMetaData={reviewMetaData}
@@ -191,44 +195,53 @@ const NewReviewForm = ({productInfo, reviewMetaData, setDisplayNewReviewForm}) =
                />
              </div>
             </div>
-            Review Summary
-            <div>
-              <input placeholder='Example: Best purchase ever!'
-              ref={ReviewFormSummary} maxLength='60'/>
+            <div className='newReviewSelectionOption'>
+              Review Summary
+              <div>
+                <input className='reviewTextInput'placeholder='Example: Best purchase ever!'
+                ref={ReviewFormSummary} maxLength='60'/>
+              </div>
             </div>
-            Review Body *
-            <div>
-              <input placeholder='Why did you like the product or not?'
-              onChange={handleReviewFormBodyOnChange} maxLength='1000'/>
-              {ifEnoughCharactersAreInTheBody()}
+            <div className='newReviewSelectionOption'>
+              Review Body *
+              <div>
+                <textarea placeholder='Why did you like the product or not?'
+                onChange={handleReviewFormBodyOnChange} maxLength='1000'
+                rows='5'/>
+                {ifEnoughCharactersAreInTheBody()}
+              </div>
             </div>
-            <div>
+            <div className='newReviewSelectionOption'>
               Upload Your Photos
               {reviewPhotoSet.length < 5 && <input type='file' accept='image/*'
               onChange={handleNewReviewPhotoInput}/>}
               <div>
                 {reviewPhotoSet.map(function(photo, index) {
-                  return (<img key={index}
+                  return (<img className='oneReviewImage' key={index}
                   src={URL.createObjectURL(photo)}/>)
                 })}
               </div>
             </div>
-            What is your nickname?
-            <div>
-              <input placeholder='Example: jackson11!'
-              ref={ReviewFormNickname}/>
-              <p>For privacy reasons, do not use your full name or email   address</p>
+            <div className='newReviewSelectionOption'>
+              What is your nickname?
+              <div>
+                <input className='reviewTextInput' placeholder='Example: jackson11!'
+                ref={ReviewFormNickname}/>
+                <p>For privacy reasons, do not use your full name or email address</p>
+              </div>
             </div>
-            Your email
-            <div>
-              <input placeholder='Example: jackson11@email.com'
-              ref={ReviewFormEmail} type='email'/>
-              <p>For authentication reasons, you will not be emailed</p>
+            <div className='newReviewSelectionOption'>
+              Your email
+              <div>
+                <input className='reviewTextInput' placeholder='Example: jackson11@email.com'
+                ref={ReviewFormEmail} type='email'/>
+                <p>For authentication reasons, you will not be emailed</p>
+              </div>
             </div>
           <input type='submit'/>
           {submitError &&
           <div className='errorMessage'>
-            You must enter the following:
+            <strong>You must enter the following:</strong>
             {missingRequirements.map((requirement, index) => {
               return (<div key={index}>{requirement}</div>)
             })}

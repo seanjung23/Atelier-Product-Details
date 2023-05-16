@@ -35,7 +35,7 @@ useEffect(()=>{
 
   return(
     <div>
-      <h1>Related Items Section</h1>
+      <h1>Related Items</h1>
       <RelatedItemList relatedItemIdList={relatedItemIdList}/>
     </div>
   )
