@@ -61,15 +61,17 @@ const RatingsReviews = ({productInfo}) => {
   let totalRatings;
 
   if (reviewMetaData.ratings) {
+    totalRatings = 0;
     allRatings = reviewMetaData.ratings;
-    totalRatings = (Number(allRatings[1])
-    + Number(allRatings[2]) + Number(allRatings[3])
-    + Number(allRatings[4]) + Number(allRatings[5]));
-    averageRatingOverall = (
-      Number(allRatings[1]) + Number(allRatings[2] * 2)
-      + Number(allRatings[3] * 3)
-      + Number(allRatings[4] * 4) + Number(allRatings[5] * 5)
-    )/totalRatings;
+    for (let key in allRatings) {
+      totalRatings = totalRatings + (Number(allRatings[key]))
+    }
+    averageRatingOverall = 0;
+    for (let keyTwo in allRatings) {
+      averageRatingOverall = averageRatingOverall
+      + (Number(allRatings[keyTwo]) * keyTwo)
+    }
+    averageRatingOverall = averageRatingOverall/totalRatings;
   }
 
   let roundedAverageRatingOverall = (
