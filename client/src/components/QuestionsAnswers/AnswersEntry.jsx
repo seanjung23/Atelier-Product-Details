@@ -35,18 +35,18 @@ const AnswersEntry = ({answer}) => {
   if (answer.answerer_name === 'Seller') {
     return (
       <div>
-        <p className="answer-body">{answer.body}</p>
+        <p>{answer.body}</p>
         <p className="answer-actions">
-          by <strong>{answer.answerer_name}</strong> {format(parseISO(answer.date), 'MMM d yyyy')} <b>|</b>&nbsp;
-          <span><b>Helpful?</b></span>&nbsp;
+          by <strong>{answer.answerer_name}</strong> &nbsp;{format(parseISO(answer.date), 'MMM d yyyy')} &nbsp;<b>|</b>
+          &nbsp;&nbsp;<span><b>Helpful?</b></span>&nbsp;&nbsp;
           {(!upvotedAnswer) && (
             <span>
-              <a href="javascript:void(0)" onClick={()=> upvoteAnswer()}>Yes ({answer.helpfulness})</a> <b>|</b>
+              <a href="javascript:void(0)" onClick={()=> upvoteAnswer()}>Yes ({answer.helpfulness})</a> &nbsp;&nbsp;<b>|</b>
             </span>
-          )}
+          )}&nbsp;&nbsp;
           {(upvotedAnswer) && (
             <span>
-              <span>Yes</span> <b>|</b>
+              <span>Yes</span>  <b>|</b>
             </span>
           )}&nbsp;
           {!reportedAnswer && (
@@ -62,18 +62,18 @@ const AnswersEntry = ({answer}) => {
 
   return (
     <div>
-      <p className="answer-body">{answer.body}</p>
+      <p>{answer.body}</p>
       <p className="answer-actions">
-        by {answer.answerer_name} {format(parseISO(answer.date), 'MMM d yyyy')} <b>|</b>&nbsp;
-        <span><b>Helpful?</b></span>&nbsp;
+        by {answer.answerer_name} &nbsp;{format(parseISO(answer.date), 'MMM d yyyy')} &nbsp;<b>|</b>
+        &nbsp;&nbsp;<span><b>Helpful?</b></span>&nbsp;&nbsp;
         {(!upvotedAnswer) && (
           <span>
-            <a href="javascript:void(0)" onClick={()=> upvoteAnswer()}>Yes ({answer.helpfulness})</a> <b>|</b>
+            <a href="javascript:void(0)" onClick={()=> upvoteAnswer()}>Yes ({answer.helpfulness})</a> &nbsp;&nbsp;<b>|</b>
           </span>
-        )}
+        )}&nbsp;&nbsp;
         {(upvotedAnswer) && (
           <span>
-            <span>Yes</span> <b>|</b>
+            <span>Yes</span>  <b>|</b>
           </span>
         )}&nbsp;
         {!reportedAnswer && (

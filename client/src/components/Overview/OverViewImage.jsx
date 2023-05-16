@@ -140,7 +140,7 @@ export default function OverViewImage({currentStyle}){
     }
     let temp = -564 * imageIndex;
     productImagesRef.current.style.transform = `translateY(${temp}px)`
-
+    expandedImageRef.current.style.transform = `translateX(calc(-${imageIndex} * 90vw))`;
 
 
   },
@@ -168,18 +168,22 @@ export default function OverViewImage({currentStyle}){
 
   const expandOnClick = (e) => {
     setExpandViewDisplay({"display":"inline"})
+    topPage
   }
-  const [expandViewDisplay, setExpandViewDisplay] = useState({"display":"inherit"});
+  const [expandViewDisplay, setExpandViewDisplay] = useState({"display":"none"});
 
-
-
+const expandedImageRef = useRef();
+const eRef = useRef();
 
 
   if(currentImage  !== undefined){
     return (<>
-      <div className="expandViewModal" style={expandViewDisplay} >
-        <OverviewImageExpandedView productImages={productImages} productImageThumbnails={productImageThumbnails} setExpandViewDisplay={setExpandViewDisplay} setImageIndex={setImageIndex} imageIndex={imageIndex} setPrevImageIndex={setPrevImageIndex} prevImageIndex={prevImageIndex} setProductImageThumbnailsYIndex={setProductImageThumbnailsYIndex} currentStyle={currentStyle}/>
-      </div>
+    <div id="topPage" style={expandViewDisplay}>
+      <div className="expandViewModal"  ref={eRef}>
+          <OverviewImageExpandedView productImages={productImages} productImageThumbnails={productImageThumbnails} setExpandViewDisplay={setExpandViewDisplay} productImageThumbnailsYIndex={productImageThumbnailsYIndex} setImageIndex={setImageIndex} imageIndex={imageIndex} setPrevImageIndex={setPrevImageIndex} prevImageIndex={prevImageIndex} setProductImageThumbnailsYIndex={setProductImageThumbnailsYIndex} currentStyle={currentStyle} rightButtonDisplay={rightButtonDisplay} leftButtonDisplay={leftButtonDisplay} expandedImageRef={expandedImageRef} eRef={eRef} setProductImagesButtonDisplay={setProductImagesButtonDisplay}/>
+        </div>
+    </div>
+
       <div className="currentImageThumbnailsCarouselDiv" ref={productImageThumbnailsDivRef}>
 
       <div className="overviewUpButtonDiv hoverPointer" onClick={upButtonOnClick} style={upButtonDisplay}><ChevronUpArrow/></div>
@@ -197,11 +201,13 @@ export default function OverViewImage({currentStyle}){
       </div>
 
       <div className="currentImagesCarouselDiv" ref={productImagesDivRef}>
-
+        <div className="OverviewButtons">
         <div className="overviewLeftButtonDiv hoverPointer" onClick={leftButtonOnClick} style={leftButtonDisplay}><ChevronLeftArrow/></div>
         <div className="overviewRightButtonDiv hoverPointer" onClick={rightButtonOnClick} style={rightButtonDisplay}><ChevronRightArrow/></div>
 
         <div className="expandViewIconDiv hoverPointer" onClick={expandOnClick} ><OverviewExpandSVG /></div>
+        </div>
+
 
         <div className="currentImagesCarousel" ref={productImagesRef}>
 
