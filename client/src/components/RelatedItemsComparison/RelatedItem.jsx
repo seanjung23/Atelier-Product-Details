@@ -82,7 +82,7 @@ export default function RelatedItem({itemId}) {
 
         <div className="comparisonStarDiv" ><ComparisonStar/></div>
 
-        <div className="relatedItemImagesDiv">
+        <div className="relatedItemImagesDiv hoverPointer">
           <img className="relatedItemImages" src={defaultImgSrc} ></img>
         </div>
 
@@ -108,7 +108,7 @@ export default function RelatedItem({itemId}) {
   }
 
   return (
-    <div className="relatedItems" style={{"borderColor":"transparent"}}>
+    <div className="relatedItems" style={{"borderColor":"transparent"} }>
       <progress></progress>
     </div>
   )

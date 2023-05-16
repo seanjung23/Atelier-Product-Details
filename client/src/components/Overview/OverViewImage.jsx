@@ -2,7 +2,8 @@ import react,  {useState, useEffect, useRef}from 'react';
 import {ChevronRightArrow, ChevronLeftArrow, ChevronUpArrow, ChevronDownArrow} from './../icons/OverviewArrowsSVG.jsx';
 import OverviewImageThumbnails from './OverviewImageThumbnails.jsx';
 import OverviewImages from './OverviewImages.jsx';
-import OverviewExpandSVG from './../icons/OverviewExpandSVG.jsx'
+import OverviewExpandSVG from './../icons/OverviewExpandSVG.jsx';
+import OverviewImageExpandedView from './OverviewImageExpandedView.jsx';
 export default function OverViewImage({currentStyle}){
 
   const [currentImage, setCurrentImage] = useState('');
@@ -92,7 +93,7 @@ export default function OverViewImage({currentStyle}){
       })
 
       setCurrentImage(currentStyle.photos[0].url);
-
+      setProductImageThumbnailsYIndex(0);
     }
 
   }, [currentStyle]);
@@ -168,20 +169,20 @@ export default function OverViewImage({currentStyle}){
   const expandOnClick = (e) => {
     setExpandViewDisplay({"display":"inline"})
   }
-  const [expandViewDisplay, setExpandViewDisplay] =useState({"display":"none"});
+  const [expandViewDisplay, setExpandViewDisplay] = useState({"display":"inherit"});
+
+
 
 
 
   if(currentImage  !== undefined){
     return (<>
-<div className="expandViewModal" style={expandViewDisplay}>
-  <div>
-
-  </div>
-</div>
+      <div className="expandViewModal" style={expandViewDisplay} >
+        <OverviewImageExpandedView productImages={productImages} productImageThumbnails={productImageThumbnails} setExpandViewDisplay={setExpandViewDisplay} setImageIndex={setImageIndex} imageIndex={imageIndex} setPrevImageIndex={setPrevImageIndex} prevImageIndex={prevImageIndex} setProductImageThumbnailsYIndex={setProductImageThumbnailsYIndex} currentStyle={currentStyle}/>
+      </div>
       <div className="currentImageThumbnailsCarouselDiv" ref={productImageThumbnailsDivRef}>
 
-      <div className="overviewUpButtonDiv" onClick={upButtonOnClick} style={upButtonDisplay}><ChevronUpArrow/></div>
+      <div className="overviewUpButtonDiv hoverPointer" onClick={upButtonOnClick} style={upButtonDisplay}><ChevronUpArrow/></div>
 
         <div className="currentImageThumbnailsCarousel" ref={productImageThumbnailsRef}>
           {productImageThumbnails.map((e,index) => {
@@ -191,14 +192,17 @@ export default function OverViewImage({currentStyle}){
           })}
         </div>
 
-        <div className="overviewDownButtonDiv" onClick={downButtonOnClick} style={downButtonDisplay}><ChevronDownArrow/></div>
+        <div className="overviewDownButtonDiv hoverPointer" onClick={downButtonOnClick} style={downButtonDisplay}><ChevronDownArrow/></div>
 
       </div>
 
       <div className="currentImagesCarouselDiv" ref={productImagesDivRef}>
-        <div className="expandViewIconDiv" onClick={expandOnClick} ><OverviewExpandSVG /></div>
-        <div className="overviewLeftButtonDiv" onClick={leftButtonOnClick} style={leftButtonDisplay}><ChevronLeftArrow/></div>
-        <div className="overviewRightButtonDiv" onClick={rightButtonOnClick} style={rightButtonDisplay}><ChevronRightArrow/></div>
+
+        <div className="overviewLeftButtonDiv hoverPointer" onClick={leftButtonOnClick} style={leftButtonDisplay}><ChevronLeftArrow/></div>
+        <div className="overviewRightButtonDiv hoverPointer" onClick={rightButtonOnClick} style={rightButtonDisplay}><ChevronRightArrow/></div>
+
+        <div className="expandViewIconDiv hoverPointer" onClick={expandOnClick} ><OverviewExpandSVG /></div>
+
         <div className="currentImagesCarousel" ref={productImagesRef}>
 
           {productImages.map((e, index) => {

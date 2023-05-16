@@ -26,7 +26,7 @@ export default function({style, currentStyle, setCurrentStyle}){
       <div className="overViewCheckMarkDiv" ref={checkRef}>
           <OverviewCheckMark />
         </div>
-      <div className="overviewStyleThumbnailsDiv">
+      <div className="overviewStyleThumbnailsDiv  hoverPointer">
         <img className="overviewStyleThumbnails" src={style.photos[0].thumbnail_url}></img>
       </div>
     </div>

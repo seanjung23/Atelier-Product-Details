@@ -34,7 +34,7 @@ export default function({currentStyle}){
     }
 
   }, [currentStyle])
-
+  console.log(sizeObj)
 
 
   const [selectedSize, setSelectedSize] = useState();
