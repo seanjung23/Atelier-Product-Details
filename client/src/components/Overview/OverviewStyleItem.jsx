@@ -13,7 +13,7 @@ export default function({style, currentStyle, setCurrentStyle}){
         checkRef.current.style.visibility = 'hidden';
       }
     }
-  },[checkRef, currentStyle]);
+  },[checkRef, currentStyle, style]);
 
   const styleOnClick = (e) => {
     if (style.style_id !== currentStyle.style_id) {

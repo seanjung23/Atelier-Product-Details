@@ -2,17 +2,29 @@ import react,  {useState, useEffect, useRef, useLayoutEffect}from 'react';
 
 import OverviewStyleItem from './OverviewStyleItem.jsx'
 export default function ({productStyles, currentStyle, setCurrentStyle}){
+  const [styles, setStyles] = useState([]);
+
+  useEffect(()=> {
+
+    if(productStyles){
+
+      setStyles([]);
+      productStyles.map((style) => {
+
+        setStyles(styles =>[...styles, style])
+
+      });
+    }
+
+
+  },[productStyles])
 
 
 
-  if (productStyles !== undefined) {
 
-    let styles = [];
-    productStyles.map((style) => {
+  if (styles && productStyles !== undefined) {
 
-      styles.push(style);
 
-    })
 
     return (
       <div className="overviewStyleSelectionDiv">

@@ -10,11 +10,11 @@ import axios from 'axios';
 const App = () => {
 
   const [productInfo, setProductInfo] = useState({});
-
+  const [product_id, setProduct_id] = useState(37315)
   useEffect(() => {
     //// USE THE SAME PRODUCT_ID LATER WHEN WE PUT EVERYTHING TOGETHER
 
-    let product_id = 37325;
+
 
     let url = '/products/' + product_id;
 
@@ -23,7 +23,7 @@ const App = () => {
       .catch(err => console.log(err));
 
 
-  }, []);
+  }, [product_id]);
 
   if(productInfo.id === undefined) {
     return (<></>)
@@ -37,7 +37,7 @@ const App = () => {
       </div>
 
       <div className="relatedItemsComparsionDiv">
-        <RelatedItemsComparison productInfo={productInfo}/>
+        <RelatedItemsComparison productInfo={productInfo} setProduct_id={setProduct_id}/>
       </div>
 
       <div className="questionAnswersDiv">

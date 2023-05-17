@@ -7,13 +7,12 @@ export default function({itemInfo}) {
   const [description, setDescription] = useState(itemInfo.description);
   const [features, setFeatures] = useState(itemInfo.features)
 
-  const facebookShareOnClick =() => {
+  useEffect(()=> {
+    setSlogan(itemInfo.slogan);
+    setDescription(itemInfo.description);
+    setFeatures(itemInfo.features);
+  }, [itemInfo])
 
-    var window_location_encoded = encodeURI(window.location);
-  	var share_link = "https://www.facebook.com/sharer/sharer.php?u="+window_location_encoded;
-  	window.open(share_link,'_blank');
-
-  }
   const facbookCurrentURL = `http://www.facebook.com/sharer.php?u=${window.location.href}`
   const twitterCurrentURL = `https://twitter.com/intent/tweet?url='${window.location.href}'`;
   const pinterestCurrentURL = `http://pinterest.com/pin/create/button/?url=${window.location.href}`
@@ -21,11 +20,11 @@ export default function({itemInfo}) {
   return (
     <>
       <div className="sloganDiv">
-        <b>{itemInfo.slogan}</b>
+        <b>{slogan}</b>
       </div>
 
       <div className="descriptionDiv">
-        <p>{itemInfo.description}</p>
+        <p>{description}</p>
       </div>
 
       <div className="shareDiv" >
@@ -44,7 +43,7 @@ export default function({itemInfo}) {
       </div>
 
       <div className="featuresDiv">
-        {itemInfo.features.map(e => {
+        {features.map(e => {
           return (
             <p>{e.feature}: <span>{e.value}</span></p>
 

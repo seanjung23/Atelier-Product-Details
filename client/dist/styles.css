@@ -1,4 +1,8 @@
 /* All components */
+
+
+
+
 .overviewDiv, .relatedItemsComparsionDiv, .questionAnswersDiv, .ratingReviewsDiv {
   border: solid 0.0625em;
 }
@@ -289,6 +293,9 @@ a:hover {
 .addToCartbuttonDiv{
   position: absolute;
   top:120%;
+  width: 20vw;
+  height: 10vh;
+  border-radius: 3.5em !important;
 }
 
 .overviewDescriptionDiv {
@@ -600,7 +607,7 @@ a:hover {
 
 
 .show-answers-button,
-.collapse-answers-button {
+.collapse-answers-button, .addToCartbuttonDiv{
   background-color: #613B6F;
   border: none;
   border-radius: 1.5em;
@@ -609,14 +616,14 @@ a:hover {
 }
 
 .show-answers-button:hover,
-.collapse-answers-button:hover {
+.collapse-answers-button:hover, .addToCartbuttonDiv:hover{
   background-color: #64B735;
   color: #F6F9FE;
   cursor: pointer;
 }
 
 .show-answers-button:focus,
-.collapse-answers-button:focus {
+.collapse-answers-button:focus, .addToCartbuttonDiv:focus {
   outline: none;
   border: 0.125em solid #613B6F;
 }
