@@ -117,7 +117,14 @@ module.exports = {
     axios.get(requestURL, config)
       .then(result => {res.json(result.data);})
       .catch(err => console.log(err));
+  },
+  postInteractions:(req, res) => {
+    let requestURL = process.env.API_URL + req.path;
+    axios.post(requestURL,req.body, config)
+    .then(result => {
+      console.log(result.data)
+      res.json(result.data);})
+    .catch(err => console.log(err));
   }
-
 
 }

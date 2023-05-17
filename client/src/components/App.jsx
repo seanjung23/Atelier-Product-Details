@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect, createContext} from 'react';
 import RatingsReviews from './RatingsReviews/RatingsReviews.jsx';// John
 import QuestionsAnswers from './QuestionsAnswers/QuestionsAnswers.jsx';// Sean
 import RelatedItemsComparison from './RelatedItemsComparison/RelatedItemsComparison.jsx';// Xinhuang
@@ -10,6 +10,23 @@ import axios from 'axios';
 const App = () => {
 
   const [productInfo, setProductInfo] = useState({});
+
+  const InteractionContext = createContext();
+
+  const interactionAPI = (element, widget, time) => {
+
+    let params =
+      {
+        element: element,
+        widget: widget,
+        time: time
+      };
+
+
+    axios.post('/interactions', params)
+    .then(result => console.log(result))
+    .catch(err => console.log(err));
+  }
 
   useEffect(() => {
     //// USE THE SAME PRODUCT_ID LATER WHEN WE PUT EVERYTHING TOGETHER
@@ -30,6 +47,7 @@ const App = () => {
   }
   return(
     <div>
+      <UserContext.Provider value={interactionAPI}>
       <div id='FullApp'></div>
 
       <div className="overviewDiv">
@@ -49,6 +67,7 @@ const App = () => {
       </div>
 
     </div>
+    </UserContext.Provider>
   )
 };
 
