@@ -551,6 +551,7 @@ a:hover {
 .search-bar {
   height: 7vh;
   margin: 0em 5em;
+  position: relative;
 }
 
 .user-search {
@@ -563,11 +564,12 @@ a:hover {
 }
 
 .search-icon {
-  height: 1em;
+  float: right;
+  height: 1.5em;
   position: absolute;
-  right: 9em;
-  width: 1em;
-  top: 76.5em;
+  right: 4.5vw;
+  width: 1.5em;
+  top: 1.2em;
 }
 
 .search-icon:hover {
@@ -603,6 +605,7 @@ a:hover {
 }
 
 .answer-list {
+  border-bottom: 0.0625em solid #64B735;
   display: inline-block;
   font-size: 1em;
   height: 25vh;

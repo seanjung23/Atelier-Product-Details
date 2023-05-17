@@ -1,9 +1,13 @@
 import React from 'react';
 import SearchIcon from '../icons/SearchIcon.jsx'
+import {InteractionAPIContext} from './../InteractionAPI.jsx';
 
 const SearchQuestions = ({retrieveQuery}) => {
+  const interactionAPI = useContext(InteractionAPIContext);
 
   const initalizeSearch = () => {
+    interactionAPI("Search Questions SearchBar", "QuestionsAnswers");
+
     let query = document.getElementsByClassName('user-search')[0].value.toLowerCase();
     query = query.length < 3 ? '' : query;
 

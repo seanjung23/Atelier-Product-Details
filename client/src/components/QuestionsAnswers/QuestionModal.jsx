@@ -1,7 +1,10 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import axios from 'axios';
+import {InteractionAPIContext} from './../InteractionAPI.jsx';
 
 const QuestionModal = ({productInfo, changeShowQuestionModal}) => {
+  const interactionAPI = useContext(InteractionAPIContext);
+
   const checkInputs = () => {
     let userQuestion = document.getElementsByClassName('question-modal-textbox')[0].value;
     let userNickname = document.getElementsByClassName('question-modal-nickname')[0].value;
@@ -23,6 +26,7 @@ const QuestionModal = ({productInfo, changeShowQuestionModal}) => {
   };
 
   const postQuestion = () => {
+    interactionAPI("Submit Question Button", "QuestionsAnswers");
     // instead of get element by class name use "useRef" to get value (let test = useRef('question-modal-textbox) ====> test.current.value should be the value of the user input)
     let url = '/qa/questions';
     let userQuestion = document.getElementsByClassName('question-modal-textbox')[0].value;
