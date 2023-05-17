@@ -61,7 +61,7 @@ const QuestionModal = ({productInfo, changeShowQuestionModal}) => {
 
             <div>
               <span>*</span> Your Question:
-              <textarea className="question-modal-textbox" maxLength="1000" required placeholder="Add your question here..."></textarea>
+              <textarea className="question-modal-textbox" maxLength="1000" required placeholder="Ask your question here..."></textarea>
             </div>
 
             <div>
