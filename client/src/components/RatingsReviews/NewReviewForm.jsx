@@ -1,9 +1,12 @@
-import react, { useState, useRef } from 'react';
+import react, { useState, useRef, useContext } from 'react';
 import RatingSelectionStars from './RatingSelectionStars.jsx';
 import NewReviewCharacteristics from './NewReviewCharacteristics.jsx';
 import axios from 'axios';
+import {InteractionAPIContext} from './../InteractionAPI.jsx';
 
 const NewReviewForm = ({productInfo, reviewMetaData, setDisplayNewReviewForm}) => {
+
+  const interactionAPI = useContext(InteractionAPIContext);
 
   const [submitError, setSubmitError] = useState(false);
   const [doYouRecommend, setDoYouRecommend] = useState(null);
@@ -42,6 +45,9 @@ const NewReviewForm = ({productInfo, reviewMetaData, setDisplayNewReviewForm}) =
   let missingSubmissionRequirements = [];
 
   let handleReviewFormSubmit = function (e) {
+
+    interactionAPI('New Review Form: Submit', 'Ratings and Reviews');
+
     e.preventDefault();
 
     let completeReviewCharacteristics = {};
@@ -107,6 +113,9 @@ const NewReviewForm = ({productInfo, reviewMetaData, setDisplayNewReviewForm}) =
   }
 
   let handleRecommendClick = function (e) {
+
+    interactionAPI('New Review From: Recommend', 'Ratings and Reviews');
+
     if (e.target.value === 'Yes') {
       return setDoYouRecommend(true)
     }
@@ -114,6 +123,9 @@ const NewReviewForm = ({productInfo, reviewMetaData, setDisplayNewReviewForm}) =
   }
 
   let closeNewReviewWindow = function () {
+
+    interactionAPI('Close New Review Form', 'Ratings and Reviews');
+
     setDisplayNewReviewForm(false);
   }
 
@@ -149,6 +161,14 @@ const NewReviewForm = ({productInfo, reviewMetaData, setDisplayNewReviewForm}) =
     let addedPhotoSet = reviewPhotoSet.slice();
     addedPhotoSet.push(e.target.files[0])
     setReviewPhotoSet(addedPhotoSet);
+  }
+
+  let handleReviewFormElementClick = function (element) {
+    return function (e) {
+
+      interactionAPI(`New Review Form: ${element}`, 'Ratings and Reviews');
+
+    }
   }
 
   return (
@@ -198,7 +218,7 @@ const NewReviewForm = ({productInfo, reviewMetaData, setDisplayNewReviewForm}) =
             <div className='newReviewSelectionOption'>
               Review Summary
               <div>
-                <input className='reviewTextInput'placeholder='Example: Best purchase ever!'
+                <input className='reviewTextInput'placeholder='Example: Best purchase ever!' onClick={handleReviewFormElementClick('Review Summary')}
                 ref={ReviewFormSummary} maxLength='60'/>
               </div>
             </div>
@@ -207,13 +227,13 @@ const NewReviewForm = ({productInfo, reviewMetaData, setDisplayNewReviewForm}) =
               <div>
                 <textarea placeholder='Why did you like the product or not?'
                 onChange={handleReviewFormBodyOnChange} maxLength='1000'
-                rows='5'/>
+                rows='5' onClick={handleReviewFormElementClick('Review Body')}/>
                 {ifEnoughCharactersAreInTheBody()}
               </div>
             </div>
             <div className='newReviewSelectionOption'>
               Upload Your Photos
-              {reviewPhotoSet.length < 5 && <input type='file' accept='image/*'
+              {reviewPhotoSet.length < 5 && <input type='file' accept='image/*' onClick={handleReviewFormElementClick('Upload Your Photos')}
               onChange={handleNewReviewPhotoInput}/>}
               <div>
                 {reviewPhotoSet.map(function(photo, index) {
@@ -225,7 +245,7 @@ const NewReviewForm = ({productInfo, reviewMetaData, setDisplayNewReviewForm}) =
             <div className='newReviewSelectionOption'>
               What is your nickname?
               <div>
-                <input className='reviewTextInput' placeholder='Example: jackson11!'
+                <input className='reviewTextInput' placeholder='Example: jackson11!' onClick={handleReviewFormElementClick('What is your nickname?')}
                 ref={ReviewFormNickname}/>
                 <p>For privacy reasons, do not use your full name or email address</p>
               </div>
@@ -233,7 +253,7 @@ const NewReviewForm = ({productInfo, reviewMetaData, setDisplayNewReviewForm}) =
             <div className='newReviewSelectionOption'>
               Your email
               <div>
-                <input className='reviewTextInput' placeholder='Example: jackson11@email.com'
+                <input className='reviewTextInput' placeholder='Example: jackson11@email.com' onClick={handleReviewFormElementClick('Your email')}
                 ref={ReviewFormEmail} type='email'/>
                 <p>For authentication reasons, you will not be emailed</p>
               </div>

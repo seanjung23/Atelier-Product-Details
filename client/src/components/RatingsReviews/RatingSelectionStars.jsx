@@ -1,8 +1,11 @@
-import react, {useState} from 'react';
+import react, {useState, useContext} from 'react';
 import {EmptyStar, FullStar} from '../icons/ReviewRatingStarsSVG.jsx'
+import {InteractionAPIContext} from './../InteractionAPI.jsx';
 
 
 const RatingSelectionStars = ({setYourStarRating}) => {
+
+  const interactionAPI = useContext(InteractionAPIContext);
 
   let starSetDefault = [0, 0, 0, 0, 0];
   let starSet1 = [1, 0, 0, 0, 0];
@@ -23,6 +26,9 @@ const RatingSelectionStars = ({setYourStarRating}) => {
 
   let changeStarSelection = function (currentStarSet, starInSet) {
     return function () {
+
+      interactionAPI(`New Review Form: Overall Rating Star ${starInSet + 1}`, 'Ratings and Reviews');
+
       setYourStarRating(starInSet + 1);
       setFilledStars(currentStarSet);
     };
