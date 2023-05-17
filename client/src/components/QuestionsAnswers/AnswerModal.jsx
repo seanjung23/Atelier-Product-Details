@@ -1,7 +1,9 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import axios from 'axios';
+import {InteractionAPIContext} from './../InteractionAPI.jsx';
 
 const AnswerModal = ({productInfo, question, changeShowAnswerModal}) => {
+  const interactionAPI = useContext(InteractionAPIContext);
   const [answerPhotos, setAnswerPhotos] = useState([]);
 
   const checkInputs = () => {
@@ -25,6 +27,7 @@ const AnswerModal = ({productInfo, question, changeShowAnswerModal}) => {
   };
 
   const postAnswer = () => {
+    interactionAPI("Submit Answer Button", "QuestionsAnswers");
     // instead of get element by class name use "useRef" to get value (let test = useRef('answer-modal-textbox) ====> test.current.value should be the value of the user input)
     let url = '/qa/questions/' + question.question_id + '/answers';
     let userAnswer = document.getElementsByClassName('answer-modal-textbox')[0].value;
@@ -59,6 +62,7 @@ const AnswerModal = ({productInfo, question, changeShowAnswerModal}) => {
   };
 
   const checkPhotoSubmit = (e) => {
+    interactionAPI("Add New Photo", "QuestionsAnswers");
     let temp = answerPhotos.slice();
     temp.push(e.target.files[0]);
 

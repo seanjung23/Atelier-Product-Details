@@ -1,9 +1,11 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import QuestionsListEntry from './QuestionsListEntry.jsx';
-import {MoreQuestionsButton, AddQuestionButton} from './QuestionsButtons.jsx';
 import QuestionModal from './QuestionModal.jsx';
+import {MoreQuestionsButton, AddQuestionButton} from './QuestionsButtons.jsx';
+import {InteractionAPIContext} from './../InteractionAPI.jsx';
 
 const QuestionsList = ({questions, productInfo}) => {
+  const interactionAPI = useContext(InteractionAPIContext);
   const [displayMoreQuestionsButton, setDisplayMoreQuestionsButton] = useState(true);
   const [questionCount, setQuestionCount] = useState(2);
   const [showQuestionModal, setShowQuestionModal] = useState(false);
@@ -15,14 +17,19 @@ const QuestionsList = ({questions, productInfo}) => {
   }
 
   const incrementCount = () => {
+    interactionAPI("Show More Questions Button", "QuestionsAnswers");
+
     let temp = questionCount + 2;
+
     setQuestionCount(temp);
+
     if (questions.results.length < temp) {
       setDisplayMoreQuestionsButton(!displayMoreQuestionsButton);
     }
   };
 
   const changeShowQuestionModal = () => {
+    interactionAPI("Show/Hide Question Modal Button", "QuestionsAnswers");
     setShowQuestionModal(!showQuestionModal);
   };
 

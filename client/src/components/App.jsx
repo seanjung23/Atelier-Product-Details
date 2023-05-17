@@ -62,9 +62,11 @@ const App = () => {
         <RelatedItemsComparison productInfo={productInfo} setProduct_id={setProduct_id}/>
       </div>
 
-      <div className="questionAnswersDiv">
-        <QuestionsAnswers productInfo={productInfo}/>
-      </div>
+      <InteractionAPIContext.Provider value={interactionAPI}>
+        <div className="questionAnswersDiv">
+          <QuestionsAnswers productInfo={productInfo}/>
+        </div>
+      </InteractionAPIContext.Provider>
 
       <div id="ratingsReviews" className="ratingsReviews">
         <RatingsReviews productInfo={productInfo}/>

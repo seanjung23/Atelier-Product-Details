@@ -1,9 +1,11 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import AnswersEntry from './AnswersEntry.jsx';
 import AnswerModal from './AnswerModal.jsx';
 import {ShowAllAnswersButton, CollapseAllAnswersButton} from './QuestionsButtons.jsx';
+import {InteractionAPIContext} from './../InteractionAPI.jsx';
 
 const AnswersList = ({answers, question, productInfo, showAnswerModal, changeShowAnswerModal}) => {
+  const interactionAPI = useContext(InteractionAPIContext);
   const [answerCount, setAnswerCount] = useState(2);
   const [showAnswersButton, setShowAnswersButton] = useState(true);
 
@@ -26,11 +28,13 @@ const AnswersList = ({answers, question, productInfo, showAnswerModal, changeSho
 
 
   const showAllAnswers = () => {
+    interactionAPI("Show All Answers Button", "QuestionsAnswers");
     setAnswerCount(0);
     setShowAnswersButton(!showAnswersButton);
   }
 
   const collapseAnswers = () => {
+    interactionAPI("Collapse All Answers Button", "QuestionsAnswers");
     setAnswerCount(2);
     setShowAnswersButton(!showAnswersButton);
   };
