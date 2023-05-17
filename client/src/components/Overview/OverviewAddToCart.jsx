@@ -1,10 +1,15 @@
-import react,  {useState, useEffect, useRef}from 'react';
+import react,  {useState, useEffect, useRef, useContext}from 'react';
 import axios from 'axios';
+
+import {InteractionAPIContext} from './../InteractionAPI.jsx';
 export default function({currentStyle}){
   const [sizeObj, setSizeObj] = useState({});
   const [sizeArray, setSizeArray] =useState([]);
   const quantityRef = useRef();
   const sizeRef = useRef();
+
+  const interactionAPI = useContext(InteractionAPIContext);
+
   useEffect(() => {
 
     if(currentStyle.style_id !== undefined) {
@@ -15,7 +20,7 @@ export default function({currentStyle}){
         sizeRef.current.value = 'Select Size';
         setSelectedSize('Select Size');
       }
-      console.log(currentStyle.skus)
+
       for (var i in currentStyle.skus) {
 
         if (currentStyle.skus[i].quantity >= 1) {
@@ -85,6 +90,8 @@ export default function({currentStyle}){
 
 
   const addToCartOnClick = (e) => {
+    interactionAPI("Add To Cart Button", "Overview");
+
     if (sizeRef.current.value === 'Select Size') {
 
       sizeRef.current.size = 5;
@@ -102,6 +109,7 @@ export default function({currentStyle}){
       }
 
     }
+
     axios.get('/cart')
     .then(result => console.log(result.data))
           .catch(err => console.log(err));
