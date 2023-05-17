@@ -11,9 +11,6 @@ import NewReviewForm from './NewReviewForm.jsx';
 
 const ReviewsList = ({reviewInfo, setSortSelection, starArrayMaker,
   productInfo, reviewMetaData}) => {
-  console.log(reviewInfo)
-  console.log(reviewMetaData)
-  console.log(productInfo)
 
   const [reviewsDisplayed, setReviewsDisplayed] = useState(2);
   const [displayNewReviewForm, setDisplayNewReviewForm] = useState(false);
@@ -25,7 +22,7 @@ const ReviewsList = ({reviewInfo, setSortSelection, starArrayMaker,
 
 
   const whetherToDisplayMoreReviewsButton = function() {
-    if (reviewInfo.length > 2
+    if (reviewInfo.length > 0
       && reviewsDisplayed < reviewInfo.length) {
         return (
           <div className='moreReviewsButton'>

@@ -13,7 +13,7 @@ let reviewInfo = [ {
   review_id : 584640,
   reviewer_name : "Roselyn_West11",
   summary : "Mollitia nemo sunt."
-}
+},
 {
   body :
   "Quis maiores et pariatur et reprehenderit quos neque distinctio et. Qui quo quo laborum eaque pariatur. Nostrum natus non ut fuga dolorem est corporis. Eum quisquam veritatis aspernatur voluptatum officia sed dolor rerum. Aut dolores natus ducimus totam magnam non ea facere ut. Officiis labore.",
@@ -29,6 +29,22 @@ let reviewInfo = [ {
   review_id : 584644,
   reviewer_name : "Joseph_West11",
   summary : "Mollitia nemo sunt."
+},
+{
+  body :
+  "I really enjoed these. Cause I can, and not because I can't",
+  date : "2021-04-20T00:00:00.000Z",
+  helpfulness : 11,
+  photos : [
+    {0 : {id: 1122590, url: 'https://images.unsplash.com/photo-1534960680480-ca…cHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2384&q=80'}}
+  ],
+  rating : 5,
+  recommend : true,
+  response :
+   "\"Thank you for the feedback\"",
+  review_id : 584620,
+  reviewer_name : "Adam Wee",
+  summary : "Shame."
 }
 ]
 

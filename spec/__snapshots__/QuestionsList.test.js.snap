@@ -2,17 +2,14 @@
 
 exports[`Should output a list of questions and answers 1`] = `
 <div>
-  <h4>
-    Q:
-  </h4>
-  <p>
-    No Questions Asked Yet!
-  </p>
   <button
     onClick={[Function]}
     type="button"
   >
     Submit New Question
   </button>
+  <p>
+    No Questions Asked Yet!
+  </p>
 </div>
 `;
