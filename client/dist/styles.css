@@ -6,6 +6,7 @@
 .overviewDiv, .relatedItemsComparsionDiv, .questionAnswersDiv, .ratingsReviews {
   border: solid 0.0625em #613B6F;
   border-radius: 2em;
+  font-family: "Open Sans", sans-serif;
 }
 
 /* width */
@@ -47,7 +48,7 @@
   cursor: pointer;
   display: inline-flex;
   fill: currentcolor;
-  font-family: "Google Sans",Roboto,Arial,sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: .875em;
   font-weight: 500;
   height: 3em;
@@ -431,6 +432,9 @@ a:hover {
 
 
 /* Start of related item comparison CSS */
+.relatedItemsComparsionDiv h1 {
+  margin: 0.5em 2.5em;
+}
 
 .relatedItemsList {
   border-radius: 5px;
@@ -556,7 +560,7 @@ a:hover {
 
 .user-search {
   outline: none;
-  border: 0.06em solid #613B6F;
+  border: 0.08em solid #613B6F;
   border-radius: 2em;
   height: 90%;
   padding: 0.25em 0em 0em 1.5em;
@@ -565,11 +569,11 @@ a:hover {
 
 .search-icon {
   float: right;
-  height: 1.5em;
+  height: 2vh;
   position: absolute;
   right: 4.5vw;
-  width: 1.5em;
-  top: 1.2em;
+  width: 2vw;
+  top: 2.5vh;
 }
 
 .search-icon:hover {
@@ -585,7 +589,7 @@ a:hover {
 }
 
 .questions-list {
-  height:78vh;
+  height: 83vh;
   margin: 1em 5em;
   overflow: auto;
 }
@@ -608,7 +612,7 @@ a:hover {
   border-bottom: 0.0625em solid #64B735;
   display: inline-block;
   font-size: 1em;
-  height: 25vh;
+  height: 27vh;
   overflow: auto;
   width: 90%;
 }
