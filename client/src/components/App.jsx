@@ -49,9 +49,10 @@ const App = () => {
   if(productInfo.id === undefined) {
     return (<></>)
   }
+  // </UserContext.Provider>
+  // <UserContext.Provider value={interactionAPI}>
   return(
     <div>
-      <UserContext.Provider value={interactionAPI}>
       <div id='FullApp'></div>
 
       <div className="overviewDiv">
@@ -69,9 +70,8 @@ const App = () => {
       <div id="ratingsReviews" className="ratingsReviews">
         <RatingsReviews productInfo={productInfo}/>
       </div>
-
     </div>
-    </UserContext.Provider>
+
   )
 };
 

@@ -11,6 +11,9 @@ import NewReviewForm from './NewReviewForm.jsx';
 
 const ReviewsList = ({reviewInfo, setSortSelection, starArrayMaker,
   productInfo, reviewMetaData}) => {
+  console.log(reviewInfo)
+  console.log(reviewMetaData)
+  console.log(productInfo)
 
   const [reviewsDisplayed, setReviewsDisplayed] = useState(2);
   const [displayNewReviewForm, setDisplayNewReviewForm] = useState(false);
