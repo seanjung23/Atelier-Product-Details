@@ -4,18 +4,15 @@ import QuestionsAnswers from './QuestionsAnswers/QuestionsAnswers.jsx';// Sean
 import RelatedItemsComparison from './RelatedItemsComparison/RelatedItemsComparison.jsx';// Xinhuang
 import Overview from './Overview/Overview.jsx';// Together
 import axios from 'axios';
-
+import {InteractionAPIContext} from './InteractionAPI.jsx';
 
 
 const App = () => {
 
   const [productInfo, setProductInfo] = useState({});
 
-
-  const InteractionContext = createContext();
-
-  const interactionAPI = (element, widget, time) => {
-
+  const interactionAPI = (element, widget) => {
+    let time = new Date();
     let params =
       {
         element: element,
@@ -49,15 +46,17 @@ const App = () => {
   if(productInfo.id === undefined) {
     return (<></>)
   }
-  // </UserContext.Provider>
-  // <UserContext.Provider value={interactionAPI}>
+
+
   return(
+
     <div>
       <div id='FullApp'></div>
-
+      <InteractionAPIContext.Provider value={interactionAPI}>
       <div className="overviewDiv">
         <Overview productInfo={productInfo}/>
       </div>
+      </InteractionAPIContext.Provider>
 
       <div className="relatedItemsComparsionDiv">
         <RelatedItemsComparison productInfo={productInfo} setProduct_id={setProduct_id}/>
