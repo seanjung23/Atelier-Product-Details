@@ -1,12 +1,13 @@
-import react,  {useState, useEffect, useRef}from 'react';
+import react,  {useState, useEffect, useRef, useContext}from 'react';
 import axios from 'axios';
+import {InteractionAPIContext} from './../InteractionAPI.jsx';
 import {Facebook, Twitter, Pinterest} from './../icons/OverviewShareIconsSVG.jsx'
 
 export default function({itemInfo}) {
   const [slogan, setSlogan] = useState(itemInfo.slogan);
   const [description, setDescription] = useState(itemInfo.description);
   const [features, setFeatures] = useState(itemInfo.features)
-
+  const interactionAPI = useContext(InteractionAPIContext);
   useEffect(()=> {
     setSlogan(itemInfo.slogan);
     setDescription(itemInfo.description);
@@ -28,24 +29,24 @@ export default function({itemInfo}) {
       </div>
 
       <div className="shareDiv" >
-
+        <b>Share:  &nbsp;</b>
         <div className="facebookShareDiv" >
-          <a href={facbookCurrentURL} target="_blank"><Facebook/></a>
+          <a href={facbookCurrentURL} onClick={()=>{interactionAPI('share on facebook button', 'overview')}} target="_blank"><Facebook/></a>
         </div>
-
+        &nbsp;
         <div className="twitterShareDiv"  >
-          <a href={twitterCurrentURL} target="_blank"><Twitter/></a>
+          <a href={twitterCurrentURL} onClick={()=>{interactionAPI('share on twitter button', 'overview')}} target="_blank"><Twitter/></a>
         </div>
-
+        &nbsp;
         <div className="pinterestShareDiv">
-        <a href={pinterestCurrentURL} target="_blank"><Pinterest/></a>
+        <a href={pinterestCurrentURL}  onClick={()=>{interactionAPI('share on pinterest button', 'overview')}} target="_blank"><Pinterest/></a>
         </div>
       </div>
 
       <div className="featuresDiv">
         {features.map(e => {
           return (
-            <p>{e.feature}: <span>{e.value}</span></p>
+            <p><b>{e.feature}: </b><span>{e.value}</span></p>
 
           )
         })}

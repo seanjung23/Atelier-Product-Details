@@ -49,14 +49,14 @@ const App = () => {
 
 
   return(
-
+<InteractionAPIContext.Provider value={interactionAPI}>
     <div>
       <div id='FullApp'></div>
-      <InteractionAPIContext.Provider value={interactionAPI}>
+
       <div className="overviewDiv">
         <Overview productInfo={productInfo}/>
       </div>
-      </InteractionAPIContext.Provider>
+
 
       <div className="relatedItemsComparsionDiv">
         <RelatedItemsComparison productInfo={productInfo} setProduct_id={setProduct_id}/>
@@ -70,7 +70,7 @@ const App = () => {
         <RatingsReviews productInfo={productInfo}/>
       </div>
     </div>
-
+    </InteractionAPIContext.Provider>
   )
 };
 

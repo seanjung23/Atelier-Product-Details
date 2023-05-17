@@ -1,7 +1,7 @@
-import react,  {useState, useEffect, useRef}from 'react';
-
+import react,  {useState, useEffect, useRef, useContext}from 'react';
+import {InteractionAPIContext} from './../InteractionAPI.jsx';
 export default function({e, indexe, index, setImageIndex, imageIndex, prevImageIndex, setPrevImageIndex, setProductImageThumbnailsYIndex, currentStyle, productImageThumbnailsYIndex, productImageThumbnails, imgRefState}){
-
+  const interactionAPI = useContext(InteractionAPIContext);
   const thumbnailRef = useRef();
   useEffect(()=> {
     if (thumbnailRef) {
@@ -26,6 +26,7 @@ export default function({e, indexe, index, setImageIndex, imageIndex, prevImageI
   }, [currentStyle])
 
   const thumbnailOnClick = ()=>{
+    interactionAPI("expanded view thumbnails", "overview");
     setPrevImageIndex(imageIndex);
     setImageIndex(index);
     setProductImageThumbnailsYIndex(-111 * (index-2) );

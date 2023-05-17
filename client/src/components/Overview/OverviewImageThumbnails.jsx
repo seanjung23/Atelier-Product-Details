@@ -1,7 +1,8 @@
-import react,  {useState, useEffect, useRef}from 'react';
-
+import react,  {useState, useEffect, useRef, useContext}from 'react';
+import {InteractionAPIContext} from './../InteractionAPI.jsx';
  function OverviewImageThumbnails({e, index, setImageIndex, imageIndex, prevImageIndex, setPrevImageIndex, setProductImageThumbnailsYIndex, currentStyle}){
   const thumbnailRef = useRef();
+  const interactionAPI = useContext(InteractionAPIContext);
   useEffect(()=> {
     if (thumbnailRef) {
 
@@ -27,6 +28,7 @@ import react,  {useState, useEffect, useRef}from 'react';
 
   return (
     <div className="currentImageThumbnailsItems  hoverPointer" ref={thumbnailRef} onClick={() => {
+      interactionAPI('overview default image thumbnail button', 'overview')
       setPrevImageIndex(imageIndex);
       setImageIndex(index);}}>
       <img className="currentImageThumbnails" src={e}></img>

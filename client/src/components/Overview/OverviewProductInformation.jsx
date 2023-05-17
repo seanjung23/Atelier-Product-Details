@@ -11,18 +11,18 @@ export default function overviewProductInformation({itemReviews, setItemInfo, it
     <OverviewItemRating itemReviews={itemReviews} itemRating={itemRating}/>
     </div>
     <div className="overviewCategoryDiv">
-      <p className="overviewCategory"> {category}</p>
+      <p className="overviewCategory"> Category: &nbsp;<code>{category}</code></p>
     </div>
 
     <div className="overviewNameDiv">
-      <p className="overviewName"> {name}</p>
+      <p className="overviewName"> Product: &nbsp;<code>{name}</code></p>
     </div>
 
     <div className="overviewPriceDiv">
-      {currentStyle.sale_price ? (<><p  className="overviewPrice" style={{color:"red", display:"inline"}}> ${currentStyle.sale_price}  </p> <p style={{display:"inline"}}><s>${currentStyle.original_price}</s></p></>) : (<p  className="overviewPrice">${currentStyle.original_price}</p>)}
+      {currentStyle.sale_price ? (<> Price: &nbsp; <p  className="overviewPrice" style={{color:"red", display:"inline"}}> ${currentStyle.sale_price}  </p> <p style={{display:"inline"}}><s>${currentStyle.original_price}</s></p></>) : (<p  className="overviewPrice"> Price: &nbsp;${currentStyle.original_price}</p>)}
     </div>
     <div className="overviewStylesDiv">
-      <p className="overviewCurrentStyleName"><span>STYLE >  </span>{currentStyle.name}</p>
+      <p className="overviewCurrentStyleName"><span>STYLE&nbsp; > &nbsp; </span><code>{currentStyle.name}</code></p>
       <OverviewProductStyles productStyles={productStyles[0]} setCurrentStyle={setCurrentStyle} currentStyle={currentStyle}/>
     </div>
     <div className="overviewAddToCartDiv">

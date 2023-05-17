@@ -1,11 +1,12 @@
-import react,  {useState, useEffect, useRef}from 'react';
-
+import react,  {useState, useEffect, useRef, useContext}from 'react';
+import {InteractionAPIContext} from './../InteractionAPI.jsx';
 export default function ({e, index, eRef, setProductImagesButtonDisplay, imageIndex,productImages, setimgRefState}){
   const imgRef = useRef();
   const imgDivRef = useRef();
   const [zoomIn, setZoomIn] = useState(false);
-
+  const interactionAPI = useContext(InteractionAPIContext);
   const imageDivOnClick = () => {
+    interactionAPI('Zoom In/Out in expanded image', 'overview')
     setZoomIn(!zoomIn);
   }
 

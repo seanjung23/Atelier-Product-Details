@@ -137,10 +137,16 @@ export default function({currentStyle}){
       </select>
 
     </div>
+    <br></br><br></br>
+    <div >
+      <div style={{display:"inline-block"}}>
 
-    <div className="quantityDiv">
+      Quantity:&nbsp;
+      </div>
+
+    <div className="quantityDiv" style={{display:"inline-block"}}>
       <select className="quantitySelection"  ref={quantityRef} disabled>
-        {selectedSizeQuantity.map(e => {
+      {selectedSizeQuantity.map(e => {
 
           return (
             <option value={e}>{e}</option>
@@ -148,7 +154,7 @@ export default function({currentStyle}){
         })}
       </select>
     </div>
-
+    </div>
     <div >
       <input type='button' className="addToCartbuttonDiv" onClick={addToCartOnClick} value='Add To Cart'></input>
     </div>
