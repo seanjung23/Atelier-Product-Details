@@ -61,7 +61,7 @@ const QuestionModal = ({productInfo, changeShowQuestionModal}) => {
 
             <div>
               <span>*</span> Your Question:
-              <textarea className="question-modal-textbox" maxLength="1000" required placeholder="This is the Modal Content!"></textarea>
+              <textarea className="question-modal-textbox" maxLength="1000" required placeholder="Add your question here..."></textarea>
             </div>
 
             <div>
@@ -75,7 +75,7 @@ const QuestionModal = ({productInfo, changeShowQuestionModal}) => {
             <div>
               <label>
                 <span>*</span> Your email:&nbsp;
-                <input className="question-modal-email" type="email" maxLength="60" required placeholder="Why did you like the product or not?"/>
+                <input className="question-modal-email" type="email" maxLength="60" required placeholder="Example: jackson11@mail.com"/>
               </label>
               <p>For authentication reasons, you will not be emailed</p>
             </div>
@@ -83,8 +83,8 @@ const QuestionModal = ({productInfo, changeShowQuestionModal}) => {
           </div>
 
           <div className="question-modal-footer">
-            <button type="button" onClick={() => changeShowQuestionModal()}>Cancel</button>&nbsp;
-            <button type="submit" onClick={() => checkInputs()}>Submit Question</button>
+            <button className="cancel-submission-button" type="button" onClick={() => changeShowQuestionModal()}>Cancel</button>&nbsp;
+            <button className="question-submission-button" type="submit" onClick={() => checkInputs()}>Submit Question</button>
           </div>
 
         </div>
