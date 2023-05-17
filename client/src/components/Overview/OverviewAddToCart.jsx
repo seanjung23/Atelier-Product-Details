@@ -15,6 +15,7 @@ export default function({currentStyle}){
         sizeRef.current.value = 'Select Size';
         setSelectedSize('Select Size');
       }
+      console.log(currentStyle.skus)
       for (var i in currentStyle.skus) {
 
         if (currentStyle.skus[i].quantity >= 1) {
@@ -34,7 +35,6 @@ export default function({currentStyle}){
     }
 
   }, [currentStyle])
-  console.log(sizeObj)
 
 
   const [selectedSize, setSelectedSize] = useState();
@@ -122,7 +122,7 @@ export default function({currentStyle}){
           sizeArray.map(i => {
 
             return (
-              <option value={i}>{i}</option>
+              <option value={i}>{ 'size: ' + i}</option>
             )
           })
         }
@@ -141,8 +141,8 @@ export default function({currentStyle}){
       </select>
     </div>
 
-    <div className="addToCartbuttonDiv">
-      <input type='button' onClick={addToCartOnClick} value='Add To Cart'></input>
+    <div >
+      <input type='button' className="addToCartbuttonDiv" onClick={addToCartOnClick} value='Add To Cart'></input>
     </div>
 
       </>
