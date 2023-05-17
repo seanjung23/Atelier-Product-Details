@@ -1,7 +1,8 @@
-import react,  {useState, useEffect, useRef, useLayoutEffect}from 'react';
+import react,  {useState, useEffect, useRef, useLayoutEffect,  useContext}from 'react';
 import OverviewCheckMark from './../icons/OverviewCheckMark.jsx'
+import {InteractionAPIContext} from './../InteractionAPI.jsx';
 export default function({style, currentStyle, setCurrentStyle}){
-
+  const interactionAPI = useContext(InteractionAPIContext);
   const styleRef = useRef();
   const checkRef = useRef();
 
@@ -16,6 +17,7 @@ export default function({style, currentStyle, setCurrentStyle}){
   },[checkRef, currentStyle, style]);
 
   const styleOnClick = (e) => {
+    interactionAPI('overview style thumbnail', 'overview')
     if (style.style_id !== currentStyle.style_id) {
       setCurrentStyle(style);
     }

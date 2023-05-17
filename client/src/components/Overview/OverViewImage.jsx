@@ -1,11 +1,12 @@
-import react,  {useState, useEffect, useRef}from 'react';
+import react,  {useState, useEffect, useRef, useContext}from 'react';
 import {ChevronRightArrow, ChevronLeftArrow, ChevronUpArrow, ChevronDownArrow} from './../icons/OverviewArrowsSVG.jsx';
 import OverviewImageThumbnails from './OverviewImageThumbnails.jsx';
 import OverviewImages from './OverviewImages.jsx';
 import OverviewExpandSVG from './../icons/OverviewExpandSVG.jsx';
 import OverviewImageExpandedView from './OverviewImageExpandedView.jsx';
+import {InteractionAPIContext} from './../InteractionAPI.jsx';
 export default function OverViewImage({currentStyle}){
-
+  const interactionAPI = useContext(InteractionAPIContext);
   const [currentImage, setCurrentImage] = useState('');
   const [productImages, setProductImages] = useState([]);
   const [productImageThumbnails, setProductImageThumbnails] = useState([]);
@@ -45,13 +46,13 @@ export default function OverViewImage({currentStyle}){
 
 
   const upButtonOnClick =(e)=> {
-
+    interactionAPI('overview thumbnail up button', 'overview')
       setProductImageThumbnailsYIndex(productImageThumbnailsYIndex+111);
 
   }
 
   const downButtonOnClick =(e)=> {
-
+    interactionAPI('overview thumbnail down button', 'overview')
     setProductImageThumbnailsYIndex(productImageThumbnailsYIndex-111);
 
   }
@@ -103,6 +104,7 @@ export default function OverViewImage({currentStyle}){
 
 
   const leftButtonOnClick = (e) => {
+    interactionAPI('overview default image left button', 'overview')
     if (imageIndex >=1) {
       setPrevImageIndex(imageIndex);
       setImageIndex(imageIndex-1);
@@ -115,6 +117,7 @@ export default function OverViewImage({currentStyle}){
   }
 
   const rightButtonOnClick = (e) => {
+    interactionAPI('overview default image right button', 'overview')
     if (imageIndex < productImages.length -1) {
       setPrevImageIndex(imageIndex);
       setImageIndex(imageIndex+1);
@@ -167,8 +170,9 @@ export default function OverViewImage({currentStyle}){
   },[productImagesButtonDisplay])
 
   const expandOnClick = (e) => {
+    interactionAPI('expand image button', 'overview')
     setExpandViewDisplay({"display":"inline"})
-    topPage
+
   }
   const [expandViewDisplay, setExpandViewDisplay] = useState({"display":"none"});
 
@@ -205,7 +209,7 @@ const eRef = useRef();
         <div className="overviewLeftButtonDiv hoverPointer" onClick={leftButtonOnClick} style={leftButtonDisplay}><ChevronLeftArrow/></div>
         <div className="overviewRightButtonDiv hoverPointer" onClick={rightButtonOnClick} style={rightButtonDisplay}><ChevronRightArrow/></div>
 
-        <div className="expandViewIconDiv hoverPointer" onClick={expandOnClick} ><OverviewExpandSVG /></div>
+        <div className="expandViewIconDiv hoverPointer" onClick={expandOnClick } ><OverviewExpandSVG /></div>
         </div>
 
 

@@ -35,7 +35,7 @@
 .add-questions-button,
 .cancel-submission-button,
 .question-submission-button,
-.answer-submission-button {
+.answer-submission-button, .addToCartbuttonDiv {
   align-items: center;
   appearance: none;
   background-color: #613B6F;
@@ -128,8 +128,7 @@ a:hover {
 
 }
 .currentStyleDiv{
-
-  border: solid 1px;
+  margin-left: 5em;
   height: 100%;
 
   width: 1000px;
@@ -246,7 +245,7 @@ a:hover {
 }
 .overviewStyleSelectionDiv{
   width:340px;
-  height: calc(90px *2);
+  height: calc(90px *1.5);
   overflow: auto;
 }
 .overviewStyleThumbnailsDiv{
@@ -304,8 +303,8 @@ a:hover {
 .addToCartbuttonDiv{
   position: absolute;
   top:120%;
-  width: 20vw;
-  height: 10vh;
+  width: 10vw !important;
+  height: 7vh;
   border-radius: 3.5em !important;
 }
 
@@ -340,7 +339,10 @@ a:hover {
 
 
 }
+.shareIcons:hover {
+  fill:#64B735;
 
+}
 
 
 .expandCurrentImagesCarouselDiv{
