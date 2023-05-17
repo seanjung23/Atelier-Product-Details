@@ -1,9 +1,11 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import axios from 'axios';
 import SearchQuestions from './SearchQuestions.jsx';
 import QuestionsList from './QuestionsList.jsx';
+import {InteractionAPIContext} from './../InteractionAPI.jsx';
 
 const QuestionsAnswers = ({productInfo}) => {
+  const interactionAPI = useContext(InteractionAPIContext);
   const [questions, setQuestions] = useState({});
   const [filteredQuestions, setFilteredQuestions] = useState({});
 
@@ -24,6 +26,8 @@ const QuestionsAnswers = ({productInfo}) => {
   }, [productInfo]);
 
   const retrieveQuery = (query) => {
+    interactionAPI("Search Questions SearchBar", "QuestionsAnswers");
+
     let temp = {};
 
     temp.product_id = questions.product_id;
