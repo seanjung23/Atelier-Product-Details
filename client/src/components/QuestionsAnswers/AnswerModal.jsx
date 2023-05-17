@@ -120,8 +120,8 @@ const AnswerModal = ({productInfo, question, changeShowAnswerModal}) => {
           </div>
 
           <div className="answer-modal-footer">
-            <button onClick={() => changeShowAnswerModal()}>Cancel</button>&nbsp;
-            <button type="submit" onClick={() => checkInputs()}>Submit Answer</button>
+            <button className="cancel-submission-button" onClick={() => changeShowAnswerModal()}>Cancel</button>&nbsp;
+            <button className="answer-submission-button" type="submit" onClick={() => checkInputs()}>Submit Answer</button>
           </div>
 
         </div>
