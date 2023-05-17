@@ -3,7 +3,7 @@
 
 
 
-.overviewDiv, .relatedItemsComparsionDiv, .questionAnswersDiv, .ratingReviewsDiv {
+.overviewDiv, .relatedItemsComparsionDiv, .questionAnswersDiv, .ratingsReviews {
   border: solid 0.0625em #613B6F;
   border-radius: 2em;
 }
@@ -684,8 +684,8 @@ a:hover {
 .question-modal-textbox {
   border-color: #613B6F;
   height: 30vh;
-  max-height: 50vh;
-  min-height: 50vh;
+  max-height: 36vh;
+  min-height: 36vh;
   max-width: 99%;
   min-width: 99%;
 }
@@ -714,7 +714,6 @@ a:hover {
   display: flex;
   justify-content: center;
   left: 0;
-  overflow: auto;
   position: fixed;
   right: 0;
   top: 0;
@@ -749,8 +748,8 @@ a:hover {
 .answer-modal-textbox {
   border-color: #613B6F;
   height: 30vh;
-  max-height: 50vh;
-  min-height: 50vh;
+  max-height: 36vh;
+  min-height: 36vh;
   max-width: 99%;
   min-width: 99%;
 }
@@ -770,6 +769,12 @@ a:hover {
 .answer-modal-email:focus {
   outline: none;
   border: 0.125em solid #64B735;
+}
+
+.photos-display {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .answer-modal-photo {
