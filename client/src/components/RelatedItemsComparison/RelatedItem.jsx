@@ -4,7 +4,7 @@ import ComparisonStar from '../icons/ComparisonStarSVG.jsx';
 import RelatedItemRating from './RelatedItemRating.jsx';
 
 
-export default function RelatedItem({itemId}) {
+export default function RelatedItem({itemId, setProduct_id}) {
   const [itemInfo, setItemInfo] = useState({});
   const [defaultStyle, setDefaultStyle] = useState({});
   const [defaultImgSrc, setDefaultImgSrc] = useState('');
@@ -12,7 +12,7 @@ export default function RelatedItem({itemId}) {
   const [itemReady, setItemReady] = useState([]);
 
   useEffect(()=>{
-
+    setItemReady([])
     let url = '/products/' + itemId;
 
     axios.get(url)
@@ -70,7 +70,7 @@ export default function RelatedItem({itemId}) {
       .catch(err => console.log(err));
 
 
-  },[]);
+  },[itemId]);
 
   var relatedItemIdList = 5;
   if (itemReady.length === 3) {
@@ -78,9 +78,7 @@ export default function RelatedItem({itemId}) {
 
 
     return (
-      <div className="relatedItems" >
-
-        <div className="comparisonStarDiv" ><ComparisonStar/></div>
+      <div className="relatedItems" onClick={()=>{setProduct_id(itemId)}}>
 
         <div className="relatedItemImagesDiv hoverPointer">
           <img className="relatedItemImages" src={defaultImgSrc} ></img>

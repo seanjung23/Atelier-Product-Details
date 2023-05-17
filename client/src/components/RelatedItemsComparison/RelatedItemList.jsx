@@ -3,7 +3,7 @@ import axios from 'axios';
 import RelatedItem from './RelatedItem.jsx'
 import {ChevronLeftArrow, ChevronRightArrow} from './../icons/RelatedItemsArrowsSVG.jsx'
 
-export default function RelatedItemList({relatedItemIdList}) {
+export default function RelatedItemList({relatedItemIdList, setProduct_id}) {
 
 
 
@@ -16,6 +16,13 @@ export default function RelatedItemList({relatedItemIdList}) {
     const carouselRef = useRef();
     const itemListRef = useRef();
     const [carouselWidth, setCarouselWidth] = useState(0);
+
+    const [itemList, setItemList] = useState(relatedItemIdList);
+
+    useEffect(()=>{
+      setItemList(relatedItemIdList)
+
+    }, [relatedItemIdList])
     //0: both not display
     //1: only dislpay left
     //2: only display right
@@ -78,7 +85,7 @@ export default function RelatedItemList({relatedItemIdList}) {
       <div className="relatedItemCarouselDiv" ref={carouselRef} >
 
         {
-          relatedItemIdList.map((itemId, index) => <RelatedItem key={index} itemId={itemId} />)
+          itemList.map((itemId, index) => <RelatedItem key={index} itemId={itemId} setProduct_id={setProduct_id}/>)
         }
 
       </div>

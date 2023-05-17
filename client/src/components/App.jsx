@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect, createContext} from 'react';
 import RatingsReviews from './RatingsReviews/RatingsReviews.jsx';// John
 import QuestionsAnswers from './QuestionsAnswers/QuestionsAnswers.jsx';// Sean
 import RelatedItemsComparison from './RelatedItemsComparison/RelatedItemsComparison.jsx';// Xinhuang
@@ -11,10 +11,31 @@ const App = () => {
 
   const [productInfo, setProductInfo] = useState({});
 
+
+  const InteractionContext = createContext();
+
+  const interactionAPI = (element, widget, time) => {
+
+    let params =
+      {
+        element: element,
+        widget: widget,
+        time: time
+      };
+
+
+    axios.post('/interactions', params)
+    .then(result => console.log(result))
+    .catch(err => console.log(err));
+  }
+
+
+  const [product_id, setProduct_id] = useState(37315)
+
   useEffect(() => {
     //// USE THE SAME PRODUCT_ID LATER WHEN WE PUT EVERYTHING TOGETHER
 
-    let product_id = 37325;
+
 
     let url = '/products/' + product_id;
 
@@ -23,11 +44,13 @@ const App = () => {
       .catch(err => console.log(err));
 
 
-  }, []);
+  }, [product_id]);
 
   if(productInfo.id === undefined) {
     return (<></>)
   }
+  // </UserContext.Provider>
+  // <UserContext.Provider value={interactionAPI}>
   return(
     <div>
       <div id='FullApp'></div>
@@ -37,7 +60,7 @@ const App = () => {
       </div>
 
       <div className="relatedItemsComparsionDiv">
-        <RelatedItemsComparison productInfo={productInfo}/>
+        <RelatedItemsComparison productInfo={productInfo} setProduct_id={setProduct_id}/>
       </div>
 
       <div className="questionAnswersDiv">
@@ -47,8 +70,8 @@ const App = () => {
       <div id="ratingsReviews" className="ratingsReviews">
         <RatingsReviews productInfo={productInfo}/>
       </div>
-
     </div>
+
   )
 };
 

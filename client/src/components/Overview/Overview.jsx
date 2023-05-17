@@ -15,7 +15,8 @@ const Overview = ({productInfo}) => {
 
 
   useEffect(()=>{
-
+    setProductStyles([]);
+    setItemInfo(productInfo);
     let url = '/products/' + itemId + '/styles';
 
     axios.get(url)
