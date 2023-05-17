@@ -86,7 +86,7 @@ const AnswerModal = ({productInfo, question, changeShowAnswerModal}) => {
 
             <div>
               <span>*</span> Your Answer:
-              <textarea className="answer-modal-textbox" maxLength="1000" required placeholder="This is the Modal Content!"></textarea>
+              <textarea className="answer-modal-textbox" maxLength="1000" required placeholder="Type your answer here..."></textarea>
             </div>
 
             <div>
@@ -100,7 +100,7 @@ const AnswerModal = ({productInfo, question, changeShowAnswerModal}) => {
             <div>
               <label>
                 <span>*</span> Your email:&nbsp;
-                <input className="answer-modal-email" type="email" maxLength="60" required placeholder="Why did you like the product or not?"/>
+                <input className="answer-modal-email" type="email" maxLength="60" required placeholder="Example: jackson11@mail.com"/>
               </label>
               <p>For authentication reasons, you will not be emailed</p>
             </div>
@@ -108,9 +108,11 @@ const AnswerModal = ({productInfo, question, changeShowAnswerModal}) => {
             <div>
               Upload Your Photos: &nbsp;
               {(answerPhotos.length < 5) && (
-                <input type="file" accept="image/*" onChange={(e) => checkPhotoSubmit(e)}/>
+                <label>
+                  <input type="file" accept="image/*" onChange={(e) => checkPhotoSubmit(e)}/>
+                </label>
               )}
-              <div>
+              <div className="photos-display">
                 {answerPhotos.map((photo, index) => (
                   <img className="answer-modal-photo" key={index} src={URL.createObjectURL(photo)}/>
                 ))}
