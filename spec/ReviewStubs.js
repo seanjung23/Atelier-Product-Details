@@ -2,7 +2,7 @@ let reviewInfo = [ {
   body :
   "Another testing sample.",
   date : "2021-04-23T00:00:00.000Z",
-  helpfulness : 29,
+  helpfulness : 31,
   photos : [
     {0 : {id: 1122590, url: 'https://images.unsplash.com/photo-1534960680480-ca…cHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2384&q=80'}}
   ],
