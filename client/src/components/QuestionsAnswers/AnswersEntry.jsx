@@ -1,12 +1,16 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import axios from 'axios';
 import {format, parseISO} from 'date-fns';
+import {InteractionAPIContext} from './../InteractionAPI.jsx';
 
 const AnswersEntry = ({answer}) => {
+  const interactionAPI = useContext(InteractionAPIContext);
   const [upvotedAnswer, setUpvotedAnswer] = useState(false);
   const [reportedAnswer, setReportedAnswer] = useState(false);
 
   const upvoteAnswer = () => {
+    interactionAPI("Upvote Answer Button", "QuestionsAnswers");
+
     let url = '/qa/answers/' + answer.answer_id + '/helpful';
     let params = {
       answer_id: answer.answer_id
@@ -20,6 +24,8 @@ const AnswersEntry = ({answer}) => {
   };
 
   const reportAnswer = () => {
+    interactionAPI("Report Anser Button", "QuestionsAnswers");
+
     let url = '/qa/answers/' + answer.answer_id + '/report'
     let params = {
       answer_id: answer.answer_id

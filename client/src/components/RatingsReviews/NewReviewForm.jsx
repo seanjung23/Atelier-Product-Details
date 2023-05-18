@@ -258,7 +258,7 @@ const NewReviewForm = ({productInfo, reviewMetaData, setDisplayNewReviewForm}) =
                 <p>For authentication reasons, you will not be emailed</p>
               </div>
             </div>
-          <input type='submit'/>
+          <input type='submit' value='Submit Review'/>
           {submitError &&
           <div className='errorMessage'>
             <strong>You must enter the following:</strong>

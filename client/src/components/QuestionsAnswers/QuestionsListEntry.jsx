@@ -1,9 +1,10 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import axios from 'axios';
 import AnswersList from './AnswersList.jsx';
+import {InteractionAPIContext} from './../InteractionAPI.jsx';
 
 const QuestionsListEntry = ({question, productInfo}) => {
-  // console.log('this is question', question);
+  const interactionAPI = useContext(InteractionAPIContext);
   const [answers, setAnswers] = useState([]);
   const [showAnswerModal, setShowAnswerModal] = useState(false);
   const [upvotedQuestion, setUpvotedQuestion] = useState(false);
@@ -23,6 +24,8 @@ const QuestionsListEntry = ({question, productInfo}) => {
   }, [question])
 
   const upvoteQuestion = () => {
+    interactionAPI("Upvote Question Button", "QuestionsAnswers");
+
     let url = '/qa/questions/' + question.question_id + '/helpful';
     let params = {
       question_id: question.question_id
@@ -36,10 +39,13 @@ const QuestionsListEntry = ({question, productInfo}) => {
   };
 
   const changeShowAnswerModal = () => {
+    interactionAPI("Show/Hide Answer Modal Button", "QuestionsAnswers");
     setShowAnswerModal(!showAnswerModal);
   };
 
   const reportQuestion = () => {
+    interactionAPI("Report Question Button", "QuestionsAnswers");
+
     let url = '/qa/questions/' + question.question_id + '/report';
     let params = {
       question_id: question.question_id

@@ -49,22 +49,24 @@ const App = () => {
 
 
   return(
-
+<InteractionAPIContext.Provider value={interactionAPI}>
     <div>
       <div id='FullApp'></div>
-      <InteractionAPIContext.Provider value={interactionAPI}>
+
       <div className="overviewDiv">
         <Overview productInfo={productInfo}/>
       </div>
-      </InteractionAPIContext.Provider>
+
 
       <div className="relatedItemsComparsionDiv">
         <RelatedItemsComparison productInfo={productInfo} setProduct_id={setProduct_id}/>
       </div>
 
-      <div className="questionAnswersDiv">
-        <QuestionsAnswers productInfo={productInfo}/>
-      </div>
+      <InteractionAPIContext.Provider value={interactionAPI}>
+        <div className="questionAnswersDiv">
+          <QuestionsAnswers productInfo={productInfo}/>
+        </div>
+      </InteractionAPIContext.Provider>
 
       <InteractionAPIContext.Provider value={interactionAPI}>
       <div id="ratingsReviews" className="ratingsReviews">
@@ -72,7 +74,7 @@ const App = () => {
       </div>
       </InteractionAPIContext.Provider>
     </div>
-
+    </InteractionAPIContext.Provider>
   )
 };
 

@@ -1,9 +1,9 @@
-import react from 'react';
-
+import react, {useContext} from 'react';
+import {InteractionAPIContext} from './../InteractionAPI.jsx';
 import {EmptyStar, FullStar, OneQuarterStar, ThreeQuarterStar, HalfStar} from '../icons/OverviewItemRatingStarsSVG.jsx'
 
 export default function({itemRating, itemReviews}) {
-
+  const interactionAPI = useContext(InteractionAPIContext);
   var avgRating = Math.floor(4 * itemRating) /4;
 
   var fullStarCount = Math.floor(avgRating);
@@ -40,7 +40,7 @@ export default function({itemRating, itemReviews}) {
         return <EmptyStar key={i}/>
       }
     })}
-    <span className="relatedItemRatingTooltip"> <a href="#ratingsReviews" >Read all {itemReviews} reviews</a></span>
+    <span className="relatedItemRatingTooltip"> <a href="#ratingsReviews" onClick={()=>{interactionAPI('goto rating review section button', 'overview')}}><b>Read all {itemReviews} reviews</b></a></span>
     </>
 
   )

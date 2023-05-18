@@ -6,6 +6,7 @@
 .overviewDiv, .relatedItemsComparsionDiv, .questionAnswersDiv, .ratingsReviews {
   border: solid 0.0625em #613B6F;
   border-radius: 2em;
+  font-family: "Open Sans", sans-serif;
 }
 
 /* width */
@@ -35,7 +36,7 @@
 .add-questions-button,
 .cancel-submission-button,
 .question-submission-button,
-.answer-submission-button {
+.answer-submission-button, .addToCartbuttonDiv {
   align-items: center;
   appearance: none;
   background-color: #613B6F;
@@ -47,7 +48,7 @@
   cursor: pointer;
   display: inline-flex;
   fill: currentcolor;
-  font-family: "Google Sans",Roboto,Arial,sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: .875em;
   font-weight: 500;
   height: 3em;
@@ -128,8 +129,7 @@ a:hover {
 
 }
 .currentStyleDiv{
-
-  border: solid 1px;
+  margin-left: 5em;
   height: 100%;
 
   width: 1000px;
@@ -246,7 +246,7 @@ a:hover {
 }
 .overviewStyleSelectionDiv{
   width:340px;
-  height: calc(90px *2);
+  height: calc(90px *1.5);
   overflow: auto;
 }
 .overviewStyleThumbnailsDiv{
@@ -304,8 +304,8 @@ a:hover {
 .addToCartbuttonDiv{
   position: absolute;
   top:120%;
-  width: 20vw;
-  height: 10vh;
+  width: 10vw !important;
+  height: 7vh;
   border-radius: 3.5em !important;
 }
 
@@ -340,7 +340,10 @@ a:hover {
 
 
 }
+.shareIcons:hover {
+  fill:#64B735;
 
+}
 
 
 .expandCurrentImagesCarouselDiv{
@@ -431,6 +434,9 @@ a:hover {
 
 
 /* Start of related item comparison CSS */
+.relatedItemsComparsionDiv h1 {
+  margin: 0.5em 2.5em;
+}
 
 .relatedItemsList {
   border-radius: 5px;
@@ -551,11 +557,12 @@ a:hover {
 .search-bar {
   height: 7vh;
   margin: 0em 5em;
+  position: relative;
 }
 
 .user-search {
   outline: none;
-  border: 0.06em solid #613B6F;
+  border: 0.08em solid #613B6F;
   border-radius: 2em;
   height: 90%;
   padding: 0.25em 0em 0em 1.5em;
@@ -563,11 +570,12 @@ a:hover {
 }
 
 .search-icon {
-  height: 1em;
+  float: right;
+  height: 2vh;
   position: absolute;
-  right: 9em;
-  width: 1em;
-  top: 76.5em;
+  right: 4.5vw;
+  width: 2vw;
+  top: 2.5vh;
 }
 
 .search-icon:hover {
@@ -583,7 +591,7 @@ a:hover {
 }
 
 .questions-list {
-  height:78vh;
+  height: 83vh;
   margin: 1em 5em;
   overflow: auto;
 }
@@ -603,9 +611,10 @@ a:hover {
 }
 
 .answer-list {
+  border-bottom: 0.0625em solid #64B735;
   display: inline-block;
   font-size: 1em;
-  height: 25vh;
+  height: 27vh;
   overflow: auto;
   width: 90%;
 }

@@ -1,15 +1,16 @@
-import react,  {useState, useEffect, useRef}from 'react';
+import react,  {useState, useEffect, useRef, useContext}from 'react';
 import OverviewExpandedViewThumbnails from './OverviewExpandedViewThumbnails.jsx';
 import OverviewExpandedViewImages from './OverviewExpandedViewImages.jsx';
 import {ChevronRightArrow, ChevronLeftArrow, ChevronUpArrow, ChevronDownArrow} from './../icons/OverviewArrowsSVG.jsx';
 import OverviewDismissSVG from './../icons/OverviewDismissSVG.jsx';
-
+import {InteractionAPIContext} from './../InteractionAPI.jsx';
 export default function({ productImages, productImageThumbnails, productImageThumbnailsYIndex, setExpandViewDisplay, setImageIndex, imageIndex, setPrevImageIndex, prevImageIndex, setProductImageThumbnailsYIndex, currentStyle, rightButtonDisplay, leftButtonDisplay, expandedImageRef, eRef, setProductImagesButtonDisplay}){
 
-
+  const interactionAPI = useContext(InteractionAPIContext);
 
 
   const leftButtonOnClick = (e) => {
+    interactionAPI('expanded view image left button', 'overview')
     if (imageIndex >=1) {
       setPrevImageIndex(imageIndex);
       setImageIndex(imageIndex-1);
@@ -21,6 +22,7 @@ export default function({ productImages, productImageThumbnails, productImageThu
   }
 
   const rightButtonOnClick = (e) => {
+    interactionAPI('expanded view image right button', 'overview')
     if (imageIndex < productImages.length -1) {
       setPrevImageIndex(imageIndex);
       setImageIndex(imageIndex+1);
@@ -33,6 +35,7 @@ export default function({ productImages, productImageThumbnails, productImageThu
   }
 
   const dismissButtonOnClick =(e)=>{
+    interactionAPI('expanded view image dismiss button', 'overview')
     setExpandViewDisplay({"display":"none"})
   }
 
