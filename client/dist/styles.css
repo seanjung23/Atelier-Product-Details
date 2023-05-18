@@ -1,12 +1,20 @@
 /* All components */
-
-
-
+body {
+  background-image: url("https://www.nasa.gov/sites/default/files/thumbnails/image/img1_0.png");
+}
+.app-title {
+  width: 85vh;
+  height: 20vh;
+  margin: 0.5em 2.5em;
+  background-image: url("https://mad4j.github.io/book-mdpc/examples/volume5/toy_story/toy-story.png");
+  background-size: 100% 100%;
+}
 
 .overviewDiv, .relatedItemsComparsionDiv, .questionAnswersDiv, .ratingsReviews {
   border: solid 0.0625em #613B6F;
   border-radius: 2em;
   font-family: "Open Sans", sans-serif;
+  background-color: #fff;
 }
 
 /* width */

@@ -13,7 +13,6 @@ const QuestionsListEntry = ({question, productInfo}) => {
   useEffect(() => {
     let url = '/qa/questions/' + question.question_id + '/answers'
     let params = {
-      question_id: question.question_id,
       page: 1,
       count: 1000
     }

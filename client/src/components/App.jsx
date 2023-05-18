@@ -27,7 +27,7 @@ const App = () => {
   }
 
 
-  const [product_id, setProduct_id] = useState(37325)
+  const [product_id, setProduct_id] = useState(37315)
 
   useEffect(() => {
     //// USE THE SAME PRODUCT_ID LATER WHEN WE PUT EVERYTHING TOGETHER
@@ -52,6 +52,10 @@ const App = () => {
 <InteractionAPIContext.Provider value={interactionAPI}>
     <div>
       <div id='FullApp'></div>
+
+      <div>
+        <h1 className="app-title">JSX</h1>
+      </div>
 
       <div className="overviewDiv">
         <Overview productInfo={productInfo}/>
