@@ -1,4 +1,9 @@
 /* All components */
+#root {
+  min-width: 1200px;
+  margin: auto;
+}
+
 body {
   background-image: url("https://www.nasa.gov/sites/default/files/thumbnails/image/img1_0.png");
 }
@@ -256,7 +261,7 @@ a:hover {
 }
 .overviewStyleSelectionDiv{
   width:340px;
-  height: calc(90px *1.5);
+  height: 10em;
   overflow: auto;
 }
 .overviewStyleThumbnailsDiv{
