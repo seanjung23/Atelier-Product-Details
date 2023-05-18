@@ -56,7 +56,10 @@ module.exports = {
   getAnswers: (req, res) => {
     let requestURL = process.env.API_URL + req.path;
 
-    axios.get(requestURL, config)
+    axios.get(requestURL, {
+      headers: config.headers,
+      params: req.query
+    })
       .then(result => {res.json(result.data);})
       .catch(err => console.log(err));
   },

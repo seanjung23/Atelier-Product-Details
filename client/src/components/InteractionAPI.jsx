@@ -12,8 +12,8 @@ const interactionAPI = (element, widget) => {
 
 
   axios.post('/interactions', params)
-  .then(result => console.log(result))
-  .catch(err => console.log(err));
+   .then((result) => {return})
+   .catch(err => console.log(err));
 
 }
 

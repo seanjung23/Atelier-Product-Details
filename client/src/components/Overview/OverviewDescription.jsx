@@ -44,9 +44,9 @@ export default function({itemInfo}) {
       </div>
 
       <div className="featuresDiv">
-        {features.map(e => {
+        {features.map((e, index) => {
           return (
-            <p><b>{e.feature}: </b><span>{e.value}</span></p>
+            <p key={index}><b>{e.feature}: </b><span>{e.value}</span></p>
 
           )
         })}

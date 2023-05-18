@@ -1,12 +1,27 @@
 /* All components */
+#root {
+  min-width: 1200px;
+  margin: auto;
+}
 
+body {
+  background-image: url("https://www.nasa.gov/sites/default/files/thumbnails/image/img1_0.png");
+}
 
-
+.app-title {
+  width: auto;
+  height: 20vh;
+  margin: 0.5em 2.5em;
+  background-image: url("https://mad4j.github.io/book-mdpc/examples/volume5/toy_story/toy-story.png");
+  background-size: 100% 100%;
+  text-align: center;
+}
 
 .overviewDiv, .relatedItemsComparsionDiv, .questionAnswersDiv, .ratingsReviews {
   border: solid 0.0625em #613B6F;
   border-radius: 2em;
   font-family: "Open Sans", sans-serif;
+  background-color: #fff;
 }
 
 /* width */
@@ -246,7 +261,7 @@ a:hover {
 }
 .overviewStyleSelectionDiv{
   width:340px;
-  height: calc(90px *1.5);
+  height: 10em;
   overflow: auto;
 }
 .overviewStyleThumbnailsDiv{
@@ -552,11 +567,13 @@ a:hover {
 }
 
 .questionAnswersDiv h1 {
-  margin: 0.5em 2.5em;
+  font-size: 1em;
+  margin-left: 6em;
 }
 .search-bar {
   height: 7vh;
-  margin: 0em 5em;
+  margin-left: 5em;
+  margin-right: 3em;
   position: relative;
 }
 
@@ -590,15 +607,22 @@ a:hover {
   fill: rgb(0, 0, 0);
 }
 
+.question-heading {
+  display: inline;
+  margin-right: 1em;
+}
+
 .questions-list {
-  height: 83vh;
+  height: 88vh;
   margin: 1em 5em;
   overflow: auto;
+  width: 172vh;
 }
 
 .question-list-body {
   display: flex;
   justify-content: space-between;
+  margin-left: 1em;
 }
 
 .question-body {
@@ -607,7 +631,15 @@ a:hover {
 
 .question-actions {
   font-size: 0.75em;
-  margin-right: 13em;
+  margin-right: 5em;
+}
+
+.q-links:hover {
+  cursor: pointer;
+}
+
+.answer-heading {
+  margin-left: 1em;
 }
 
 .answer-list {
@@ -615,12 +647,18 @@ a:hover {
   display: inline-block;
   font-size: 1em;
   height: 27vh;
+  margin-left: 1em;
   overflow: auto;
+  padding-bottom: 1em;
   width: 90%;
 }
 
 .answer-actions {
   font-size: 0.75em;
+}
+
+.q-pipes {
+  color: #64B735;
 }
 
 .answer-title {
