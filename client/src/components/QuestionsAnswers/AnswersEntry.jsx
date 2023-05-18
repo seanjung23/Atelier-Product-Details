@@ -70,7 +70,7 @@ const AnswersEntry = ({answer}) => {
     <div>
       <p>{answer.body}</p>
       <p className="answer-actions">
-        by {answer.answerer_name} &nbsp;{format(parseISO(answer.date), 'MMM d yyyy')} &nbsp;<b>|</b>
+        by {answer.answerer_name} &nbsp;{format(parseISO(answer.date), 'MMM dd yyyy')} &nbsp;<b>|</b>
         &nbsp;&nbsp;<span><b>Helpful?</b></span>&nbsp;&nbsp;
         {(!upvotedAnswer) && (
           <span>

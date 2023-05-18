@@ -60,7 +60,7 @@ const AnswersList = ({answers, question, productInfo, showAnswerModal, changeSho
   }
   return (
     <div>
-      <div>
+      <div className="answer-list">
         <p className="answer-body">No Answers Yet!</p>
       </div>
       {(showAnswerModal) && (
