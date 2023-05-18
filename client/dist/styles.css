@@ -616,7 +616,7 @@ a:hover {
   height: 88vh;
   margin: 1em 5em;
   overflow: auto;
-  width: 172vh;
+  width: 90%;
 }
 
 .question-list-body {
