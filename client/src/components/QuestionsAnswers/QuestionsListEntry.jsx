@@ -11,16 +11,16 @@ const QuestionsListEntry = ({question, productInfo}) => {
   const [reportedQuestion, setReportedQuestion] = useState(false);
 
   useEffect(() => {
-    let url = '/qa/questions/' + question.question_id + '/answers'
+    let url = '/qa/questions/' + question.question_id + '/answers';
     let params = {
       page: 1,
       count: 1000
-    }
+    };
 
     axios.get(url, {params})
       .then((result) => setAnswers(result.data.results))
       .catch((err) => console.log(err));
-  }, [question])
+  }, [question]);
 
   const upvoteQuestion = () => {
     interactionAPI("Upvote Question Button", "QuestionsAnswers");

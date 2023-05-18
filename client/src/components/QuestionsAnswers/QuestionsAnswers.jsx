@@ -12,14 +12,13 @@ const QuestionsAnswers = ({productInfo}) => {
   useEffect(() => {
     if (productInfo && productInfo.id !== undefined) {
       let url = '/qa/questions';
+      let params = {
+        product_id: productInfo.id,
+        page: 1,
+        count: 1000
+      };
 
-      axios.get(url, {
-        params: {
-          product_id: productInfo.id,
-          page: 1,
-          count: 1000
-        }
-        })
+      axios.get(url, {params})
         .then(result => setQuestions(result.data))
         .catch(err => console.log(err));
     }
