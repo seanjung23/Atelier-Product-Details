@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ReviewsList expect the reviews list to exist 1`] = `
+exports[`The Review List should having interactive elements expect the reviews list to exist 1`] = `
 <div
   className="ReviewsList"
 >
@@ -139,7 +139,7 @@ exports[`ReviewsList expect the reviews list to exist 1`] = `
         >
           Yes
           (
-          29
+          31
           )
         </div>
         <span

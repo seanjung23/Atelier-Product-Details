@@ -1,7 +1,10 @@
-import react, { useState, useEffect } from 'react';
+import react, { useState, useEffect, useContext } from 'react';
+import {InteractionAPIContext} from './../InteractionAPI.jsx';
 
 
 const RatingDistribution = ({reviewMetaData, totalRatings, setFilterSettings, filterSettings}) => {
+
+  const interactionAPI = useContext(InteractionAPIContext);
 
   useEffect(() =>{
     let barMaker = function (outerClass, innerClass, lengthBar) {
@@ -36,6 +39,9 @@ const RatingDistribution = ({reviewMetaData, totalRatings, setFilterSettings, fi
   }, [reviewMetaData])
 
   let handleBreakdownOnClick = function (starRating) {
+
+    interactionAPI('Rating Breakdown', 'Ratings and Reviews');
+
     let newFilterSettings = {};
     let FilterSettingsKeys = Object.keys(filterSettings);
     for (let i = 0; i < FilterSettingsKeys.length; i += 1) {
@@ -53,6 +59,9 @@ const RatingDistribution = ({reviewMetaData, totalRatings, setFilterSettings, fi
   let displayAppliedFilters = Object.keys(filterSettings);
 
   let removeAllFilters = function () {
+
+    interactionAPI('Remove All Filters', 'Ratings and Reviews');
+
     setFilterSettings({});
   }
 

@@ -68,9 +68,11 @@ const App = () => {
         </div>
       </InteractionAPIContext.Provider>
 
+      <InteractionAPIContext.Provider value={interactionAPI}>
       <div id="ratingsReviews" className="ratingsReviews">
         <RatingsReviews productInfo={productInfo}/>
       </div>
+      </InteractionAPIContext.Provider>
     </div>
     </InteractionAPIContext.Provider>
   )

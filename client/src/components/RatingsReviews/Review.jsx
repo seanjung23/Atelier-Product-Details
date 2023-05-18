@@ -1,13 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import {EmptyStar, FullStar, OneQuarterStar, ThreeQuarterStar, HalfStar} from '../icons/ReviewRatingStarsSVG.jsx';
 import Checkmark from '../icons/ReviewCheckmark.jsx';
 import ReviewImageModal from './ReviewImageModal.jsx';
+import {InteractionAPIContext} from './../InteractionAPI.jsx';
 
 // John
 // Remember sync and to GIT PULL
 
 const Review = ({oneReview, starArrayMaker}) => {
+
+  const interactionAPI = useContext(InteractionAPIContext);
 
   const [showMore, setShowMore] = useState(false);
   const [showImageModal, setShowImageModal] = useState(false);
@@ -16,11 +19,17 @@ const Review = ({oneReview, starArrayMaker}) => {
   const [reportGiven, setReportGiven] = useState(false);
 
   let handleImageOnClick = function (e) {
+
+    interactionAPI('Review Image', 'Ratings and Reviews');
+
     setShowImageModal(true);
     setImageModalContent(e.target.currentSrc);
   }
 
   let showMoreOnClick = function () {
+
+    interactionAPI('Show More', 'Ratings and Reviews');
+
     setShowMore(true);
   }
 
@@ -60,8 +69,14 @@ const Review = ({oneReview, starArrayMaker}) => {
   let wasItHelpfulClickHandler = function (e) {
     if (e.target.textContent.includes('Yes')) {
       ReviewHelpfulnessUpdater();
+
+      interactionAPI('Review Helpfulness: Yes', 'Ratings and Reviews');
+
     } else if (e.target.textContent.includes('Report')) {
       ReviewReportUpdater();
+
+      interactionAPI('Review Report', 'Ratings and Reviews');
+
     }
   }
 

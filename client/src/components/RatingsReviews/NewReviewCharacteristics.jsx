@@ -1,4 +1,5 @@
-import react from 'react';
+import react, { useContext } from 'react';
+import {InteractionAPIContext} from './../InteractionAPI.jsx';
 
 const NewReviewCharacteristics = ({
   reviewMetaData,
@@ -15,6 +16,8 @@ const NewReviewCharacteristics = ({
   fitCharacteristic,
   setFitCharacteristic
 }) => {
+
+  const interactionAPI = useContext(InteractionAPIContext);
 
   let sizeSelections = {
     '0' : 'none selected',
@@ -68,16 +71,33 @@ const NewReviewCharacteristics = ({
   let characteristicSelectionClickHandler = function (e) {
     if (e.target.name === 'newReviewSize') {
       setSizeCharacteristic(e.target.value);
+
+      interactionAPI(`New Review Form: Size Characteristic`, 'Ratings and Reviews');
+
     } else if (e.target.name === 'newReviewWidth') {
       setWidthCharacteristic(e.target.value);
+
+      interactionAPI(`New Review Form: Width Characteristic`, 'Ratings and Reviews');
+
     } else if (e.target.name === 'newReviewComfort') {
       setComfortCharacteristic(e.target.value);
+
+      interactionAPI(`New Review Form: Comfort Characteristic`, 'Ratings and Reviews');
+
     } else if (e.target.name === 'newReviewQuality') {
       setQualityCharacteristic(e.target.value);
+
+      interactionAPI(`New Review Form: Quality Characteristic`, 'Ratings and Reviews');
+
     } else if (e.target.name === 'newReviewLength') {
       setLengthCharacteristic(e.target.value);
+
+      interactionAPI(`New Review Form: Length Characteristic`, 'Ratings and Reviews');
+
     } else if (e.target.name === 'newReviewFit') {
       setFitCharacteristic(e.target.value);
+
+      interactionAPI(`New Review Form: Fit Characteristic`, 'Ratings and Reviews');
     }
   }
 
