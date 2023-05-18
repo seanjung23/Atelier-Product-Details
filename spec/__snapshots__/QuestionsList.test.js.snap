@@ -1,15 +1,150 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Should output a list of questions and answers 1`] = `
-<div>
+exports[`The question list should render elements questions list should exist on the DOM 1`] = `
+<div
+  className="questions-list"
+>
+  <div>
+    <div
+      className="question-list-body"
+    >
+      <p
+        className="question-body"
+      >
+        Q: 
+        How does this fit?
+      </p>
+       
+      <p
+        className="question-actions"
+      >
+        <span>
+          Helpful?
+        </span>
+         
+        <span>
+          <a
+            className="q-links"
+            onClick={[Function]}
+          >
+            Yes (
+            14
+            )
+          </a>
+           
+          <b>
+            |
+          </b>
+        </span>
+         
+        <a
+          className="q-links"
+          onClick={[Function]}
+        >
+          Add Answer
+        </a>
+         
+        <b>
+          |
+        </b>
+         
+        <a
+          className="q-links"
+          onClick={[Function]}
+        >
+          Report Question
+        </a>
+      </p>
+    </div>
+    <div>
+      <div
+        className="answer-list"
+      >
+        <p
+          className="answer-body"
+        >
+          No Answers Yet!
+        </p>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div
+      className="question-list-body"
+    >
+      <p
+        className="question-body"
+      >
+        Q: 
+        Will my heir try to usurp the throne if they have these shoes
+      </p>
+       
+      <p
+        className="question-actions"
+      >
+        <span>
+          Helpful?
+        </span>
+         
+        <span>
+          <a
+            className="q-links"
+            onClick={[Function]}
+          >
+            Yes (
+            1
+            )
+          </a>
+           
+          <b>
+            |
+          </b>
+        </span>
+         
+        <a
+          className="q-links"
+          onClick={[Function]}
+        >
+          Add Answer
+        </a>
+         
+        <b>
+          |
+        </b>
+         
+        <a
+          className="q-links"
+          onClick={[Function]}
+        >
+          Report Question
+        </a>
+      </p>
+    </div>
+    <div>
+      <div
+        className="answer-list"
+      >
+        <p
+          className="answer-body"
+        >
+          No Answers Yet!
+        </p>
+      </div>
+    </div>
+  </div>
   <button
+    className="more-questions-button"
     onClick={[Function]}
     type="button"
   >
-    Submit New Question
+    More Answered Questions
   </button>
-  <p>
-    No Questions Asked Yet!
-  </p>
+  <button
+    className="add-questions-button"
+    onClick={[Function]}
+    type="button"
+  >
+    Add A Question +
+  </button>
 </div>
 `;
