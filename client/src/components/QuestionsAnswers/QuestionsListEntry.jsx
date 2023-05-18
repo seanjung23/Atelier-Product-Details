@@ -60,22 +60,22 @@ const QuestionsListEntry = ({question, productInfo}) => {
   return (
     <div>
       <div className="question-list-body">
-        <p className="question-body">Q: {question.question_body}</p>&nbsp;
+        <p className="question-body"><span className="question-heading">Q: </span> {question.question_body}</p>
         <p className="question-actions">
-          <span>Helpful?</span>&nbsp;
+          <span><b>Helpful?</b></span>&nbsp;
           {(!upvotedQuestion) && (
             <span>
-              <a href="javascript:void(0)" onClick={() => upvoteQuestion()}>Yes ({question.question_helpfulness})</a> <b>|</b>
+              <a className="q-links" onClick={() => upvoteQuestion()}>Yes ({question.question_helpfulness})</a> <b className="q-pipes">|</b>
             </span>
           )}
           {(upvotedQuestion) && (
             <span>
-              <span>Yes</span> <b>|</b>
+              <span>Yes</span> <b className="q-pipes">|</b>
             </span>
           )}
-          &nbsp;<a href="javacript:void(0)" onClick={() => changeShowAnswerModal()}>Add Answer</a> <b>|</b>&nbsp;
+          &nbsp;<a className="q-links" onClick={() => changeShowAnswerModal()}>Add Answer</a> <b className="q-pipes">|</b>&nbsp;
           {!reportedQuestion && (
-            <a href="javascript:void(0)" onClick={() => reportQuestion()}>Report Question</a>
+            <a className="q-links" onClick={() => reportQuestion()}>Report Question</a>
           )}
           {reportedQuestion && (
             <span>Reported</span>

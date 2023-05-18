@@ -43,23 +43,23 @@ const AnswersEntry = ({answer}) => {
       <div>
         <p>{answer.body}</p>
         <p className="answer-actions">
-          by <strong>{answer.answerer_name}</strong> &nbsp;{format(parseISO(answer.date), 'MMM d yyyy')} &nbsp;<b>|</b>
+          by <strong>{answer.answerer_name}</strong> &nbsp;{format(parseISO(answer.date), 'MMM d yyyy')} &nbsp;<b className="q-pipes">|</b>
           &nbsp;&nbsp;<span><b>Helpful?</b></span>&nbsp;&nbsp;
           {(!upvotedAnswer) && (
             <span>
-              <a href="javascript:void(0)" onClick={()=> upvoteAnswer()}>Yes ({answer.helpfulness})</a> &nbsp;&nbsp;<b>|</b>
+              <a className="q-links" onClick={()=> upvoteAnswer()}>Yes ({answer.helpfulness})</a> &nbsp;&nbsp;<b className="q-pipes">|</b>
             </span>
           )}&nbsp;&nbsp;
           {(upvotedAnswer) && (
             <span>
-              <span>Yes</span>  <b>|</b>
+              <span>Yes</span>  <b className="q-pipes">|</b>
             </span>
           )}&nbsp;
           {!reportedAnswer && (
-          <a href="javascript:void(0)" onClick={() => reportAnswer()}>Report</a>
+            <a className="q-links" onClick={() => reportAnswer()}>Report</a>
           )}
           {reportedAnswer && (
-          <span>Reported</span>
+            <span>Reported</span>
           )}
         </p>
       </div>
@@ -70,23 +70,23 @@ const AnswersEntry = ({answer}) => {
     <div>
       <p>{answer.body}</p>
       <p className="answer-actions">
-        by {answer.answerer_name} &nbsp;{format(parseISO(answer.date), 'MMM dd yyyy')} &nbsp;<b>|</b>
+        by {answer.answerer_name} &nbsp;{format(parseISO(answer.date), 'MMM dd yyyy')} &nbsp;<b className="q-pipes">|</b>
         &nbsp;&nbsp;<span><b>Helpful?</b></span>&nbsp;&nbsp;
         {(!upvotedAnswer) && (
           <span>
-            <a href="javascript:void(0)" onClick={()=> upvoteAnswer()}>Yes ({answer.helpfulness})</a> &nbsp;&nbsp;<b>|</b>
+            <a className="q-links" onClick={()=> upvoteAnswer()}>Yes ({answer.helpfulness})</a> &nbsp;&nbsp;<b className="q-pipes">|</b>
           </span>
         )}&nbsp;&nbsp;
         {(upvotedAnswer) && (
           <span>
-            <span>Yes</span>  <b>|</b>
+            <span>Yes</span>  <b className="q-pipes">|</b>
           </span>
         )}&nbsp;
         {!reportedAnswer && (
-        <a href="javascript:void(0)" onClick={() => reportAnswer()}>Report</a>
+          <a className="q-links" onClick={() => reportAnswer()}>Report</a>
         )}
         {reportedAnswer && (
-        <span>Reported</span>
+          <span>Reported</span>
         )}
       </p>
     </div>
