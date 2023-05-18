@@ -22,7 +22,7 @@ const App = () => {
 
 
     axios.post('/interactions', params)
-    .then(result => console.log(result))
+    .then((result) => {return})
     .catch(err => console.log(err));
   }
 
