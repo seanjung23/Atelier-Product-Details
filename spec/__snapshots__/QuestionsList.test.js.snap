@@ -11,15 +11,21 @@ exports[`The question list should render elements questions list should exist on
       <p
         className="question-body"
       >
-        Q: 
+        <span
+          className="question-heading"
+        >
+          Q: 
+        </span>
+         
         How does this fit?
       </p>
-       
       <p
         className="question-actions"
       >
         <span>
-          Helpful?
+          <b>
+            Helpful?
+          </b>
         </span>
          
         <span>
@@ -32,7 +38,9 @@ exports[`The question list should render elements questions list should exist on
             )
           </a>
            
-          <b>
+          <b
+            className="q-pipes"
+          >
             |
           </b>
         </span>
@@ -44,7 +52,9 @@ exports[`The question list should render elements questions list should exist on
           Add Answer
         </a>
          
-        <b>
+        <b
+          className="q-pipes"
+        >
           |
         </b>
          
@@ -56,7 +66,15 @@ exports[`The question list should render elements questions list should exist on
         </a>
       </p>
     </div>
-    <div>
+    <div
+      className="answer-title"
+    >
+      <h4
+        className="answer-heading"
+      >
+        A: 
+      </h4>
+       
       <div
         className="answer-list"
       >
@@ -75,15 +93,21 @@ exports[`The question list should render elements questions list should exist on
       <p
         className="question-body"
       >
-        Q: 
+        <span
+          className="question-heading"
+        >
+          Q: 
+        </span>
+         
         Will my heir try to usurp the throne if they have these shoes
       </p>
-       
       <p
         className="question-actions"
       >
         <span>
-          Helpful?
+          <b>
+            Helpful?
+          </b>
         </span>
          
         <span>
@@ -96,7 +120,9 @@ exports[`The question list should render elements questions list should exist on
             )
           </a>
            
-          <b>
+          <b
+            className="q-pipes"
+          >
             |
           </b>
         </span>
@@ -108,7 +134,9 @@ exports[`The question list should render elements questions list should exist on
           Add Answer
         </a>
          
-        <b>
+        <b
+          className="q-pipes"
+        >
           |
         </b>
          
@@ -120,7 +148,15 @@ exports[`The question list should render elements questions list should exist on
         </a>
       </p>
     </div>
-    <div>
+    <div
+      className="answer-title"
+    >
+      <h4
+        className="answer-heading"
+      >
+        A: 
+      </h4>
+       
       <div
         className="answer-list"
       >
