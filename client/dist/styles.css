@@ -154,10 +154,11 @@ a:hover {
 }
 .overviewImageDiv {
   text-align: center;
-  border: solid 1px #64B735;
+  border: solid 1px #613B6F;
   width: 650px;
   height: calc(112px*5);
   display: inline-block;
+  background-color: rgb(216, 212, 207);
 }
 .currentImageThumbnailsCarouselDiv{
   width: auto;
@@ -171,7 +172,7 @@ a:hover {
   transition: all 0.2s;
 }
 .currentImageThumbnails {
-  border: 1px solid #ddd;
+  border: 1px solid #613B6F;
   border-radius: 4px;
   padding: 5px;
   object-fit: contain;
@@ -181,7 +182,7 @@ a:hover {
 }
 
 .currentImageThumbnails:hover {
-  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+  border: 2px solid #64B735;
 }
 
 
@@ -269,13 +270,17 @@ a:hover {
 .overviewStyleThumbnailsDiv{
   width: 60px;
   height: 60px;
-  border: red solid ;
+  border: #613B6F solid ;
   display: inline-block;
   margin: 5px 5px;
   border-radius: 50%;
   overflow: hidden;
 
 }
+.overviewStyleThumbnailsDiv:hover {
+  border: #64B735 solid ;
+}
+
 .overviewStyleThumbnails{
   object-fit: cover;
 
@@ -305,7 +310,7 @@ a:hover {
    display: inline-block;
 }
 .sizeSelection {
-  background-color: #64B735;
+  background-color: #613B6F;
 }
 
 .quantityDiv {
@@ -321,6 +326,7 @@ a:hover {
 .addToCartbuttonDiv{
   position: absolute;
   top:120%;
+  width: 200% !important;
   height: 7vh;
   border-radius: 3.5em !important;
 }
@@ -352,7 +358,7 @@ a:hover {
   height: 90vh;
   width: 90vw;
   z-index: 15;
-  background-color: white;
+  background-color: #202020;
 
 
 }
@@ -368,9 +374,9 @@ a:hover {
   height: 90%;
   width: 100%;
   z-index: 15;
-
+background-color: rgb(216, 212, 207);
   display: inline-block;
-  background: white;
+
   white-space: nowrap;
   position: relative;
   transition: all calc(0.1s * 2);
@@ -397,7 +403,9 @@ a:hover {
   z-index: 15;
   overflow: hidden;
   display: flex;
+  background-color: #202020;
 }
+
 
 .expandCurrentImageThumbnailsCarousel{
 
@@ -406,7 +414,7 @@ a:hover {
   z-index: 15;
 
   display: inline-block;
-  background: white;
+  background: #202020;
   white-space: nowrap;
   position: relative;
   transition: all calc(0.1s * 2);
@@ -421,14 +429,14 @@ a:hover {
   padding: 0.5% 0;
   margin: 2px;
 
-  border: 1px solid #ddd;
+  border: 1px solid #613B6F;
   border-radius: 4px;
   padding: 5px;
   object-fit: contain;
 }
 
 .expandCurrentThumbnailsDiv:hover {
-  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+  box-shadow: 0 0 2px 1px #64B735;
 }
 
 .expandCurrentThumbnails{
@@ -491,7 +499,9 @@ a:hover {
   width: fit-content;
   margin: 0;
 }
-
+.relatedItems:hover{
+  filter: drop-shadow(8px 8px 10px gray);
+}
 .relatedItemRating .relatedItemRatingTooltip {
   visibility: hidden;
   background-color: white;
@@ -558,8 +568,20 @@ a:hover {
   width: 100%;
   padding-top: 80px;
 }
+.arrowsButtonHover:hover{
+  background-color:  white;
+  opacity: .2;
+  .overviewButtons{
+    fill: #64B735;
+  }
 
-
+}
+.overviewButtons {
+  fill: #613B6F;
+}
+.overviewButtons:hover {
+  fill: #64B735;
+}
 
 /* End of related item comparison CSS */
 

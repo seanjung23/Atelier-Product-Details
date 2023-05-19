@@ -132,8 +132,13 @@ export default function OverViewImage({currentStyle}){
 
   useEffect(()=>{
     if (imageIndex === 0) {
+      if (productImages.length <=1) {
+        setProductImagesButtonDisplay(0);
+      }
+      else{
+        setProductImagesButtonDisplay(2);
+      }
 
-      setProductImagesButtonDisplay(2);
 
     } else if(imageIndex === productImages.length -1) {
       setProductImagesButtonDisplay(1);
@@ -172,25 +177,28 @@ export default function OverViewImage({currentStyle}){
   const expandOnClick = (e) => {
     interactionAPI('expand image button', 'overview')
     setExpandViewDisplay({"display":"inline"})
+    imgRefState[0].current.style = "object-fit:contain; height: 90vh; width: 90vw;"
+    imgRefState[1](!imgRefState[2]);
 
   }
   const [expandViewDisplay, setExpandViewDisplay] = useState({"display":"none"});
 
 const expandedImageRef = useRef();
 const eRef = useRef();
+const [imgRefState, setimgRefState] =useState();
 
 
   if(currentImage  !== undefined){
     return (<>
     <div id="topPage" style={expandViewDisplay}>
       <div className="expandViewModal"  ref={eRef}>
-          <OverviewImageExpandedView productImages={productImages} productImageThumbnails={productImageThumbnails} setExpandViewDisplay={setExpandViewDisplay} productImageThumbnailsYIndex={productImageThumbnailsYIndex} setImageIndex={setImageIndex} imageIndex={imageIndex} setPrevImageIndex={setPrevImageIndex} prevImageIndex={prevImageIndex} setProductImageThumbnailsYIndex={setProductImageThumbnailsYIndex} currentStyle={currentStyle} rightButtonDisplay={rightButtonDisplay} leftButtonDisplay={leftButtonDisplay} expandedImageRef={expandedImageRef} eRef={eRef} setProductImagesButtonDisplay={setProductImagesButtonDisplay}/>
+          <OverviewImageExpandedView productImages={productImages} productImageThumbnails={productImageThumbnails} setExpandViewDisplay={setExpandViewDisplay} productImageThumbnailsYIndex={productImageThumbnailsYIndex} setImageIndex={setImageIndex} imageIndex={imageIndex} setPrevImageIndex={setPrevImageIndex} prevImageIndex={prevImageIndex} setProductImageThumbnailsYIndex={setProductImageThumbnailsYIndex} currentStyle={currentStyle} rightButtonDisplay={rightButtonDisplay} leftButtonDisplay={leftButtonDisplay} expandedImageRef={expandedImageRef} eRef={eRef} setProductImagesButtonDisplay={setProductImagesButtonDisplay} imgRefState={imgRefState} setimgRefState={setimgRefState}/>
         </div>
     </div>
 
       <div className="currentImageThumbnailsCarouselDiv" ref={productImageThumbnailsDivRef}>
 
-      <div className="overviewUpButtonDiv hoverPointer" onClick={upButtonOnClick} style={upButtonDisplay}><ChevronUpArrow/></div>
+      <div className="overviewUpButtonDiv arrowsButtonHover hoverPointer" onClick={upButtonOnClick} style={upButtonDisplay}><ChevronUpArrow/></div>
 
         <div className="currentImageThumbnailsCarousel" ref={productImageThumbnailsRef}>
           {productImageThumbnails.map((e,index) => {
@@ -200,16 +208,16 @@ const eRef = useRef();
           })}
         </div>
 
-        <div className="overviewDownButtonDiv hoverPointer" onClick={downButtonOnClick} style={downButtonDisplay}><ChevronDownArrow/></div>
+        <div className="overviewDownButtonDiv arrowsButtonHover hoverPointer" onClick={downButtonOnClick} style={downButtonDisplay}><ChevronDownArrow/></div>
 
       </div>
 
       <div className="currentImagesCarouselDiv" ref={productImagesDivRef}>
         <div className="OverviewButtons">
-        <div className="overviewLeftButtonDiv hoverPointer" onClick={leftButtonOnClick} style={leftButtonDisplay}><ChevronLeftArrow/></div>
-        <div className="overviewRightButtonDiv hoverPointer" onClick={rightButtonOnClick} style={rightButtonDisplay}><ChevronRightArrow/></div>
+        <div className="overviewLeftButtonDiv arrowsButtonHover hoverPointer" onClick={leftButtonOnClick} style={leftButtonDisplay}><ChevronLeftArrow/></div>
+        <div className="overviewRightButtonDiv arrowsButtonHover hoverPointer" onClick={rightButtonOnClick} style={rightButtonDisplay}><ChevronRightArrow/></div>
 
-        <div className="expandViewIconDiv hoverPointer" onClick={expandOnClick } ><OverviewExpandSVG /></div>
+        <div className="expandViewIconDiv arrowsButtonHover hoverPointer" onClick={expandOnClick } ><OverviewExpandSVG /></div>
         </div>
 
 
