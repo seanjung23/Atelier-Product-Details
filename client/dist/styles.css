@@ -21,7 +21,9 @@ body {
   border: solid 0.0625em #613B6F;
   border-radius: 2em;
   font-family: "Open Sans", sans-serif;
-  background-color: #fff;
+  background-color: #202020;
+  color-scheme: dark !important;
+  color: #d8d4cf;
 }
 
 /* width */
@@ -152,7 +154,7 @@ a:hover {
 }
 .overviewImageDiv {
   text-align: center;
-  border: solid 1px;
+  border: solid 1px #64B735;
   width: 650px;
   height: calc(112px*5);
   display: inline-block;
@@ -319,7 +321,6 @@ a:hover {
 .addToCartbuttonDiv{
   position: absolute;
   top:120%;
-  width: 10vw !important;
   height: 7vh;
   border-radius: 3.5em !important;
 }
@@ -455,7 +456,7 @@ a:hover {
 
 .relatedItemsList {
   border-radius: 5px;
-
+  border-color: #64B735;
   border-style: solid;
   white-space:nowrap;
   overflow: hidden;
@@ -474,16 +475,18 @@ a:hover {
   width: 100%;
   height: 70%;
 }
-.relatedItems {
 
+.relatedItems {
   width: 160px;
   position: relative;
+  border-color: #202020;
   border-style: solid;
+  color: #202020;
   display: inline-block;
   margin: 5px 10px;
   padding: 0;
-
 }
+
 .relatedItems p {
   width: fit-content;
   margin: 0;
@@ -562,13 +565,11 @@ a:hover {
 
 
 /* Start of Q/A CSS */
-.questionAnswersDiv {
-  background-color: #fff;
-}
 
 .questionAnswersDiv h1 {
   font-size: 1em;
   margin-left: 6em;
+  margin-top: 2%;
 }
 .search-bar {
   height: 7vh;
@@ -959,10 +960,6 @@ a:hover {
 .characteristicFiller {
   display: inline-block;
   height: 2em;
-}
-
-.ratingsReviews {
-  background-color: white;
 }
 
 .RatingsReviewsTitle {
