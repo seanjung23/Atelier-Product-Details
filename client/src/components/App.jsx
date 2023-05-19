@@ -62,7 +62,7 @@ const App = () => {
       </div>
 
 
-      <div className="relatedItemsComparsionDiv">
+      <div className="relatedItemsComparisonDiv">
         <RelatedItemsComparison productInfo={productInfo} setProduct_id={setProduct_id}/>
       </div>
 
