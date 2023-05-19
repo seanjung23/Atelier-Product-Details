@@ -21,6 +21,7 @@ body {
 
 .app-title h1 {
   font-size: 6em;
+  padding-top: 2.5%;
 }
 
 .overviewDiv, .relatedItemsComparisonDiv, .questionAnswersDiv, .ratingsReviews {
