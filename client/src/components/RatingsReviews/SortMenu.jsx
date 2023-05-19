@@ -15,7 +15,7 @@ const SortMenu = ({setSortSelection}) => {
     <div>
       <label>
       Sort on
-      <select onChange={handleSortSelect}>
+      <select className="sort-review" onChange={handleSortSelect}>
         <option value='relevant'>relevant</option>
         <option value='helpful'>helpful</option>
         <option value='newest'>newest</option>

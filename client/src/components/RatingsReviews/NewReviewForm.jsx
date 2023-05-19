@@ -187,7 +187,7 @@ const NewReviewForm = ({productInfo, reviewMetaData, setDisplayNewReviewForm}) =
             </div>
             <div className='newReviewSelectionOption'>
             Do you recommend this product? *
-              <div>
+              <div className="review-radio-buttons">
                 <input type='radio' value='Yes' name='newReviewRecommend'
                 onClick={handleRecommendClick}/>
                 <label>Yes</label>
@@ -258,7 +258,7 @@ const NewReviewForm = ({productInfo, reviewMetaData, setDisplayNewReviewForm}) =
                 <p>For authentication reasons, you will not be emailed</p>
               </div>
             </div>
-          <input type='submit' value='Submit Review'/>
+          <input className="review-submit-button" type='submit' value='Submit Review'/>
           {submitError &&
           <div className='errorMessage'>
             <strong>You must enter the following:</strong>
