@@ -85,8 +85,8 @@ export default function RelatedItem({itemId, setProduct_id}) {
         </div>
 
         <div className="itemInfo">
-          <b style={{"word-wrap": "break-word",
-    "white-space":"pre-wrap"}}>{itemInfo.name}</b>
+          <b style={{"wordWrap": "breakWord",
+    "whiteSpace":"preWrap"}}>{itemInfo.name}</b>
 
           <p>{itemInfo.category}</p>
 

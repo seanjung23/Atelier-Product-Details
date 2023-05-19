@@ -13,7 +13,7 @@ const RatingDistribution = ({reviewMetaData, totalRatings, setFilterSettings, fi
       outerElement[0].style.border = 'solid';
       outerElement[0].style.height = '0.5em';
       outerElement[0].style.backgroundColor = 'lightgray';
-      innerElement[0].style.backgroundColor = 'green';
+      innerElement[0].style.backgroundColor = '#64B735';
       innerElement[0].style.height = '100%';
       if (lengthBar || lengthBar === 0) {
         innerElement[0].style.width = lengthBar.toString() + '%'

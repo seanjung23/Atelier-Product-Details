@@ -48,6 +48,13 @@ export default function({currentStyle}){
     setSelectedSize(e.target.value);
     messageRef.current.style.visibility = 'hidden';
     sizeRef.current.size = 1;
+
+      if(sizeRef.current.value === 'Select Size') {
+        sizeRef.current.style.backgroundColor = "#613B6F"
+      } else {
+        sizeRef.current.style.backgroundColor = "#64B735"
+      }
+
   }
 
   const [selectedSizeQuantity, setSelectedSizeQuantity] = useState(['-'])
@@ -56,9 +63,11 @@ export default function({currentStyle}){
       quantityRef.current.disabled =true;
       setSelectedSizeQuantity(['-']);
 
+      quantityRef.current.style.backgroundColor = "#613B6F"
 
       return;
     }
+    if(quantityRef.current !== undefined) quantityRef.current.style.backgroundColor = "#64B735"
 
     if(Object.keys(sizeObj).length > 0) {
       quantityRef.current.disabled = false;
@@ -87,16 +96,17 @@ export default function({currentStyle}){
 
 
 
-
-
   const addToCartOnClick = (e) => {
     interactionAPI("Add To Cart Button", "Overview");
+
+    console.log(sizeRef)
 
     if (sizeRef.current.value === 'Select Size') {
 
       sizeRef.current.size = 5;
       messageRef.current.style.visibility = 'visible';
     } else{
+
       let q = quantityRef.current.value;
       let id = sizeObj[selectedSize].sku_id;
       let temp = {sku_id: id};
@@ -145,7 +155,7 @@ export default function({currentStyle}){
       </div>
 
     <div className="quantityDiv" style={{display:"inline-block"}}>
-      <select className="quantitySelection"  ref={quantityRef} disabled>
+      <select className="quantitySelection" style={{"backgroundColor":"#613B6F"}} ref={quantityRef} disabled>
       {selectedSizeQuantity.map(e => {
 
           return (

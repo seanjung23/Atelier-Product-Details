@@ -10,7 +10,7 @@ export default function({e, indexe, index, setImageIndex, imageIndex, prevImageI
         thumbnailRef.current.style.border = "1px solid #ddd";
       }
       if (imageIndex === index) {
-        thumbnailRef.current.style.border = "3px solid grey";
+        thumbnailRef.current.style.border = "3px solid #64B735";
       }
     }
 
@@ -21,7 +21,7 @@ export default function({e, indexe, index, setImageIndex, imageIndex, prevImageI
     thumbnailRef.current.style.border = "1px solid #ddd";
     setImageIndex(0);
     if(index=== 0){
-      thumbnailRef.current.style.border = "3px solid grey";
+      thumbnailRef.current.style.border = "3px solid #64B735";
     }
   }, [currentStyle])
 

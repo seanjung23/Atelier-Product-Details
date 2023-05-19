@@ -11,7 +11,7 @@ const ProductBreakdown = ({reviewMetaData}) => {
       let innerMarker = document.getElementsByClassName(markerClass);
       for (let i = 0; i < productCharacteristics.length; i += 1) {
         innerMarker[i].style.height = '100%';
-        innerMarker[i].style.backgroundColor = 'black';
+        innerMarker[i].style.backgroundColor = '#64B735';
         innerMarker[i].style.width = '5%';
         innerMarker[i].style.marginLeft = ((
           ((reviewMetaData.characteristics[productCharacteristics[i]].value * 0.96) - 1)
