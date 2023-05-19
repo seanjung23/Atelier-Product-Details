@@ -267,13 +267,17 @@ a:hover {
 .overviewStyleThumbnailsDiv{
   width: 60px;
   height: 60px;
-  border: red solid ;
+  border: #613B6F solid ;
   display: inline-block;
   margin: 5px 5px;
   border-radius: 50%;
   overflow: hidden;
 
 }
+.overviewStyleThumbnailsDiv:hover {
+  border: #64B735 solid ;
+}
+
 .overviewStyleThumbnails{
   object-fit: cover;
 
@@ -319,7 +323,7 @@ a:hover {
 .addToCartbuttonDiv{
   position: absolute;
   top:120%;
-  width: 10vw !important;
+  width: 200% !important;
   height: 7vh;
   border-radius: 3.5em !important;
 }
@@ -488,7 +492,9 @@ a:hover {
   width: fit-content;
   margin: 0;
 }
-
+.relatedItems:hover{
+  filter: drop-shadow(8px 8px 10px gray);
+}
 .relatedItemRating .relatedItemRatingTooltip {
   visibility: hidden;
   background-color: white;
@@ -555,8 +561,20 @@ a:hover {
   width: 100%;
   padding-top: 80px;
 }
+.arrowsButtonHover:hover{
+  background-color:  white;
+  opacity: .2;
+  .overviewButtons{
+    fill: #64B735;
+  }
 
-
+}
+.overviewButtons {
+  fill: #613B6F;
+}
+.overviewButtons:hover {
+  fill: #64B735;
+}
 
 /* End of related item comparison CSS */
 

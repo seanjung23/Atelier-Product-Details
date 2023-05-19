@@ -4,7 +4,7 @@ import OverviewExpandedViewImages from './OverviewExpandedViewImages.jsx';
 import {ChevronRightArrow, ChevronLeftArrow, ChevronUpArrow, ChevronDownArrow} from './../icons/OverviewArrowsSVG.jsx';
 import OverviewDismissSVG from './../icons/OverviewDismissSVG.jsx';
 import {InteractionAPIContext} from './../InteractionAPI.jsx';
-export default function({ productImages, productImageThumbnails, productImageThumbnailsYIndex, setExpandViewDisplay, setImageIndex, imageIndex, setPrevImageIndex, prevImageIndex, setProductImageThumbnailsYIndex, currentStyle, rightButtonDisplay, leftButtonDisplay, expandedImageRef, eRef, setProductImagesButtonDisplay}){
+export default function({ productImages, productImageThumbnails, productImageThumbnailsYIndex, setExpandViewDisplay, setImageIndex, imageIndex, setPrevImageIndex, prevImageIndex, setProductImageThumbnailsYIndex, currentStyle, rightButtonDisplay, leftButtonDisplay, expandedImageRef, eRef, setProductImagesButtonDisplay, imgRefState, setimgRefState}){
 
   const interactionAPI = useContext(InteractionAPIContext);
 
@@ -41,16 +41,15 @@ export default function({ productImages, productImageThumbnails, productImageThu
 
   const thumbnailCarouselRef = useRef();
   const thumbnailCarouselDivRef = useRef();
-  const [imgRefState, setimgRefState] =useState();
 
 
 
   return (<>
 
       <div className="expandCurrentImagesCarouselDiv" >
-        <div className="overviewLeftButtonDiv hoverPointer" onClick={leftButtonOnClick} style={leftButtonDisplay}><ChevronLeftArrow/></div>
-        <div className="overviewRightButtonDiv hoverPointer" onClick={rightButtonOnClick} style={rightButtonDisplay}><ChevronRightArrow/></div>
-        <div className="overviewDismissButtonDiv hoverPointer" onClick={dismissButtonOnClick}><OverviewDismissSVG/></div>
+        <div className="overviewLeftButtonDiv arrowsButtonHover hoverPointer" onClick={leftButtonOnClick} style={leftButtonDisplay}><ChevronLeftArrow/></div>
+        <div className="overviewRightButtonDiv arrowsButtonHover hoverPointer" onClick={rightButtonOnClick} style={rightButtonDisplay}><ChevronRightArrow/></div>
+        <div className="overviewDismissButtonDiv arrowsButtonHover hoverPointer" onClick={dismissButtonOnClick}><OverviewDismissSVG/></div>
         <div className="expandCurrentImagesCarousel" ref={expandedImageRef}>
             {productImages.map((e, index) => {
               return (

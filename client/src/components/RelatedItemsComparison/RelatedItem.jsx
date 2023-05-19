@@ -85,11 +85,12 @@ export default function RelatedItem({itemId, setProduct_id}) {
         </div>
 
         <div className="itemInfo">
-          <p>{itemInfo.name}</p>
+          <b style={{"word-wrap": "break-word",
+    "white-space":"pre-wrap"}}>{itemInfo.name}</b>
 
           <p>{itemInfo.category}</p>
 
-          {defaultStyle.sale_price ? (<p> ${defaultStyle.sale_price} <s>${defaultStyle.original_price}</s> </p>) : (<p>${defaultStyle.original_price}</p>)}
+          {defaultStyle.sale_price ? (<p> ${defaultStyle.sale_price} <s style={{color: 'red'}}>${defaultStyle.original_price}</s> </p>) : (<p>${defaultStyle.original_price}</p>)}
 
 
 

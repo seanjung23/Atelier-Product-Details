@@ -1,14 +1,14 @@
 import react,  {useState, useEffect, useRef, useLayoutEffect,  useContext}from 'react';
 import OverviewCheckMark from './../icons/OverviewCheckMark.jsx'
 import {InteractionAPIContext} from './../InteractionAPI.jsx';
-export default function({style, currentStyle, setCurrentStyle}){
+export default function({style, currentStyle, setCurrentStyle, productStyles}){
   const interactionAPI = useContext(InteractionAPIContext);
   const styleRef = useRef();
   const checkRef = useRef();
 
   useEffect(()=> {
-    if(checkRef.current !== undefined){
-      if (style.style_id === currentStyle.style_id) {
+    if(currentStyle.style_id !== undefined){
+      if (style.style_id === currentStyle.style_id || productStyles.length === 1) {
         checkRef.current.style.visibility = 'visible';
       } else {
         checkRef.current.style.visibility = 'hidden';

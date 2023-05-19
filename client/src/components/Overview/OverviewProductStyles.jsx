@@ -5,8 +5,12 @@ export default function ({productStyles, currentStyle, setCurrentStyle}){
   const [styles, setStyles] = useState([]);
 
   useEffect(()=> {
+    if(productStyles && productStyles.length === 1) {
+      setStyles([productStyles[0]]);
+      setCurrentStyle(productStyles[0]);
+    }
 
-    if(productStyles){
+    if(productStyles && productStyles.length > 1){
 
       setStyles([]);
       productStyles.map((style) => {
@@ -30,7 +34,7 @@ export default function ({productStyles, currentStyle, setCurrentStyle}){
       <div className="overviewStyleSelectionDiv">
         {styles.map((style, index)=> {
           return(
-            <OverviewStyleItem key={index} style={style} currentStyle={currentStyle} setCurrentStyle={setCurrentStyle}/>
+            <OverviewStyleItem key={index} style={style} currentStyle={currentStyle} setCurrentStyle={setCurrentStyle} productStyles={productStyles}/>
 
           )
 
