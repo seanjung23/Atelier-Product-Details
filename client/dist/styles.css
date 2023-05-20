@@ -591,9 +591,6 @@ background-color: rgb(216, 212, 207);
 .arrowsButtonHover:hover{
   background-color:  white;
   opacity: .2;
-  .overviewButtons{
-    fill: #64B735;
-  }
 
 }
 .overviewButtons {
