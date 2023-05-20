@@ -8,15 +8,14 @@ import {InteractionAPIContext} from './../InteractionAPI.jsx';
 // John
 // Remember sync and to GIT PULL
 
-const Review = ({oneReview, starArrayMaker}) => {
+const Review = ({oneReview, starArrayMaker, ifReviewWasHelpful,
+  ifReviewWasReported,  setReportedReviews, setHelpfulReviews}) => {
 
   const interactionAPI = useContext(InteractionAPIContext);
 
   const [showMore, setShowMore] = useState(false);
   const [showImageModal, setShowImageModal] = useState(false);
   const [imageModalContent, setImageModalContent] = useState('');
-  const [helpfulFeedbackGiven, setHelpfulFeedbackGiven] = useState(false);
-  const [reportGiven, setReportGiven] = useState(false);
 
   let handleImageOnClick = function (e) {
 
@@ -40,8 +39,6 @@ const Review = ({oneReview, starArrayMaker}) => {
     let month = oneReview.date.slice(5, 7);
     let day = oneReview.date.slice(8, 10);
     let wordMonth = months[Number(month) - 1];
-    // Use this instead of day if you want Jan 1 23 instead of Jan 01 23
-    // let noZeroDayFormat = day.replace(0, '');
     let newDateFormat = wordMonth + ' ' + day + ', ' + year;
     return newDateFormat;
   }
@@ -56,13 +53,19 @@ const Review = ({oneReview, starArrayMaker}) => {
   // NEED TO ATTACH THIS FUNCTION TO APPROPRIATE SERVER API CALL
   const ReviewHelpfulnessUpdater = function () {
     axios.put(`/reviews/${oneReview.review_id}/helpful`)
-      .then((result) => {setHelpfulFeedbackGiven(true)})
+      .then((result) => {
+        ifReviewWasHelpful[oneReview.review_id] = true;
+        setHelpfulReviews(ifReviewWasHelpful);
+      })
       .catch((err) => {console.log(err)});
   }
 
   const ReviewReportUpdater = function () {
     axios.put(`/reviews/${oneReview.review_id}/report`)
-      .then((result) => {setReportGiven(true)})
+      .then((result) => {
+        ifReviewWasReported[oneReview.review_id] = true;
+        setReportedReviews(ifReviewWasReported);
+      })
       .catch((err) => {console.log(err)})
   }
 
@@ -136,21 +139,21 @@ const Review = ({oneReview, starArrayMaker}) => {
           imageModalContent={imageModalContent}/>}
         </div>
       {oneReview.recommend && <p><Checkmark /> I recommend this product</p>}
-      {!helpfulFeedbackGiven && <div>
+      {!ifReviewWasHelpful[oneReview.review_id] && <div>
         Was this review helpful?
         <div className='wasItHelpful'
         onClick={wasItHelpfulClickHandler}>Yes{'('}{oneReview.helpfulness}{')'}</div>
         <span className='wasItHelpfulLine'> | </span>
-        {!reportGiven && <div className='wasItHelpful'
+        {!ifReviewWasReported[oneReview.review_id] && <div className='wasItHelpful'
         onClick={wasItHelpfulClickHandler}>Report</div>}
-        {reportGiven && <span> Reported</span>}
+        {ifReviewWasReported[oneReview.review_id] && <span> Reported</span>}
       </div>}
-      {helpfulFeedbackGiven && <div>
+      {ifReviewWasHelpful[oneReview.review_id] && <div>
         Thank you
         <span className='wasItHelpfulLine'> | </span>
-        {!reportGiven && <div className='wasItHelpful'
+        {!ifReviewWasReported[oneReview.review_id] && <div className='wasItHelpful'
         onClick={wasItHelpfulClickHandler}>Report</div>}
-        {reportGiven && <span> Reported</span>}
+        {ifReviewWasReported[oneReview.review_id] && <span> Reported</span>}
       </div>}
     </div>
   )
