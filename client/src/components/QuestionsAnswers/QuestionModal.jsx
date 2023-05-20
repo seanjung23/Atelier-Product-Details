@@ -1,5 +1,6 @@
 import React, {useContext} from 'react';
 import axios from 'axios';
+import {CancelQuestionForm, SubmitQuestionForm} from './QuestionsButtons.jsx'
 import {InteractionAPIContext} from './../InteractionAPI.jsx';
 
 const QuestionModal = ({productInfo, changeShowQuestionModal}) => {
@@ -87,8 +88,8 @@ const QuestionModal = ({productInfo, changeShowQuestionModal}) => {
           </div>
 
           <div className="question-modal-footer">
-            <button className="cancel-submission-button" type="button" onClick={() => changeShowQuestionModal()}>Cancel</button>&nbsp;
-            <button className="question-submission-button" type="submit" onClick={() => checkInputs()}>Submit Question</button>
+            <CancelQuestionForm changeShowQuestionModal={changeShowQuestionModal} />&nbsp;
+            <SubmitQuestionForm checkInputs={checkInputs} />
           </div>
 
         </div>
