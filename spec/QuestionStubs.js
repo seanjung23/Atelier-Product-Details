@@ -141,15 +141,6 @@ let questions = {
           ]
         }
       }
-    },
-    {
-      question_id: 543285,
-      question_body: "What does it do?",
-      question_date: "2021-11-08T00:00:00.000Z",
-      asker_name: "name123",
-      question_helpfulness: 0,
-      reported: false,
-      answers: {}
     }
   ]
 };

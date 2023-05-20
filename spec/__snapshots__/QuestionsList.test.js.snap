@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`The question list should render elements questions list should exist on the DOM 1`] = `
+exports[`The questions list should render elements questions list should exist on the DOM 1`] = `
 <div
   className="questions-list"
 >
@@ -173,7 +173,7 @@ exports[`The question list should render elements questions list should exist on
     onClick={[Function]}
     type="button"
   >
-    More Answered Questions
+    More Questions
   </button>
   <button
     className="add-questions-button"
