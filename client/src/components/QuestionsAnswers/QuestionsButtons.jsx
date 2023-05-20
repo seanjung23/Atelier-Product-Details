@@ -2,7 +2,7 @@ import React from 'react';
 
 const MoreQuestionsButton = ({incrementCount}) => {
   return (
-    <button className="more-questions-button" type="button" onClick={() => incrementCount()}>More Answered Questions</button>
+    <button className="more-questions-button" type="button" onClick={() => incrementCount()}>More Questions</button>
   )
 };
 
@@ -24,4 +24,28 @@ const CollapseAllAnswersButton = ({collapseAnswers}) => {
   )
 };
 
-export {MoreQuestionsButton, AddQuestionButton, ShowAllAnswersButton, CollapseAllAnswersButton}
+const CancelQuestionForm = ({changeShowQuestionModal}) => {
+  return (
+    <button className="cancel-submission-button" type="button" onClick={() => changeShowQuestionModal()}>Cancel</button>
+  )
+};
+
+const SubmitQuestionForm = ({checkInputs}) => {
+  return (
+    <button className="question-submission-button" type="submit" onClick={() => checkInputs()}>Submit Question</button>
+  )
+};
+
+const SubmitAnswerForm = ({checkInputs}) => {
+  return (
+    <button className="answer-submission-button" type="submit" onClick={() => checkInputs()}>Submit Answer</button>
+  )
+};
+
+const CancelAnswerForm = ({changeShowAnswerModal}) => {
+  return (
+    <button className="cancel-submission-button" type="button" onClick={() => changeShowAnswerModal()}>Cancel</button>
+  )
+};
+
+export {MoreQuestionsButton, AddQuestionButton, ShowAllAnswersButton, CollapseAllAnswersButton, SubmitQuestionForm, CancelQuestionForm, SubmitAnswerForm, CancelAnswerForm}

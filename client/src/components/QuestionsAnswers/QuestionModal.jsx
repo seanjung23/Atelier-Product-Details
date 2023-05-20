@@ -1,5 +1,6 @@
 import React, {useContext} from 'react';
 import axios from 'axios';
+import {CancelQuestionForm, SubmitQuestionForm} from './QuestionsButtons.jsx'
 import {InteractionAPIContext} from './../InteractionAPI.jsx';
 
 const QuestionModal = ({productInfo, changeShowQuestionModal}) => {
@@ -27,7 +28,7 @@ const QuestionModal = ({productInfo, changeShowQuestionModal}) => {
 
   const postQuestion = () => {
     interactionAPI("Submit Question Button", "QuestionsAnswers");
-    // instead of get element by class name use "useRef" to get value (let test = useRef('question-modal-textbox) ====> test.current.value should be the value of the user input)
+
     let url = '/qa/questions';
     let userQuestion = document.getElementsByClassName('question-modal-textbox')[0].value;
     let userNickname = document.getElementsByClassName('question-modal-nickname')[0].value;
@@ -41,7 +42,7 @@ const QuestionModal = ({productInfo, changeShowQuestionModal}) => {
     }
 
     axios.post(url, data)
-    .then((res) => console.log('this is server response', res))
+    .then((res) => console.log(res))
     .catch((err) => console.log('error sending question to server'));
   };
 
@@ -87,8 +88,8 @@ const QuestionModal = ({productInfo, changeShowQuestionModal}) => {
           </div>
 
           <div className="question-modal-footer">
-            <button className="cancel-submission-button" type="button" onClick={() => changeShowQuestionModal()}>Cancel</button>&nbsp;
-            <button className="question-submission-button" type="submit" onClick={() => checkInputs()}>Submit Question</button>
+            <CancelQuestionForm changeShowQuestionModal={changeShowQuestionModal} />&nbsp;
+            <SubmitQuestionForm checkInputs={checkInputs} />
           </div>
 
         </div>
