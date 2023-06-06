@@ -1,6 +1,6 @@
 const axios = require('axios');
 require('dotenv').config();
-//refactor controllers and server with promise based
+
 const config = {
   headers: {
     Authorization: process.env.API_TOKEN

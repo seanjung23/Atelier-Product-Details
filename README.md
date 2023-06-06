@@ -5,6 +5,7 @@ The JSX front end page is a front end development project that demonstrates vari
 
 **Table of Contents**
 
+
 **Setup**
 - In order to setup the repo, first use your terminal navigate to the directory you will clone this repo in.
 - Run the following command in your terminal
@@ -73,3 +74,6 @@ Individual review tiles display information and reviews and take some interactio
 
 Finally, a user can add their own review of the product at the bottom. Clicking on the "Add A Review" opens up a modal form where you can add your own review. You have to make selections that are starred. In the form, you can submit an overall rating by selecting a star option, recommend the product, rate characteristics, add a review summary, add a review body (minimum of 50 characters), upload and preview photos (again, the API does not accept actual photos. A placeholder photo will be put instead), add a nickname, and add an email. The form will not submit until the starred options are completed. If they are not complete, a message will display below the submit button telling you what fields need to be filled before submission. After submitting, selecting a different sort option will update the list. You can sort by newest to see your review.
 
+
+
+Project Creators - Xinhuang Liu, Sean Jung, John Novakowski
