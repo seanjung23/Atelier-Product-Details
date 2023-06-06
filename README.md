@@ -4,7 +4,13 @@
 The JSX front end page is a front end development project that demonstrates various features implemented using JavaScript technologies like React.js, Axios, babel, webpack, and Express.js. The site page allows you to explore a given product with an overview, related products, question and answers associated with it, and ratings and reviews. Each of these modules have various levels of interactivity such as carousels, search bars, list sorting, and list filter settings. The page interacts with the Atelier API to present product information.
 
 **Table of Contents**
-
+- [Setup](**Setup**)
+  - [Obtaining an API Key](#obtaining-an-API-Key)
+- [Description](#Description)
+  - [Overview](#Overview)
+  - [Related Products](#related-products)
+  - [Questions and Answers](#questions-and-answers)
+  - [Ratings and Reviews](#ratings-and-reviews)
 
 **Setup**
 - In order to setup the repo, first use your terminal navigate to the directory you will clone this repo in.
@@ -47,7 +53,7 @@ Our API server authenticates users with GitHub Personal Access Tokens. To obtain
 5.  Generate Token
     -   Note that this token is  only viewable once, at generation time.  Make sure to copy it to a  **secure**  place and  _**never check it into your git history**_.
 
-**Description**
+### Description
 The JSX project can be divided into four modules. There is an Overview, Related Products, Questions and Answers, and Ratings and Reviews. You can use each of these sections to find out more information regarding the product selected. The following sections describe a list of features associated with each module.
 
 *Overview*
