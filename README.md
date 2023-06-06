@@ -61,7 +61,7 @@ At the very top of the page is the overview page. It presents a gallery of the p
 
 To the right of the gallery is a description of the product along with style selectors. You can select a style, a size, and a quantity before add the product to the cart. The overview is keeps track of product inventories and prices based off the style and reflects the information accordingly. Below is a description of the product itself. There are buttons that link to other social media sites that allow you to share information about the product.
 
-![](previews/Overview copy.gif)
+![Overview](previews/Overview copy.gif)
 
 ### Related Products
 Related products presents as a horizontal carousel showing cards of various related products. The products have preview thumbnails of associated products. They display the name and rating of the product as stars. Hovering over the stars will give you a number display. You can click on related product cards to change the product that you are viewing.
