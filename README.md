@@ -61,12 +61,12 @@ At the very top of the page is the overview page. It presents a gallery of the p
 
 To the right of the gallery is a description of the product along with style selectors. You can select a style, a size, and a quantity before add the product to the cart. The overview is keeps track of product inventories and prices based off the style and reflects the information accordingly. Below is a description of the product itself. There are buttons that link to other social media sites that allow you to share information about the product.
 
-![Overview](previews/Overview copy.gif)
+![](./previews/Overview copy.gif)
 
 ### Related Products
 Related products presents as a horizontal carousel showing cards of various related products. The products have preview thumbnails of associated products. They display the name and rating of the product as stars. Hovering over the stars will give you a number display. You can click on related product cards to change the product that you are viewing.
 
-![](previews/RelatedItems copy.gif)
+![](./previews/RelatedItems copy.gif)
 
 ### Questions and Answers
 The Questions and Answers consists of a search bar, a list of questions, and a list of answers. The search bar allows a client to search through the questions in real time. It will not begin its search query until three characters are inside of the search bar. The section will be updated in real time to show results of search queries. As for the list of questions itself, it displays two questions at a time. A user can display two more questions at a time by clicking on the "More Answered Questions" button. Once the number of questions exceeds the view of the screen, a scroll bar appears and allows the user to scroll through the list of questions. When all the questions are listed, the button disappears.
@@ -75,7 +75,7 @@ The individual questions feature an answer list, a helpful button, an add answer
 
 Inside the Questions and Answers section are two buttons that bring up modal forms. On individual questions is an "Add Answer" link. This brings up a "Submit Your Answer" form. This form takes the text input of an answer, a nickname, and an email. There is also a photo upload feature. It allows you to select up to 5 photos to be uploaded. The upload feature allows you to preview the photos before submission (note that the API does not actually accept uploaded photo files and will not display them after the form is submitted. There is no image hosting). The "Add A Question +" button will bring up the "Ask A Question" modal. This modal accepts the same types of input as the answer modal in the context of asking questions except for the photo upload.
 
-![](previews/QuestionsAndAnswers copy.gif)
+![](./previews/QuestionsAndAnswers copy.gif)
 
 ### Ratings and Reviews
 For the Ratings and Reviews section, you are provided with a breakdown of the ratings and reviews and a list of the reviews. The rating and product breakdown provides statistical information such as total reviews and the percentage of reviews that recommend the product. They also provide percentages on how many reviews out of the total gave a certain rating and what ratings were given to certain product characteristics. The characteristics reviewed depends on the product in question. Characteristics could include size, comfort, width, length, fit, and quality. The ratings and breakdowns show these percentages in the form of gray bars partially filled by green bars. The product breakdown uses a single marker. The rating breakdown bars can be selected in order to filter the review list on the right based on the ratings selected. For example, selecting the 1 star and 5 star bars will filter the list to only show 1 and 5 star reviews. You can remove filters by clicking on the bar a second time or selecting the "Remove all filters" link. Doing so will revert the list back to its original state.
@@ -86,6 +86,6 @@ Individual review tiles display information and reviews and take some interactio
 
 Finally, a user can add their own review of the product at the bottom. Clicking on the "Add A Review" opens up a modal form where you can add your own review. You have to make selections that are starred. In the form, you can submit an overall rating by selecting a star option, recommend the product, rate characteristics, add a review summary, add a review body (minimum of 50 characters), upload and preview photos (again, the API does not accept actual photos. A placeholder photo will be put instead), add a nickname, and add an email. The form will not submit until the starred options are completed. If they are not complete, a message will display below the submit button telling you what fields need to be filled before submission. After submitting, selecting a different sort option will update the list. You can sort by newest to see your review.
 
-![](previews/RatingsAndReviews copy.gif)
+![](./previews/RatingsAndReviews copy.gif)
 
 Project Creators - Xinhuang Liu, Sean Jung, John Novakowski
