@@ -1,6 +1,6 @@
 ## JSX Front End Page
 
-###**Overview**
+### **Overview**
 The JSX front end page is a front end development project that demonstrates various features implemented using JavaScript technologies like React.js, Axios, babel, webpack, and Express.js. The site page allows you to explore a given product with an overview, related products, question and answers associated with it, and ratings and reviews. Each of these modules have various levels of interactivity such as carousels, search bars, list sorting, and list filter settings. The page interacts with the Atelier API to present product information.
 
 ### **Table of Contents**
